@@ -1,0 +1,154 @@
+body {
+    font-family: "Roboto Condensed", sans-serif !important;
+}
+
+::placeholder {
+    font-family: "Roboto Condensed", sans-serif !important;
+}
+
+.forms-container {
+    /* background-color: #efefef; */
+    background-image: url('../images/login/bg-image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.6;
+}
+
+.heading-box {
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 0px 50px;
+}
+
+.heading-box h1 {
+    font-size: 32px;
+    line-height: 20px;
+    letter-spacing: 2.25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "BebasNeueRegular";
+    padding-top: 25px;
+}
+
+.heading-box p {
+    font-size: 15px;
+    text-transform: capitalize;
+    margin-top: 20px;
+    line-height: 22px;
+}
+
+.input-box {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.login-icon {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    color: #4e7ac7;
+    font-size: 20px;
+}
+
+.input-box label {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 1px;
+}
+
+.input-box input {
+    /* border: 1px solid #c7c7c7; */
+    border-bottom: 2px solid #c7c7c7 !important;
+    border: none;
+    padding: 10px 15px;
+    font-size: 15px;
+    padding-left: 50px;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+    height: 50px;
+    color: #000;
+    font-weight: 500;
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 40px;
+    align-items: center;
+    background-color: #fff;
+    height: 60vh;
+    align-items: center;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+    border-radius: 10px;
+}
+
+.toggle-container {
+    width: 100%;
+}
+
+.toggle {
+    background-image: url('../images/login/login3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+form.login-form {
+    width: 100%;
+}
+
+.login-btn {
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    float: right;
+    background: #4e7ac7;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px 40px;
+    font-size: 18px;
+    margin: 0 auto;
+    font-weight: 500;
+    text-align: center;
+    font-family: "Roboto Condensed";
+    letter-spacing: 1px;
+}
+
+.image {
+    transition: transform 1.1s ease-in-out;
+    transition-delay: 0.4s;
+    width: 100%;
+}
+
+img.blogo {
+    width: 100px;
+    height: auto;
+}
+
