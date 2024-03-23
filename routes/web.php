@@ -31,3 +31,4 @@ Route::get('case-study-detail', [HomeController::class, 'caseStudyDetail'])->nam
 
 //Admin panel
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
