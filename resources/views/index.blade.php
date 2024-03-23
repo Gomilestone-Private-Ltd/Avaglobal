@@ -29,13 +29,13 @@
                     </div>
                     <div class="videowrapper">
                         <video autoplay="autoplay" class="desk-video" loop="loop" muted="muted" id="myVideo">
-                            <source src="{{ asset('video/My-Video2.mp4" type="video/mp4') }}" />
-                            <source src="{{ asset('video/My-Video2.webm" type="video/webm') }}" />
-                            <source src="{{ asset('video/My-Video2.ogg" type="video/ogg') }}" />
+                            <source src="{{ asset('video/My-Video2.mp4') }}" type="video/mp4" />
+                            <source src="{{ asset('video/My-Video2.webm') }}" type="video/webm" />
+                            <source src="{{ asset('video/My-Video2.ogg') }}" type="video/ogg" />
                         </video>
                         <video id="myVideomob" class="res-video" loop="loop" poster="video/video-poster-img.jpg">
-                            <source src="{{ asset('video/My-Video2.mp4" type="video/mp4') }}">
-                            <source src="{{ asset('video/My-Video2.mp4" type="video/webm') }}" />
+                            <source src="{{ asset('video/My-Video2.mp4') }}" type="video/mp4">
+                            <source src="{{ asset('video/My-Video2.mp4') }}" type="video/webm" />
                         </video>
                         <div class="vidbuttons">
                             <button type="button" class="play playpausebtn"></button>
@@ -466,7 +466,7 @@
                                 <div class="developblk ibvm">
                                     <div class="ibvm footertext">Design &amp; Developed :</div>
                                     <div class="ibvm ddlogo">
-                                        <a href="#" target="_blank" class="sprite"></a>
+                                        <a href="" target="_blank" class="sprite"></a>
                                     </div>
                                 </div>
                             </div>
