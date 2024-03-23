@@ -1,0 +1,63 @@
+.fp-tableCell.fv-display {
+    display: flex;
+}
+
+video.full-video {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    object-fit: none;
+    background-color: #ffffff;
+    margin-top: 20px;
+}
+
+.counter-box-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counter-box {
+    width: 100%;
+    padding-right: 10%;
+}
+
+.counter-b1 h3 {
+    color: #434343;
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 600;
+    font-family: "BebasNeueRegular";
+}
+
+.counter-b2 h3 {
+    color: #434343;
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 600;
+    font-family: "BebasNeueRegular";
+}
+
+.counter-b3 h3 {
+    color: #434343;
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 600;
+    font-family: "BebasNeueRegular";
+}
+
+h4.ct-heading {
+    color: #838383;
+    font-size: 17px;
+    font-weight: 500;
+    padding-top: 5px;
+}
+
+.servdet3sld {
+    background: #ffffff;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: 26px !important;
+}
+

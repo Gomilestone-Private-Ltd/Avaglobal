@@ -1,0 +1,204 @@
+html,
+body {
+    overflow: auto;
+}
+
+img.cs-image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.case-study-box {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-left: 4px solid blue;
+    padding-left: 20px;
+}
+
+h2.cs-title {
+    font-size: 22px;
+    color: #434343;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 30px;
+    border-bottom: 0px solid #ccc;
+    font-family: "BebasNeueRegular";
+    letter-spacing: 0.96px;
+}
+
+h3.cs-category {
+    color: #909090;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 10px 0px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.csd-box {
+    display: flex;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 16px;
+    color: #909090;
+}
+
+p.cs-user {
+    font-size: 15px;
+    padding-right: 20px;
+    color: #0050a4;
+}
+
+p.cs-date {
+    font-size: 15px;
+}
+
+.knowmore {
+    margin: 5px 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.sprite.knwmorearw {
+    margin-left: 8px;
+}
+
+img.csd-banner {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+}
+
+h3.csd-category {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 16px;
+    padding: 10px 0px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+h1.csd-title {
+    color: #ffffff;
+    font-size: 42px;
+    font-family: "BebasNeueRegular";
+    line-height: 48px;
+    padding: 0 0 5px;
+}
+
+h3.csdt-title {
+    font-size: 24px;
+    color: #2c2c2c;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+
+.csd-contnet.detail {
+}
+
+p.csdt-content {
+    font-size: 17px;
+    font-weight: 400;
+    color: #787878;
+    line-height: 26px;
+    text-align: justify;
+    padding-top: 5px;
+}
+
+h3.csdt-title2 {
+    font-size: 24px;
+    color: #2c2c2c;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 40px;
+    text-transform: uppercase;
+    padding-top: 30px;
+}
+
+.job-details {
+    background-color: #4e7ac7;
+    padding-top: 120px;
+    padding-bottom: 30px;
+}
+
+.job-main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.job-left {
+    width: 70%;
+}
+
+.job-right {
+    width: 30%;
+    padding-left: 40px;
+}
+
+ul.key-point {
+    list-style: disc;
+    margin-left: 32px;
+}
+
+ul.key-point li {
+    font-size: 17px;
+    font-weight: 400;
+    color: #787878;
+    line-height: 26px;
+    padding-top: 10px;
+}
+
+.job-right {
+    width: 26%;
+    border: 1px solid #e5e6e7;
+    margin-left: 4%;
+    padding: 25px;
+}
+
+img.time-img {
+    width: 28px;
+    margin-right: 15px;
+}
+
+p.jr-box {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+p.jr-box span {
+    padding-left: 10px;
+}
+
+.jd-herder-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prod-morebuts {
+    width: 180px;
+    text-align: center;
+    -webkit-transition: all 300ms ease;
+}
+
+.form-cont {
+    margin: 20px 0 0;
+    width: 100%;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+    margin: 0 0% 15px 0;
+}
