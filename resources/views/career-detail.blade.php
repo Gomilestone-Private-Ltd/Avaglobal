@@ -151,7 +151,7 @@
                                 <div class="developblk ibvm">
                                     <div class="ibvm footertext">Design &amp; Developed :</div>
                                     <div class="ibvm ddlogo">
-                                        <a href="http://www.d-designstudio.com/" target="_blank" class="sprite">
+                                        <a href="#" target="_blank" class="sprite">
                                         </a>
                                     </div>
                                 </div>

@@ -15,7 +15,7 @@
                                 Case Studies By<br />
                                 AVA Global
                             </h2>
-                            <a href="" data-scroll-nav="0">
+                            <a href="#" data-scroll-nav="0">
                                 <div class="sprite dwnarw"></div>
                             </a>
                         </div>
@@ -33,7 +33,7 @@
                                     <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
                                     <div class="cs-content">
                                         <h3 class="cs-category">Freight Management</h3>
-                                        <a href="/case-study-detail.html">
+                                        <a href="{{route('caseStudyDetail')}}">
                                             <h2 class="cs-title">
                                                 The standard Lorem Ipsum passage, used since the 1500s
                                             </h2>
@@ -42,7 +42,7 @@
                                             <p class="cs-user">By AVA Globle</p>
                                             <p class="cs-date">25 Mar 2020</p>
                                         </div>
-                                        <a href="case-study-detail.html">
+                                        <a href="{{route('caseStudyDetail')}}">
                                             <div class="knowmore uppercase">know more
                                                 <div class="sprite knwmorearw"></div>
                                             </div>
@@ -53,7 +53,7 @@
                                     <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
                                     <div class="cs-content">
                                         <h3 class="cs-category">Project Solutions</h3>
-                                        <a href="/case-study-detail.html">
+                                        <a href="{{route('caseStudyDetail')}}">
                                             <h2 class="cs-title">
                                                 Our prompt trucking services deliver your freight on time
                                             </h2>
@@ -62,7 +62,7 @@
                                             <p class="cs-user">By AVA Globle</p>
                                             <p class="cs-date">25 Mar 2020</p>
                                         </div>
-                                        <a href="/case-study-detail.html">
+                                        <a href="{{route('caseStudyDetail')}}">
                                             <div class="knowmore uppercase">know more
                                                 <div class="sprite knwmorearw"></div>
                                             </div>
@@ -73,7 +73,7 @@
                                     <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
                                     <div class="cs-content">
                                         <h3 class="cs-category">Open Charter</h3>
-                                        <a href="/case-study-detail.html">
+                                        <a href="{{route('caseStudyDetail')}}">
                                             <h2 class="cs-title">
                                                 The standard Lorem Ipsum passage, used since the 1500s
                                             </h2>
@@ -82,7 +82,7 @@
                                             <p class="cs-user">By AVA Globle</p>
                                             <p class="cs-date">25 Mar 2020</p>
                                         </div>
-                                        <a href="/case-study-detail.html">
+                                        <a href="{{route('caseStudyDetail')}}">
                                             <div class="knowmore uppercase">know more
                                                 <div class="sprite knwmorearw"></div>
                                             </div>
@@ -102,7 +102,7 @@
                                 <div class="developblk ibvm">
                                     <div class="ibvm footertext">Design &amp; Developed :</div>
                                     <div class="ibvm ddlogo">
-                                        <a href="http://www.d-designstudio.com/" target="_blank" class="sprite">
+                                        <a href="#" target="_blank" class="sprite">
                                         </a>
                                     </div>
                                 </div>
