@@ -36,7 +36,7 @@
                                 <div class="cs-content">
                                     <div class="csc-left">
                                         <h3 class="cs-category">Business Administration</h3>
-                                        <a href="/career-detail.html">
+                                        <a href="{{ route('careerDetails') }}">
                                             <h2 class="cs-title">
                                                 Operations Coordinator
                                             </h2>
@@ -53,7 +53,7 @@
                                         </div>
                                     </div>
                                     <div class="csc-right">
-                                        <a href="/career-detail.html">
+                                        <a href="{{ route('careerDetails') }}">
                                             <div class="knowmore uppercase">Apply Now
                                                 <div class="sprite knwmorearw"></div>
                                             </div>
@@ -65,7 +65,7 @@
                                 <div class="cs-content">
                                     <div class="csc-left">
                                         <h3 class="cs-category">Business Administration</h3>
-                                        <a href="/career-detail.html">
+                                        <a href="{{ route('careerDetails') }}">
                                             <h2 class="cs-title">
                                                 Product Senior Director
                                             </h2>
@@ -82,7 +82,7 @@
                                         </div>
                                     </div>
                                     <div class="csc-right">
-                                        <a href="/career-detail.html">
+                                        <a href="{{ route('careerDetails') }}">
                                             <div class="knowmore uppercase">Apply Now
                                                 <div class="sprite knwmorearw"></div>
                                             </div>
@@ -94,7 +94,7 @@
                                 <div class="cs-content">
                                     <div class="csc-left">
                                         <h3 class="cs-category">Business Administration</h3>
-                                        <a href="/career-detail.html">
+                                        <a href="{{ route('careerDetails') }}">
                                             <h2 class="cs-title">
                                                 Business Development Manager
                                             </h2>
@@ -111,7 +111,7 @@
                                         </div>
                                     </div>
                                     <div class="csc-right">
-                                        <a href="/career-detail.html">
+                                        <a href="{{ route('careerDetails') }}">
                                             <div class="knowmore uppercase">Apply Now
                                                 <div class="sprite knwmorearw"></div>
                                             </div>
@@ -123,7 +123,7 @@
                                 <div class="cs-content">
                                     <div class="csc-left">
                                         <h3 class="cs-category">Business Administration</h3>
-                                        <a href="/career-detail.html">
+                                        <a href="{{ route('careerDetails') }}">
                                             <h2 class="cs-title">
                                                 Sales Executive Junior
                                             </h2>
@@ -140,7 +140,7 @@
                                         </div>
                                     </div>
                                     <div class="csc-right">
-                                        <a href="/career-detail.html">
+                                        <a href="{{ route('careerDetails') }}">
                                             <div class="knowmore uppercase">Apply Now
                                                 <div class="sprite knwmorearw"></div>
                                             </div>
@@ -158,14 +158,14 @@
                     <div class="footerblk">
                         <div class="footerrightblk fr">
                             <!--<div class="socialiconblk ibvm">
-                                            <div class="sprite socialicon fb ibvm"></div>
-                                            <div class="sprite socialicon twitter ibvm"></div>
-                                            <div class="sprite socialicon youtube ibvm"></div>
-                                        </div>-->
+                                                <div class="sprite socialicon fb ibvm"></div>
+                                                <div class="sprite socialicon twitter ibvm"></div>
+                                                <div class="sprite socialicon youtube ibvm"></div>
+                                            </div>-->
                             <div class="developblk ibvm">
                                 <div class="ibvm footertext">Design &amp; Developed :</div>
                                 <div class="ibvm ddlogo">
-                                    <a href="http://www.d-designstudio.com/" target="_blank" class="sprite">
+                                    <a href="#" target="_blank" class="sprite">
                                     </a>
                                 </div>
                             </div>

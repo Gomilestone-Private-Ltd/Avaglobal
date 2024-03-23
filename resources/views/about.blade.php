@@ -36,11 +36,11 @@
                             <h3 class="subtxt">Redefining Logistics and Transportation</h3>
                             <p class="pagetxt">
                                 AVA Global is committed to offer high quality logistics solutions to meet
-                                client’sbusiness needs. From <a href="https://www.avaglobal.in/services/air-freight.php">air
-                                    cargo</a> and <a href="https://www.avaglobal.in/services/sea-freight.php">ocean
+                                client’sbusiness needs. From <a href="#">air
+                                    cargo</a> and <a href="#">ocean
                                     freight</a> to
-                                <a href="https://www.avaglobal.in/services/warehousing.php">warehousing</a>, <a
-                                    href="https://www.avaglobal.in/services/customs-clearance.php">custom
+                                <a href="#">warehousing</a>, <a
+                                    href="#">custom
                                     clearance</a>, chartering and transportation, we have an extensive portfolio of
                                 services to add value and flexibility to our client’s supply chain requirements.
 
@@ -275,7 +275,7 @@
                                     <div class="developblk ibvm">
                                         <div class="ibvm footertext">Design &amp; Developed :</div>
                                         <div class="ibvm ddlogo">
-                                            <a href="http://www.d-designstudio.com/" target="_blank" class="sprite"></a>
+                                            <a href="#" target="_blank" class="sprite"></a>
                                         </div>
                                     </div>
                                 </div>
