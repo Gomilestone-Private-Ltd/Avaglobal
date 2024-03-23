@@ -7,7 +7,7 @@
         <!---headerwrapper end-->
         <div class="calculatorwrapper">
             <div class="calculatordtlsection">
-                <img src="./images/contactinfobg.jpg" class="csd-banner">
+                <img src="{{ asset('/images/contactinfobg.jpg') }}" class="csd-banner">
 
             </div>
             <div class="calculatorcontentwrap" data-scroll-index="0">
@@ -72,10 +72,10 @@
                         <div class="footerblk">
                             <div class="footerrightblk fr">
                                 <!--<div class="socialiconblk ibvm">
-                                                <div class="sprite socialicon fb ibvm"></div>
-                                                <div class="sprite socialicon twitter ibvm"></div>
-                                                <div class="sprite socialicon youtube ibvm"></div>
-                                            </div>-->
+                                                    <div class="sprite socialicon fb ibvm"></div>
+                                                    <div class="sprite socialicon twitter ibvm"></div>
+                                                    <div class="sprite socialicon youtube ibvm"></div>
+                                                </div>-->
                                 <div class="developblk ibvm">
                                     <div class="ibvm footertext">Design &amp; Developed :</div>
                                     <div class="ibvm ddlogo">

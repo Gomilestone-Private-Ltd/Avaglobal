@@ -30,7 +30,7 @@
                         <div class="eva-container">
                             <div class="case-study-box">
                                 <div class="case-study-item">
-                                    <img class="cs-image" src="./images/contactinfobg.jpg" />
+                                    <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
                                     <div class="cs-content">
                                         <h3 class="cs-category">Freight Management</h3>
                                         <a href="/case-study-detail.html">
@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 <div class="case-study-item">
-                                    <img class="cs-image" src="./images/contactinfobg.jpg" />
+                                    <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
                                     <div class="cs-content">
                                         <h3 class="cs-category">Project Solutions</h3>
                                         <a href="/case-study-detail.html">
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                                 <div class="case-study-item">
-                                    <img class="cs-image" src="./images/contactinfobg.jpg" />
+                                    <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
                                     <div class="cs-content">
                                         <h3 class="cs-category">Open Charter</h3>
                                         <a href="/case-study-detail.html">

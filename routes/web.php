@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/login', [HomeController::class, 'login']);
+Route::get('/login', [HomeController::class, 'login'])->name('login');
 
 //After login
 Route::get('/', [HomeController::class, 'homePage'])->name('home');
-Route::get('about', [HomeController::class, 'about']);
-Route::get('career', [HomeController::class, 'career']);
+Route::get('about', [HomeController::class, 'about'])->name('about');
+Route::get('career', [HomeController::class, 'career'])->name('career');
 Route::get('case-study', [HomeController::class, 'caseStudy'])->name('caseStudy');
-Route::get('career-detail', [HomeController::class, 'careerDetails']);
-Route::get('case-study-detail', [HomeController::class, 'caseStudyDetail']);
+Route::get('career-detail', [HomeController::class, 'careerDetails'])->name('careerDetails');
+Route::get('case-study-detail', [HomeController::class, 'caseStudyDetail'])->name('caseStudyDetail');

@@ -29,13 +29,13 @@
                     </div>
                     <div class="videowrapper">
                         <video autoplay="autoplay" class="desk-video" loop="loop" muted="muted" id="myVideo">
-                            <source src="video/My-Video2.mp4" type="video/mp4" />
-                            <source src="video/My-Video2.webm" type="video/webm" />
-                            <source src="video/My-Video2.ogg" type="video/ogg" />
+                            <source src="{{ asset('video/My-Video2.mp4" type="video/mp4') }}" />
+                            <source src="{{ asset('video/My-Video2.webm" type="video/webm') }}" />
+                            <source src="{{ asset('video/My-Video2.ogg" type="video/ogg') }}" />
                         </video>
                         <video id="myVideomob" class="res-video" loop="loop" poster="video/video-poster-img.jpg">
-                            <source src="video/My-Video2.mp4" type="video/mp4">
-                            <source src="video/My-Video2.mp4" type="video/webm" />
+                            <source src="{{ asset('video/My-Video2.mp4" type="video/mp4') }}">
+                            <source src="{{ asset('video/My-Video2.mp4" type="video/webm') }}" />
                         </video>
                         <div class="vidbuttons">
                             <button type="button" class="play playpausebtn"></button>
@@ -93,7 +93,8 @@
                                 </div>
                             </div>
                             <div class="overviewimgrightblk">
-                                <img src="images/mobile-images/overviewimg-resp.jpg" alt="" class="overvwsldimg">
+                                <img src="{{ asset('images/mobile-images/overviewimg-resp.jpg') }}" alt=""
+                                    class="overvwsldimg">
                                 <div class="oversldimgtxt">
                                     <div class="tabrighttxtblk">
                                         <div class="ibvm twentytxt">
@@ -128,7 +129,8 @@
                                 </a>
                             </div>
                             <div class="overviewimgrightblk">
-                                <img src="images/mobile-images/challengeimg-mob.jpg" alt="" class="overvwsldimg">
+                                <img src="{{ asset('images/mobile-images/challengeimg-mob.jpg') }}" alt=""
+                                    class="overvwsldimg">
                                 <div class="oversldimgtxt">
                                     <div class="tabrighttxtblk">
                                         <div class="ibvm twentytxt">
@@ -166,7 +168,8 @@
                                 </a>
                             </div>
                             <div class="overviewimgrightblk">
-                                <img src="images/mobile-images/uspimg-mob.jpg" alt="" class="overvwsldimg">
+                                <img src="{{ asset('images/mobile-images/uspimg-mob.jpg') }}" alt=""
+                                    class="overvwsldimg">
                                 <div class="oversldimgtxt">
                                     <div class="tabrighttxtblk">
                                         <div class="ibvm twentytxt">
@@ -226,8 +229,10 @@
                         <ul class="bxsliderproduct">
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="/images/services/ocen-fright.png" alt="" class="img-desktop" />
-                                    <img src="/images/services/oceanbg-resp.jpg" alt="" class="img-responsive" />
+                                    <img src="{{ asset('/images/services/ocen-fright.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/oceanbg-resp.jpg') }}" alt=""
+                                        class="img-responsive" />
                                     <a href="services/sea-freight.php">
                                         <div class="knowmore coreproknwmore uppercase">
                                             Know More
@@ -241,8 +246,10 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="/images/services/air-fright.png" alt="" class="img-desktop" />
-                                    <img src="/images/services/airbg-resp.jpg" alt="" class="img-responsive" />
+                                    <img src="{{ asset('/images/services/air-fright.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/airbg-resp.jpg') }}" alt=""
+                                        class="img-responsive" />
 
                                     <a href="services/air-freight.php">
                                         <div class="knowmore coreproknwmore uppercase">
@@ -257,8 +264,10 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="images/services/custom-clearing.png" alt="" class="img-desktop" />
-                                    <img src="images/services/custombg-resp.jpg" alt="" class="img-responsive" />
+                                    <img src="{{ asset('images/services/custom-clearing.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('images/services/custombg-resp.jpg') }}" alt=""
+                                        class="img-responsive" />
 
                                     <a href="services/customs-clearance.php">
                                         <div class="knowmore coreproknwmore uppercase">
@@ -274,8 +283,9 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="/images/services/warehouse.png" alt="" class="img-desktop" />
-                                    <img src="/images/services/warehousebg-resp.jpg" alt=""
+                                    <img src="{{ asset('/images/services/warehouse.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/warehousebg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
 
                                     <a href="services/warehousing.php">
@@ -291,8 +301,9 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="/images/services/trucking.png" alt="" class="img-desktop" />
-                                    <img src="/images/services/truckingbg-resp.jpg" alt=""
+                                    <img src="{{ asset('/images/services/trucking.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/truckingbg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
 
                                     <a href="services/heavy-haul-trucking.php">
@@ -309,8 +320,9 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="/images/services/shipping.png" alt="" class="img-desktop" />
-                                    <img src="/images/services/shipping-resp.png" alt=""
+                                    <img src="{{ asset('/images/services/shipping.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/shipping-resp.png') }}" alt=""
                                         class="img-responsive" />
 
                                     <a href="services/services-shipping.php">
@@ -327,8 +339,9 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="/images/services/insurance.png" alt="" class="img-desktop" />
-                                    <img src="/images/services/insurancebg-resp.jpg" alt=""
+                                    <img src="{{ asset('/images/services/insurance.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/insurancebg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
 
                                     <a href="services/cargo-insurance.php">
@@ -349,7 +362,7 @@
             <div class="section servdet3sld" id="section3">
                 <div class="fp-tableCell fv-display">
                     <video class="full-video" width="100%" autoplay controls muted loop>
-                        <source src="/video/full-video.mp4" type="video/mp4">
+                        <source src="{{ asset('/video/full-video.mp4') }}" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -371,7 +384,7 @@
                     <div class="newsslidercontent">
                         <ul class="bxslidernews">
                             <li>
-                                <img src="/images/1.png" alt="" />
+                                <img src="{{ asset('/images/1.png') }}" alt="" />
                                 <div class="banner-caption">
                                     <div class="banner-container">
                                         <p class="slidetxt"><b>Ava Global Logistics wins 'Emerging Agri Business
@@ -380,7 +393,7 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="/images/2.png" alt="" />
+                                <img src="{{ asset('/images/2.png') }}" alt="" />
                                 <div class="banner-caption">
                                     <div class="banner-container">
                                         <p class="slidetxt"><b>Globoil Delhi 2017</b></p>
@@ -438,7 +451,8 @@
                             </div>
                         </a>
                     </div>
-                    <div class="contactmobimg"><img src="images/mobile-images/contactinfobg-mob.jpg" alt="" />
+                    <div class="contactmobimg"><img src="{{ asset('images/mobile-images/contactinfobg-mob.jpg') }}"
+                            alt="" />
                     </div>
                 </div>
                 <div class="footerwrapper homefooterwrapper pageblock">

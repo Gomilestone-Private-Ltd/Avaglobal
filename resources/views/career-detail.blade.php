@@ -80,16 +80,17 @@
                                 </div>
                                 <div class="job-right" id="apply">
                                     <h3 class="csdt-title">Job Details</h3>
-                                    <p class="jr-box"><img src="/images/time.png" class="time-img">Category :
+                                    <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Category :
                                         <span> Operations</span>
                                     </p>
-                                    <p class="jr-box"><img src="/images/time.png" class="time-img">Workday :
+                                    <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Workday :
                                         <span> Full Time</span>
                                     </p>
-                                    <p class="jr-box"><img src="/images/time.png" class="time-img">Location :
+                                    <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Location :
                                         <span> Mumbai</span>
                                     </p>
-                                    <p class="jr-box"><img src="/images/time.png" class="time-img">Experience :
+                                    <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Experience
+                                        :
                                         <span> 5+ Years</span>
                                     </p>
 

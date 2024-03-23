@@ -43,9 +43,11 @@
 
                                         </a>
                                         <div class="cl-location-box">
-                                            <p class="cl-location"><img src="/images/location.png" class="location-img">
-                                                <span>Mumbai</span></p>
-                                            <p class="work"><img src="/images/time.png" class="time-img">
+                                            <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
+                                                    class="location-img">
+                                                <span>Mumbai</span>
+                                            </p>
+                                            <p class="work"><img src="{{ asset('/images/time.png') }}" class="time-img">
                                                 <span>Full Time</span>
                                             </p>
                                         </div>
@@ -70,9 +72,11 @@
 
                                         </a>
                                         <div class="cl-location-box">
-                                            <p class="cl-location"><img src="/images/location.png" class="location-img">
-                                                <span>Delhi</span></p>
-                                            <p class="work"><img src="/images/time.png" class="time-img">
+                                            <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
+                                                    class="location-img">
+                                                <span>Delhi</span>
+                                            </p>
+                                            <p class="work"><img src="{{ asset('/images/time.png') }}" class="time-img">
                                                 <span>Full Time</span>
                                             </p>
                                         </div>
@@ -97,9 +101,11 @@
 
                                         </a>
                                         <div class="cl-location-box">
-                                            <p class="cl-location"><img src="/images/location.png" class="location-img">
-                                                <span>Nagpur</span></p>
-                                            <p class="work"><img src="/images/time.png" class="time-img">
+                                            <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
+                                                    class="location-img">
+                                                <span>Nagpur</span>
+                                            </p>
+                                            <p class="work"><img src="{{ asset('/images/time.png') }}" class="time-img">
                                                 <span>Full Time</span>
                                             </p>
                                         </div>
@@ -124,9 +130,11 @@
 
                                         </a>
                                         <div class="cl-location-box">
-                                            <p class="cl-location"><img src="/images/location.png" class="location-img">
-                                                <span>Noida</span></p>
-                                            <p class="work"><img src="/images/time.png" class="time-img">
+                                            <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
+                                                    class="location-img">
+                                                <span>Noida</span>
+                                            </p>
+                                            <p class="work"><img src="{{ asset('/images/time.png') }}" class="time-img">
                                                 <span>Full Time</span>
                                             </p>
                                         </div>
@@ -150,10 +158,10 @@
                     <div class="footerblk">
                         <div class="footerrightblk fr">
                             <!--<div class="socialiconblk ibvm">
-                                        <div class="sprite socialicon fb ibvm"></div>
-                                        <div class="sprite socialicon twitter ibvm"></div>
-                                        <div class="sprite socialicon youtube ibvm"></div>
-                                    </div>-->
+                                            <div class="sprite socialicon fb ibvm"></div>
+                                            <div class="sprite socialicon twitter ibvm"></div>
+                                            <div class="sprite socialicon youtube ibvm"></div>
+                                        </div>-->
                             <div class="developblk ibvm">
                                 <div class="ibvm footertext">Design &amp; Developed :</div>
                                 <div class="ibvm ddlogo">

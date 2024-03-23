@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="servicesmobimg">
-                        <img src="images/mobile-images/overviewimg-mob.jpg" alt="" />
+                        <img src="{{ asset('images/mobile-images/overviewimg-mob.jpg') }}" alt="" />
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                 <div class="servicerighttxtblk">
                     <div class="misson-blk-abt">
                         <div>
-                            <img src="images/about/our-mission.png" alt="" />
+                            <img src="{{ asset('images/about/our-mission.png') }}" alt="" />
                         </div>
                         <div class="misson-blk-abt-head">
                             our Mission
@@ -98,7 +98,7 @@
                     </div>
                     <div class="misson-blk-abt">
                         <div>
-                            <img src="images/about/our-vision.png" alt="">
+                            <img src="{{ asset('images/about/our-vision.png') }}" alt="">
                         </div>
                         <div class="misson-blk-abt-head">
                             our vision
@@ -112,7 +112,7 @@
 
                     <div class="philosophy-blk-abt">
                         <div>
-                            <img src="images/about/our-philosophy.png" alt="">
+                            <img src="{{ asset('images/about/our-philosophy.png') }}" alt="">
                         </div>
                         <div class="misson-blk-abt-head">
                             our philosophy
@@ -129,7 +129,7 @@
                 </div>
                 <div class="missn-line"></div>
                 <div class="servicesmobimg">
-                    <img src="images/about/img1-res.jpg" alt="" />
+                    <img src="{{ asset('images/about/img1-res.jpg') }}" alt="" />
                 </div>
             </div>
             <div class="section commitment-wrapper-about" id="section3">
@@ -161,13 +161,13 @@
                             deliver on our promised service level, we work closelywith our clientsto deliver
                             excellence. </p>
                         <!--<p class="pagetxt commitsubtxt">
-                                Our three key drivers to ensure this high performance are :
-                                <span class="pagetitle uppercase">integrated processes, coordinated players and the total trace ability of operations.</span>
-                            </p>-->
+                                        Our three key drivers to ensure this high performance are :
+                                        <span class="pagetitle uppercase">integrated processes, coordinated players and the total trace ability of operations.</span>
+                                    </p>-->
                     </div>
                 </div>
                 <div class="servicesmobimg">
-                    <img src="/images/about/img2-res.jpg" alt="" />
+                    <img src="{{ asset('/images/about/img2-res.jpg') }}" alt="" />
                 </div>
             </div>
             <div class="section team-wrapper-about" id="section4">
@@ -177,7 +177,8 @@
                         <div class="blue-div-team blue-div-team2"></div>
                         <div class="blue-div-team blue-div-team3"></div>
                         <div class="ourteamnewblk">
-                            <div class="ourteammember ibvt"><img src="images/about/Darshan_Ghodawat.jpg" alt="" />
+                            <div class="ourteammember ibvt"><img src="{{ asset('images/about/Darshan_Ghodawat.jpg') }}"
+                                    alt="" />
                                 <div class="abt-banner-caption">
                                     <div class="banner-container-abt">
                                         <div class="abt-team-name">Mr. Darshan Ghodawat</div>
@@ -185,7 +186,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="ourteammember kushal ibvt"><img src="images/about/kaushal_v.jpg"
+                            <div class="ourteammember kushal ibvt"><img src="{{ asset('images/about/kaushal_v.jpg') }}"
                                     alt="" />
                                 <div class="abt-banner-caption">
                                     <div class="banner-container-abt">
@@ -194,8 +195,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="ourteammember captashok ibvt"><img src="images/about/capt_ashok.jpg"
-                                    alt="" />
+                            <div class="ourteammember captashok ibvt"><img
+                                    src="{{ asset('images/about/capt_ashok.jpg') }}" alt="" />
                                 <div class="abt-banner-caption">
                                     <div class="banner-container-abt">
                                         <div class="abt-team-name">Capt. Ashok Shrivastava</div>
@@ -212,7 +213,8 @@
                         <ul class="bxslidernews3">
                             <li>
                                 <div class="abt-banner-blk-same">
-                                    <img src="images/about/team-resp/Darshan_Ghodawat.jpg" alt="" />
+                                    <img src="{{ asset('images/about/team-resp/Darshan_Ghodawat.jpg') }}"
+                                        alt="" />
                                     <div class="abt-banner-caption">
                                         <div class="banner-container-abt">
                                             <div class="abt-team-name">Mr. Darshan Ghodawat</div>
@@ -223,7 +225,7 @@
                             </li>
                             <li>
                                 <div class="abt-banner-blk-same">
-                                    <img src="images/about/kaushal_v - Copy.jpg" alt="" />
+                                    <img src="{{ asset('images/about/kaushal_v - Copy.jpg') }}" alt="" />
                                     <div class="abt-banner-caption">
                                         <div class="banner-container-abt">
                                             <div class="abt-team-name">Mr. Kaushal Vithlani</div>
@@ -234,7 +236,7 @@
                             </li>
                             <li>
                                 <div class="abt-banner-blk-same">
-                                    <img src="images/about/team-resp/team3-resp.jpg" alt="" />
+                                    <img src="{{ asset('images/about/team-resp/team3-resp.jpg') }}" alt="" />
                                     <div class="abt-banner-caption">
                                         <div class="banner-container-abt">
                                             <div class="abt-team-name">Capt. Ashok Shrivastava</div>
@@ -270,11 +272,6 @@
                             <div class="footerblk">
 
                                 <div class="footerrightblk fr">
-                                    <!--<div class="socialiconblk ibvm">
-                                        <div class="sprite socialicon fb ibvm"></div>
-                                        <div class="sprite socialicon twitter ibvm"></div>
-                                        <div class="sprite socialicon youtube ibvm"></div>
-                                    </div>-->
                                     <div class="developblk ibvm">
                                         <div class="ibvm footertext">Design &amp; Developed :</div>
                                         <div class="ibvm ddlogo">
