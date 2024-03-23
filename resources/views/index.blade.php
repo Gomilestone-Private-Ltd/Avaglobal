@@ -70,7 +70,7 @@
                                     clearance,chartering and transportation, we have an extensive portfolio of
                                     services to add value and flexibility to our client’s supply chain requirements.
                                 </div>
-                                <a href="/about.html">
+                                <a href="{{ route('about') }}">
                                     <div class="knowmore uppercase">know more
                                         <div class="sprite knwmorearw"></div>
                                     </div>
@@ -122,7 +122,7 @@
                                     of efficient logistics solutions and effective supply chain management processes
                                     are the ways to achieve cost-reduction and better service for customers.
                                 </div>
-                                <a href="about.php">
+                                <a href="{{ route('about') }}">
                                     <div class="knowmore uppercase">know more
                                         <div class="sprite knwmorearw"></div>
                                     </div>
@@ -161,7 +161,7 @@
                                         <li>Centralized ocean procurement, combined with best price & terms.</li>
                                     </ul>
                                 </div>
-                                <a href="about.php">
+                                <a href="{{ route('about') }}">
                                     <div class="knowmore uppercase">know more
                                         <div class="sprite knwmorearw"></div>
                                     </div>
@@ -204,7 +204,7 @@
                                     strategic partner who can provide competitive terms, identify and create
                                     short-term efficiencies and build up long-term competitiveness.
                                 </div>
-                                <a href="/about.html">
+                                <a href="{{ route('about') }}">
                                     <div class="knowmore knowmorewhite uppercase">
                                         Know More
                                         <div class="sprite knwmorearw knwmorewharw"></div>
@@ -216,14 +216,14 @@
                     <div class="productrightcontent">
                         <div id="product-bx-pager">
                             <div>
-                                <a data-slide-index="0" href="" class="active">OCEAN FREIGHT</a>
+                                <a data-slide-index="0" href="#" class="active">OCEAN FREIGHT</a>
 
-                                <a data-slide-index="1" href="">AIR FREIGHT</a>
-                                <a data-slide-index="2" href="">CUSTOM CLEARING</a>
-                                <a data-slide-index="3" href="">WAREHOUSING</a>
-                                <a data-slide-index="4" href="">TRUCKING</a>
-                                <a data-slide-index="5" href="">shipping</a>
-                                <a data-slide-index="6" href="">insurance</a>
+                                <a data-slide-index="1" href="#">AIR FREIGHT</a>
+                                <a data-slide-index="2" href="#">CUSTOM CLEARING</a>
+                                <a data-slide-index="3" href="#">WAREHOUSING</a>
+                                <a data-slide-index="4" href="#">TRUCKING</a>
+                                <a data-slide-index="5" href="#">shipping</a>
+                                <a data-slide-index="6" href="#">insurance</a>
                             </div>
                         </div>
                         <ul class="bxsliderproduct">
@@ -233,14 +233,14 @@
                                         class="img-desktop" />
                                     <img src="{{ asset('/images/services/oceanbg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
-                                    <a href="services/sea-freight.php">
+                                    <a href="#">
                                         <div class="knowmore coreproknwmore uppercase">
                                             Know More
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
                                     <div class="product-name"><span>01.</span> OCEAN FREIGHT
-                                        <a class="prod-morebuts" href="services/sea-freight.php">KNOW MORE</a>
+                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
                                     </div>
                                 </div>
                             </li>
@@ -251,14 +251,14 @@
                                     <img src="{{ asset('/images/services/airbg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
 
-                                    <a href="services/air-freight.php">
+                                    <a href="#">
                                         <div class="knowmore coreproknwmore uppercase">
                                             Know More
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
                                     <div class="product-name"><span>02.</span> AIR FREIGHT
-                                        <a class="prod-morebuts" href="services/air-freight.php">KNOW MORE</a>
+                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
                                     </div>
                                 </div>
                             </li>
@@ -269,14 +269,14 @@
                                     <img src="{{ asset('images/services/custombg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
 
-                                    <a href="services/customs-clearance.php">
+                                    <a href="#">
                                         <div class="knowmore coreproknwmore uppercase">
                                             Know More
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
                                     <div class="product-name"><span>03.</span> CUSTOM CLEARING
-                                        <a class="prod-morebuts" href="services/customs-clearance.php">KNOW
+                                        <a class="prod-morebuts" href="#">KNOW
                                             MORE</a>
                                     </div>
                                 </div>
@@ -288,14 +288,14 @@
                                     <img src="{{ asset('/images/services/warehousebg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
 
-                                    <a href="services/warehousing.php">
+                                    <a href="#">
                                         <div class="knowmore coreproknwmore uppercase">
                                             Know More
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
                                     <div class="product-name"><span>04.</span> WAREHOUSING
-                                        <a class="prod-morebuts" href="services/warehousing.php">KNOW MORE</a>
+                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
                                     </div>
                                 </div>
                             </li>
@@ -306,14 +306,14 @@
                                     <img src="{{ asset('/images/services/truckingbg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
 
-                                    <a href="services/heavy-haul-trucking.php">
+                                    <a href="#">
                                         <div class="knowmore coreproknwmore uppercase">
                                             Know More
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
                                     <div class="product-name"><span>05.</span> TRUCKING
-                                        <a class="prod-morebuts" href="services/heavy-haul-trucking.php">KNOW
+                                        <a class="prod-morebuts" href="#">KNOW
                                             MORE</a>
                                     </div>
                                 </div>
@@ -325,14 +325,14 @@
                                     <img src="{{ asset('/images/services/shipping-resp.png') }}" alt=""
                                         class="img-responsive" />
 
-                                    <a href="services/services-shipping.php">
+                                    <a href="#">
                                         <div class="knowmore coreproknwmore uppercase">
                                             Know More
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
                                     <div class="product-name"><span>06.</span> shipping
-                                        <a class="prod-morebuts" href="services/services-shipping.php">KNOW
+                                        <a class="prod-morebuts" href="#">KNOW
                                             MORE</a>
                                     </div>
                                 </div>
@@ -344,14 +344,14 @@
                                     <img src="{{ asset('/images/services/insurancebg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
 
-                                    <a href="services/cargo-insurance.php">
+                                    <a href="#">
                                         <div class="knowmore coreproknwmore uppercase">
                                             Know More
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
                                     <div class="product-name"><span>07.</span> insurance
-                                        <a class="prod-morebuts" href="services/cargo-insurance.php">KNOW MORE</a>
+                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
                                     </div>
                                 </div>
                             </li>
@@ -445,7 +445,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="contact.php">
+                        <a href="#">
                             <div class="knowmore directiontxt uppercase">view direction
                                 <div class="sprite knwmorearw knwmorewharw"></div>
                             </div>
@@ -466,7 +466,7 @@
                                 <div class="developblk ibvm">
                                     <div class="ibvm footertext">Design &amp; Developed :</div>
                                     <div class="ibvm ddlogo">
-                                        <a href="http://www.d-designstudio.com/" target="_blank" class="sprite"></a>
+                                        <a href="#" target="_blank" class="sprite"></a>
                                     </div>
                                 </div>
                             </div>
