@@ -1,5 +1,5 @@
 @push('styles')
-<!-- <link rel="stylesheet" href="{{ asset('/css/casestudy.css') }}" /> -->
+<link rel="stylesheet" href="{{ asset('/css/contact.css') }}" />
 @endpush
 @extends('layout.main')
 @section('content')
@@ -80,13 +80,7 @@
         </div>
         <div class="section avamap" id="section2">
             <div class="contactmap">
-                <img src="images/contact/ava-map-mob.jpg" class="map-images" alt="Location" />
-                <div class="greebg"></div>
-                <div class="greebgtwo"></div>
-                <div class="bluebg"></div>
-                <div class="contactmobimg">
-                    <img src="images/contact/ava-map-mob.jpg" alt="" />
-                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7539.696955858754!2d72.8696271701171!3d19.114302051510567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c83950d18eb9%3A0x445b7d08a9dff0b7!2sAVA%20GLOBAL!5e0!3m2!1sen!2sin!4v1711625651498!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
         <div class="section" id="section3">
@@ -94,10 +88,6 @@
                 <div class="contactlefttxtblk hiringcontent">
                     <div class="innertablist">
                         <div class="innertabitem careers innertabitemactive">Careers & job Inquires</div>
-                        <!--
-                            <div class="innertabitem press">Press & Media</div>
-                            <div class="innertabitem vendor">Vendors & Suppliers</div>
--->
                         <div class="innertabitem investor">Investor Relation</div>
                     </div>
                     <div class="innertabdata projectgallerywrap pageblock">
@@ -171,37 +161,6 @@
                 </div>
                 <div class="contactmobimg"><img src="images/mobile-images/hiringbg-mob.jpg" alt="" /></div>
                 <!---footer start-->
-                <div class="footerwrapper pageblock">
-                    <div class="wrapper">
-                        <div class="footerblk">
-
-                            <div class="footerrightblk fr">
-                                <!--<div class="socialiconblk ibvm">
-                                <div class="sprite socialicon fb ibvm"></div>
-                                <div class="sprite socialicon twitter ibvm"></div>
-                                <div class="sprite socialicon youtube ibvm"></div>
-                            </div>-->
-                                <div class="developblk ibvm">
-                                    <div class="ibvm footertext">Design &amp; Developed :</div>
-                                    <div class="ibvm ddlogo">
-                                        <a href="http://www.d-designstudio.com/" target="_blank" class="sprite"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="footerleftblk fl">
-                                <p class="copyrighttxt footertext">&copy; Copyright 2018 AVA GLOBAL - All Rights Reserved</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <script src="js/wow.js"></script>
-                <script>
-                    new WOW().init();
-                </script>
-                <script src="https://www.avaglobal.in/js/jquery.bxslider.min.js"></script>
-                <script src="https://www.avaglobal.in/js/scrollIt.min.js"></script>
-                <script src="https://www.avaglobal.in/js/jquery.fullPage.js"></script>
                 <script>
                     $(document).ready(function() {
                         if ($(window).width() >= 1024) {
@@ -226,8 +185,6 @@
                     });
                 </script>
 
-                <script src="https://www.avaglobal.in/js/jquery.jscrollpane.min.js"></script>
-                <script src="https://www.avaglobal.in/js/jquery.mousewheel.js"></script>
                 <script>
                     $(document).ready(function() {
                         if ($(window).width() >= 1001) {
@@ -266,7 +223,6 @@
                 </script>
                 <!-- DESKTOP MENU JS SATRT -->
 
-                <script src="https://www.avaglobal.in/js/jquery.mmenu.min.all.js"></script>
                 <script>
                     $(function() {
                         if ($(window).width() <= 1023) {
@@ -322,92 +278,89 @@
                     });
                 </script> <!---footer end-->
             </div>
-        </div>
-    </div>
-</div>
-<script>
-    $(document).ready(function() {
-        //script for arrow scroll
-        $("#previousPage").click(function(e) {
-            e.preventDefault();
-            $.fn.fullpage.moveSectionUp();
-        });
-        $("#nextPage").click(function(e) {
-            e.preventDefault();
-            $.fn.fullpage.moveSectionDown();
-        });
-        /*SCRIPT FOR WE ARE HIRING TAB START*/
-        $('.innertabitem').click(function() {
-            $tabpos = $(this).index();
+            <script>
+                $(document).ready(function() {
+                    //script for arrow scroll
+                    $("#previousPage").click(function(e) {
+                        e.preventDefault();
+                        $.fn.fullpage.moveSectionUp();
+                    });
+                    $("#nextPage").click(function(e) {
+                        e.preventDefault();
+                        $.fn.fullpage.moveSectionDown();
+                    });
+                    /*SCRIPT FOR WE ARE HIRING TAB START*/
+                    $('.innertabitem').click(function() {
+                        $tabpos = $(this).index();
 
-            $('.innertabitem').removeClass('innertabitemactive');
-            $('.innertabdataitem').removeClass('innerdataactive');
+                        $('.innertabitem').removeClass('innertabitemactive');
+                        $('.innertabdataitem').removeClass('innerdataactive');
 
-            $('.innertabdataitem').eq($tabpos).addClass('innerdataactive');
-            $(this).addClass('innertabitemactive');
+                        $('.innertabdataitem').eq($tabpos).addClass('innerdataactive');
+                        $(this).addClass('innertabitemactive');
 
-        });
-        /*SCRIPT FOR WE ARE HIRING TAB END*/
-    });
-</script>
-<script>
-    /*SCRIPT FOR INPUT TYPE START*/
-    $(document).ready(function($) {
-        $('.inputclick').focusin(function() {
-            $(this).prev('.placholder').addClass('up-place');
-        });
+                    });
+                    /*SCRIPT FOR WE ARE HIRING TAB END*/
+                });
+            </script>
+            <script>
+                /*SCRIPT FOR INPUT TYPE START*/
+                $(document).ready(function($) {
+                    $('.inputclick').focusin(function() {
+                        $(this).prev('.placholder').addClass('up-place');
+                    });
 
-        $('.inputclick').focusout(function() {
-            $(this).prev('.placholder').removeClass('up-place');
-        });
+                    $('.inputclick').focusout(function() {
+                        $(this).prev('.placholder').removeClass('up-place');
+                    });
 
-        $(".inputclick").blur(function() {
-            if ($(this).val() >= '1') {
-                $(this).prev('.placholder').hide();
-            } else {
-                $(this).prev('.placholder').show();
-            }
-        });
-    });
-    /*SCRIPT FOR INPUT TYPE START*/
-</script>
-<!-- BROWSE BUTTON JS START -->
-<script>
-    (function(e, t, n) {
-        var r = e.querySelectorAll("html")[0];
-        r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2")
-    })(document, window, 0);
-</script>
-<script>
-    'use strict';;
-    (function(document, window, index) {
-        var inputs = document.querySelectorAll('.inputfile');
-        Array.prototype.forEach.call(inputs, function(input) {
-            var label = input.nextElementSibling,
-                labelVal = label.innerHTML;
+                    $(".inputclick").blur(function() {
+                        if ($(this).val() >= '1') {
+                            $(this).prev('.placholder').hide();
+                        } else {
+                            $(this).prev('.placholder').show();
+                        }
+                    });
+                });
+                /*SCRIPT FOR INPUT TYPE START*/
+            </script>
+            <!-- BROWSE BUTTON JS START -->
+            <script>
+                (function(e, t, n) {
+                    var r = e.querySelectorAll("html")[0];
+                    r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2")
+                })(document, window, 0);
+            </script>
+            <script>
+                'use strict';;
+                (function(document, window, index) {
+                    var inputs = document.querySelectorAll('.inputfile');
+                    Array.prototype.forEach.call(inputs, function(input) {
+                        var label = input.nextElementSibling,
+                            labelVal = label.innerHTML;
 
-            input.addEventListener('change', function(e) {
-                var fileName = '';
-                if (this.files && this.files.length > 1)
-                    fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
-                else
-                    fileName = e.target.value.split('\\').pop();
+                        input.addEventListener('change', function(e) {
+                            var fileName = '';
+                            if (this.files && this.files.length > 1)
+                                fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+                            else
+                                fileName = e.target.value.split('\\').pop();
 
-                if (fileName)
-                    label.querySelector('span').innerHTML = fileName;
-                else
-                    label.innerHTML = labelVal;
-            });
+                            if (fileName)
+                                label.querySelector('span').innerHTML = fileName;
+                            else
+                                label.innerHTML = labelVal;
+                        });
 
-            // Firefox bug fix
-            input.addEventListener('focus', function() {
-                input.classList.add('has-focus');
-            });
-            input.addEventListener('blur', function() {
-                input.classList.remove('has-focus');
-            });
-        });
-    }(document, window, 0));
-</script>
+                        // Firefox bug fix
+                        input.addEventListener('focus', function() {
+                            input.classList.add('has-focus');
+                        });
+                        input.addEventListener('blur', function() {
+                            input.classList.remove('has-focus');
+                        });
+                    });
+                }(document, window, 0));
+            </script>
 
-@endsection
+            @endsection

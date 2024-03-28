@@ -75,22 +75,7 @@
                                         <div class="sprite knwmorearw"></div>
                                     </div>
                                 </a>
-                                <div class="counter-box">
-                                    <div class="counter-box-inner">
-                                        <div class="counter-b1">
-                                            <h3><span id="customer">0</span>+</h3>
-                                            <h4 class="ct-heading">Trusted Customers</h4>
-                                        </div>
-                                        <div class="counter-b2">
-                                            <h3><span id="footprint">0</span>+</h3>
-                                            <h4 class="ct-heading">Footprints Countries</h4>
-                                        </div>
-                                        <div class="counter-b3">
-                                            <h3><span id="ocean">0</span>+</h3>
-                                            <h4 class="ct-heading">Ocean routes</h4>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                             <div class="overviewimgrightblk">
                                 <img src="{{ asset('images/mobile-images/overviewimg-resp.jpg') }}" alt=""
@@ -185,7 +170,26 @@
                                 </div>
                             </div>
                         </li>
+                        
                     </ul>
+                    <div class="counter-box">
+                                    <div class="counter-box-inner">
+                                        <div class="counter-b1">
+                                            <h3><span id="customer">0</span>+</h3>
+                                            <h4 class="ct-heading">Trusted Customers</h4>
+                                        </div>
+                                        <div class="counter-b2">
+                                            <h3><span id="footprint">0</span>+</h3>
+                                            <h4 class="ct-heading">Footprints Countries</h4>
+                                        </div>
+                                        <div class="counter-b3">
+                                            <h3><span id="ocean">0</span>+</h3>
+                                            <h4 class="ct-heading">Ocean routes</h4>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="db-btn">Download Brochure</a>
+                                </div>
+                                
                 </div>
             </div>
 
@@ -454,27 +458,7 @@
                             alt="" />
                     </div>
                 </div>
-                {{-- <div class="footerwrapper homefooterwrapper pageblock">
-                    <div class="wrapper">
-                        <div class="footerblk">
-                            <div class="footerleftblk fl">
-                                <p class="copyrighttxt footertext">&copy; Copyright 2018 AVA GLOBAL - All Rights
-                                    Reserved</p>
-                            </div>
-                            <div class="footerrightblk fr">
-                                <div class="developblk ibvm">
-                                    <div class="ibvm footertext">Design &amp; Developed :</div>
-                                    <div class="ibvm ddlogo">
-                                        <a href="" target="_blank" class="sprite"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
+               
 
     <script>
         // number count for stats, using jQuery animate
@@ -496,7 +480,7 @@
 
         numCounter("customer", 250, 30);
         numCounter("footprint", 170, 40);
-        numCounter("ocean", 850, 10);
+        numCounter("ocean", 850, 7);
     </script>
     <script>
         window.onpageshow = function(event) {
@@ -634,7 +618,7 @@
         });
     </script>
 
-    <script>
+    <!-- <script>
         let video = document.querySelector('video');
 
         // Set the default playing speed
@@ -642,5 +626,5 @@
 
         // Loading the video after setting 
         video.load();
-    </script>
+    </script> -->
 @endsection

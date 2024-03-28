@@ -142,29 +142,7 @@
                         </div>
                     </div>
                 </div>
-                <!---footer start-->
-                {{-- <div class="footerwrapper homefooterwrapper pageblock">
-                    <div class="wrapper">
-                        <div class="footerblk">
-                            <div class="footerrightblk fr">
-
-                                <div class="developblk ibvm">
-                                    <div class="ibvm footertext">Design &amp; Developed :</div>
-                                    <div class="ibvm ddlogo">
-                                        <a href="#" target="_blank" class="sprite">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="footerleftblk fl">
-                                <p class="copyrighttxt footertext">
-                                    &copy; Copyright 2018 AVA GLOBAL - All Rights Reserved
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <script src="{{ asset('/js/scrollIt.min.js') }}"></script> --}}
+               
 
                 <!-- DESKTOP MENU JS SATRT -->
                 <script>
@@ -199,7 +177,6 @@
                 </script>
                 <!-- DESKTOP MENU JS SATRT -->
 
-                {{-- <script src="{{ asset('/js/jquery.mmenu.min.all.js') }}"></script> --}}
                 <script>
                     $(function() {
                         if ($(window).width() <= 1023) {
@@ -269,7 +246,4 @@
                 </script>
                 <!---footer end-->
             </div>
-        </div>
-        <div class="horizontal-line"></div>
-    </div>
 @endsection

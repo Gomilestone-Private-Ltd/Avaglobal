@@ -82,29 +82,7 @@
                     <img src="https://www.avaglobal.in/images/services/oceanbg-resp.jpg" alt="" />
                 </div>
                 <!---footer start-->
-                <div class="footerwrapper pageblock">
-                    <div class="wrapper">
-                        <div class="footerblk">
-
-                            <div class="footerrightblk fr">
-                                <!--<div class="socialiconblk ibvm">
-                                <div class="sprite socialicon fb ibvm"></div>
-                                <div class="sprite socialicon twitter ibvm"></div>
-                                <div class="sprite socialicon youtube ibvm"></div>
-                            </div>-->
-                                <div class="developblk ibvm">
-                                    <div class="ibvm footertext">Design &amp; Developed :</div>
-                                    <div class="ibvm ddlogo">
-                                        <a href="http://www.d-designstudio.com/" target="_blank" class="sprite"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="footerleftblk fl">
-                                <p class="copyrighttxt footertext">&copy; Copyright 2018 AVA GLOBAL - All Rights Reserved</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
 
                 <script src="js/wow.js"></script>
                 <script>
@@ -136,9 +114,6 @@
                         $.fn.fullpage.moveSectionDown();
                     });
                 </script>
-
-                <script src="https://www.avaglobal.in/js/jquery.jscrollpane.min.js"></script>
-                <script src="https://www.avaglobal.in/js/jquery.mousewheel.js"></script>
                 <script>
                     $(document).ready(function() {
                         if ($(window).width() >= 1001) {
@@ -177,7 +152,6 @@
                 </script>
                 <!-- DESKTOP MENU JS SATRT -->
 
-                <script src="https://www.avaglobal.in/js/jquery.mmenu.min.all.js"></script>
                 <script>
                     $(function() {
                         if ($(window).width() <= 1023) {
@@ -233,9 +207,7 @@
                     });
                 </script> <!---footer end-->
             </div>
-        </div>
-    </div>
-</div>
+        
 <script>
     //script for arrow scroll
     $("#previousPage").click(function(e) {

@@ -184,3 +184,7 @@ p.work {
     align-items: center;
     margin-left: 20px;
 }
+
+.footerwrapper {
+    position: relative;
+}
