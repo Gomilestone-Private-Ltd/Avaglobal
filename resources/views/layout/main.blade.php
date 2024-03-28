@@ -72,7 +72,8 @@
 
 <body>
     @include('layout.menu')
-    @yield('content');
+    @yield('content')
+    @include('layout.footer')
 </body>
 
 </html>

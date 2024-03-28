@@ -455,7 +455,7 @@
                             alt="" />
                     </div>
                 </div>
-                <div class="footerwrapper homefooterwrapper pageblock">
+                {{-- <div class="footerwrapper homefooterwrapper pageblock">
                     <div class="wrapper">
                         <div class="footerblk">
                             <div class="footerleftblk fl">
@@ -475,7 +475,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <script>
         // number count for stats, using jQuery animate
@@ -540,8 +540,8 @@
             })
         });
     </script>
-    <script src="{{ asset('/js/scrollIt.min.js') }}"></script>
-    <script src="{{ asset('/js/jquery.fullPage.js') }}"></script>
+    {{-- <script src="{{ asset('/js/scrollIt.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.fullPage.js') }}"></script> --}}
     <script>
         $(document).ready(function() {
             if ($(window).width() >= 1024) {
@@ -565,8 +565,8 @@
             $.fn.fullpage.moveSectionDown();
         });
     </script>
-    <script src="{{ asset('/js/jquery.jscrollpane.min.js') }}"></script>
-    <script src="{{ asset('/js/jquery.mousewheel.js') }}"></script>
+    {{-- <script src="{{ asset('/js/jquery.jscrollpane.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.mousewheel.js') }}"></script> --}}
     <script>
         $(document).ready(function() {
             if ($(window).width() >= 1001) {
@@ -588,7 +588,7 @@
             }
         });
     </script>
-    <script src="{{ asset('/js/jquery.mmenu.min.all.js') }}"></script>
+    {{-- <script src="{{ asset('/js/jquery.mmenu.min.all.js') }}"></script> --}}
     <script>
         $(function() {
             if ($(window).width() <= 1023) {
