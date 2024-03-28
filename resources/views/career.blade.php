@@ -153,7 +153,7 @@
                 </div>
             </div>
             <!---footer start-->
-            <div class="footerwrapper homefooterwrapper pageblock">
+            {{-- <div class="footerwrapper homefooterwrapper pageblock">
                 <div class="wrapper">
                     <div class="footerblk">
                         <div class="footerrightblk fr">
@@ -177,8 +177,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <script src="{{ asset('/js/scrollIt.min.js') }}"></script>
+            </div> --}}
+            {{-- <script src="{{ asset('/js/scrollIt.min.js') }}"></script> --}}
 
             <!-- DESKTOP MENU JS SATRT -->
             <script>
@@ -213,7 +213,7 @@
             </script>
             <!-- DESKTOP MENU JS SATRT -->
 
-            <script src="{{ asset('/js/jquery.mmenu.min.all.js') }}"></script>
+            {{-- <script src="{{ asset('/js/jquery.mmenu.min.all.js') }}"></script> --}}
             <script>
                 $(function() {
                     if ($(window).width() <= 1023) {

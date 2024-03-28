@@ -267,7 +267,7 @@
                         </div>
                     </div>
                     <!---footer start-->
-                    <div class="footerwrapper pageblock">
+                    {{-- <div class="footerwrapper pageblock">
                         <div class="wrapper">
                             <div class="footerblk">
 
@@ -285,15 +285,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <script src="{{ asset('js/wow.js') }}"></script>
+                    {{-- <script src="{{ asset('js/wow.js') }}"></script>
                     <script>
                         new WOW().init();
                     </script>
                     <script src="{{ asset('js/jquery.bxslider.min.js') }}"></script>
                     <script src="{{ asset('js/scrollIt.min.js') }}"></script>
-                    <script src="{{ asset('js/jquery.fullPage.js') }}"></script>
+                    <script src="{{ asset('js/jquery.fullPage.js') }}"></script> --}}
                     <script>
                         $(document).ready(function() {
                             if ($(window).width() >= 1024) {
@@ -320,8 +320,8 @@
                         });
                     </script>
 
-                    <script src="{{ asset('js/jquery.jscrollpane.min.js') }}"></script>
-                    <script src="{{ asset('js/jquery.mousewheel.js') }}"></script>
+                    {{-- <script src="{{ asset('js/jquery.jscrollpane.min.js') }}"></script>
+                    <script src="{{ asset('js/jquery.mousewheel.js') }}"></script> --}}
                     <script>
                         $(document).ready(function() {
                             if ($(window).width() >= 1001) {
@@ -360,7 +360,7 @@
                     </script>
                     <!-- DESKTOP MENU JS SATRT -->
 
-                    <script src="{{ asset('js/jquery.mmenu.min.all.js') }}"></script>
+                    {{-- <script src="{{ asset('js/jquery.mmenu.min.all.js') }}"></script> --}}
                     <script>
                         $(function() {
                             if ($(window).width() <= 1023) {
@@ -415,11 +415,11 @@
                             });
                         });
                     </script> <!---footer end-->
-                </div>
+                {{-- </div>
             </div>
-        </div>
+        </div> --}}
     </div>
-    <script src="{{ asset('js/jquery.bxslider.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/jquery.bxslider.min.js') }}"></script> --}}
     <script>
         $('.bxslider').bxSlider({
             auto: false,
