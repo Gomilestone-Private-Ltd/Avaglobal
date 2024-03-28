@@ -1916,18 +1916,16 @@ video.logo-video {
   font-family: "BebasNeueRegular";
   font-weight: 700;
 }
-/* .servicedeatialbanner {
+
+.servicedeatialbanner {
+  background: url("../images/services/servicebg.jpg") no-repeat center;
   margin: 0 auto;
   position: relative;
   width: 100%;
   height: 100vh;
   background-size: cover;
 }
-.servicedetailsection .greyoverlaybig,
-.servicedetailsection .greyoverlaysml {
-  background: #4e7ac7;
-  opacity: 0.7;
-} */
+
 .freightcontentblk {
   background: url("/images/service-detail/freight-banner.jpg") no-repeat 54.5%
     center;

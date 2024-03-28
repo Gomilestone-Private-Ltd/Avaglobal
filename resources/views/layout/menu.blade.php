@@ -12,13 +12,11 @@
 
         </div>
         <div class="headerrightblk">
-
-
             <div id="google_translate_element">
                 <img src="{{ asset('/images/language.png') }}" class="language-icon">
             </div>
             <span class="welcm-ava">welcome to ava global</span>
-            <a href="{{ route('login') }}"><img src="{{ asset('/images/use.svg') }}" class="user-icon"></a>
+            <a href="{{ route('login') }}"><img src="{{ asset('/images/use.svg') }}" alt="Login" class="user-icon"></a>
             <a href="#menu"><span class="sprite hamburger" id="menublk"></span></a>
         </div>
         <div class="clear"></div>
@@ -29,7 +27,7 @@
         <div class="container">
             <div class="navigationheader">
                 <div class="navlogoblk fl">
-                    <a href="#">
+                    <a href="/">
                         <div class="avamentttl font-bebas">ava global</div>
                     </a>
                 </div>
@@ -43,7 +41,7 @@
                     <ul class="navmainlink">
                         <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="{{ route('about') }}">ABOUT US</a></li>
-                        <li><a href="#">Contact us</a></li>
+                        <li><a href="{{ route('contact') }}">Contact us</a></li>
                         <li><a href="{{ route('career') }}">Career</a></li>
                         <li><a href="{{ route('caseStudy') }}">Case Studies</a></li>
                         <li><a href="{{ route('login') }}">Employee Login</a></li>
@@ -51,34 +49,33 @@
                 </div>
                 <div class="navlinkblk">
                     <ul class="navmainlink">
-                        <li><a href="#">Services</a></li>
+                        <li><a href="{{ route('services') }}">Services</a></li>
                     </ul>
                     <ul class="navsubllink">
-                        <li><a href="#">OCEAN FREIGHT</a>
+                        <li><a href="{{ route('seaFreight') }}">OCEAN FREIGHT</a>
                         </li>
-                        <li><a href="#">AIR FREIGHT</a>
+                        <li><a href="{{ route('airFreight') }}">AIR FREIGHT</a>
                         </li>
-                        <li><a href="#">CUSTOM
-                                CLEARING</a></li>
-                        <li><a href="#">WAREHOUSING</a>
+                        <li><a href="{{ route('customsClearance') }}">CUSTOM CLEARING</a></li>
+                        <li><a href="{{ route('warehousing') }}">WAREHOUSING</a>
                         </li>
-                        <li><a href="#">TRUCKING</a>
+                        <li><a href="{{ route('heavyHaulTrucking') }}">TRUCKING</a>
                         </li>
-                        <li><a href="#">SHIPPING</a>
+                        <li><a href="{{ route('freightShipping') }}">SHIPPING</a>
                         </li>
-                        <li><a href="#">INSURANCE</a>
+                        <li><a href="{{ route('cargoInsurancet') }}">INSURANCE</a>
                         </li>
                     </ul>
                 </div>
                 <div class="navlinkblk">
                     <ul class="navmainlink">
-                        <li><a href="#">TARIFFS &
+                        <li><a href="{{ route('tariffsCalculators') }}">TARIFFS &
                                 CALCULATORS</a></li>
                     </ul>
                     <ul class="navsubllink">
-                        <li><a href="#">PROCEDURE FOR
+                        <li><a href="{{ route('tariffsCalculators') }}">PROCEDURE FOR
                                 CLEARANCE OF <br />IMPORTED AND EXPORT GOODS</a></li>
-                        <li><a href="#">CONTAINER SIZES</a></li>
+                        <li><a href="{{ route('containerSizes') }}">CONTAINER SIZES</a></li>
 
                     </ul>
                 </div>
@@ -90,26 +87,29 @@
     <ul>
         <li><a href="{{ route('home') }}">HOME</a></li>
         <li><a href="{{ route('about') }}">About</a></li>
-        <li><a href="#">services</a>
+        <li><a href="{{ route('services') }}">services</a>
             <ul>
-                <li><a href="#">OCEAN FREIGHT</a></li>
-                <li><a href="#">AIR FREIGHT</a></li>
-                <li><a href="#">CUSTOM CLEARING</a>
+                <li><a href="{{ route('seaFreight') }}">OCEAN FREIGHT</a></li>
+                <li><a href="{{ route('airFreight') }}">AIR FREIGHT</a></li>
+                <li><a href="{{ route('customsClearance') }}">CUSTOM CLEARING</a>
                 </li>
-                <li><a href="#">WAREHOUSING</a></li>
-                <li><a href="#">TRUCKING</a></li>
-                <li><a href="#">SHIPPING</a></li>
-                <li><a href="#">INSURANCE</a></li>
+                <li><a href="{{ route('warehousing') }}">WAREHOUSING</a></li>
+                <li><a href="{{ route('heavyHaulTrucking') }}">TRUCKING</a></li>
+                <li><a href="{{ route('freightShipping') }}">SHIPPING</a></li>
+                <li><a href="{{ route('cargoInsurancet') }}">INSURANCE</a></li>
             </ul>
         </li>
-        <li><a href="#">TARIFFS & CALCULATORS</a>
+        <li><a href="{{ route('tariffsCalculators') }}">TARIFFS & CALCULATORS</a>
             <ul>
-                <li><a href="#">PROCEDURE FOR CLEARANCE OF
+                <li><a href="{{ route('tariffsCalculators') }}">PROCEDURE FOR CLEARANCE OF
                         <br />IMPORTED AND EXPORT GOODS</a></li>
-                <li><a href="#">CONTAINER SIZES</a></li>
+                <li><a href="{{ route('containerSizes') }}">CONTAINER SIZES</a></li>
 
             </ul>
         </li>
-        <li><a href="#">contact</a></li>
+        <li><a href="{{ route('contact') }}">Contact us</a></li>
+        <li><a href="{{ route('career') }}">Career</a></li>
+        <li><a href="{{ route('caseStudy') }}">Case Studies</a></li>
+        <li><a href="{{ route('login') }}">Employee Login</a></li>
     </ul>
 </nav>

@@ -129,8 +129,7 @@
                                 </a>
                             </div>
                             <div class="overviewimgrightblk">
-                                <img src="{{ asset('images/mobile-images/challengeimg-mob.jpg') }}" alt=""
-                                    class="overvwsldimg">
+                                <img src="{{ asset('images/mobile-images/challengeimg-mob.jpg') }}" alt="Global Presence" class="overvwsldimg">
                                 <div class="oversldimgtxt">
                                     <div class="tabrighttxtblk">
                                         <div class="ibvm twentytxt">

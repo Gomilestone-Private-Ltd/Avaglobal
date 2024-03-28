@@ -19,6 +19,10 @@ class HomeController extends Controller
     {
         return view('about');
     }
+    public function contact()
+    {
+        return view('contact');
+    }
     public function career()
     {
         return view('career');
@@ -34,6 +38,50 @@ class HomeController extends Controller
     public function caseStudyDetail()
     {
         return view('case-study-detail');
+    }
+    public function services()
+    {
+        return view('services');
+    }
+    public function seaFreight()
+    {
+        return view('services.sea-freight');
+    }
+    public function airFreight()
+    {
+        return view('services.air-freight');
+    }
+    public function customsClearance()
+    {
+        return view('services.customs-clearance');
+    }
+    public function warehousing()
+    {
+        return view('services.warehousing');
+    }
+
+    public function heavyHaulTrucking()
+    {
+        return view('services.heavy-haul-trucking');
+    }
+
+    public function freightShipping()
+    {
+        return view('services.freight-shipping');
+    }
+
+    public function cargoInsurance()
+    {
+        return view('services.cargo-insurance');
+    }
+
+    public function containerSizes()
+    {
+        return view('container-sizes');
+    }
+    public function tariffsCalculators()
+    {
+        return view('tariffs-calculators');
     }
     
 }

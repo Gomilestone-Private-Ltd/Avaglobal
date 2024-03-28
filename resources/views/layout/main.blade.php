@@ -37,20 +37,19 @@
         gtag('js', new Date());
         gtag('config', 'UA-107918162-1');
     </script>
+    
     <script src="{{ asset('/js/jquery.min.js') }}"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107918162-1"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en'
             }, 'google_translate_element');
         }
-    </script>
+    </script> -->
 
     <script type="text/javascript">
         function googleTranslateElementInit() {
@@ -68,11 +67,12 @@
 
         }
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body>
     @include('layout.menu')
-    @yield('content');
+    @yield('content')
 </body>
 
 </html>

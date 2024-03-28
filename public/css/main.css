@@ -61,3 +61,8 @@ h4.ct-heading {
     padding-top: 26px !important;
 }
 
+.newsslidercontent .bx-viewport {
+    overflow: hidden!important;
+  }
+  
+

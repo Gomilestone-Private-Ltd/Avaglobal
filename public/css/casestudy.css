@@ -1,6 +1,6 @@
-html,
-body {
-    overflow: auto;
+html, body{
+    overflow: auto !important;;
+    position: inherit!important;
 }
 
 img.cs-image {
