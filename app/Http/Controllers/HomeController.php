@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Description;
+use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Js;
 
 class HomeController extends Controller
 {
@@ -25,15 +29,25 @@ class HomeController extends Controller
     }
     public function career()
     {
-        return view('career');
+        $jobData = Job::where('is_active', 1)->get();
+
+        $openedJobs = count($jobData);
+
+        $data = compact('jobData', 'openedJobs');
+
+        return view('career')->with($data);
     }
     public function caseStudy()
     {
         return view('case-study');
     }
-    public function careerDetails()
+    public function careerDetails(Request $request)
     {
-        return view('career-detail');
+        $id = Crypt::decrypt($request->route('id'));
+        // $careerData = Job::select('department', 'job_role')->with('description')->where('id', $id)->get();
+        $careerData = Job::with('careerDescription')->where('id', $id)->get();
+
+        return view('career-detail')->with('careerData', $careerData);
     }
     public function caseStudyDetail()
     {
@@ -87,5 +101,4 @@ class HomeController extends Controller
     {
         return view('news-and-event');
     }
-    
 }
