@@ -375,12 +375,14 @@
                         <div class="wrapper">
                             <div class="newsinfoblk">
                                 <div class="newsheading font-bebas">
-                                    news & events
+                                    In The Media
                                 </div>
-                                <div class="knowmore uppercase">
-                                    all news & events
-                                    <div class="sprite knwmorearw"></div>
-                                </div>
+                                <a href="{{ route('newsEvent') }}">
+                                    <div class="knowmore uppercase">
+                                        all news & events
+                                        <div class="sprite knwmorearw"></div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -392,6 +394,9 @@
                                     <div class="banner-container">
                                         <p class="slidetxt"><b>Ava Global Logistics wins 'Emerging Agri Business
                                                 Logistics Co. of the year 2017' award at Globoil India 2017.</b></p>
+                                                <div class="media-link">
+                                                    <a href="#" class="home-media-link">Read More</a>
+                                                </div>
                                     </div>
                                 </div>
                             </li>
@@ -400,6 +405,9 @@
                                 <div class="banner-caption">
                                     <div class="banner-container">
                                         <p class="slidetxt"><b>Globoil Delhi 2017</b></p>
+                                        <div class="media-link">
+                                            <a href="#" class="home-media-link">Read More</a>
+                                        </div>
                                     </div>
                                 </div>
                             </li>

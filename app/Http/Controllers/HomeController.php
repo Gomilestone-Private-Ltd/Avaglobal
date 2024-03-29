@@ -83,5 +83,9 @@ class HomeController extends Controller
     {
         return view('tariffs-calculators');
     }
+    public function newsEvent()
+    {
+        return view('news-and-event');
+    }
     
 }

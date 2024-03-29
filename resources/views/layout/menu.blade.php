@@ -44,6 +44,7 @@
                         <li><a href="{{ route('contact') }}">Contact us</a></li>
                         <li><a href="{{ route('career') }}">Career</a></li>
                         <li><a href="{{ route('caseStudy') }}">Case Studies</a></li>
+                        <li><a href="{{ route('newsEvent') }}">News & Events</a></li>
                         <li><a href="{{ route('login') }}">Employee Login</a></li>
                     </ul>
                 </div>
@@ -110,6 +111,7 @@
         <li><a href="{{ route('contact') }}">Contact us</a></li>
         <li><a href="{{ route('career') }}">Career</a></li>
         <li><a href="{{ route('caseStudy') }}">Case Studies</a></li>
+        <li><a href="{{ route('newsEvent') }}">News & Events</a></li>
         <li><a href="{{ route('login') }}">Employee Login</a></li>
     </ul>
 </nav>

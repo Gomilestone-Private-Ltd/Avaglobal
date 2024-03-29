@@ -1,0 +1,137 @@
+html, body{
+    overflow: auto !important;;
+    position: inherit!important;
+}
+
+img.cs-image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.case-study-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+h2.cs-title {
+    font-size: 22px;
+    color: #2c2c2c;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 30px;
+    border-bottom: 0px solid #ccc;
+    font-family: "BebasNeueRegular";
+    letter-spacing: 0.96px;
+    padding-top: 15px;
+}
+
+h3.cs-category {
+    color: #909090;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 10px 0px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.csd-box {
+    display: flex;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 16px;
+    color: #909090;
+}
+
+p.cs-user {
+    font-size: 15px;
+    padding-right: 20px;
+    color: #0050a4;
+}
+
+p.cs-date {
+    font-size: 15px;
+}
+
+.knowmore {
+    margin: 20px 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.sprite.knwmorearw {
+    margin-left: 8px;
+}
+
+.footerwrapper {
+    position: relative;
+}
+
+.case-study-item {
+    width: 33.33%;
+}
+
+.cr-title-box {
+    margin-top: 40px;
+}
+
+h3.csd-category {
+    color: #909090;
+    font-size: 18px;
+    line-height: 16px;
+    padding: 10px 0px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+span.joc-count {
+    color: #2c2c2c;
+    font-weight: bold;
+}
+
+h1.csd-title {
+    color: #2c2c2c;
+    font-size: 42px;
+    font-family: "BebasNeueRegular";
+    line-height: 48px;
+    padding: 0 0 5px;
+}
+
+.cl-location-box {
+    display: flex;
+    margin-top: 12px;
+}
+
+p.cl-location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img.location-img {
+    width: 26px;
+    margin-right: 10px;
+}
+
+p.work {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+img.time-img {
+    width: 26px;
+    margin-right: 10px;
+}
+
+.eva-container.event {
+    border-top: 1px solid #909090;
+}

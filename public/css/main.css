@@ -69,8 +69,16 @@ h4.ct-heading {
     overflow: hidden!important;
   }
 
-  .overviewtxtblk {
+.overviewtxtblk {
     top: 190px;
 }
+
+.media-link {
+    transform: skew(23deg);
+    margin-top: 10px;
+}
   
+a.home-media-link {
+    color: #ffffff;
+}
 

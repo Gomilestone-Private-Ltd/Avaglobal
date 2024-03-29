@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/jquery.bxslider.min.css') }}" />
     <link href="{{ asset('/css/jquery.jscrollpane.css') }}" rel="stylesheet" type="text/css" />
     <link type="text/css" rel="stylesheet" href="{{ asset('/css/jquery.mmenu.all.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/css/event-popup.css') }}" />
     {{-- include styles here --}}
     @stack('styles')
     {{-- ---------------------------------------------------------------- --}}
@@ -43,6 +44,7 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <!-- <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -67,13 +69,56 @@
 
         }
     </script>
+    <script>
+        $(document).ready(function () {
+            if (localStorage.getItem('popState') != 'shown') {
+                $("#once-popup").delay(1000).fadeIn();
+                localStorage.setItem('popState', 'shown')
+            }
+
+            $('#popup-close').click(function (e) {
+                $('#once-popup').fadeOut();
+            });
+
+        });
+    </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- <style>
+          #once-popup {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.65);
+            text-align: center;
+            z-index: 10000;
+        }
+
+        #once-popup .inner {
+            background: #ffffff;
+            padding: 20px;
+            width: 600px;
+            max-width: 90%;
+            margin: 50px auto;
+        }
+
+        #once-popup #popup-close {
+            float: right;
+            font-size: 30px;
+            line-height: 10px;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style> -->
 </head>
 
 <body>
     @include('layout.menu')
     @yield('content')
     @include('layout.footer')
+    @include('layout.event-popup')
 </body>
 
 </html>

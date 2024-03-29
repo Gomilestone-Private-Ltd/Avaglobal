@@ -37,3 +37,4 @@ Route::get('services/freight-shipping', [HomeController::class, 'freightShipping
 Route::get('services/cargo-insurance', [HomeController::class, 'cargoInsurance'])->name('cargoInsurancet');
 Route::get('container-sizes', [HomeController::class, 'containerSizes'])->name('containerSizes');
 Route::get('tariffs-calculators', [HomeController::class, 'tariffsCalculators'])->name('tariffsCalculators');
+Route::get('news-and-event', [HomeController::class, 'newsEvent'])->name('newsEvent');
