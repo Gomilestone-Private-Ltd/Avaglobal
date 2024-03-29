@@ -44,11 +44,8 @@
                         <li><a href="{{ route('contact') }}">Contact us</a></li>
                         <li><a href="{{ route('career') }}">Career</a></li>
                         <li><a href="{{ route('caseStudy') }}">Case Studies</a></li>
-                        <<<<<<< HEAD <li><a href="{{ route('newsEvent') }}">News & Events</a></li>
-                            <li><a href="{{ route('login') }}">Employee Login</a></li>
-                            =======
-                            <li><a href="{{ route('emp-login') }}">Employee Login</a></li>
-                            >>>>>>> ab66808223f4b1d3bf0203623d7c4a93f7baa094
+                        <li><a href="{{ route('newsEvent') }}">News & Events</a></li>
+                        <li><a href="{{ route('emp-login') }}">Employee Login</a></li>
                     </ul>
                 </div>
                 <div class="navlinkblk">
