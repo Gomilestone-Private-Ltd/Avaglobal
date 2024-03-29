@@ -61,10 +61,8 @@
 
                         <div class="copyright text-center">
                             &copy;
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>,
-                            <span><a href="templatespoint.net">Templates Point</a></span>
+                            {{ date('Y') }}
+                            <span><a href="{{ route('home') }}">Ava Global</a></span>
                         </div>
                     </div>
                     <div class="col-lg-8 col-sm-12">
