@@ -9,8 +9,11 @@
                 <div class="eva-container">
                     <div class="jd-herder-main">
                         <div class="jd-herder-left">
-                            <h3 class="csd-category">Business Administration</h3>
-                            <h1 class="csd-title">Product Senior Director</h1>
+                            @foreach ($careerData as $data)
+                                <h3 class="csd-category">{{ $data->department }}</h3>
+                                <h1 class="csd-title">{{ $data->job_role }}</h1>
+                            @endforeach
+
                         </div>
                         <div class="jd-herder-right">
                             <a class="prod-morebuts" href="#apply">Apply Now</a>
@@ -24,8 +27,13 @@
                         <div class="eva-container">
                             <div class="job-main">
                                 <div class="job-left">
-                                    <div class="csd-contnet detail">
-                                        <h3 class="csdt-title">Job Summary</h3>
+                                    <div class="csd-contnet detail csdt-title csdt-title2 csdt-content key-point">
+                                        @foreach ($careerData as $descData)
+                                            {!! $description = isset($descData->careerDescription->description)
+                                                ? $descData->careerDescription->description
+                                                : '' !!}
+                                        @endforeach
+                                        {{-- <h3 class="csdt-title">Job Summary</h3>
                                         <p class="csdt-content">Contrary to popular belief, Lorem Ipsum is not
                                             simply random text. It has roots in a piece of classical Latin
                                             literature from 45 BC, making it over 2000 years old. Richard
@@ -74,7 +82,7 @@
                                             McClintock, a Latin professor at Hampden-Sydney College in Virginia,
                                             looked up one of the more obscure Latin words, consectetur, from a Lorem
                                             Ipsum passage, and going through the cites of the word in classical
-                                            literature, discovered the undoubtable source.</p>
+                                            literature, discovered the undoubtable source.</p> --}}
 
                                     </div>
                                 </div>

@@ -1,6 +1,8 @@
 ﻿@extends('admin.layouts.app')
 @section('content')
 @section('title', 'Home')
+
+
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
@@ -25,16 +27,19 @@
 <!-- Right Icon menu Sidebar -->
 <div class="navbar-right">
     <ul class="navbar-nav">
-        <li><a href="{{ route('logout') }}" class="mega-menu" title="Sign Out"><i class="zmdi zmdi-power"></i></a></li>
+        <li><a href="{{ route('logout') }}" class="mega-menu" title="Sign Out"><i class="zmdi zmdi-power"></i></a>
+        </li>
     </ul>
 </div>
+
+
 
 <!-- Left Sidebar -->
 <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-        <a href="{{ route('dashboard') }}"><img src="{{ asset('assets/images/logo.svg') }}" width="25"
-                alt="Aero"><span class="m-l-10">Aero</span></a>
+        <a href="{{ route('dashboard') }}"><img src="{{ asset('/images/blogo.png') }}" width="100"
+                alt="AvaGlobal"></a>
     </div>
     <div class="menu">
         <ul class="list">
@@ -43,15 +48,28 @@
                     <a class="image" href="profile.html"><img src="{{ asset('assets/images/profile_av.jpg') }}"
                             alt="User"></a>
                     <div class="detail">
-                        <h4>Michael</h4>
-                        <small>Super Admin</small>
+                        <h4>{{ auth()->user()->name }}</h4>
+                        <small>{{ auth()->user()->role->name }}</small>
                     </div>
                 </div>
             </li>
             <li class="active open"><a href="{{ route('dashboard') }}"><i
                         class="zmdi zmdi-home"></i><span>Dashboard</span></a>
             </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>
+            <li>
+                <a href="{{ route('opened-job') }}">Job Openings</a>
+
+            </li>
+            <li>
+                <a href="{{ route('career-section') }}">Job Description</a>
+
+            </li>
+            <li>
+                <a href="{{ route('case-section') }}">Case Study </a>
+
+            </li>
+
+            {{-- <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>
                 <ul class="ml-menu">
                     <li><a href="mail-inbox.html">Email</a></li>
                     <li><a href="chat.html">Chat Apps</a></li>
@@ -126,7 +144,7 @@
             <li><a href="javascript:void(0);" class="menu-toggle"><i
                         class="zmdi zmdi-assignment"></i><span>Forms</span></a>
                 <ul class="ml-menu">
-                    <li><a href="basic-form-elements.html">Basic Form</a></li>
+                    <li><a href="{{ route('opened-job') }}">Job Openings</a></li>
                     <li><a href="advanced-form-elements.html">Advanced Form</a></li>
                     <li><a href="form-examples.html">Form Examples</a></li>
                     <li><a href="form-validation.html">Form Validation</a></li>
@@ -216,7 +234,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </aside>
@@ -226,8 +244,8 @@
     <ul class="nav nav-tabs sm">
         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i
                     class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#chat"><i
-                    class="zmdi zmdi-comments"></i></a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#chat"><i class="zmdi zmdi-comments"></i></a>
+        </li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="setting">
@@ -394,7 +412,8 @@
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>Dashboard</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="zmdi zmdi-home"></i>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
+                                    class="zmdi zmdi-home"></i>
                                 AVA-Global</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ul>
@@ -412,7 +431,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2 big_icon traffic">
                         <div class="body">
-                            <h6>Traffic</h6>
+                            <h6>Job Openings</h6>
                             <h2>20 <small class="info">of 1Tb</small></h2>
                             <small>2% higher than last month</small>
                             <div class="progress">
@@ -425,7 +444,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2 big_icon sales">
                         <div class="body">
-                            <h6>Sales</h6>
+                            <h6>Case Study</h6>
                             <h2>12% <small class="info">of 100</small></h2>
                             <small>6% higher than last month</small>
                             <div class="progress">
@@ -438,9 +457,9 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2 big_icon email">
                         <div class="body">
-                            <h6>Email</h6>
+                            <h6>Job Leads</h6>
                             <h2>39 <small class="info">of 100</small></h2>
-                            <small>Total Registered email</small>
+                            <small>Total Case Study</small>
                             <div class="progress">
                                 <div class="progress-bar l-purple" role="progressbar" aria-valuenow="39"
                                     aria-valuemin="0" aria-valuemax="100" style="width: 39%;"></div>
@@ -451,9 +470,9 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2 big_icon domains">
                         <div class="body">
-                            <h6>Domains</h6>
+                            <h6>Case Leads</h6>
                             <h2>8 <small class="info">of 10</small></h2>
-                            <small>Total Registered Domain</small>
+                            <small>Total Services</small>
                             <div class="progress">
                                 <div class="progress-bar l-green" role="progressbar" aria-valuenow="89"
                                     aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
@@ -468,6 +487,15 @@
 
 
 <!-- Jquery Core Js -->
+<script>
+    @if (Session::has('success'))
+        toastr.options = {
+            'closeButton': true,
+            'progressBar': true
+        }
+        toastr.success("{{ Session::get('success') }}");
+    @endif
+</script>
 <script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
 <script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script> <!-- slimscroll, waves Scripts Plugin Js -->
 

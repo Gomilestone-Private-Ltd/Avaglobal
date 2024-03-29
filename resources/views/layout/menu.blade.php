@@ -18,7 +18,7 @@
                 <img src="{{ asset('/images/language.png') }}" class="language-icon">
             </div>
             <span class="welcm-ava">welcome to ava global</span>
-            <a href="{{ route('login') }}"><img src="{{ asset('/images/use.svg') }}" class="user-icon"></a>
+            <a href="{{ route('emp-login') }}"><img src="{{ asset('/images/use.svg') }}" class="user-icon"></a>
             <a href="#menu"><span class="sprite hamburger" id="menublk"></span></a>
         </div>
         <div class="clear"></div>
@@ -46,7 +46,7 @@
                         <li><a href="#">Contact us</a></li>
                         <li><a href="{{ route('career') }}">Career</a></li>
                         <li><a href="{{ route('caseStudy') }}">Case Studies</a></li>
-                        <li><a href="{{ route('login') }}">Employee Login</a></li>
+                        <li><a href="{{ route('emp-login') }}">Employee Login</a></li>
                     </ul>
                 </div>
                 <div class="navlinkblk">

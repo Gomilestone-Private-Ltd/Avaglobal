@@ -13,4 +13,9 @@
     <link rel="stylesheet" href="assets/plugins/morrisjs/morris.min.css" />
     <!-- Custom Css -->
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>

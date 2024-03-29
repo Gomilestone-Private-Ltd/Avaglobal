@@ -27,127 +27,46 @@
                 <div class="wrapper">
                     <div class="eva-container">
                         <div class="cr-title-box">
-                            <h3 class="csd-category">We have <span class="joc-count">20 jobs</span> for you
+                            <h3 class="csd-category">We have <span class="joc-count">{{ $openedJobs }} jobs</span> for you
                             </h3>
                             <h1 class="csd-title">Job Openings</h1>
                         </div>
+
                         <div class="case-study-box">
-                            <div class="case-study-item">
-                                <div class="cs-content">
-                                    <div class="csc-left">
-                                        <h3 class="cs-category">Business Administration</h3>
-                                        <a href="{{ route('careerDetails') }}">
-                                            <h2 class="cs-title">
-                                                Operations Coordinator
-                                            </h2>
+                            @foreach ($jobData as $job)
+                                <div class="case-study-item">
+                                    <div class="cs-content">
+                                        <div class="csc-left">
+                                            <h3 class="cs-category">{{ $job->department }}</h3>
+                                            <a href="{{ url('/career-detail') }}/{{ Crypt::encrypt($job->id) }}">
+                                                <h2 class="cs-title">
+                                                    {{ $job->job_role }}
+                                                </h2>
 
-                                        </a>
-                                        <div class="cl-location-box">
-                                            <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
-                                                    class="location-img">
-                                                <span>Mumbai</span>
-                                            </p>
-                                            <p class="work"><img src="{{ asset('/images/time.png') }}" class="time-img">
-                                                <span>Full Time</span>
-                                            </p>
+                                            </a>
+                                            <div class="cl-location-box">
+                                                <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
+                                                        class="location-img">
+                                                    <span>{{ $job->location }}</span>
+                                                </p>
+                                                <p class="work"><img src="{{ asset('/images/time.png') }}"
+                                                        class="time-img">
+                                                    <span>{{ $job->time_period }}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="csc-right">
+                                            <a href="{{ url('/career-detail') }}/{{ Crypt::encrypt($job->id) }}">
+                                                <div class="knowmore uppercase">Apply Now
+                                                    <div class="sprite knwmorearw"></div>
+                                                </div>
+                                            </a>
+
                                         </div>
                                     </div>
-                                    <div class="csc-right">
-                                        <a href="{{ route('careerDetails') }}">
-                                            <div class="knowmore uppercase">Apply Now
-                                                <div class="sprite knwmorearw"></div>
-                                            </div>
-                                        </a>
-                                    </div>
                                 </div>
-                            </div>
-                            <div class="case-study-item">
-                                <div class="cs-content">
-                                    <div class="csc-left">
-                                        <h3 class="cs-category">Business Administration</h3>
-                                        <a href="{{ route('careerDetails') }}">
-                                            <h2 class="cs-title">
-                                                Product Senior Director
-                                            </h2>
+                            @endforeach
 
-                                        </a>
-                                        <div class="cl-location-box">
-                                            <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
-                                                    class="location-img">
-                                                <span>Delhi</span>
-                                            </p>
-                                            <p class="work"><img src="{{ asset('/images/time.png') }}" class="time-img">
-                                                <span>Full Time</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="csc-right">
-                                        <a href="{{ route('careerDetails') }}">
-                                            <div class="knowmore uppercase">Apply Now
-                                                <div class="sprite knwmorearw"></div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="case-study-item">
-                                <div class="cs-content">
-                                    <div class="csc-left">
-                                        <h3 class="cs-category">Business Administration</h3>
-                                        <a href="{{ route('careerDetails') }}">
-                                            <h2 class="cs-title">
-                                                Business Development Manager
-                                            </h2>
-
-                                        </a>
-                                        <div class="cl-location-box">
-                                            <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
-                                                    class="location-img">
-                                                <span>Nagpur</span>
-                                            </p>
-                                            <p class="work"><img src="{{ asset('/images/time.png') }}" class="time-img">
-                                                <span>Full Time</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="csc-right">
-                                        <a href="{{ route('careerDetails') }}">
-                                            <div class="knowmore uppercase">Apply Now
-                                                <div class="sprite knwmorearw"></div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="case-study-item">
-                                <div class="cs-content">
-                                    <div class="csc-left">
-                                        <h3 class="cs-category">Business Administration</h3>
-                                        <a href="{{ route('careerDetails') }}">
-                                            <h2 class="cs-title">
-                                                Sales Executive Junior
-                                            </h2>
-
-                                        </a>
-                                        <div class="cl-location-box">
-                                            <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
-                                                    class="location-img">
-                                                <span>Noida</span>
-                                            </p>
-                                            <p class="work"><img src="{{ asset('/images/time.png') }}" class="time-img">
-                                                <span>Full Time</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="csc-right">
-                                        <a href="{{ route('careerDetails') }}">
-                                            <div class="knowmore uppercase">Apply Now
-                                                <div class="sprite knwmorearw"></div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -158,10 +77,10 @@
                     <div class="footerblk">
                         <div class="footerrightblk fr">
                             <!--<div class="socialiconblk ibvm">
-                                                <div class="sprite socialicon fb ibvm"></div>
-                                                <div class="sprite socialicon twitter ibvm"></div>
-                                                <div class="sprite socialicon youtube ibvm"></div>
-                                            </div>-->
+                                                                                        <div class="sprite socialicon fb ibvm"></div>
+                                                                                        <div class="sprite socialicon twitter ibvm"></div>
+                                                                                        <div class="sprite socialicon youtube ibvm"></div>
+                                                                                    </div>-->
                             <div class="developblk ibvm">
                                 <div class="ibvm footertext">Design &amp; Developed :</div>
                                 <div class="ibvm ddlogo">
