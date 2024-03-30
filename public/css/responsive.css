@@ -1,550 +1,2068 @@
-@media screen and (min-width:1920px){.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next{right:24.9% !important;}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev{left:3.5% !important;}
-.freightcontentparent .servicelefttxtblk, .freightcontentparent .servicelefttxtblk.custumclerblk{top:300px !important;}
-.newsslidercontent .banner-caption{left:-81px;}
+@media screen and (min-width: 1920px) {
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next {
+        right: 24.9% !important;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev {
+        left: 3.5% !important;
+    }
+    .freightcontentparent .servicelefttxtblk,
+    .freightcontentparent .servicelefttxtblk.custumclerblk {
+        top: 300px !important;
+    }
+    .newsslidercontent .banner-caption {
+        left: -81px;
+    }
 }
-@media screen and (min-width:1500px){#fp-nav{top:0 !important}
-#fp-nav ul li a.active::before{top:32px !important}
-#fp-nav ul li a span, .fp-slidesNav ul li a span{top:90px !important}
-.product-name{right:-30px;}
-.prod-morebut{right:-138px;}
-.newsleftcontent{top:300px}
-.productleftcontent{top:0}
-.aboutavabgblk .servicelefttxtblk, .commitment-wrapper-about .servicelefttxtblk{top:200px}
-.philosophy-blk-abt{margin-top:18%}
-.mission-wrapper-about .servicerighttxtblk{top:100px}
-.missn-line::before{left:-29px;}
-.team-slider-wrap .abt-slider-block-right img{left:-82px;}
-.abt-slider-block-right-main{width:18%;left:160px;height:100vh;}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev{left:2%}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next{right:22.9%}
-.blue-div-team.blue-div-team1{right:37%;}
-.blue-div-team.blue-div-team2{left:250px;}
-.blue-div-team.blue-div-team3{left:10px}
-.hiringcontent{top:200px}
-.servicelefttxtblk, .custombgblk .servicelefttxtblk{top:230px}
-.freightcontentparent .servicelefttxtblk, .freightcontentparent .servicelefttxtblk.custumclerblk{width:40%;top:150px}
-.freightcontentparent .servicelefttxtblk{width:36%}
-.team-slider-wrap .bx-wrapper .abt-slider-block-right{height:50%}
-.abt-slider-block-right.abt-slider-block-right-2 .abt-banner-caption{bottom:60px}
-.ourteammember img{left:-80px;height:auto}
-.ourteammember{height:410px}
-.parth .abt-banner-caption{left:100px;top:30px;}
-.ourteammember .abt-banner-caption{top:15px;left:90px}
-.ourteammember img{top:-80px}
-.ourteammember.parth img{top:-157px;left:-150px;}
-.prod-morebut{right:-240px;}
-.missn-line{right:23px}
-.ourteammember{height:440px}
+@media screen and (min-width: 1500px) {
+    #fp-nav {
+        top: 0 !important;
+    }
+    #fp-nav ul li a.active::before {
+        top: 32px !important;
+    }
+    #fp-nav ul li a span,
+    .fp-slidesNav ul li a span {
+        top: 90px !important;
+    }
+    .product-name {
+        right: -30px;
+    }
+    .prod-morebut {
+        right: -138px;
+    }
+    .newsleftcontent {
+        top: 300px;
+    }
+    .productleftcontent {
+        top: 0;
+    }
+    .aboutavabgblk .servicelefttxtblk,
+    .commitment-wrapper-about .servicelefttxtblk {
+        top: 200px;
+    }
+    .philosophy-blk-abt {
+        margin-top: 18%;
+    }
+    .mission-wrapper-about .servicerighttxtblk {
+        top: 100px;
+    }
+    .missn-line::before {
+        left: -29px;
+    }
+    .team-slider-wrap .abt-slider-block-right img {
+        left: -82px;
+    }
+    .abt-slider-block-right-main {
+        width: 18%;
+        left: 160px;
+        height: 100vh;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev {
+        left: 2%;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next {
+        right: 22.9%;
+    }
+    .blue-div-team.blue-div-team1 {
+        right: 37%;
+    }
+    .blue-div-team.blue-div-team2 {
+        left: 250px;
+    }
+    .blue-div-team.blue-div-team3 {
+        left: 10px;
+    }
+    .hiringcontent {
+        top: 200px;
+    }
+    .servicelefttxtblk,
+    .custombgblk .servicelefttxtblk {
+        top: 230px;
+    }
+    .freightcontentparent .servicelefttxtblk,
+    .freightcontentparent .servicelefttxtblk.custumclerblk {
+        width: 40%;
+        top: 150px;
+    }
+    .freightcontentparent .servicelefttxtblk {
+        width: 36%;
+    }
+    .team-slider-wrap .bx-wrapper .abt-slider-block-right {
+        height: 50%;
+    }
+    .abt-slider-block-right.abt-slider-block-right-2 .abt-banner-caption {
+        bottom: 60px;
+    }
+    .ourteammember img {
+        left: -80px;
+        height: auto;
+    }
+    .ourteammember {
+        height: 410px;
+    }
+    .parth .abt-banner-caption {
+        left: 100px;
+        top: 30px;
+    }
+    .ourteammember .abt-banner-caption {
+        top: 15px;
+        left: 90px;
+    }
+    .ourteammember img {
+        top: -80px;
+    }
+    .ourteammember.parth img {
+        top: -157px;
+        left: -150px;
+    }
+    .prod-morebut {
+        right: -240px;
+    }
+    .missn-line {
+        right: 23px;
+    }
+    .ourteammember {
+        height: 440px;
+    }
 }
-@media screen and (min-device-width:1370px) and (max-device-width:1440px){.praductbanwraper{right:-10%}
-.prod-morebut{right:77px;}
-.product-name{right:150px}
-.missn-line:before{left:-46px}
-.input-container{width:46%}
-.input-container.choose-container{width:100%}
-.abt-slider-block-right-main{height:100vh}
-.abt-slider-block-right.abt-slider-block-right-2{height:42%}
-.team-slider-wrap .abt-slider-block-right img{left:-47px}
-.team-slider-wrap .abt-slider-block-right.abt-slider-block-right-2 img{left:-140px}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev{left:2%}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next{right:22.4%;}
-.blue-div-team.blue-div-team2{left:215px}
-.blue-div-team.blue-div-team3{left:12px}
-.ourteammember img{left:-80px;height:auto}
-.ourteammember{height:340px}
-.parth .abt-banner-caption{left:100px;top:30px;}
-.ourteammember .abt-banner-caption{top:8px;left:64px}
-.ourteammember img{top:-80px;left:-130px}
-.ourteammember.parth img{top:-161px;left:-215px;}
-.ourteammember.kushal img{left:-120px}
-.aboutavabgblk .servicelefttxtblk{top:120px}
-@-moz-document url-prefix(){.prod-morebut{right:47px;}}
+@media screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+    .praductbanwraper {
+        right: -10%;
+    }
+    .prod-morebut {
+        right: 77px;
+    }
+    .product-name {
+        right: 150px;
+    }
+    .missn-line:before {
+        left: -46px;
+    }
+    .input-container {
+        width: 46%;
+    }
+    .input-container.choose-container {
+        width: 100%;
+    }
+    .abt-slider-block-right-main {
+        height: 100vh;
+    }
+    .abt-slider-block-right.abt-slider-block-right-2 {
+        height: 42%;
+    }
+    .team-slider-wrap .abt-slider-block-right img {
+        left: -47px;
+    }
+    .team-slider-wrap .abt-slider-block-right.abt-slider-block-right-2 img {
+        left: -140px;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev {
+        left: 2%;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next {
+        right: 22.4%;
+    }
+    .blue-div-team.blue-div-team2 {
+        left: 215px;
+    }
+    .blue-div-team.blue-div-team3 {
+        left: 12px;
+    }
+    .ourteammember img {
+        left: -80px;
+        height: auto;
+    }
+    .ourteammember {
+        height: 340px;
+    }
+    .parth .abt-banner-caption {
+        left: 100px;
+        top: 30px;
+    }
+    .ourteammember .abt-banner-caption {
+        top: 8px;
+        left: 64px;
+    }
+    .ourteammember img {
+        top: -80px;
+        left: -130px;
+    }
+    .ourteammember.parth img {
+        top: -161px;
+        left: -215px;
+    }
+    .ourteammember.kushal img {
+        left: -120px;
+    }
+    .aboutavabgblk .servicelefttxtblk {
+        top: 120px;
+    }
+    @-moz-document url-prefix() {
+        .prod-morebut {
+            right: 47px;
+        }
+    }
 }
-@media screen and (max-device-width:1365px){.custombgblk .servicelefttxtblk{width:41%}
-.misson-blk-abt{padding:5px 15px 5px 5px}
-.commitment-wrapper-about .servicelefttxtblk{width:51%}
-.ourcommitblk{margin:10px 0}
-.philosophy-blk-abt{padding:35px 5px;}
-.missn-line::before{left:-29px}
-.freightcontentparent .servicelefttxtblk{width:34%}
-.abt-slider-block-right-main{top:-45px}
-.abt-slider-block-left .abt-banner-caption{bottom:90px}
-.newsleftcontent.mediacontent{right:3%;width:27%;top:36%}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next{right:20.5%}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev{left:2.2%}
-.owscrollblk{height:350px}
-.navlinkblk{margin:0 10% 0 0}
-.freightcontentparent .servicelefttxtblk{width:38%}
-.servicerighttxtblk{top:160px}
-.ourteammember{height:260px}
-.blue-div-team.blue-div-team1{right:410px;top:70px}
-.blue-div-team.blue-div-team3{left:70px}
+@media screen and (max-device-width: 1365px) {
+    .custombgblk .servicelefttxtblk {
+        width: 41%;
+    }
+    .misson-blk-abt {
+        padding: 5px 15px 5px 5px;
+    }
+    .commitment-wrapper-about .servicelefttxtblk {
+        width: 51%;
+    }
+    .ourcommitblk {
+        margin: 10px 0;
+    }
+    .philosophy-blk-abt {
+        padding: 35px 5px;
+    }
+    .missn-line::before {
+        left: -29px;
+    }
+    .freightcontentparent .servicelefttxtblk {
+        width: 34%;
+    }
+    .abt-slider-block-right-main {
+        top: -45px;
+    }
+    .abt-slider-block-left .abt-banner-caption {
+        bottom: 90px;
+    }
+    .newsleftcontent.mediacontent {
+        right: 3%;
+        width: 27%;
+        top: 36%;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next {
+        right: 20.5%;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev {
+        left: 2.2%;
+    }
+    .owscrollblk {
+        height: 350px;
+    }
+    .navlinkblk {
+        margin: 0 10% 0 0;
+    }
+    .freightcontentparent .servicelefttxtblk {
+        width: 38%;
+    }
+    .servicerighttxtblk {
+        top: 160px;
+    }
+    .ourteammember {
+        height: 260px;
+    }
+    .blue-div-team.blue-div-team1 {
+        right: 410px;
+        top: 70px;
+    }
+    .blue-div-team.blue-div-team3 {
+        left: 70px;
+    }
 }
-@media screen and (max-width:1280px){.overviewimgrightblk{width:34%;right:6%}
-.praductbanwraper{right:-12%}
-.contactinforightblk{top:140px;right:8%}
-.newsslidercontent .banner-caption{left:-50px}
-#fp-nav ul li a span{top:-210px !important}
-#fp-nav{margin-top:0px !important;}
-.prod-morebut{right:257px}
-.product-name{right:270px}
-.greyoverlaybig{left:32%}
-.custombgblk .servicelefttxtblk{width:40%}
-.freightcontentparent .servicelefttxtblk.custumclerblk{width:32%}
-.contacticon:first-child{width:30px}
-.contacticon:nth-child(2){width:60%}
-.hiringbg{background:url('../images/contact/hiringbg.jpg') no-repeat 70% center;background-size:cover}
-.letsmeetbg{background:url('../images/contact/letsmeetbg.jpg') no-repeat 60% center;background-size:cover}
-.aboutavabgblk .servicelefttxtblk{width:45%}
-.ourcommitblk{margin:0}
-.commitsubtxt .pagetitle{font-size:20px;line-height:22px}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev{left:4.5%}
-.team-slider-wrap .bx-wrapper .abt-slider-block-right{height:320px}
-.team-slider-wrap .abt-slider-block-right img{top:35px}
-.team-slider-wrap .bx-wrapper .abt-slider-block-right.abt-slider-block-right-2 img{top:0}
-.abt-slider-block-left .abt-banner-caption{left:40%}
-.newsheading, .tagline, .misson-blk-abt-head{font-size:50px}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next{right:21.2%;}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev{left:0;}
-.newsleftcontent.mediacontent{width:32%}
-.blue-div-team.blue-div-team1{display:none}
+@media screen and (max-width: 1280px) {
+    .overviewimgrightblk {
+        width: 34%;
+        right: 6%;
+    }
+    .praductbanwraper {
+        right: -12%;
+    }
+    .contactinforightblk {
+        top: 140px;
+        right: 8%;
+    }
+    .newsslidercontent .banner-caption {
+        left: -50px;
+    }
+    #fp-nav ul li a span {
+        top: -210px !important;
+    }
+    #fp-nav {
+        margin-top: 0px !important;
+    }
+    .prod-morebut {
+        right: 257px;
+    }
+    .product-name {
+        right: 270px;
+    }
+    .greyoverlaybig {
+        left: 32%;
+    }
+    .custombgblk .servicelefttxtblk {
+        width: 40%;
+    }
+    .freightcontentparent .servicelefttxtblk.custumclerblk {
+        width: 32%;
+    }
+    .contacticon:first-child {
+        width: 30px;
+    }
+    .contacticon:nth-child(2) {
+        width: 60%;
+    }
+    .hiringbg {
+        background: url("../images/contact/hiringbg.jpg") no-repeat 70% center;
+        background-size: cover;
+    }
+    .letsmeetbg {
+        background: url("../images/contact/letsmeetbg.jpg") no-repeat 60% center;
+        background-size: cover;
+    }
+    .aboutavabgblk .servicelefttxtblk {
+        width: 45%;
+    }
+    .ourcommitblk {
+        margin: 0;
+    }
+    .commitsubtxt .pagetitle {
+        font-size: 20px;
+        line-height: 22px;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev {
+        left: 4.5%;
+    }
+    .team-slider-wrap .bx-wrapper .abt-slider-block-right {
+        height: 320px;
+    }
+    .team-slider-wrap .abt-slider-block-right img {
+        top: 35px;
+    }
+    .team-slider-wrap
+        .bx-wrapper
+        .abt-slider-block-right.abt-slider-block-right-2
+        img {
+        top: 0;
+    }
+    .abt-slider-block-left .abt-banner-caption {
+        left: 40%;
+    }
+    .newsheading,
+    .tagline,
+    .misson-blk-abt-head {
+        font-size: 50px;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next {
+        right: 21.2%;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev {
+        left: 0;
+    }
+    .newsleftcontent.mediacontent {
+        width: 32%;
+    }
+    .blue-div-team.blue-div-team1 {
+        display: none;
+    }
 }
-@media screen and (max-width:1200px){.twentytxt .experiencetxt{font-size:140px}
-.overviewslide{background:url('../images/overviewimg.jpg') no-repeat 60% center;background-size:cover;}
-.uspslide{background:url('../images/uspimg.jpg') no-repeat 60% center;background-size:cover;}
-.challengeslide{background:url('../images/challengeimg.jpg') no-repeat 60% center;background-size:cover;}
-.overvwtagln{font-size:50px;line-height:50px}
-.overviewtxtblk{width:38%;top:170px}
-.wrapper{width:92%}
-video{height:100vh;object-fit:fill;}
-.headerrightblk{margin-right:20px}
-.contactinforightblk{right:6%}
-.callblk{display:block;margin:0 0 15px;}
-.callblk:last-child{margin:0;}
-.newsleftcontent{width:32%;}
-.newsslidercontent .banner-caption{left:-48px}
-.praductbanwraper{right:-7%}
-.contactinforightblk{top:220px}
-.productheading{font-size:50px;line-height:50px}
-.newsheading{font-size:50px;line-height:50px}
-.oceanbgblk .servicelefttxtblk{width:38%;top:105px}
-.custombgblk .servicelefttxtblk{width:38%}
-.oceanbgblk{background:url('../images/services/oceanbg.png') no-repeat 70% center;background-size:cover}
-.freightcontentblk.airfrightcontblk{background:url('../images/service-detail/air-banner.jpg') no-repeat 60% center;}
-.freightcontentparent .servicelefttxtblk.custumclerblk{width:45%}
-.freightcontentblk.custcontblk{background:url('../images/services/custombg.jpg') no-repeat 40% center;background-size:cover;}
-.aboutavabgblk{background:url('../images/about/aboutavabg.jpg') no-repeat 60% center;background-size:cover}
-.missn-line::before{left:-38px}
-.no-content-ava{font-size:140px}
-.abt-slider-block-right-2{margin:12px 0 0 -106px}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next{right:18.1%;}
-.team-slider-wrap .abt-slider-block-right-2 img{left:0}
-.abt-slider-block-right-2 .abt-banner-caption{left:150px}
-.navlinkblk{margin:0 6% 0 0}
-ul.navmainlink li{font-size:24px;line-height:24px}
-ul.navsubllink li{font-size:18px;line-height:20px}
-.navigationdes{text-align:left}
-.servdet3sld .greyoverlaysml{left:67%}
-.captashok .abt-banner-caption, .kushal .abt-banner-caption{left:20px}
-.abt-banner-caption{bottom:20px}
+@media screen and (max-width: 1200px) {
+    .twentytxt .experiencetxt {
+        font-size: 140px;
+    }
+    .overviewslide {
+        background: url("../images/overviewimg.jpg") no-repeat 60% center;
+        background-size: cover;
+    }
+    .uspslide {
+        background: url("../images/uspimg.jpg") no-repeat 60% center;
+        background-size: cover;
+    }
+    .challengeslide {
+        background: url("../images/challengeimg.jpg") no-repeat 60% center;
+        background-size: cover;
+    }
+    .overvwtagln {
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .overviewtxtblk {
+        width: 38%;
+        top: 170px;
+    }
+    .wrapper {
+        width: 92%;
+    }
+    video {
+        height: 100vh;
+        object-fit: fill;
+    }
+    .headerrightblk {
+        margin-right: 8px;
+    }
+    .contactinforightblk {
+        right: 6%;
+    }
+    .callblk {
+        display: block;
+        margin: 0 0 15px;
+    }
+    .callblk:last-child {
+        margin: 0;
+    }
+    .newsleftcontent {
+        width: 32%;
+    }
+    .newsslidercontent .banner-caption {
+        left: -48px;
+    }
+    .praductbanwraper {
+        right: -7%;
+    }
+    .contactinforightblk {
+        top: 220px;
+    }
+    .productheading {
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .newsheading {
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .oceanbgblk .servicelefttxtblk {
+        width: 38%;
+        top: 105px;
+    }
+    .custombgblk .servicelefttxtblk {
+        width: 38%;
+    }
+    .oceanbgblk {
+        background: url("../images/services/oceanbg.png") no-repeat 70% center;
+        background-size: cover;
+    }
+    .freightcontentblk.airfrightcontblk {
+        background: url("../images/service-detail/air-banner.jpg") no-repeat 60%
+            center;
+    }
+    .freightcontentparent .servicelefttxtblk.custumclerblk {
+        width: 45%;
+    }
+    .freightcontentblk.custcontblk {
+        background: url("../images/services/custombg.jpg") no-repeat 40% center;
+        background-size: cover;
+    }
+    .aboutavabgblk {
+        background: url("../images/about/aboutavabg.jpg") no-repeat 60% center;
+        background-size: cover;
+    }
+    .missn-line::before {
+        left: -38px;
+    }
+    .no-content-ava {
+        font-size: 140px;
+    }
+    .abt-slider-block-right-2 {
+        margin: 12px 0 0 -106px;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next {
+        right: 18.1%;
+    }
+    .team-slider-wrap .abt-slider-block-right-2 img {
+        left: 0;
+    }
+    .abt-slider-block-right-2 .abt-banner-caption {
+        left: 150px;
+    }
+    .navlinkblk {
+        margin: 0 6% 0 0;
+    }
+    ul.navmainlink li {
+        font-size: 24px;
+        line-height: 24px;
+    }
+    ul.navsubllink li {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .navigationdes {
+        text-align: left;
+    }
+    .servdet3sld .greyoverlaysml {
+        left: 67%;
+    }
+    .captashok .abt-banner-caption,
+    .kushal .abt-banner-caption {
+        left: 20px;
+    }
+    .abt-banner-caption {
+        bottom: 20px;
+    }
 }
-@media screen and (max-width:1120px){.twentytxt .experiencetxt{font-size:130px}
-.newsslidercontent .banner-caption{left:-46px}
-.newsslidercontent .bx-wrapper img{right:85%}
-.freightcontentblk.custcontblk{background:url('../images/services/custombg.jpg') no-repeat 50% center;background-size:cover;}
-.ourcommitblk .commitsubtxt{margin:0}
-.commitsubtxt{font-size:18px;line-height:normal;margin:0}
-.no-content-ava{font-size:130px}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next{right:16.6%;}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev{left:1.5%}
-.truckingbgblk .servicelefttxtblk, .warehousebgblk .servicerighttxtblk, .insurancebgblk .servicelefttxtblk{width:32%}
-.contimgblk{width:40%}
-.contdetailblk{width:52%}
+@media screen and (max-width: 1120px) {
+    .twentytxt .experiencetxt {
+        font-size: 130px;
+    }
+    .newsslidercontent .banner-caption {
+        left: -46px;
+    }
+    .newsslidercontent .bx-wrapper img {
+        right: 85%;
+    }
+    .freightcontentblk.custcontblk {
+        background: url("../images/services/custombg.jpg") no-repeat 50% center;
+        background-size: cover;
+    }
+    .ourcommitblk .commitsubtxt {
+        margin: 0;
+    }
+    .commitsubtxt {
+        font-size: 18px;
+        line-height: normal;
+        margin: 0;
+    }
+    .no-content-ava {
+        font-size: 130px;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next {
+        right: 16.6%;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev {
+        left: 1.5%;
+    }
+    .truckingbgblk .servicelefttxtblk,
+    .warehousebgblk .servicerighttxtblk,
+    .insurancebgblk .servicelefttxtblk {
+        width: 32%;
+    }
+    .contimgblk {
+        width: 40%;
+    }
+    .contdetailblk {
+        width: 52%;
+    }
 }
-@media screen and (max-width:1100px){.overviewimgrightblk{width:40%;right:5%}
-.overviewimgrightblk{bottom:25%}
-.bluoverlaysml{width:130px;left:600px}
-.contactinforightblk{width:40%;right:50px}
-.contactdetailsblk br{display:none}
-.contacttxt{width:80%}
-.contactblk{font-size:16px;line-height:18px}
-.newsleftcontent{width:34%;}
-.newsslidercontent .banner-caption{left:-42px;}
-.praductbanwraper{right:5%;width:1024px}
-.praductbanwraper img{width:100%}
-.prod-morebut{right:7.5%}
-.contactinfobg{background-size:cover}
-#product-bx-pager{bottom:0;width:100%;background:rgba(67, 67, 67, 0.6);right:0;padding:2% 1%;text-align:center}
-#product-bx-pager a{margin:0 40px 0 0;display:inline-block}
-.productrightcontent::after{display:none}
-.praductbanwraper{width:100%;right:0}
-.product-name{right:170px;}
-#fp-nav ul li a span{top:-210px !important}
-#fp-nav{margin-top:-85px !important;}
-.greyoverlaybig{left:28%}
-.servicerighttxtblk{top:150px}
-.oceanbgblk{background:url('../images/services/oceanbg.png') no-repeat 60% center;background-size:cover}
-.freightcontentblk.airfrightcontblk{background:url('../images/service-detail/air-banner.jpg') no-repeat 53% center;}
-.freightcontentblk.insurancecontblk{background:url('../images/services/insurancebg.jpg') no-repeat 44% center;background-size:cover;}
-.newsslidercontent{right:21%}
-.newsslidercontent .bx-wrapper img{right:128%}
-.philosophy-blk-abt{margin:15% 0 0}
-.responsiveabtsld{display:block}
-.desksliderabt, .blue-div-team{display:none}
-.abt-banner-blk-same{transform:skew(0deg);margin-top:120px;left:0;height:200px;}
-.team-slider-wrap .bx-wrapper img{transform:skew(0deg);position:static;height:100%;border-radius:25px 0 25px 0;border:1px solid #fff;}
-.banner-wrapper-about.responsiveabtsld{width:80%;margin:0 auto}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next{background:url("../images/sprite.png") no-repeat -46px -138px;right:-45px;top:28%;opacity:0.7;width:39px;height:39px}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev{background:url("../images/sprite.png") no-repeat -4px -138px;opacity:0.7;left:-60px;top:28%;width:39px;height:39px}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next:hover, .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev:hover{opacity:1}
-.newsleftcontent.mediacontent{right:0;width:85%;left:2%;top:59%;}
-.abt-banner-caption{transform:skew(0deg);left:15px}
-.missn-line{width:68%}
-.missn-line::before{left:-25px;}
-.team-slider-wrap{overflow:hidden}
-.freightcontentparent .servicelefttxtblk{top:100px;width:38%}
-.contasizeblk{padding:10px}
-.contimgblk{margin:0 20px 10px 0}
+@media screen and (max-width: 1100px) {
+    .overviewimgrightblk {
+        width: 40%;
+        right: 5%;
+    }
+    .overviewimgrightblk {
+        bottom: 25%;
+    }
+    .bluoverlaysml {
+        width: 130px;
+        left: 600px;
+    }
+    .contactinforightblk {
+        width: 40%;
+        right: 50px;
+    }
+    .contactdetailsblk br {
+        display: none;
+    }
+    .contacttxt {
+        width: 80%;
+    }
+    .contactblk {
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .newsleftcontent {
+        width: 34%;
+    }
+    .newsslidercontent .banner-caption {
+        left: -42px;
+    }
+    .praductbanwraper {
+        right: 5%;
+        width: 1024px;
+    }
+    .praductbanwraper img {
+        width: 100%;
+    }
+    .prod-morebut {
+        right: 7.5%;
+    }
+    .contactinfobg {
+        background-size: cover;
+    }
+    #product-bx-pager {
+        bottom: 0;
+        width: 100%;
+        background: rgba(67, 67, 67, 0.6);
+        right: 0;
+        padding: 2% 1%;
+        text-align: center;
+    }
+    #product-bx-pager a {
+        margin: 0 40px 0 0;
+        display: inline-block;
+    }
+    .productrightcontent::after {
+        display: none;
+    }
+    .praductbanwraper {
+        width: 100%;
+        right: 0;
+    }
+    .product-name {
+        right: 170px;
+    }
+    #fp-nav ul li a span {
+        top: -210px !important;
+    }
+    #fp-nav {
+        margin-top: -85px !important;
+    }
+    .greyoverlaybig {
+        left: 28%;
+    }
+    .servicerighttxtblk {
+        top: 150px;
+    }
+    .oceanbgblk {
+        background: url("../images/services/oceanbg.png") no-repeat 60% center;
+        background-size: cover;
+    }
+    .freightcontentblk.airfrightcontblk {
+        background: url("../images/service-detail/air-banner.jpg") no-repeat 53%
+            center;
+    }
+    .freightcontentblk.insurancecontblk {
+        background: url("../images/services/insurancebg.jpg") no-repeat 44%
+            center;
+        background-size: cover;
+    }
+    .newsslidercontent {
+        right: 21%;
+    }
+    .newsslidercontent .bx-wrapper img {
+        right: 128%;
+    }
+    .philosophy-blk-abt {
+        margin: 15% 0 0;
+    }
+    .responsiveabtsld {
+        display: block;
+    }
+    .desksliderabt,
+    .blue-div-team {
+        display: none;
+    }
+    .abt-banner-blk-same {
+        transform: skew(0deg);
+        margin-top: 120px;
+        left: 0;
+        height: 200px;
+    }
+    .team-slider-wrap .bx-wrapper img {
+        transform: skew(0deg);
+        position: static;
+        height: 100%;
+        border-radius: 25px 0 25px 0;
+        border: 1px solid #fff;
+    }
+    .banner-wrapper-about.responsiveabtsld {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next {
+        background: url("../images/sprite.png") no-repeat -46px -138px;
+        right: -45px;
+        top: 28%;
+        opacity: 0.7;
+        width: 39px;
+        height: 39px;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev {
+        background: url("../images/sprite.png") no-repeat -4px -138px;
+        opacity: 0.7;
+        left: -60px;
+        top: 28%;
+        width: 39px;
+        height: 39px;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next:hover,
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev:hover {
+        opacity: 1;
+    }
+    .newsleftcontent.mediacontent {
+        right: 0;
+        width: 85%;
+        left: 2%;
+        top: 59%;
+    }
+    .abt-banner-caption {
+        transform: skew(0deg);
+        left: 15px;
+    }
+    .missn-line {
+        width: 68%;
+    }
+    .missn-line::before {
+        left: -25px;
+    }
+    .team-slider-wrap {
+        overflow: hidden;
+    }
+    .freightcontentparent .servicelefttxtblk {
+        top: 100px;
+        width: 38%;
+    }
+    .contasizeblk {
+        padding: 10px;
+    }
+    .contimgblk {
+        margin: 0 20px 10px 0;
+    }
 }
-@media screen and (max-width:1024px){.freightcontentblk.insurancecontblk{background:url('../images/services/insurancebg.jpg') no-repeat 50% center;background-size:cover;}
-.commitment-wrapper-about .servicelefttxtblk{width:54%}
-.hiringbg{background:url('../images/contact/hiringbg.jpg') no-repeat 60% center;background-size:cover}
+@media screen and (max-width: 1024px) {
+    .freightcontentblk.insurancecontblk {
+        background: url("../images/services/insurancebg.jpg") no-repeat 50%
+            center;
+        background-size: cover;
+    }
+    .commitment-wrapper-about .servicelefttxtblk {
+        width: 54%;
+    }
+    .hiringbg {
+        background: url("../images/contact/hiringbg.jpg") no-repeat 60% center;
+        background-size: cover;
+    }
 }
-@media screen and (max-width:1023px){html, body{overflow:scroll!important}
-.footerwrapper{position:relative}
-.strik-left{display:none}
-.headerblk{width:100%;padding:10px 0;margin:0 auto;}
-.videowrapper{height:100%;line-height:0;}
-video{height:100%}
-.bluoverlaysml{position:absolute}
-.videoblk .compshortinfo{margin-top:3%;width:35%}
-.newsleftcontent{position:relative}
-.banner-wrapper{height:100vh}
-.newsleftcontent{width:80%;top:0;padding:50px 0 0;}
-.banner-wrapper{background-size:cover}
-.praductbanwraper{right:-6%}
-.prod-morebut{right:8%}
-.greyoverlaysml, .greyoverlaybig{position:absolute}
-.servicebannerblk{height:100%}
-.bannertxtblk{position:relative;padding:150px 0 50px;bottom:0;}
-.bannertxtblk p{font-size:20px;line-height:normal}
-.servicedeatialbanner{height:100%}
-.freightcontentblk.airfrightcontblk .footerwrapper{position:absolute}
-.freightcontentblk .footerwrapper{position:absolute}
-.calculatorbannerblk .bannertxtblk{position:absolute;padding:0;bottom:60px;}
-.calnumblk{width:50px}
-.contactbannerblk{height:100%}
-.aboutbannerblk{height:100%}
-.missn-line{width:68%}
-.missn-line::before{left:-24px}
-.team-slider-wrap .bx-viewport{height:100% !important}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev, .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next{top:60%}
-.banner-wrapper-about.responsiveabtsld{width:86%}
-.abt-banner-blk-same{margin-top:70px}
-.greyoverlaybig, .greyoverlaysml{display:none}
-.servicesmobimg{display:block;line-height:0;}
-.oceanbgblk, .airbgblk, .custombgblk, .warehousebgblk, .truckingbgblk, .shippingbgblk, .insurancebgblk{background:none;height:100%}
-.oceanbgblk .servicelefttxtblk{position:relative;top:0;background:#4e7ac7;width:100%;left:0;padding:5%;}
-.airbgblk .servicerighttxtblk{position:relative;top:0;background:#4e7ac7;width:100%;left:0;padding:5%;}
-.custombgblk .servicelefttxtblk{position:relative;top:0;background:#4e7ac7;width:100%;left:0;padding:5%;}
-.warehousebgblk .servicerighttxtblk{position:relative;top:0;background:#4e7ac7;width:100%;left:0;padding:5%;}
-.truckingbgblk .servicelefttxtblk{position:relative;top:0;background:#4e7ac7;width:100%;left:0;padding:5%;}
-.shippingbgblk .servicerighttxtblk{position:relative;top:0;background:#4e7ac7;width:100%;left:0;padding:5%;}
-.insurancebgblk .servicelefttxtblk{position:relative;top:0;background:#4e7ac7;width:100%;left:0;padding:5%;}
-.servicesmobimg img{width:100%}
-.bannertxtblk p br{display:none}
-.freightcontentparent .servicelefttxtblk{width:100%;top:0;position:relative;padding:5% 5% 0 4%;left:0;}
-.freightcontentblk.airfrightcontblk{background:#4e7ac7;height:100%}
-.subheading-banner{font-size:100px;line-height:normal}
-.freightcontentblk .servicesmobimg{padding:0 0 70px}
-.freightcontentblk.insurancecontblk{background:#4e7ac7;height:100%}
-.freightcontentblk{background:#4e7ac7;height:100%}
-.freightcontentblk.shippingcontblk{background:#4e7ac7;height:100%}
-.freightcontentblk.wearhoscontblk{background:#4e7ac7;height:100%}
-.freightcontentblk.wearhousecontblk{background:#4e7ac7;height:100%}
-.freightcontentparent .servicelefttxtblk.custumclerblk{position:relative;top:0;background:#4e7ac7;width:100%;left:0;padding:5%;}
-.servicenos{display:none}
-.servicenos.mob{display:none}
-.servicelefttxtblk.servdet3sldcont{padding:0 0 5%}
-.res-video{display:block}
-.desk-video{display:none}
-.vidbuttons{display:block}
-.videoblkwrapper .blackoverlay{background:rgba(0, 0, 0, 0.4);}
-.aboutavabgblk{background:#fff;height:100%}
-.aboutavabgblk .servicelefttxtblk{position:relative;padding:5% 0;top:0;width:90%;}
-.mission-wrapper-about{background:#4e7ac7;height:100%}
-.commitment-wrapper-about{background:#4e7ac7;height:100%}
-.commitment-wrapper-about .servicelefttxtblk{position:relative;top:0;left:0;width:100%;padding:5%}
-.mission-wrapper-about .servicerighttxtblk{position:relative;width:100%;right:0;top:0;padding:5%;text-align:center;}
-.missn-line{display:none}
-.missn-line::before{display:none}
-.owscrollblk{height:auto}
-.philosophy-blk-abt{margin:0 auto;width:50%;text-align:center;padding:35px 5px 0}
-.misson-blk-abt{padding:5px 25px 40px;text-align:center;border-bottom:1px solid #fff;}
-.aboutpgexptxt{margin:0 auto;width:40%}
-.no-content-ava{font-size:100px;line-height:normal}
-.year-ava{font-size:32px;line-height:31px;}
-.experience-ava{font-size:42px;line-height:42px;}
-.misson-blk-abt-head{font-size:50px;line-height:normal}
-.misson-blk-abt{padding:5px 18px 40px;height:240px;}
-.overviewtxtblk{width:90%;top:0;position:relative;height:100%;padding:30px 0;margin:50px 0 0;}
-.overviewslide, .challengeslide, .uspslide{background:none;height:auto}
-.overviewimgrightblk{width:100%;position:relative;left:0;right:0;bottom:0;top:0;background:#000}
-.overviewtab #bx-pager{top:0}
-.bx-wrapper img{height:100% !important}
-.overvwsldimg{display:block!important}
-.oversldimgtxt{display:block;margin:0 auto;width:380px;position:absolute;top:30%;left:0;right:0;}
-.bx-wrapper .overviewimgrightblk img{opacity:0.7;width:100%;}
-.bluoverlaybig, .bluoverlaysml{display:none}
-.servdet3sldcont{width:100%}
-.shippingproinfo{width:100%;display:block}
-.shippingproimg, .cargoblk .shippingproimg{width:70%;margin:20px auto 0;display:block}
+@media screen and (max-width: 1023px) {
+    html,
+    body {
+        overflow: scroll !important;
+    }
+    .footerwrapper {
+        position: relative;
+    }
+    .strik-left {
+        display: none;
+    }
+    .headerblk {
+        width: 100%;
+        padding: 4px 0;
+        margin: 0 auto;
+    }
+    .videowrapper {
+        height: 100%;
+        line-height: 0;
+    }
+    video {
+        height: 100%;
+    }
+    .bluoverlaysml {
+        position: absolute;
+    }
+    .videoblk .compshortinfo {
+        margin-top: 3%;
+        width: 35%;
+    }
+    .newsleftcontent {
+        position: relative;
+    }
+    .banner-wrapper {
+        height: 100vh;
+    }
+    .newsleftcontent {
+        width: 80%;
+        top: 0;
+        padding: 50px 0 0;
+    }
+    .banner-wrapper {
+        background-size: cover;
+    }
+    .praductbanwraper {
+        right: -6%;
+    }
+    .prod-morebut {
+        right: 8%;
+    }
+    .greyoverlaysml,
+    .greyoverlaybig {
+        position: absolute;
+    }
+    .servicebannerblk {
+        height: 100%;
+    }
+    .bannertxtblk {
+        position: relative;
+        padding: 150px 0 50px;
+        bottom: 0;
+    }
+    .bannertxtblk p {
+        font-size: 20px;
+        line-height: normal;
+    }
+    .servicedeatialbanner {
+        height: 100%;
+    }
+    .freightcontentblk.airfrightcontblk .footerwrapper {
+        position: absolute;
+    }
+    .freightcontentblk .footerwrapper {
+        position: absolute;
+    }
+    .calculatorbannerblk .bannertxtblk {
+        position: absolute;
+        padding: 0;
+        bottom: 60px;
+    }
+    .calnumblk {
+        width: 50px;
+    }
+    .contactbannerblk {
+        height: 100%;
+    }
+    .aboutbannerblk {
+        height: 100%;
+    }
+    .missn-line {
+        width: 68%;
+    }
+    .missn-line::before {
+        left: -24px;
+    }
+    .team-slider-wrap .bx-viewport {
+        height: 100% !important;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev,
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-next {
+        top: 60%;
+    }
+    .banner-wrapper-about.responsiveabtsld {
+        width: 86%;
+    }
+    .abt-banner-blk-same {
+        margin-top: 70px;
+    }
+    .greyoverlaybig,
+    .greyoverlaysml {
+        display: none;
+    }
+    .servicesmobimg {
+        display: block;
+        line-height: 0;
+    }
+    .oceanbgblk,
+    .airbgblk,
+    .custombgblk,
+    .warehousebgblk,
+    .truckingbgblk,
+    .shippingbgblk,
+    .insurancebgblk {
+        background: none;
+        height: 100%;
+    }
+    .oceanbgblk .servicelefttxtblk {
+        position: relative;
+        top: 0;
+        background: #4e7ac7;
+        width: 100%;
+        left: 0;
+        padding: 5%;
+    }
+    .airbgblk .servicerighttxtblk {
+        position: relative;
+        top: 0;
+        background: #4e7ac7;
+        width: 100%;
+        left: 0;
+        padding: 5%;
+    }
+    .custombgblk .servicelefttxtblk {
+        position: relative;
+        top: 0;
+        background: #4e7ac7;
+        width: 100%;
+        left: 0;
+        padding: 5%;
+    }
+    .warehousebgblk .servicerighttxtblk {
+        position: relative;
+        top: 0;
+        background: #4e7ac7;
+        width: 100%;
+        left: 0;
+        padding: 5%;
+    }
+    .truckingbgblk .servicelefttxtblk {
+        position: relative;
+        top: 0;
+        background: #4e7ac7;
+        width: 100%;
+        left: 0;
+        padding: 5%;
+    }
+    .shippingbgblk .servicerighttxtblk {
+        position: relative;
+        top: 0;
+        background: #4e7ac7;
+        width: 100%;
+        left: 0;
+        padding: 5%;
+    }
+    .insurancebgblk .servicelefttxtblk {
+        position: relative;
+        top: 0;
+        background: #4e7ac7;
+        width: 100%;
+        left: 0;
+        padding: 5%;
+    }
+    .servicesmobimg img {
+        width: 100%;
+    }
+    .bannertxtblk p br {
+        display: none;
+    }
+    .freightcontentparent .servicelefttxtblk {
+        width: 100%;
+        top: 0;
+        position: relative;
+        padding: 5% 5% 0 4%;
+        left: 0;
+    }
+    .freightcontentblk.airfrightcontblk {
+        background: #4e7ac7;
+        height: 100%;
+    }
+    .subheading-banner {
+        font-size: 100px;
+        line-height: normal;
+    }
+    .freightcontentblk .servicesmobimg {
+        padding: 0 0 70px;
+    }
+    .freightcontentblk.insurancecontblk {
+        background: #4e7ac7;
+        height: 100%;
+    }
+    .freightcontentblk {
+        background: #4e7ac7;
+        height: 100%;
+    }
+    .freightcontentblk.shippingcontblk {
+        background: #4e7ac7;
+        height: 100%;
+    }
+    .freightcontentblk.wearhoscontblk {
+        background: #4e7ac7;
+        height: 100%;
+    }
+    .freightcontentblk.wearhousecontblk {
+        background: #4e7ac7;
+        height: 100%;
+    }
+    .freightcontentparent .servicelefttxtblk.custumclerblk {
+        position: relative;
+        top: 0;
+        background: #4e7ac7;
+        width: 100%;
+        left: 0;
+        padding: 5%;
+    }
+    .servicenos {
+        display: none;
+    }
+    .servicenos.mob {
+        display: none;
+    }
+    .servicelefttxtblk.servdet3sldcont {
+        padding: 0 0 5%;
+    }
+    .res-video {
+        display: block;
+    }
+    .desk-video {
+        display: none;
+    }
+    .vidbuttons {
+        display: block;
+    }
+    .videoblkwrapper .blackoverlay {
+        background: rgba(0, 0, 0, 0.4);
+    }
+    .aboutavabgblk {
+        background: #fff;
+        height: 100%;
+    }
+    .aboutavabgblk .servicelefttxtblk {
+        position: relative;
+        padding: 5% 0;
+        top: 0;
+        width: 90%;
+    }
+    .mission-wrapper-about {
+        background: #4e7ac7;
+        height: 100%;
+    }
+    .commitment-wrapper-about {
+        background: #4e7ac7;
+        height: 100%;
+    }
+    .commitment-wrapper-about .servicelefttxtblk {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 5%;
+    }
+    .mission-wrapper-about .servicerighttxtblk {
+        position: relative;
+        width: 100%;
+        right: 0;
+        top: 0;
+        padding: 5%;
+        text-align: center;
+    }
+    .missn-line {
+        display: none;
+    }
+    .missn-line::before {
+        display: none;
+    }
+    .owscrollblk {
+        height: auto;
+    }
+    .philosophy-blk-abt {
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+        padding: 35px 5px 0;
+    }
+    .misson-blk-abt {
+        padding: 5px 25px 40px;
+        text-align: center;
+        border-bottom: 1px solid #fff;
+    }
+    .aboutpgexptxt {
+        margin: 0 auto;
+        width: 40%;
+    }
+    .no-content-ava {
+        font-size: 100px;
+        line-height: normal;
+    }
+    .year-ava {
+        font-size: 32px;
+        line-height: 31px;
+    }
+    .experience-ava {
+        font-size: 42px;
+        line-height: 42px;
+    }
+    .misson-blk-abt-head {
+        font-size: 50px;
+        line-height: normal;
+    }
+    .misson-blk-abt {
+        padding: 5px 18px 40px;
+        height: 240px;
+    }
+    .overviewtxtblk {
+        width: 90%;
+        top: 0;
+        position: relative;
+        height: 100%;
+        padding: 30px 0;
+        margin: 50px 0 0;
+    }
+    .overviewslide,
+    .challengeslide,
+    .uspslide {
+        background: none;
+        height: auto;
+    }
+    .overviewimgrightblk {
+        width: 100%;
+        position: relative;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: #000;
+    }
+    .overviewtab #bx-pager {
+        top: 0;
+    }
+    .bx-wrapper img {
+        height: 100% !important;
+    }
+    .overvwsldimg {
+        display: block !important;
+    }
+    .oversldimgtxt {
+        display: block;
+        margin: 0 auto;
+        width: 380px;
+        position: absolute;
+        top: 30%;
+        left: 0;
+        right: 0;
+    }
+    .bx-wrapper .overviewimgrightblk img {
+        opacity: 0.7;
+        width: 100%;
+    }
+    .bluoverlaybig,
+    .bluoverlaysml {
+        display: none;
+    }
+    .servdet3sldcont {
+        width: 100%;
+    }
+    .shippingproinfo {
+        width: 100%;
+        display: block;
+    }
+    .shippingproimg,
+    .cargoblk .shippingproimg {
+        width: 70%;
+        margin: 20px auto 0;
+        display: block;
+    }
 }
-@media screen and (max-width:1023px){.overvwtagln{font-size:40px;line-height:40px;margin:0 0 5px;}
-.twentytxt .experiencetxt{font-size:100px;line-height:normal}
-.twentytxt{vertical-align:bottom}
-.experiencetxt{font-size:50px}
-.sliderimgtxt{padding:0;text-align:center}
-.bluoverlaysml{left:630px}
-.tagline{font-size:50px;line-height:50px}
-.videoblk .avanameblk{width:55%}
-.logistic-solution{font-size:14px;line-height:normal;}
-p{font-size:14px;line-height:normal}
-.sprite.dwnarw{margin:50px 0 0 90px}
-.avaglname{margin-bottom:20px}
-.sprite.dwnarw{display:none}
-.contactinfobg{background:#598ce5 url(../images/mobile-images/contactwatermk.png) no-repeat top center;height:100%;padding:30px 0 0;background-size:contain;margin:-5px 0 0;}
-.contactinforightblk{width:92%;margin:0 auto;right:0;position:relative;top:0}
-.contactmobimg{width:100%;line-height:0;display:block}
-.contactmobimg img{width:100%}
-.newsslidercontent, .newsslidercontent .bx-wrapper img, .newsslidercontent .banner-container p{transform:skew(0deg);}
-.newsslidercontent{width:100%;right:0;left:0;position:relative;}
-.newsslidercontent .bx-wrapper li{margin:0}
-.newsslidercontent .bx-wrapper img{right:0}
-.banner-wrapper{height:100%}
-.newsslidercontent .bx-wrapper img{height:auto !important;width:100%;}
-.newsslidercontent .bx-wrapper .bx-controls-direction a.bx-next{right:20px;width:40px;height:40px;top:50%;z-index:999;background:url("../images/right-arw.png") 0 0 no-repeat;transform:skew(0deg);opacity:0.7;}
-.newsslidercontent .bx-wrapper .bx-controls-direction a.bx-prev{left:20px;width:40px;height:40px;top:50%;z-index:999;background:url("../images/left-arw.png") 0 0 no-repeat;transform:skew(0deg);opacity:0.7;}
-.newsslidercontent .bx-wrapper .bx-controls-direction a:hover{opacity:1}
-.slidetxt{margin:0}
-.newsslidercontent .banner-caption{left:0;bottom:0}
-.productleftcontent{position:relative;top:0;left:5%;width:90%;padding:5% 0}
-.productinfoblk{margin:0;color:#434343}
-.productinfoblk .knowmore.knowmorewhite{color:#434343}
-.productinfoblk .sprite.knwmorewharw{background:url('../images/sprite.png') no-repeat -123px -4px}
-.praductbanwraper{right:0}
-.prod-morebut{right:76px}
-.productrightcontent{width:100%;height:100%}
-.productheading{font-size:40px;line-height:40px}
-.product-name{font-size:40px;line-height:normal}
-.newsheading{font-size:40px;line-height:normal}
-.calculatorbannerblk{height:100%}
-.calculatorbannerblk .bannertxtblk{position:relative;padding:150px 0 50px;bottom:0;}
-.calcontentblk{width:90%}
-.letsmeetbg{background:#fff;height:100%}
-.contactlefttxtblk{position:relative;top:0;left:6%;padding:5% 0;width:90%}
-.contacticon:nth-child(2){width:92%}
-.hiringbg{background:#fff;height:100%}
-.innertabdataitem.investor .pagetxt{width:90%}
-.bx-wrapper img.img-responsive{display:block}
-.bx-wrapper img.img-desktop{display:none}
-.width90per{width:100%}
-.width80per{width:100%}
-.width60per{width:100%}
-.testimonialwrap .newsheading{margin:0 0 20px}
-.testinfoblk{color:#fff}
-.testimonialwrap{background:#7fb2f0;height:auto}
-.read-more-test .testinfoblk{color:#000}
-.custombgblk .servicelefttxtblk .pagetxt{width:100%}
+@media screen and (max-width: 1023px) {
+    .overvwtagln {
+        font-size: 40px;
+        line-height: 40px;
+        margin: 0 0 5px;
+    }
+    .twentytxt .experiencetxt {
+        font-size: 100px;
+        line-height: normal;
+    }
+    .twentytxt {
+        vertical-align: bottom;
+    }
+    .experiencetxt {
+        font-size: 50px;
+    }
+    .sliderimgtxt {
+        padding: 0;
+        text-align: center;
+    }
+    .bluoverlaysml {
+        left: 630px;
+    }
+    .tagline {
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .videoblk .avanameblk {
+        width: 55%;
+    }
+    .logistic-solution {
+        font-size: 14px;
+        line-height: normal;
+    }
+    p {
+        font-size: 14px;
+        line-height: normal;
+    }
+    .sprite.dwnarw {
+        margin: 50px 0 0 90px;
+    }
+    .avaglname {
+        margin-bottom: 20px;
+    }
+    .sprite.dwnarw {
+        display: none;
+    }
+    .contactinfobg {
+        background: #598ce5 url(../images/mobile-images/contactwatermk.png)
+            no-repeat top center;
+        height: 100%;
+        padding: 30px 0 0;
+        background-size: contain;
+        margin: -5px 0 0;
+    }
+    .contactinforightblk {
+        width: 92%;
+        margin: 0 auto;
+        right: 0;
+        position: relative;
+        top: 0;
+    }
+    .contactmobimg {
+        width: 100%;
+        line-height: 0;
+        display: block;
+    }
+    .contactmobimg img {
+        width: 100%;
+    }
+    .newsslidercontent,
+    .newsslidercontent .bx-wrapper img,
+    .newsslidercontent .banner-container p {
+        transform: skew(0deg);
+    }
+    .newsslidercontent {
+        width: 100%;
+        right: 0;
+        left: 0;
+        position: relative;
+    }
+    .newsslidercontent .bx-wrapper li {
+        margin: 0;
+    }
+    .newsslidercontent .bx-wrapper img {
+        right: 0;
+    }
+    .banner-wrapper {
+        height: 100%;
+    }
+    .newsslidercontent .bx-wrapper img {
+        height: auto !important;
+        width: 100%;
+    }
+    .newsslidercontent .bx-wrapper .bx-controls-direction a.bx-next {
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        top: 50%;
+        z-index: 999;
+        background: url("../images/right-arw.png") 0 0 no-repeat;
+        transform: skew(0deg);
+        opacity: 0.7;
+    }
+    .newsslidercontent .bx-wrapper .bx-controls-direction a.bx-prev {
+        left: 20px;
+        width: 40px;
+        height: 40px;
+        top: 50%;
+        z-index: 999;
+        background: url("../images/left-arw.png") 0 0 no-repeat;
+        transform: skew(0deg);
+        opacity: 0.7;
+    }
+    .newsslidercontent .bx-wrapper .bx-controls-direction a:hover {
+        opacity: 1;
+    }
+    .slidetxt {
+        margin: 0;
+    }
+    .newsslidercontent .banner-caption {
+        left: 0;
+        bottom: 0;
+    }
+    .productleftcontent {
+        position: relative;
+        top: 0;
+        left: 5%;
+        width: 90%;
+        padding: 5% 0;
+    }
+    .productinfoblk {
+        margin: 0;
+        color: #434343;
+    }
+    .productinfoblk .knowmore.knowmorewhite {
+        color: #434343;
+    }
+    .productinfoblk .sprite.knwmorewharw {
+        background: url("../images/sprite.png") no-repeat -123px -4px;
+    }
+    .praductbanwraper {
+        right: 0;
+    }
+    .prod-morebut {
+        right: 76px;
+    }
+    .productrightcontent {
+        width: 100%;
+        height: 100%;
+    }
+    .productheading {
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .product-name {
+        font-size: 40px;
+        line-height: normal;
+    }
+    .newsheading {
+        font-size: 40px;
+        line-height: normal;
+    }
+    .calculatorbannerblk {
+        height: 100%;
+    }
+    .calculatorbannerblk .bannertxtblk {
+        position: relative;
+        padding: 150px 0 50px;
+        bottom: 0;
+    }
+    .calcontentblk {
+        width: 90%;
+    }
+    .letsmeetbg {
+        background: #fff;
+        height: 100%;
+    }
+    .contactlefttxtblk {
+        position: relative;
+        top: 0;
+        left: 6%;
+        padding: 5% 0;
+        width: 90%;
+    }
+    .contacticon:nth-child(2) {
+        width: 92%;
+    }
+    .hiringbg {
+        background: #fff;
+        height: 100%;
+    }
+    .innertabdataitem.investor .pagetxt {
+        width: 90%;
+    }
+    .bx-wrapper img.img-responsive {
+        display: block;
+    }
+    .bx-wrapper img.img-desktop {
+        display: none;
+    }
+    .width90per {
+        width: 100%;
+    }
+    .width80per {
+        width: 100%;
+    }
+    .width60per {
+        width: 100%;
+    }
+    .testimonialwrap .newsheading {
+        margin: 0 0 20px;
+    }
+    .testinfoblk {
+        color: #fff;
+    }
+    .testimonialwrap {
+        background: #7fb2f0;
+        height: auto;
+    }
+    .read-more-test .testinfoblk {
+        color: #000;
+    }
+    .custombgblk .servicelefttxtblk .pagetxt {
+        width: 100%;
+    }
 }
-@media screen and (max-width:980px){.product-name{right:0;left:5%;top:15px}
-.prod-morebut::after{display:none}
-.prod-morebut{display:none}
-.knowmore.coreproknwmore{position:absolute;top:0;color:#fff;left:9%;top:50px;display:block}
-.aboutpgexptxt{width:48%}
-.contasizeblk{width:100%;border-bottom:1px solid #f0ebeb}
-.contimgblk{width:35%}
-.contdetailblk{width:58%}
-.contdivblk{border:none}
-.contasizeblk:last-child{border:none}
-.cssload-wrap{margin:40% auto 0}
+@media screen and (max-width: 980px) {
+    .product-name {
+        right: 0;
+        left: 5%;
+        top: 15px;
+    }
+    .prod-morebut::after {
+        display: none;
+    }
+    .prod-morebut {
+        display: none;
+    }
+    .knowmore.coreproknwmore {
+        position: absolute;
+        top: 0;
+        color: #fff;
+        left: 9%;
+        top: 50px;
+        display: block;
+    }
+    .aboutpgexptxt {
+        width: 48%;
+    }
+    .contasizeblk {
+        width: 100%;
+        border-bottom: 1px solid #f0ebeb;
+    }
+    .contimgblk {
+        width: 35%;
+    }
+    .contdetailblk {
+        width: 58%;
+    }
+    .contdivblk {
+        border: none;
+    }
+    .contasizeblk:last-child {
+        border: none;
+    }
+    .cssload-wrap {
+        margin: 40% auto 0;
+    }
 }
-@media screen and (max-width:768px){.tagline{font-size:40px;line-height:40px}
-.avaglname{font-size:25px}
-.videoblk .compshortinfo{width:30%}
-.overvwttl{margin:0 0 10px}
-.footerleftblk, .footerrightblk{float:none}
-.developblk{float:right}
-#product-bx-pager a{margin:0 30px 0 0}
-.servicenos{font-size:100px;right:25px}
-.subheading-banner{font-size:80px}
-.calnumblue, .calnumgrey{width:30px;height:30px;font-size:15px;padding:6px 0}
-.contactmap{height:100%}
-.misson-blk-abt-head{font-size:40px}
-.banner-wrapper-about.responsiveabtsld{width:73%}
-.newsleftcontent{padding:20px 0 0}
-.more-cont{width:88%}
+@media screen and (max-width: 768px) {
+    .tagline {
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .avaglname {
+        font-size: 25px;
+    }
+    .videoblk .compshortinfo {
+        width: 30%;
+    }
+    .overvwttl {
+        margin: 0 0 10px;
+    }
+    .footerleftblk,
+    .footerrightblk {
+        float: none;
+    }
+    .developblk {
+        float: right;
+    }
+    #product-bx-pager a {
+        margin: 0 30px 0 0;
+    }
+    .servicenos {
+        font-size: 100px;
+        right: 25px;
+    }
+    .subheading-banner {
+        font-size: 80px;
+    }
+    .calnumblue,
+    .calnumgrey {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+        padding: 6px 0;
+    }
+    .contactmap {
+        height: 100%;
+    }
+    .misson-blk-abt-head {
+        font-size: 40px;
+    }
+    .banner-wrapper-about.responsiveabtsld {
+        width: 73%;
+    }
+    .newsleftcontent {
+        padding: 20px 0 0;
+    }
+    .more-cont {
+        width: 88%;
+    }
 }
-@media screen and (max-width:767px){.aboutpgexptxt{width:360px}
-.misson-blk-abt, .philosophy-blk-abt{width:100%;padding:25px 10px;height:auto}
+@media screen and (max-width: 767px) {
+    .aboutpgexptxt {
+        width: 360px;
+    }
+    .misson-blk-abt,
+    .philosophy-blk-abt {
+        width: 100%;
+        padding: 25px 10px;
+        height: auto;
+    }
 }
-@media screen and (max-width:700px){.videoblk .compshortinfo{width:100%;margin-top:50px}
-.videoblk .avanameblk{width:90%}
-.overvwttl{font-size:30px;line-height:normal}
-.overvwtagln{font-size:30px;line-height:normal}
-.contactinforightblk .tagline{font-size:30px;line-height:normal}
-.newsslidercontent .bx-wrapper .bx-controls-direction a.bx-next{width:35px;height:35px;background-size:100%}
-.newsslidercontent .bx-wrapper .bx-controls-direction a.bx-prev{width:35px;height:35px;background-size:100%}
-.newsslidercontent .banner-container{padding:10px 40px}
-.productheading{font-size:30px;line-height:normal}
-.product-name{font-size:30px;text-shadow:2px 1px 1px #3d3d3d;}
-.newsheading{font-size:30px}
-.calnumblk{width:40px}
-.importsubtxt{font-size:20px;line-height:normal}
-.importheading{font-size:40px;line-height:normal}
-.form-cont{width:90%}
-.innertabitem{width:35%}
-.innertabitem:first-child::before{background:#000;top:12px}
-.contactlefttxtblk{left:0;width:100%;padding:5%}
-.team-slider-wrap .bx-viewport{height:270px !important}
-.banner-wrapper-about.responsiveabtsld li{width:250px !important}
-.banner-wrapper-about.responsiveabtsld{width:85%}
-.banner-wrapper-about.responsiveabtsld li{width:225px !important;margin-right:31px !important;}
-.abt-banner-blk-same{border-radius:25px 0 25px 0;}
-.videowrapper img{display:block;width:100%;}
-#myVideo{display:none}
-.thankutxt{font-size:50px;line-height:50px;}
-.thankusubttl{line-height:30px;font-size:26px;}
-.errorsubttl{width:100%;}
-.calculatortabblk .innertabitem:first-child::before{background:none;}
-.shippingproimg, .cargoblk .shippingproimg{width:100%}
-.shippingprojectblk{padding:30px 0 0}
+@media screen and (max-width: 700px) {
+    .videoblk .compshortinfo {
+        width: 100%;
+        margin-top: 50px;
+    }
+    .videoblk .avanameblk {
+        width: 90%;
+    }
+    .overvwttl {
+        font-size: 30px;
+        line-height: normal;
+    }
+    .overvwtagln {
+        font-size: 30px;
+        line-height: normal;
+    }
+    .contactinforightblk .tagline {
+        font-size: 30px;
+        line-height: normal;
+    }
+    .newsslidercontent .bx-wrapper .bx-controls-direction a.bx-next {
+        width: 35px;
+        height: 35px;
+        background-size: 100%;
+    }
+    .newsslidercontent .bx-wrapper .bx-controls-direction a.bx-prev {
+        width: 35px;
+        height: 35px;
+        background-size: 100%;
+    }
+    .newsslidercontent .banner-container {
+        padding: 10px 40px;
+    }
+    .productheading {
+        font-size: 30px;
+        line-height: normal;
+    }
+    .product-name {
+        font-size: 30px;
+        text-shadow: 2px 1px 1px #3d3d3d;
+    }
+    .newsheading {
+        font-size: 30px;
+    }
+    .calnumblk {
+        width: 40px;
+    }
+    .importsubtxt {
+        font-size: 20px;
+        line-height: normal;
+    }
+    .importheading {
+        font-size: 40px;
+        line-height: normal;
+    }
+    .form-cont {
+        width: 90%;
+    }
+    .innertabitem {
+        width: 35%;
+    }
+    .innertabitem:first-child::before {
+        background: #000;
+        top: 12px;
+    }
+    .contactlefttxtblk {
+        left: 0;
+        width: 100%;
+        padding: 5%;
+    }
+    .team-slider-wrap .bx-viewport {
+        height: 270px !important;
+    }
+    .banner-wrapper-about.responsiveabtsld li {
+        width: 250px !important;
+    }
+    .banner-wrapper-about.responsiveabtsld {
+        width: 85%;
+    }
+    .banner-wrapper-about.responsiveabtsld li {
+        width: 225px !important;
+        margin-right: 31px !important;
+    }
+    .abt-banner-blk-same {
+        border-radius: 25px 0 25px 0;
+    }
+    .videowrapper img {
+        display: block;
+        width: 100%;
+    }
+    #myVideo {
+        display: none;
+    }
+    .thankutxt {
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .thankusubttl {
+        line-height: 30px;
+        font-size: 26px;
+    }
+    .errorsubttl {
+        width: 100%;
+    }
+    .calculatortabblk .innertabitem:first-child::before {
+        background: none;
+    }
+    .shippingproimg,
+    .cargoblk .shippingproimg {
+        width: 100%;
+    }
+    .shippingprojectblk {
+        padding: 30px 0 0;
+    }
 }
-@media screen and (max-width:600px){.avaglname{margin-bottom:10px}
-.tagline{font-size:30px;line-height:30px}
-.avaglname{margin-bottom:10px;font-size:20px}
-.logo{width:100px;background-size:100%;height:55px;}
-.videoblk{bottom:30px}
-.logosection{width:120px}
-.videoblk .compshortinfo{margin-top:20px}
-.videoblk .logistic-solution::before{top:-10px}
-.twentytxt .experiencetxt{font-size:60px}
-.experiencetxt{font-size:30px;line-height:30px}
-.sliderimgtxt{font-size:16px}
-.oversldimgtxt{width:260px;text-align:center;top:20%}
-.overvwttl{font-size:22px;}
-.overvwtagln{font-size:22px;}
-.overviewblk a{font-size:14px;padding:10px}
-.overviewblk a:first-child{padding:10px 10px 10px 0}
-.usplistblk ul li{font-size:16px}
-.contactinforightblk .tagline{font-size:22px;}
-.productheading{font-size:22px}
-.product-name{font-size:22px;}
-.product-name span{font-size:16px}
-.newsheading{font-size:22px}
-.bannertxtblk p{font-size:18px}
-.bannertxtblk{padding:100px 0 50px}
-.bannertxtblk p{font-size:16px}
-.subtxt{font-size:18px;line-height:20px}
-.subheading-banner{font-size:70px}
-.calculatorwrap{padding:20px 0}
-.importsubtxt{font-size:18px;line-height:normal}
-.importheading{font-size:30px;line-height:normal}
-.calcontentblk{width:88%}
-.headerblk.bgcolchange{padding:5px 0}
-.contacticon:nth-child(2){width:85%}
-.innertabitem{width:42%}
-.input-container{width:100%}
-.upload-career{width:100%}
-.browse-btn{width:98%;float:left}
-.submitbtn input{font-size:16px;padding:5px 10px}
-.innertabitem{font-size:13px}
-.innertabitem, .innertabitem:last-child{margin:0 0 0 10px}
-.hiringdatablk{margin:0}
-.no-content-ava{font-size:60px}
-.year-ava{font-size:20px;line-height:20px;}
-.experience-ava{font-size:25px;line-height:25px;}
-.aboutpgexptxt{width:37%}
-.misson-blk-abt-head{font-size:30px}
-.banner-wrapper-about.responsiveabtsld li{width:200px !important;margin-right:35px !important;}
-.inputfile-6 + label strong{right:0}
-.innerheaderblk{padding:5px;}
-.banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev{left:-44px}
+@media screen and (max-width: 600px) {
+    .avaglname {
+        margin-bottom: 10px;
+    }
+    .tagline {
+        font-size: 30px;
+        line-height: 30px;
+    }
+    .avaglname {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    .logo {
+        width: 100px;
+        background-size: 100%;
+        height: 55px;
+    }
+    .videoblk {
+        bottom: 30px;
+    }
+    .logosection {
+        width: 120px;
+    }
+    .videoblk .compshortinfo {
+        margin-top: 20px;
+    }
+    .videoblk .logistic-solution::before {
+        top: -10px;
+    }
+    .twentytxt .experiencetxt {
+        font-size: 60px;
+    }
+    .experiencetxt {
+        font-size: 30px;
+        line-height: 30px;
+    }
+    .sliderimgtxt {
+        font-size: 16px;
+    }
+    .oversldimgtxt {
+        width: 260px;
+        text-align: center;
+        top: 20%;
+    }
+    .overvwttl {
+        font-size: 22px;
+    }
+    .overvwtagln {
+        font-size: 22px;
+    }
+    .overviewblk a {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .overviewblk a:first-child {
+        padding: 10px 10px 10px 0;
+    }
+    .usplistblk ul li {
+        font-size: 16px;
+    }
+    .contactinforightblk .tagline {
+        font-size: 22px;
+    }
+    .productheading {
+        font-size: 22px;
+    }
+    .product-name {
+        font-size: 22px;
+    }
+    .product-name span {
+        font-size: 16px;
+    }
+    .newsheading {
+        font-size: 22px;
+    }
+    .bannertxtblk p {
+        font-size: 18px;
+    }
+    .bannertxtblk {
+        padding: 100px 0 50px;
+    }
+    .bannertxtblk p {
+        font-size: 16px;
+    }
+    .subtxt {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .subheading-banner {
+        font-size: 70px;
+    }
+    .calculatorwrap {
+        padding: 20px 0;
+    }
+    .importsubtxt {
+        font-size: 18px;
+        line-height: normal;
+    }
+    .importheading {
+        font-size: 30px;
+        line-height: normal;
+    }
+    .calcontentblk {
+        width: 88%;
+    }
+    .headerblk.bgcolchange {
+        padding: 5px 0;
+    }
+    .contacticon:nth-child(2) {
+        width: 85%;
+    }
+    .innertabitem {
+        width: 42%;
+    }
+    .input-container {
+        width: 100%;
+    }
+    .upload-career {
+        width: 100%;
+    }
+    .browse-btn {
+        width: 98%;
+        float: left;
+    }
+    .submitbtn input {
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+    .innertabitem {
+        font-size: 13px;
+    }
+    .innertabitem,
+    .innertabitem:last-child {
+        margin: 0 0 0 10px;
+    }
+    .hiringdatablk {
+        margin: 0;
+    }
+    .no-content-ava {
+        font-size: 60px;
+    }
+    .year-ava {
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .experience-ava {
+        font-size: 25px;
+        line-height: 25px;
+    }
+    .aboutpgexptxt {
+        width: 37%;
+    }
+    .misson-blk-abt-head {
+        font-size: 30px;
+    }
+    .banner-wrapper-about.responsiveabtsld li {
+        width: 200px !important;
+        margin-right: 35px !important;
+    }
+    .inputfile-6 + label strong {
+        right: 0;
+    }
+    .innerheaderblk {
+        padding: 5px;
+    }
+    .banner-wrapper-about .bx-wrapper .bx-controls-direction a.bx-prev {
+        left: -44px;
+    }
 }
-@media screen and (max-width:480px){.banner-wrapper-about.responsiveabtsld{width:50%}
-.banner-wrapper-about.responsiveabtsld li{width:220px !important}
-.newsleftcontent.mediacontent{margin:0 auto;left:0;width:90%}
-.contimgblk, .contdetailblk{width:80%}
-.contasizeblk{margin:20px 0 0}
-.thankutxt{font-size:38px;line-height:42px;}
-.thankusubttl{line-height:24px;font-size:20px;}
-.innerinfoblk{padding:100px 0;}
-.thankupageblk{padding:70px 0;}
+@media screen and (max-width: 480px) {
+    .banner-wrapper-about.responsiveabtsld {
+        width: 50%;
+    }
+    .banner-wrapper-about.responsiveabtsld li {
+        width: 220px !important;
+    }
+    .newsleftcontent.mediacontent {
+        margin: 0 auto;
+        left: 0;
+        width: 90%;
+    }
+    .contimgblk,
+    .contdetailblk {
+        width: 80%;
+    }
+    .contasizeblk {
+        margin: 20px 0 0;
+    }
+    .thankutxt {
+        font-size: 38px;
+        line-height: 42px;
+    }
+    .thankusubttl {
+        line-height: 24px;
+        font-size: 20px;
+    }
+    .innerinfoblk {
+        padding: 100px 0;
+    }
+    .thankupageblk {
+        padding: 70px 0;
+    }
 }
-@media screen and (max-width:479px){.welcm-ava{display:none}
-.videoblk{bottom:10px}
-.videoblk .avanameblk{width:100%}
-.logistic-solution{font-size:12px}
-p{font-size:12px}
-.headerblk{margin:0}
-.logo{width:90px}
-.videoblk .compshortinfo{margin-top:5px}
-.videoblk .logistic-solution::before{display:none}
-.overvwsrbttl{font-size:16px}
-.pagetxt{font-size:15px;line-height:17px}
-.knowmore{font-size:14px;margin:15px 0}
-.usplistblk ul li{font-size:14px}
-.developblk{float:none;width:100%;}
-.socialiconblk{border-right:0}
-.newsslidercontent .banner-container{padding:10px 15px}
-.newsslidercontent .bx-wrapper .bx-controls-direction a.bx-next, .newsslidercontent .bx-wrapper .bx-controls-direction a.bx-prev{top:30%}
-.product-name{top:30px}
-.product-name span{font-size:14px}
-.sprite.knwmorewharw, .serviceswrap .sprite.knwmorewharw{background:url('../images/sprite.png') no-repeat -190px -4px;width:32px;margin-left:10px;-webkit-animation-duration:5s;}
-.sprite.knwmorearw{background:url('../images/sprite.png') no-repeat -140px -4px;width:32px;margin-left:10px;-webkit-animation-duration:5s;}
-.productinfoblk .sprite.knwmorewharw{background:url('../images/sprite.png') no-repeat -140px -4px;width:32px;margin-left:5px;}
-.coreproknwmore .sprite.knwmorearw{background:url('../images/sprite.png') no-repeat -190px -4px}
-.directiontxt .sprite.knwmorearw{background:url('../images/sprite.png') no-repeat -190px -4px}
-.footerwrapper.homefooterwrapper{padding:15px 0}
-.copyrighttxt{padding:5px 0}
-#product-bx-pager .active{font-size:16px}
-.newsinfoblk .newsubtxt{font-size:16px}
-.freightcontentblk .servicesmobimg{padding:0 0 135px}
-.servicenos{font-size:80px;bottom:115px}
-.subheading-banner{font-size:55px;}
-.calculatortabblk .innertablist{padding:0;}
-.calculatortabblk .innertabitem{font-size:20px}
-.calcontentblk{width:84%}
-.exportsubtxt{font-size:15px}
-.aboutpgexptxt{width:90%;text-align:center}
-.year-ava{font-size:17px;line-height:17px;}
-.experience-ava{font-size:22px;line-height:22px;}
-.misson-blk-abt-content{font-size:15px;line-height:normal}
-.misson-blk-abt-head{font-size:20px;letter-spacing:2px}
-.commitsubtxt .pagetitle{font-size:16px;line-height:20px;}
-.banner-wrapper-about.responsiveabtsld{width:65%}
-.contactmap iframe{height:300px}
-#status{width:320px}
-.ourcommitblk{width:100%}
+@media screen and (max-width: 479px) {
+    .welcm-ava {
+        display: none;
+    }
+    .videoblk {
+        bottom: 10px;
+    }
+    .videoblk .avanameblk {
+        width: 100%;
+    }
+    .logistic-solution {
+        font-size: 12px;
+    }
+    p {
+        font-size: 12px;
+    }
+    .headerblk {
+        margin: 0;
+    }
+    .logo {
+        width: 90px;
+    }
+    .videoblk .compshortinfo {
+        margin-top: 5px;
+    }
+    .videoblk .logistic-solution::before {
+        display: none;
+    }
+    .overvwsrbttl {
+        font-size: 16px;
+    }
+    .pagetxt {
+        font-size: 15px;
+        line-height: 17px;
+    }
+    .knowmore {
+        font-size: 14px;
+        margin: 15px 0;
+    }
+    .usplistblk ul li {
+        font-size: 14px;
+    }
+    .developblk {
+        float: none;
+        width: 100%;
+    }
+    .socialiconblk {
+        border-right: 0;
+    }
+    .newsslidercontent .banner-container {
+        padding: 10px 15px;
+    }
+    .newsslidercontent .bx-wrapper .bx-controls-direction a.bx-next,
+    .newsslidercontent .bx-wrapper .bx-controls-direction a.bx-prev {
+        top: 30%;
+    }
+    .product-name {
+        top: 30px;
+    }
+    .product-name span {
+        font-size: 14px;
+    }
+    .sprite.knwmorewharw,
+    .serviceswrap .sprite.knwmorewharw {
+        background: url("../images/sprite.png") no-repeat -190px -4px;
+        width: 32px;
+        margin-left: 10px;
+        -webkit-animation-duration: 5s;
+    }
+    .sprite.knwmorearw {
+        background: url("../images/sprite.png") no-repeat -140px -4px;
+        width: 32px;
+        margin-left: 10px;
+        -webkit-animation-duration: 5s;
+    }
+    .productinfoblk .sprite.knwmorewharw {
+        background: url("../images/sprite.png") no-repeat -140px -4px;
+        width: 32px;
+        margin-left: 5px;
+    }
+    .coreproknwmore .sprite.knwmorearw {
+        background: url("../images/sprite.png") no-repeat -190px -4px;
+    }
+    .directiontxt .sprite.knwmorearw {
+        background: url("../images/sprite.png") no-repeat -190px -4px;
+    }
+    .footerwrapper.homefooterwrapper {
+        padding: 15px 0;
+    }
+    .copyrighttxt {
+        padding: 5px 0;
+    }
+    #product-bx-pager .active {
+        font-size: 16px;
+    }
+    .newsinfoblk .newsubtxt {
+        font-size: 16px;
+    }
+    .freightcontentblk .servicesmobimg {
+        padding: 0 0 135px;
+    }
+    .servicenos {
+        font-size: 80px;
+        bottom: 115px;
+    }
+    .subheading-banner {
+        font-size: 55px;
+    }
+    .calculatortabblk .innertablist {
+        padding: 0;
+    }
+    .calculatortabblk .innertabitem {
+        font-size: 20px;
+    }
+    .calcontentblk {
+        width: 84%;
+    }
+    .exportsubtxt {
+        font-size: 15px;
+    }
+    .aboutpgexptxt {
+        width: 90%;
+        text-align: center;
+    }
+    .year-ava {
+        font-size: 17px;
+        line-height: 17px;
+    }
+    .experience-ava {
+        font-size: 22px;
+        line-height: 22px;
+    }
+    .misson-blk-abt-content {
+        font-size: 15px;
+        line-height: normal;
+    }
+    .misson-blk-abt-head {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+    .commitsubtxt .pagetitle {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .banner-wrapper-about.responsiveabtsld {
+        width: 65%;
+    }
+    .contactmap iframe {
+        height: 300px;
+    }
+    #status {
+        width: 320px;
+    }
+    .ourcommitblk {
+        width: 100%;
+    }
 }
-@media screen and (max-width:360px){.avaglname{margin-bottom:5px;font-size:14px;}
-.overviewblk a{font-size:12px}
-.overvwttl, .overvwtagln{font-size:18px}
-.experiencetxt{font-size:24px;line-height:24px;}
-.twentytxt .experiencetxt{font-size:50px;}
-.sliderimgtxt{font-size:13px}
-.oversldimgtxt{top:10%;width:200px}
-.product-name{top:20px}
-.subheading-banner{font-size:50px;}
-.importsubtxt{font-size:16px}
-.servicenos{font-size:60px;bottom:100px;}
-.importheading{font-size:26px}
-.calculatorwrap{padding:0}
-.importsubtxt{font-size:16px}
-.upload-career{width:75%}
-.no-content-ava{font-size:50px}
-.commitsubtxt .pagetitle{font-size:15px}
-.pagetxt.teamsubtxt{font-size:15px}
-.banner-wrapper-about.responsiveabtsld{width:70%}
+@media screen and (max-width: 360px) {
+    .avaglname {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    .overviewblk a {
+        font-size: 12px;
+    }
+    .overvwttl,
+    .overvwtagln {
+        font-size: 18px;
+    }
+    .experiencetxt {
+        font-size: 24px;
+        line-height: 24px;
+    }
+    .twentytxt .experiencetxt {
+        font-size: 50px;
+    }
+    .sliderimgtxt {
+        font-size: 13px;
+    }
+    .oversldimgtxt {
+        top: 10%;
+        width: 200px;
+    }
+    .product-name {
+        top: 20px;
+    }
+    .subheading-banner {
+        font-size: 50px;
+    }
+    .importsubtxt {
+        font-size: 16px;
+    }
+    .servicenos {
+        font-size: 60px;
+        bottom: 100px;
+    }
+    .importheading {
+        font-size: 26px;
+    }
+    .calculatorwrap {
+        padding: 0;
+    }
+    .importsubtxt {
+        font-size: 16px;
+    }
+    .upload-career {
+        width: 75%;
+    }
+    .no-content-ava {
+        font-size: 50px;
+    }
+    .commitsubtxt .pagetitle {
+        font-size: 15px;
+    }
+    .pagetxt.teamsubtxt {
+        font-size: 15px;
+    }
+    .banner-wrapper-about.responsiveabtsld {
+        width: 70%;
+    }
+}
+
+
+@media screen and (max-width: 600px){
+
+    .goog-te-gadget .goog-te-combo {
+        padding: 5px 10px 5px 40px!important;
+        height: 30px!important;
+    }
+
+    .goog-te-combo {
+        font-family: arial;
+        font-size: 9pt !important;
+    }
+
+    img.user-icon {
+        display: none;
+    }
+
+    div#google_translate_element {
+        margin-right: 16px;
+    }
+
+    select {
+     
+        background-position-x: 95%;
+        background-position-y: 10px;
+        background-size: 11px;
+    }
+
+    div#page {
+        margin-top: 74px;
+    }
+
+    video.logo-video {
+        width: auto !important;
+        height: 62px !important;
+    }
+
+    .headerrightblk {
+        height: 65px;
+    }
+
+    img.language-icon {
+        width: 20px;
+        margin-bottom: -34px;
+        margin-left: 11px;
+    }
+
+    .sprite.hamburger {
+        margin-top: 5px;
+    }
+
+    h1.main-title {
+        font-size: 22px;
+    }
+
+    h2.sub-title {
+        font-size: 12px;
+        font-weight: 400;
+        padding-top: 10px;
+    }
+
+    .videoblk .avanameblk {
+        padding-top: 10px;
+    }
+
+    .vidbuttons {
+        margin-top: 44px;
+    }
+
 }

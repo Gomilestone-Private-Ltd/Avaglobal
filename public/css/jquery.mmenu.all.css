@@ -1,4 +1,4 @@
-.mm-opened nav.mm-menu.mm-current{z-index:111;}
+.mm-opened nav.mm-menu.mm-current{z-index:99999;}
 .mm-page{z-index:112;}
 #fp-nav{z-index:113 !important;}
 .mm-opened.mm-opening #fp-nav{z-index:100 !important;}
