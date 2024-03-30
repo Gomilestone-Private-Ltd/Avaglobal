@@ -93,10 +93,8 @@ body {
     padding: 20px 40px;
     align-items: center;
     background-color: #fff;
-    height: 60vh;
+    height: 100%;
     align-items: center;
-    margin-top: 20vh;
-    margin-bottom: 20vh;
     border-radius: 10px;
 }
 
@@ -148,7 +146,20 @@ form.login-form {
 }
 
 img.blogo {
-    width: 100px;
+    width: 120px;
     height: auto;
+}
+
+.login-container {
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+.eva-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
 

@@ -425,8 +425,11 @@
                                     <span class="sprite locationwhite"></span>
                                 </div>
                                 <div class="contacttxt ibvt">
-                                    405, 4th Floor, Windfall, Sahar Plaza Complex,<br /> J.B Nagar, Andheri - Kurla
-                                    Road, Andheri (East), <br /> Mumbai - 400059.
+                                    4th FLOOR, Sahar Plaza COMPLEX, Windfall,<br /> 405, Andheri - Kurla Rd, J B Nagar, Andheri East,<br /> Mumbai, Maharashtra 400059
+
+
+                                    <!-- 405, 4th Floor, Windfall, Sahar Plaza Complex, J.B Nagar, Andheri - Kurla
+                                    Road, Andheri (East), <br /> Mumbai - 400059. -->
                                 </div>
                             </div>
                             <div class="contactblk">
@@ -456,7 +459,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="https://maps.app.goo.gl/K7wXxm4WnoUixDEj8" target="_blank">
                             <div class="knowmore directiontxt uppercase">view direction
                                 <div class="sprite knwmorearw knwmorewharw"></div>
                             </div>
@@ -486,7 +489,7 @@
 
         }
 
-        numCounter("customer", 250, 30);
+        numCounter("customer", 250, 28);
         numCounter("footprint", 170, 40);
         numCounter("ocean", 850, 7);
     </script>

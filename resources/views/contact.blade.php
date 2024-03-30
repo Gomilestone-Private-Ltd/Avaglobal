@@ -37,7 +37,7 @@
                                 <span class="sprite location"></span>
                             </div>
                             <div class="contacticon ibvt">
-                                405, 4th Floor, Windfall, Sahar Plaza Complex, <br />J.B Nagar, Andheri - Kurla Road, <br />Andheri (East), Mumbai - 400059.
+                            4th FLOOR, Sahar Plaza COMPLEX, Windfall,<br /> 405, Andheri - Kurla Rd, J B Nagar, Andheri East,<br /> Mumbai, Maharashtra 400059
                             </div>
                         </div>
                         <div class="contactblk">

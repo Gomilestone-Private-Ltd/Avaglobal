@@ -805,6 +805,7 @@ video.logo-video {
 }
 .contacticon {
     padding: 0 0 0 10px;
+    line-height: 25px;
 }
 .contactinforightblk .tagline {
     margin: 0 0 10px;
@@ -2088,6 +2089,7 @@ video.logo-video {
 }
 .contacttxt {
     padding: 0 0 0 10px;
+    line-height: 25px;
 }
 .contactmobimg {
     display: none;
