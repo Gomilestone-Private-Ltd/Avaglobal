@@ -6,7 +6,7 @@
     left: 0;
     background: rgba(0, 0, 0, 0.65);
     text-align: center;
-    z-index: 10000;
+    z-index: 999999!important;
 }
 
 #once-popup .inner {
@@ -145,4 +145,27 @@ span.close-icon {
 
 img.popup-logo-img {
     width: 95%;
+}
+
+@media screen and (max-width: 600px){
+
+    img.popup-image {
+        height: 240px;
+    }
+
+    .popup-logo {
+        width: 115px;
+        height: 115px;
+    }
+
+    h1.pop-heading {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .event-content {
+        text-align: center;
+        padding: 10px 20px 30px 20px;
+    }
+
 }
