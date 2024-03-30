@@ -69,7 +69,7 @@
 
             </li>
 
-            {{-- <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>
+             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>
                 <ul class="ml-menu">
                     <li><a href="mail-inbox.html">Email</a></li>
                     <li><a href="chat.html">Chat Apps</a></li>
@@ -77,7 +77,7 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i
+            <!-- <li> <a href="javascript:void(0);" class="menu-toggle"><i
                         class="zmdi zmdi-assignment"></i><span>Projects</span></a>
                 <ul class="ml-menu">
                     <li><a href="project-list.html">Projects List</a></li>
@@ -234,7 +234,7 @@
                         </div>
                     </div>
                 </div>
-            </li> --}}
+            </li>  -->
         </ul>
     </div>
 </aside>

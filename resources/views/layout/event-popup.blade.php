@@ -1,12 +1,13 @@
 <div id="once-popup">
     <div class="inner">
-        <div class="left-popup">
-            <img class="popup-image" src="{{ asset('/images/event/event2.jpg') }}" />
+        <div class="pop-content">
+        <div id="popup-close"><span class="close-icon">×</span></div>
+        <img class="popup-image" src="{{ asset('/images/event/popup.jpg') }}" />
+        <div class="popup-logo">
+            <img class="popup-logo-img" src="{{ asset('/images/blogo.png') }}" />
         </div>
-        <div class="right-popup">
-            <div id="popup-close"><span class="close-icon">×</span></div>
-            <div class="event-content">
-            <h1 class="pop-heading">The standard Lorem Ipsum passage, used since the 1500s</h1>
+        <div class="event-content">
+            <h1 class="pop-heading">International Training Course on the REDEFINING LOGISTICS AND TRANSPORTATION</h1>
             <div class="cl-location-box">
                 <p class="cl-location"><img src="{{ asset('/images/location.png') }}" class="location-img">
                     <span>Mumbai</span>
@@ -16,7 +17,7 @@
                 </p>
             </div>
             <a href="#" class="db-pop">Download Event Brochure</a>
-            </div>
+        </div>
         </div>
     </div>
 </div>
