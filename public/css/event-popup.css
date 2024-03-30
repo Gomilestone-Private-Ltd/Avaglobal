@@ -6,18 +6,17 @@
     left: 0;
     background: rgba(0, 0, 0, 0.65);
     text-align: center;
-    z-index: 10000;
+    z-index: 999999!important;
 }
 
 #once-popup .inner {
     background: #ffffff;
     padding: 0px;
-    width: 800px;
+    width: 570px;
     max-width: 90%;
     margin: 50px auto;
-    display: flex;
-    justify-content: center;
     height: 450px;
+    position: relative;
 }
 
 #once-popup #popup-close {
@@ -25,16 +24,20 @@
     max-width: 90%;
     margin: 0px auto;
     position: absolute;
-    right: 20px;
-    font-size: 30px;
+    right: 12px;
+    font-size: 32px;
     cursor: pointer;
+    background-color: #ffffff;
+    width: 35px;
+    border-radius: 0px 0px 15px 15px;
   
 }
 
 img.popup-image {
     width: 100%;
-    height: 450px;
+    height: 300px;
     object-fit: cover;
+    object-position: center;
 }
 
 .left-popup {
@@ -48,12 +51,9 @@ img.popup-image {
     position: relative;
 }
 
-
 .event-content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    text-align: center;
+    padding: 10px 25px 40px 25px;
 }
 
 
@@ -62,16 +62,17 @@ h1.pop-heading {
     color: #2c2c2c;
     font-weight: bold;
     letter-spacing: 0;
-    line-height: 34px;
+    line-height: 36px;
     border-bottom: 0px solid #ccc;
     font-family: "BebasNeueRegular";
     letter-spacing: 0.96px;
-    text-align: left;
+
 }
 
 .cl-location-box {
     display: flex;
-    margin-top: 12px;
+    margin-top: 18px;
+    justify-content: center;
 }
 
 p.cl-location {
@@ -108,9 +109,63 @@ a.db-pop {
     font-family: "Roboto Condensed";
     letter-spacing: 1px;
     width: 280px;
-    margin-top: 30px;
+    margin-top: 24px;
+    display: block;
+    margin: auto;
+    margin-top: 24px;
 }
 
 span.close-icon {
     color: red;
+}
+
+
+.pop-content{
+    position: relative;
+    background-color: #ffffff;
+}
+
+
+.popup-logo {
+    box-shadow: 0px 0px 12px 4px #d0d0d057;
+    width: 130px;
+    height: 130px;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin-top: -75px;
+    z-index: 99;
+    position: relative;
+    border-bottom: 7px solid #0050a4;
+}
+
+img.popup-logo-img {
+    width: 95%;
+}
+
+@media screen and (max-width: 600px){
+
+    img.popup-image {
+        height: 240px;
+    }
+
+    .popup-logo {
+        width: 115px;
+        height: 115px;
+    }
+
+    h1.pop-heading {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .event-content {
+        text-align: center;
+        padding: 10px 20px 30px 20px;
+    }
+
 }
