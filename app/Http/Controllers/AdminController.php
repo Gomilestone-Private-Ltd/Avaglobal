@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AvaDocs;
+use App\Models\CaseStudy;
 use App\Models\Description;
 use App\Models\Job;
 use Illuminate\Contracts\Session\Session;
@@ -16,28 +18,28 @@ class AdminController extends Controller
 
     public function loginPage()
     {
-        // dd(Hash::make('admin@123#'));
         return view('admin.sign-in');
+    }
+
+
+    public function login()
+    {
+        return view('login.index');
     }
     public function authenticate(Request $request)
     {
-
         $credentials = $request->only('email', 'password');
         $remember_me = $request->has('remember_me') ? true : false;
-
         // config('role.admin');
         $user = null;
         if (Auth::attempt($credentials, $remember_me)) {
-
             $user = Auth::user();
-
             //check role
             if (in_array($user->role->name, ['Admin', 'Employee']) && Auth::user()->status == "1") {
 
 
                 return redirect()->intended('dashboard')->with('success', 'Logged In Successfully');
             } else {
-
                 return redirect()->back()->with('failed', 'Hey User Please Contact to admin!!');
             }
         } else {
@@ -54,7 +56,7 @@ class AdminController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/login');
+        return redirect('/admin');
     }
     public function openJob()
     {
@@ -62,6 +64,12 @@ class AdminController extends Controller
         return view('admin.jobOpenings')->with('jobPost', $jobPost);
         // return view('admin.jobOpenings');
     }
+
+    public function addJobs()
+    {
+        return view('admin.addJobs');
+    }
+
     public function postJob(Request $request)
     {
         $requestData = $request->only('department', 'jobStatus', 'timePeriod', 'location', 'jobRole');
@@ -109,25 +117,20 @@ class AdminController extends Controller
         $jobPost = Job::orderBy('id', 'DESC')->get();
         return view('admin.careerSection')->with('jobPost', $jobPost);
     }
+
     public function careerDescription($id)
     {
-
         return view('admin.careerDescp')->with('id', $id);
     }
 
     public function editDescription($id)
     {
         $descData = Description::where('job_id', $id)->first();
-
         return view('admin.careerDescp')->with('descData', $descData);
     }
 
     public function textEditor(Request $request)
     {
-        // $id = $request->routeId;
-        // if (Description::where('job_id', $id)->exists()) {
-        //     return response()->json(['errors' => "Description for this job role has already been set !!"], 400);
-        // }
         $requestData = $request->only('description', 'routeId',);
         $rule = [
             'description' => 'required',
@@ -139,14 +142,69 @@ class AdminController extends Controller
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()->first()], 400);
         }
-        // $jobDescription = new Description();
-        // $jobDescription['description'] = $request->description;
-        // $jobDescription['job_id'] = $request->routeId;
-        // $jobDescription->save();
         Description::updateOrCreate(
             ['description' => $request->description, 'job_id' => $request->routeId],
             ['job_id' => $request->routeId]
         );
         return response()->json(['success' => true, 'message' => 'Description Added Successfully']);
+    }
+
+    public function caseSection()
+    {
+        return view('admin.case-section');
+    }
+
+    public function caseStore(Request $request)
+    {
+        $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'description');
+        $rule = [
+            'case' => 'required',
+            'casetitle' => 'required',
+            'postedby' => 'required',
+            'caseimage' => 'required|mimes:jpeg,png',
+            'description' => 'required'
+        ];
+        $message = [
+            'case.required' => "please fill the case name !!",
+            'casetitle.required' => 'please fill the case title',
+            'postedby.required' => 'please fill the company name',
+            'caseimage.required' => 'please select a case image',
+            'caseimage.mimes' => 'image extension must be of jpeg,png',
+            'description.required' => 'Please add Case description here'
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+        $filename = '';
+        $path = '';
+        if ($request->hasFile('caseimage')) {
+            $file = $request->file('caseimage');
+            $fileType = $file->extension();
+            $fileSize = $file->getSize();
+            $filename = time() . $file->getClientOriginalName();
+            $path = public_path() . '/assets/img/';
+            $file->move($path, $filename);
+        }
+        if ($filename) {
+            $actualImagePath = '/assets/img/' . $filename;
+        } else {
+            $actualImagePath = null;
+        }
+        $caseStudy = new CaseStudy;
+        $caseStudy->case = $request['case'];
+        $caseStudy->case_title = $request['casetitle'];
+        $caseStudy->description = $request['description'];
+        $caseStudy->posted_by = $request['postedby'];
+        $caseStudy->save();
+        $case_id = $caseStudy->id;
+        $avaDocs = new AvaDocs;
+        $avaDocs->case_id = $case_id;
+        $avaDocs->filename = $filename;
+        $avaDocs->filetype = $fileType;
+        $avaDocs->filesize = $fileSize;
+        $avaDocs->path = $actualImagePath;
+        $avaDocs->save();
+        return response()->json(['success' => true, 'message' => 'Case Added Successfully']);
     }
 }

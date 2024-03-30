@@ -8,7 +8,7 @@
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
 
-        <title>:: Aero Bootstrap4 Admin :: Basic Form Elements 3243</title>
+        <title>Ava Global</title>
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- Favicon-->
         <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
@@ -86,7 +86,7 @@
         </div>
 
         <!-- Left Sidebar -->
-        <aside id="leftsidebar" class="sidebar">
+        {{-- <aside id="leftsidebar" class="sidebar">
             <div class="navbar-brand">
                 <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
                 <a href="index.html"><img src="{{ asset('/images/blogo.png') }}" width="100" alt="AvaGlobal"></a>
@@ -109,7 +109,8 @@
                     <li><a href="{{ route('career-section') }}"><span>Job Description</span></a></li>
                 </ul>
             </div>
-        </aside>
+        </aside> --}}
+        @include('admin.layouts.sidebar')
 
 
         <section class="content">

@@ -35,7 +35,7 @@
 
 
 <!-- Left Sidebar -->
-<aside id="leftsidebar" class="sidebar">
+{{-- <aside id="leftsidebar" class="sidebar">
     <div class="navbar-brand">
         <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
         <a href="{{ route('dashboard') }}"><img src="{{ asset('/images/blogo.png') }}" width="100"
@@ -237,7 +237,7 @@
             </li>  -->
         </ul>
     </div>
-</aside>
+</aside> --}}
 
 <!-- Right Sidebar -->
 <aside id="rightsidebar" class="right-sidebar">
@@ -412,24 +412,23 @@
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>Dashboard</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
-                                    class="zmdi zmdi-home"></i>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="zmdi zmdi-home"></i>
                                 AVA-Global</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
                             class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
-                <div class="col-lg-5 col-md-6 col-sm-12">
+                {{-- <div class="col-lg-5 col-md-6 col-sm-12">
                     <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
                             class="zmdi zmdi-arrow-right"></i></button>
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2 big_icon traffic">
+                    <div class="card widget_2">
                         <div class="body">
                             <h6>Job Openings</h6>
                             <h2>20 <small class="info">of 1Tb</small></h2>
@@ -442,7 +441,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2 big_icon sales">
+                    <div class="card widget_2 ">
                         <div class="body">
                             <h6>Case Study</h6>
                             <h2>12% <small class="info">of 100</small></h2>
@@ -455,11 +454,11 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2 big_icon email">
+                    <div class="card widget_2 ">
                         <div class="body">
                             <h6>Job Leads</h6>
                             <h2>39 <small class="info">of 100</small></h2>
-                            <small>Total Case Study</small>
+                            <small>Total Job Leads</small>
                             <div class="progress">
                                 <div class="progress-bar l-purple" role="progressbar" aria-valuenow="39"
                                     aria-valuemin="0" aria-valuemax="100" style="width: 39%;"></div>
@@ -468,11 +467,11 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2 big_icon domains">
+                    <div class="card widget_2 ">
                         <div class="body">
                             <h6>Case Leads</h6>
                             <h2>8 <small class="info">of 10</small></h2>
-                            <small>Total Services</small>
+                            <small>Total Case Leads</small>
                             <div class="progress">
                                 <div class="progress-bar l-green" role="progressbar" aria-valuenow="89"
                                     aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
