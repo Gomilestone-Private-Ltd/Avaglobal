@@ -10,7 +10,7 @@ use Illuminate\Support\Js;
 
 class HomeController extends Controller
 {
-    public function login()
+    public function empLogin()
     {
         return view('login.index');
     }

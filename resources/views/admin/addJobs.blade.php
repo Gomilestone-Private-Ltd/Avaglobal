@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="no-js " lang="en">
 
 
@@ -44,16 +44,6 @@
             h3 {
                 margin-bottom: -9px;
             }
-
-            /* .card .body {
-                font-weight: 400;
-                border-radius: .35rem;
-                background: #fff;
-                font-size: 14px;
-                color: #222;
-                padding: 20px;
-                margin-top: -115px;
-            } */
         </style>
     </head>
 
@@ -92,34 +82,10 @@
             </ul>
         </div>
 
-        <!-- Left Sidebar -->
-        {{-- <aside id="leftsidebar" class="sidebar">
-            <div class="navbar-brand">
-                <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-                <a href="index.html"><img src="{{ asset('/images/blogo.png') }}" width="100" alt="AvaGlobal"></a>
-            </div>
-            <div class="menu">
-                <ul class="list">
-                    <li>
-                        <div class="user-info">
-                            <a class="image" href="profile.html"><img src="assets/images/profile_av.jpg"
-                                    alt="User"></a>
-                            <div class="detail">
-                                <h4>{{ auth()->user()->name }}</h4>
-                                <small>{{ auth()->user()->role->name }}</small>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="{{ route('dashboard') }}"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
-                    <li><a href="{{ route('opened-job') }}"><span>Job Openings</span></a> </li>
-                    <li><a href="{{ route('career-section') }}"><span>Job Description</span></a></li>
-                </ul>
-            </div>
-        </aside> --}}
         @include('admin.layouts.sidebar')
 
 
-        {{-- <section class="content">
+        <section class="content">
             <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
                 JOB OPENINGS
             </h3>
@@ -198,98 +164,13 @@
                 </div>
             </div>
 
-        </section> --}}
-
-
-        <section class="content">
-            <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-                JOB OPENINGS DATA
-            </h3>
-            <div class="form-group col-md-12">
-                <a href="{{ url('/add-jobs') }}" class="btn btn-primary float-right">Add</a>
-            </div>
-            <div class="body_scroll">
-                <div class="block-header">
-                    <div class="row">
-
-
-                    </div>
-                </div>
-
-                <div class="container-fluid">
-                    <!-- Basic Examples -->
-                    <div class="row clearfix">
-                        <div class="col-lg-12">
-                            <div class="card">
-
-                                <div class="body">
-                                    <div class="table-responsive">
-                                        <table
-                                            class="table table-bordered table-striped table-hover js-basic-example dataTable"
-                                            id="job-posted">
-                                            <thead>
-
-                                                <tr>
-                                                    <th>S.No</th>
-                                                    <th>Department</th>
-                                                    <th>Job Role</th>
-                                                    <th>Location</th>
-                                                    <th>Time Period</th>
-                                                    <th>Job Status</th>
-                                                    <th>Action</th>
-                                                </tr>
-
-                                            </thead>
-                                            {{-- <tfoot>
-                                                <tr>
-                                                    <th>S.No</th>
-                                                    <th>Department</th>
-                                                    <th>Job Role</th>
-                                                    <th>Location</th>
-                                                    <th>Time Period</th>
-                                                    <th>Job Status</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </tfoot> --}}
-                                            <tbody>
-                                                @foreach ($jobPost as $data)
-                                                    <tr>
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $data->department }}</td>
-                                                        <td>{{ $data->job_role }}</td>
-                                                        <td>{{ $data->location }}</td>
-                                                        <td>{{ $data->time_period }}</td>
-                                                        <td>{{ $data->is_active }}</td>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <button class="btn btn-primary">Edit</button><button
-                                                                    class="btn btn-danger">Delete</button>
-                                                            </div>
-                                                        </td>
-
-
-                                                    </tr>
-                                                @endforeach
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
         </section>
 
 
 
 
-        {{-- 
+
+
         <script>
             $(document).ready(function() {
 
@@ -338,7 +219,7 @@
                     });
                 });
             });
-        </script> --}}
+        </script>
 
 
 
@@ -357,15 +238,7 @@
         <script src="assets/js/pages/forms/basic-form-elements.js"></script>
         <script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
 
-        <!-- Jquery DataTable Plugin Js -->
-        <script src="assets/bundles/datatablescripts.bundle.js"></script>
-        <script src="assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
-        <script src="assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
-        <script src="assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
-        <script src="assets/plugins/jquery-datatable/buttons/buttons.flash.min.js"></script>
-        <script src="assets/plugins/jquery-datatable/buttons/buttons.html5.min.js"></script>
-        <script src="assets/plugins/jquery-datatable/buttons/buttons.print.min.js"></script>
-        <script src="assets/js/pages/tables/jquery-datatable.js"></script>
+
 
 
     </body>

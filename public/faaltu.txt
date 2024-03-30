@@ -1,0 +1,16 @@
+big_icon domains
+
+big_icon email
+big_icon sales
+ big_icon traffic
+
+ //textEditor function's some code 
+  // $id = $request->routeId;
+        // if (Description::where('job_id', $id)->exists()) {
+        //     return response()->json(['errors' => "Description for this job role has already been set !!"], 400);
+        // }
+
+         // $jobDescription = new Description();
+        // $jobDescription['description'] = $request->description;
+        // $jobDescription['job_id'] = $request->routeId;
+        // $jobDescription->save();

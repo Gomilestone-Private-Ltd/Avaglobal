@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/emp-login', [HomeController::class, 'login'])->middleware('checkLogin')->name('emp-login');
+Route::get('/employee-login', [HomeController::class, 'empLogin'])->middleware('checkLogin')->name('employee-login');
+
 
 //After login
 Route::get('/', [HomeController::class, 'homePage'])->name('home');
@@ -45,14 +46,17 @@ Route::get('news-and-event', [HomeController::class, 'newsEvent'])->name('newsEv
 
 
 //Admin panel
+// Route::get('/login', [AdminController::class, 'loginPage'])->middleware('checkLogin')->name('login');
 
-Route::get('/login', [AdminController::class, 'loginPage'])->middleware('checkLogin')->name('login');
+Route::get('/admin', [AdminController::class, 'login'])->middleware('checkLogin')->name('login');
+
 Route::post('/authenticate', [AdminController::class, 'authenticate'])->name('authenticate');
 
 Route::get('/logout', [AdminController::class, 'logout'])->middleware('auth')->name('logout');
 
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 Route::get('/job-openings', [AdminController::class, 'openJob'])->middleware('auth')->name('opened-job');
+Route::get('/add-jobs', [AdminController::class, 'addJobs'])->middleware('auth')->name('add-jobs');
 Route::post('/post-jobs', [AdminController::class, 'postJob'])->middleware('auth')->name('postJobs');
 Route::get('/get-jobs', [AdminController::class, 'getJobs'])->middleware('auth')->name('getJobs');
 
@@ -62,3 +66,6 @@ Route::post('/text-editor', [AdminController::class, 'textEditor'])->middleware(
 
 Route::get('/edit-description/{id}', [AdminController::class, 'editDescription'])->middleware('auth')->name('edit-description');
 Route::get('/admin/case-study', [AdminController::class, 'caseSection'])->middleware('auth')->name('case-section');
+
+
+Route::post('/case/store', [AdminController::class, 'caseStore'])->middleware('auth')->name('caseStore');
