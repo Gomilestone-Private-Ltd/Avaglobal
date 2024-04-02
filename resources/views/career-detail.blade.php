@@ -3,16 +3,17 @@
 @endpush
 @extends('layout.main')
 @section('content')
+    {{-- me added --}}
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     <div id="page">
         <div class="calculatorwrapper">
             <div class="job-details">
                 <div class="eva-container">
                     <div class="jd-herder-main">
                         <div class="jd-herder-left">
-                            @foreach ($careerData as $data)
-                                <h3 class="csd-category">{{ $data->department }}</h3>
-                                <h1 class="csd-title">{{ $data->job_role }}</h1>
-                            @endforeach
+
+                            <h3 class="csd-category">{{ $careerData->department }}</h3>
+                            <h1 class="csd-title">{{ $careerData->job_role }}</h1>
 
                         </div>
                         <div class="jd-herder-right">
@@ -28,11 +29,10 @@
                             <div class="job-main">
                                 <div class="job-left">
                                     <div class="csd-contnet detail csdt-title csdt-title2 csdt-content key-point">
-                                        @foreach ($careerData as $descData)
-                                            {!! $description = isset($descData->careerDescription->description)
-                                                ? $descData->careerDescription->description
-                                                : '' !!}
-                                        @endforeach
+
+                                        {!! $description = isset($careerData->description) ? $careerData->description : '' !!}
+
+
                                         {{-- <h3 class="csdt-title">Job Summary</h3>
                                         <p class="csdt-content">Contrary to popular belief, Lorem Ipsum is not
                                             simply random text. It has roots in a piece of classical Latin
@@ -86,47 +86,63 @@
 
                                     </div>
                                 </div>
+
                                 <div class="job-right" id="apply">
                                     <h3 class="csdt-title">Job Details</h3>
-                                    <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Category :
-                                        <span> Operations</span>
+                                    <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">
+                                        Category :<span> {{ $careerData->job_role }}</span>
                                     </p>
                                     <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Workday :
-                                        <span> Full Time</span>
+                                        <span>{{ $careerData->time_period }}</span>
                                     </p>
                                     <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Location :
-                                        <span> Mumbai</span>
+                                        <span> {{ $careerData->location }}</span>
                                     </p>
                                     <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Experience
                                         :
-                                        <span> 5+ Years</span>
+                                        <span> {{ $careerData->experience }}</span>
                                     </p>
 
+
+
                                     <h3 class="csdt-title2">WE ARE HIRING</h3>
-                                    <form name="contactform" method="post" action="send_mail.php"
-                                        enctype="multipart/form-data">
+                                    <form id="applicantForm" method="post" action="" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="form-cont">
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Your Name</div>
-                                                <input type="text" name="name" class="inputclick" required>
+                                                <input type="text" name="name" class="inputclick">
+                                                <span class="text-danger">
+
+
+                                                </span>
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Your Email address</div>
                                                 <input type="email" name="email" class="inputclick" required>
+                                                <span class="text-danger">
+
+                                                </span>
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">PHONE number</div>
                                                 <input type="text" name="phone" class="inputclick"
                                                     pattern="[0-9]{5,15}" required>
+                                                <span class="text-danger">
+
+                                                </span>
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Position</div>
                                                 <input type="text" name="position" class="inputclick" required>
+                                                <span class="text-danger">
+
+                                                </span>
                                             </div>
                                             <div class="input-container choose-container">
                                                 <div class="form-row">
                                                     <div class="upload-career fl">
-                                                        <div class="browse-btn"><input name="file-7[]" id="file-7"
+                                                        <div class="browse-btn"><input name="applicantPdf" id="file-7"
                                                                 class="inputfile inputfile-6"
                                                                 data-multiple-caption="{count} files selected"
                                                                 multiple="" type="file">
@@ -134,14 +150,18 @@
                                                                 <span>(FILE FORMAT PDF)</span>
                                                                 <strong>Upload CV</strong>
                                                             </label>
+
                                                         </div>
+                                                        <span class="text-danger">
+
+                                                        </span>
                                                     </div>
 
                                                     <div class="clear"></div>
                                                 </div>
                                             </div>
                                             <div class="submitbtn">
-                                                <input type="submit" name="contact" value="Submit Now" />
+                                                <input type="submit" name="" value="Submit Now" />
                                             </div>
                                         </div>
                                     </form>
@@ -150,7 +170,89 @@
                         </div>
                     </div>
                 </div>
-               
+
+                <script>
+                    $(document).ready(function() {
+                        $("#applicantForm").validate({
+                            rules: {
+                                name: {
+                                    required: true
+                                },
+                                email: {
+                                    required: true
+                                },
+                                phone: {
+                                    required: true
+                                },
+                                position: {
+                                    required: true
+                                },
+                                applicantPdf: {
+                                    required: true
+                                }
+                            },
+                            messages: {
+                                name: {
+                                    required: "Please give your name here"
+                                },
+                                email: {
+                                    required: "Please fill the email field"
+                                },
+                                phone: {
+                                    required: "Please give us your contact detail",
+
+                                },
+                                position: {
+                                    required: "Please tell the position applying for"
+                                },
+                                applicantPdf: {
+                                    required: "Please add your Cv here"
+                                }
+                            },
+                        });
+
+                        $('#applicantForm').submit(function(e) {
+                            e.preventDefault();
+
+                            // Serialize the form data
+                            const formData = new FormData($(this)[0]);
+
+                            // Send an AJAX request
+                            $.ajax({
+                                type: 'POST',
+                                url: '{{ url('/post-applicants') }}',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                success: function(response) {
+
+                                    console.log(response);
+                                    toastr.options = {
+                                        'closeButton': true,
+                                        'progressBar': true
+                                    }
+                                    toastr.success(response.message);
+                                    // setTimeout(function() {
+                                    //     window.location.href = "/get-jobs";
+                                    // }, 2000);
+                                },
+                                error: function(response) {
+                                    if (response.responseJSON && response.responseJSON.errors) {
+                                        $('.text-danger').html('');
+                                        $.each(response.responseJSON.errors, function(field, errorMessage) {
+                                            $('input[name="' + field + '"]').closest(
+                                                    '.input-container')
+                                                .find('.text-danger').html(errorMessage);
+                                        });
+                                    }
+
+
+                                }
+                            });
+                        });
+                    });
+                </script>
+
 
                 <!-- DESKTOP MENU JS SATRT -->
                 <script>
@@ -168,7 +270,6 @@
                         }
                     });
 
-                    //scrollIt
                     $(document).ready(function() {
                         $(function() {
                             $.scrollIt({
@@ -252,6 +353,68 @@
                         });
                     });
                 </script>
+
+                <script>
+                    /*SCRIPT FOR INPUT TYPE START*/
+                    $(document).ready(function($) {
+                        $('.inputclick').focusin(function() {
+                            $(this).prev('.placholder').addClass('up-place');
+                        });
+
+                        $('.inputclick').focusout(function() {
+                            $(this).prev('.placholder').removeClass('up-place');
+                        });
+
+                        $(".inputclick").blur(function() {
+                            if ($(this).val() >= '1') {
+                                $(this).prev('.placholder').hide();
+                            } else {
+                                $(this).prev('.placholder').show();
+                            }
+                        });
+                    });
+                    /*SCRIPT FOR INPUT TYPE START*/
+                </script>
+                <!-- BROWSE BUTTON JS START -->
+                <script>
+                    (function(e, t, n) {
+                        var r = e.querySelectorAll("html")[0];
+                        r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2")
+                    })(document, window, 0);
+                </script>
+                <script>
+                    'use strict';;
+                    (function(document, window, index) {
+                        var inputs = document.querySelectorAll('.inputfile');
+                        Array.prototype.forEach.call(inputs, function(input) {
+                            var label = input.nextElementSibling,
+                                labelVal = label.innerHTML;
+
+                            input.addEventListener('change', function(e) {
+                                var fileName = '';
+                                if (this.files && this.files.length > 1)
+                                    fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}',
+                                        this.files.length);
+                                else
+                                    fileName = e.target.value.split('\\').pop();
+
+                                if (fileName)
+                                    label.querySelector('span').innerHTML = fileName;
+                                else
+                                    label.innerHTML = labelVal;
+                            });
+
+                            // Firefox bug fix
+                            input.addEventListener('focus', function() {
+                                input.classList.add('has-focus');
+                            });
+                            input.addEventListener('blur', function() {
+                                input.classList.remove('has-focus');
+                            });
+                        });
+                    }(document, window, 0));
+                </script>
+
                 <!---footer end-->
             </div>
-@endsection
+        @endsection

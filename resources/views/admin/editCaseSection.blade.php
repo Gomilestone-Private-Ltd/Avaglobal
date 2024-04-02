@@ -124,7 +124,7 @@
             <div class="container-fluid">
                 <!-- Input -->
                 <div class="row clearfix">
-                    <form action="" enctype="multipart/form-data" id="caseCreate" method="POST">
+                    <form action="" enctype="multipart/form-data" id="caseEdit" method="POST">
                         @csrf
                         <div class="container mt-4 card p-3 bg-white">
 
@@ -132,7 +132,7 @@
                                 <div class="form-group col-md-6 required">
                                     <label for="">Case:</label>
                                     <input type="text" name="case" id="" class="form-control"
-                                        value="">
+                                        value="{{ $data->case }}">
                                     <span class="text-danger">
                                         @error('case')
                                             {{ $message }}
@@ -144,7 +144,7 @@
                                 <div class="form-group col-md-6 required">
                                     <label for="">Case Title:</label>
                                     <input type="text" name="casetitle" id="" class="form-control"
-                                        value="">
+                                        value="{{ $data->case_title }}">
 
 
                                     <span class="text-danger">
@@ -158,7 +158,7 @@
                                 <div class="form-group col-md-6 required">
                                     <label for="">Posted By:</label>
                                     <input type="text" name="postedby" id="" class="form-control"
-                                        value="">
+                                        value="{{ $data->posted_by }}">
                                     <span class="text-danger">
                                         @error('dob')
                                             {{ $message }}
@@ -170,6 +170,7 @@
 
                                 <div class="form-group col-md-6">
                                     <label for="">Case Image:</label>
+
                                     <div class="file-box">
                                         <input type="file" name="caseimage" id="caseimageinput" class="form-control"
                                             value="" placeholder="Case Image" />
@@ -182,13 +183,14 @@
                                         @enderror
                                     </span>
                                     <div id="imagePreview">
-
+                                        <img src="{{ asset($data->avaDocs->path) }}" height="50" width="50"
+                                            alt="">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12 required">
                                     <label for="">Description:</label>
                                     <textarea id="tinymce" name="description" class="form-control" placeholder="Description"
-                                        OnClientClick="tinyMCE.triggerSave(false,true);"></textarea>
+                                        OnClientClick="tinyMCE.triggerSave(false,true);">{!! $data->description !!}</textarea>
                                     <span class="text-danger">
                                         @error('description')
                                             {{ $message }}
@@ -196,6 +198,7 @@
 
                                     </span>
                                 </div>
+                                <input type="hidden" name="id" value="{{ $data->id }}">
 
 
                                 <div class="form-group col-md-12 ">
@@ -259,7 +262,7 @@
                     }
                 });
             });
-            $("#caseCreate").validate({
+            $("#caseEdit").validate({
                 rules: {
                     case: {
                         required: true
@@ -268,9 +271,6 @@
                         required: true
                     },
                     postedby: {
-                        required: true
-                    },
-                    caseimage: {
                         required: true
                     },
                     description: {
@@ -288,20 +288,17 @@
                         required: "Fill the company name",
 
                     },
-                    caseimage: {
-                        required: "Please select the case image !!"
-                    },
                     description: {
                         required: "Please add Case description"
                     }
                 },
             });
             // submitHandler: function(form, e) {
-            $('#caseCreate').submit(function(e) {
+            $('#caseEdit').submit(function(e) {
                 e.preventDefault();
                 tinymce.triggerSave(false, true)
                 if (selectedFile) {
-                    var formData = new FormData($("#caseCreate")[0]);
+                    var formData = new FormData($("#caseEdit")[0]);
                     console.log(formData);
 
                     // var descriptionValue = $('textarea#tinymce').val();
@@ -309,7 +306,7 @@
                     // formData.append('description', descriptionValue);
 
                     $.ajax({
-                        url: "{{ url('/case/store') }}",
+                        url: "{{ url('/case/update') }}",
                         method: 'POST',
                         data: formData,
                         processData: false,
@@ -317,7 +314,7 @@
 
 
                         success: function(response) {
-                            $('#caseCreate').trigger("reset");
+                            $('#caseEdit').trigger("reset");
 
                             $('#imagePreview').html('');
                             $('.close-icon').hide();
@@ -347,7 +344,51 @@
                         }
                     });
                 } else {
+                    var formData = new FormData($("#caseEdit")[0]);
+                    console.log(formData);
 
+                    // var descriptionValue = $('textarea#tinymce').val();
+                    // console.log(descriptionValue);
+                    // formData.append('description', descriptionValue);
+
+                    $.ajax({
+                        url: "{{ url('/case/update') }}",
+                        method: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+
+
+                        success: function(response) {
+                            $('#caseEdit').trigger("reset");
+
+                            $('#imagePreview').html('');
+                            $('.close-icon').hide();
+                            console.log(response.message);
+                            toastr.options = {
+                                'closeButton': true,
+                                'progressBar': true
+                            }
+                            toastr.success(response.message);
+                            // setTimeout(function() {
+                            //     window.location.href = "";
+                            // }, 3000);
+                        },
+                        error: function(response) {
+                            if (response.responseJSON && response.responseJSON.errors) {
+                                $('.text-danger').html('');
+                                $.each(response.responseJSON.errors, function(field, errorMessage) {
+
+                                    var errorHtml = '<span class="text-danger">' +
+                                        errorMessage + '</span>';
+                                    $('[name="' + field + '"]').closest(
+                                            '.form-group')
+                                        .find('.text-danger').html(errorHtml);
+                                });
+                            }
+                        }
+
+                    });
                 }
             });
         </script>

@@ -8,22 +8,21 @@
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
 
-        <title>Ava Global</title>
-        <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+        <title>:: Ava Global</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- Favicon-->
-        <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
         <!-- Bootstrap Material Datetime Picker Css -->
-        <link
-            href="{{ asset('assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}"
+        <link href="assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
             rel="stylesheet" />
         <!-- Bootstrap Select Css -->
-        <link href="{{ asset('assets/plugins/bootstrap-select/css/bootstrap-select.css') }}" rel="stylesheet" />
+        <link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
         <!-- jQuery DataTable link -->
-        <link rel="stylesheet" href="{{ asset('assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css') }}">
+        <link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css">
 
         <!-- Custom Css -->
-        <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
+        <link rel="stylesheet" href="assets/css/style.min.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -56,8 +55,8 @@
         <!-- Page Loader -->
         <div class="page-loader-wrapper">
             <div class="loader">
-                <div class="m-t-30"><img class="zmdi-hc-spin" src="{{ asset('assets/images/loader.svg') }}"
-                        width="48" height="48" alt="Aero"></div>
+                <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/loader.svg" width="48"
+                        height="48" alt="Aero"></div>
                 <p>Please wait...</p>
             </div>
         </div>
@@ -102,8 +101,7 @@
                             <div class="row">
                                 <div class="form-group col-md-3 required">
                                     <label for="">Department:</label>
-                                    <input type="text" name="department" class="form-control"
-                                        value="{{ $department = isset($jobData->department) ? $jobData->department : '' }}"
+                                    <input type="text" name="department" class="form-control" value=""
                                         placeholder="Department">
                                     <span class="text-danger">
                                         @error('department')
@@ -114,8 +112,7 @@
 
                                 <div class="form-group col-md-3 required">
                                     <label for="">Job Role:</label>
-                                    <input type="text" name="jobRole" class="form-control"
-                                        value="{{ $jobRole = isset($jobData->job_role) ? $jobData->job_role : '' }}"
+                                    <input type="text" name="jobRole" class="form-control" value=""
                                         placeholder="Job Role">
                                     <span class="text-danger">
                                         @error('jobRole')
@@ -126,8 +123,7 @@
 
                                 <div class="form-group col-md-3 required">
                                     <label for="">Location:</label>
-                                    <input type="text" name="location" class="form-control"
-                                        value="{{ $location = isset($jobData->location) ? $jobData->location : '' }}"
+                                    <input type="text" name="location" class="form-control" value=""
                                         placeholder="Location">
                                     <span class="text-danger">
 
@@ -138,45 +134,20 @@
                                     <label for="">Time Period:</label>
                                     <select name="timePeriod" class="form-control">
                                         <option value="">-- Please select --</option>
-                                        @if (isset($jobData))
-                                            <option value="Full Time"
-                                                {{ $jobData->time_period == 'Full Time' ? 'selected' : '' }}>Full
-                                                Time
-                                            </option>
-                                            <option value="Part Time"
-                                                {{ $jobData->time_period == 'Part Time' ? 'selected' : '' }}>Part
-                                                Time
-                                            </option>
-                                        @else
-                                            <option value="Full Time">Full Time</option>
-                                            <option value="Part Time">Part Time</option>
-                                        @endif
-
+                                        <option value="Full Time">Full Time</option>
+                                        <option value="Part Time">Part Time</option>
                                     </select>
                                     <span class="text-danger">
 
                                     </span>
                                 </div>
-                                <input type="hidden" name="id"
-                                    value="{{ $jobId = isset($jobData->id) ? $jobData->id : '' }}">
 
                                 <div class="form-group col-md-3 required">
                                     <label for="">Job Status:</label>
                                     <select name="jobStatus" class="form-control">
                                         <option value="">-- Please select --</option>
-                                        @if (isset($jobData))
-                                            <option value="Active"
-                                                {{ $jobData->is_active == 'Active' ? 'selected' : '' }}>
-                                                Active
-                                            </option>
-                                            <option value="Inactive"
-                                                {{ $jobData->is_active == 'Inactive' ? 'selected' : '' }}>
-                                                Inactive
-                                            </option>
-                                        @else
-                                            <option value="Active">Active</option>
-                                            <option value="Inactive">Inactive</option>
-                                        @endif
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
 
                                     </select>
                                     <span class="text-danger">
@@ -185,8 +156,7 @@
                                 </div>
                                 <div class="form-group col-md-3 required">
                                     <label for="">Experience:</label>
-                                    <input type="text" name="experience" class="form-control"
-                                        value="{{ $experience = isset($jobData->experience) ? $jobData->experience : '' }}"
+                                    <input type="text" name="experience" class="form-control" value=""
                                         placeholder="Experience">
                                     <span class="text-danger">
 
@@ -195,7 +165,7 @@
                                 <div class="form-group col-md-12 required">
                                     <label for="">Description:</label>
                                     <textarea id="tinymce" name="description" class="form-control" placeholder="Description"
-                                        OnClientClick="tinyMCE.triggerSave(false,true);">{!! $description = isset($jobData->description) ? $jobData->description : '' !!}</textarea>
+                                        OnClientClick="tinyMCE.triggerSave(false,true);"></textarea>
                                     <span class="text-danger">
                                         @error('description')
                                             {{ $message }}
@@ -293,17 +263,16 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
         <!-- Jquery Core Js -->
-        <script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
-        <script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
+        <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+        <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
 
-        <script src="{{ asset('assets/plugins/momentjs/moment.js') }}"></script> <!-- Moment Plugin Js -->
+        <script src="assets/plugins/momentjs/moment.js"></script> <!-- Moment Plugin Js -->
         <!-- Bootstrap Material Datetime Picker Plugin Js -->
-        <script src="{{ asset('assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}">
-        </script>
+        <script src="assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 
 
-        <script src="{{ asset('assets/js/pages/forms/basic-form-elements.js') }}"></script>
-        <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script><!-- Custom Js -->
+        <script src="assets/js/pages/forms/basic-form-elements.js"></script>
+        <script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
 
 
 

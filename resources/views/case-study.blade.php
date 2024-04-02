@@ -29,27 +29,37 @@
                     <div class="wrapper">
                         <div class="eva-container">
                             <div class="case-study-box">
-                                <div class="case-study-item">
-                                    <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
-                                    <div class="cs-content">
-                                        <h3 class="cs-category">Freight Management</h3>
-                                        <a href="{{route('caseStudyDetail')}}">
-                                            <h2 class="cs-title">
-                                                The standard Lorem Ipsum passage, used since the 1500s
-                                            </h2>
-                                        </a>
-                                        <div class="csd-box">
-                                            <p class="cs-user">By AVA Globle</p>
-                                            <p class="cs-date">25 Mar 2020</p>
-                                        </div>
-                                        <a href="{{route('caseStudyDetail')}}">
-                                            <div class="knowmore uppercase">know more
-                                                <div class="sprite knwmorearw"></div>
+                                @foreach ($combinedData as $data)
+                                    <div class="case-study-item">
+
+                                        {{-- <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" /> --}}
+                                        <img class="cs-image" src="{{ asset($data->avaDocs->path) }}" />
+
+                                        <div class="cs-content">
+                                            {{-- <h3 class="cs-category">Freight Management</h3> --}}
+                                            <h3 class="cs-category">{{ $data->case }}</h3>
+                                            <a href="{{ url('case-study-detail') }}/{{ base64_encode($data->id) }}">
+                                                <h2 class="cs-title">
+                                                    {{-- The standard Lorem Ipsum passage, used since the 1500s --}}
+                                                    {{ $data->case_title }}
+                                                </h2>
+                                            </a>
+                                            <div class="csd-box">
+                                                <p class="cs-user">{{ $data->posted_by }}</p>
+                                                <p class="cs-date">{{ $data->created_at }}</p>
                                             </div>
-                                        </a>
+                                            <a href="{{ url('case-study-detail') }}/{{ base64_encode($data->id) }}">
+                                                <div class="knowmore uppercase">know more
+                                                    <div class="sprite knwmorearw"></div>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="case-study-item">
+                                @endforeach
+
+
+
+                                {{-- <div class="case-study-item">
                                     <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
                                     <div class="cs-content">
                                         <h3 class="cs-category">Project Solutions</h3>
@@ -88,7 +98,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

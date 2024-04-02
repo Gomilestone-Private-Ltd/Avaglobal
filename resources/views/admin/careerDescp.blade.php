@@ -119,17 +119,10 @@
             </h3>
             <form method="POST" action="" id="textEditor">
                 @csrf
-                {{-- <div class="form-group col-md-12 required">
-                    <label for="">Title:</label>
-                    <input type="text" name="title" class="form-control" value="" placeholder="Title">
-                    <span class="text-danger">
 
-                    </span>
-                </div> --}}
                 <div class="form-group col-md-12 required">
                     <label for="">Description:</label>
-                    <textarea name="description" id="tinymce" class="form-control" value="{!! $description = isset($descData->description) ? $descData->description : '' !!}"
-                        placeholder="Description"></textarea>
+                    <textarea name="description" id="tinymce" class="form-control" value="" placeholder="Description">{!! $description = isset($descData->description) ? $descData->description : '' !!}</textarea>
                     <span class="text-danger">
                         {{-- id="editor" --}}
                     </span>
@@ -137,9 +130,9 @@
                 <input type="hidden" id="routeId" name="routeId"
                     value="{{ $job_id = isset($descData->job_id) ? $descData->job_id : $id }}">
                 <div class="form-group col-md-12 d-flex ">
-                    <button type="submit" class="btn btn-success">Submit</button>
-                    <a href="{{ url('/edit-description') }}/{{ $job_id = isset($descData->job_id) ? $descData->job_id : $id }}"
-                        class="btn btn-primary">Edit</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    {{-- <a href="{{ url('/edit-description') }}/{{ $job_id = isset($descData->job_id) ? $descData->job_id : $id }}"
+                        class="btn btn-primary">Edit</a> --}}
                 </div>
             </form>
 

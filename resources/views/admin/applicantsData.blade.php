@@ -146,17 +146,17 @@
 
                                                 <tr>
                                                     <th>S.No</th>
-                                                    <th>Department</th>
-                                                    <th>Job Role</th>
-                                                    <th>Location</th>
-                                                    <th>Time Period</th>
-                                                    <th>Description</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Contact No.</th>
+                                                    <th>Job Position</th>
+                                                    <th>Applicant CV</th>
                                                 </tr>
 
                                             </thead>
 
                                             <tbody>
-                                                @foreach ($jobPost as $data)
+                                                {{-- @foreach ($jobPost as $data)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $data->department }}</td>
@@ -176,7 +176,7 @@
 
 
                                                     </tr>
-                                                @endforeach
+                                                @endforeach --}}
 
 
                                             </tbody>

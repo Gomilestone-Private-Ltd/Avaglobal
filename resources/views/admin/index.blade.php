@@ -60,8 +60,12 @@
                 <a href="{{ route('opened-job') }}">Job Openings</a>
 
             </li>
-            <li>
+            {{-- <li>
                 <a href="{{ route('career-section') }}">Job Description</a>
+
+            </li> --}}
+            <li>
+                <a href="{{ route('applicants') }}">Job Applicants </a>
 
             </li>
             <li>
@@ -69,7 +73,7 @@
 
             </li>
 
-             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>
                 <ul class="ml-menu">
                     <li><a href="mail-inbox.html">Email</a></li>
                     <li><a href="chat.html">Chat Apps</a></li>
@@ -244,7 +248,8 @@
     <ul class="nav nav-tabs sm">
         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i
                     class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#chat"><i class="zmdi zmdi-comments"></i></a>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#chat"><i
+                    class="zmdi zmdi-comments"></i></a>
         </li>
     </ul>
     <div class="tab-content">
@@ -412,7 +417,8 @@
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>Dashboard</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="zmdi zmdi-home"></i>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
+                                    class="zmdi zmdi-home"></i>
                                 AVA-Global</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ul>

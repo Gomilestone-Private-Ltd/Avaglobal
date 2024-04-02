@@ -15,53 +15,15 @@
                     <div class="wrapper">
                         <div class="eva-container">
                             <div class="case-study-box">
-                                <h3 class="csd-category">FREIGHT MANAGEMENT</h3>
-                                <h1 class="csd-title">The standard Lorem Ipsum passage, used since the 1500s</h1>
+                                <h3 class="csd-category">{{ $caseStudyData->case }}</h3>
+                                <h1 class="csd-title">{{ $caseStudyData->case_title }}</h1>
                                 <div class="csd-box">
-                                    <p class="cs-user">By AVA Globle</p>
-                                    <p class="cs-date">25 Mar 2020</p>
+                                    <p class="cs-user">{{ $caseStudyData->posted_by }}</p>
+                                    <p class="cs-date">{{ $caseStudyData->created_at }}</p>
                                 </div>
                             </div>
-                            <div class="csd-contnet detail">
-                                <h3 class="csdt-title">The Challenge</h3>
-                                <p class="csdt-content">Contrary to popular belief, Lorem Ipsum is not simply
-                                    random text. It has roots in a piece of classical Latin literature from 45 BC,
-                                    making it over 2000 years old. Richard McClintock, a Latin professor at
-                                    Hampden-Sydney College in Virginia, looked up one of the more obscure Latin
-                                    words, consectetur, from a Lorem Ipsum passage, and going through the cites of
-                                    the word in classical literature, discovered the undoubtable source.</p>
-
-                                <h3 class="csdt-title2">Strategy</h3>
-                                <p class="csdt-content">Contrary to popular belief, Lorem Ipsum is not simply
-                                    random text. It has roots in a piece of classical Latin literature from 45 BC,
-                                    making it over 2000 years old. Richard McClintock, a Latin professor at
-                                    Hampden-Sydney College in Virginia, looked up one of the more obscure Latin
-                                    words, consectetur, from a Lorem Ipsum passage, and going through the cites of
-                                    the word in classical literature, discovered the undoubtable source.</p>
-
-                                <h3 class="csdt-title2">Solution</h3>
-                                <p class="csdt-content">Contrary to popular belief, Lorem Ipsum is not simply
-                                    random text. It has roots in a piece of classical Latin literature from 45 BC,
-                                    making it over 2000 years old. Richard McClintock, a Latin professor at
-                                    Hampden-Sydney College in Virginia, looked up one of the more obscure Latin
-                                    words, consectetur, from a Lorem Ipsum passage, and going through the cites of
-                                    the word in classical literature, discovered the undoubtable source.</p>
-                                <p class="csdt-content">Contrary to popular belief, Lorem Ipsum is not simply
-                                    random text. It has roots in a piece of classical Latin literature from 45 BC,
-                                    making it over 2000 years old. Richard McClintock, a Latin professor at
-                                    Hampden-Sydney College in Virginia, looked up one of the more obscure Latin
-                                    words, consectetur, from a Lorem Ipsum passage, and going through the cites of
-                                    the word in classical literature, discovered the undoubtable source.</p>
-
-
-                                <h3 class="csdt-title2">Final Result</h3>
-                                <p class="csdt-content">Contrary to popular belief, Lorem Ipsum is not simply
-                                    random text. It has roots in a piece of classical Latin literature from 45 BC,
-                                    making it over 2000 years old. Richard McClintock, a Latin professor at
-                                    Hampden-Sydney College in Virginia, looked up one of the more obscure Latin
-                                    words, consectetur, from a Lorem Ipsum passage, and going through the cites of
-                                    the word in classical literature, discovered the undoubtable source.</p>
-
+                            <div class="csd-contnet detail key-point csdt-title csdt-content">
+                                {!! $caseStudyData->description !!}
                             </div>
                         </div>
                     </div>

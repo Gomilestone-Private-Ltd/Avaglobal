@@ -22,14 +22,19 @@
                 <a href="{{ route('opened-job') }}">Job Openings</a>
 
             </li>
-            <li>
+            {{-- <li>
                 <a href="{{ route('career-section') }}">Job Description</a>
+
+            </li> --}}
+            <li>
+                <a href="{{ route('applicants') }}">Job Applicants </a>
 
             </li>
             <li>
                 <a href="{{ route('case-section') }}">Case Study </a>
 
             </li>
+
 
         </ul>
     </div>

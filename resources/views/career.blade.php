@@ -58,7 +58,7 @@
                                                 </div>
                                             </div>
                                             <div class="csc-right">
-                                                <a href="{{ url('/career-detail') }}/{{ Crypt::encrypt($job->id) }}">
+                                                <a href="{{ url('/career-detail') }}/{{ base64_encode($job->id) }}">
                                                     <div class="knowmore uppercase">Apply Now
                                                         <div class="sprite knwmorearw"></div>
                                                     </div>

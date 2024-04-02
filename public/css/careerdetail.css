@@ -275,3 +275,12 @@ p.jr-box span {
             text-transform: uppercase;
         }
 
+        /* me added */
+        label.error{
+            color:red;
+            font-size: 14px;
+        }
+        .text-danger{
+            color:red;
+            font-size: 14px;
+        }

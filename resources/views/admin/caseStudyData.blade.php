@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="no-js " lang="en">
 
 
@@ -23,14 +23,13 @@
         <link rel="stylesheet" href="{{ asset('assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css') }}">
 
         <!-- Custom Css -->
-        <link rel="stylesheet" href="assets/css/style.min.css">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         {{-- font awesome --}}
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
         <style>
             label {
                 color: black;
@@ -49,15 +48,9 @@
                 margin-bottom: -9px;
             }
 
-            /* .card .body {
-                font-weight: 400;
-                border-radius: .35rem;
-                background: #fff;
-                font-size: 14px;
-                color: #222;
-                padding: 20px;
-                margin-top: -115px;
-            } */
+            .toast-error {
+                background-color: red !important;
+            }
         </style>
     </head>
 
@@ -95,122 +88,13 @@
                 </li>
             </ul>
         </div>
-
-        <!-- Left Sidebar -->
-        {{-- <aside id="leftsidebar" class="sidebar">
-            <div class="navbar-brand">
-                <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-                <a href="index.html"><img src="{{ asset('/images/blogo.png') }}" width="100" alt="AvaGlobal"></a>
-            </div>
-            <div class="menu">
-                <ul class="list">
-                    <li>
-                        <div class="user-info">
-                            <a class="image" href="profile.html"><img src="assets/images/profile_av.jpg"
-                                    alt="User"></a>
-                            <div class="detail">
-                                <h4>{{ auth()->user()->name }}</h4>
-                                <small>{{ auth()->user()->role->name }}</small>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="{{ route('dashboard') }}"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
-                    <li><a href="{{ route('opened-job') }}"><span>Job Openings</span></a> </li>
-                    <li><a href="{{ route('career-section') }}"><span>Job Description</span></a></li>
-                </ul>
-            </div>
-        </aside> --}}
         @include('admin.layouts.sidebar')
-
-
-        {{-- <section class="content">
-            <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-                JOB OPENINGS
-            </h3>
-            <div class="container-fluid">
-                <!-- Input -->
-                <div class="row clearfix">
-                    <form action="" id="postjob">
-                        @csrf
-                        <div class="container mt-4 card p-3 bg-white">
-                            <div class="row">
-                                <div class="form-group col-md-3 required">
-                                    <label for="">Department:</label>
-                                    <input type="text" name="department" class="form-control" value=""
-                                        placeholder="Department">
-                                    <span class="text-danger">
-                                        @error('department')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
-
-                                <div class="form-group col-md-3 required">
-                                    <label for="">Job Role:</label>
-                                    <input type="text" name="jobRole" class="form-control" value=""
-                                        placeholder="Job Role">
-                                    <span class="text-danger">
-                                        @error('jobRole')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
-
-                                <div class="form-group col-md-3 required">
-                                    <label for="">Location:</label>
-                                    <input type="text" name="location" class="form-control" value=""
-                                        placeholder="Location">
-                                    <span class="text-danger">
-
-                                    </span>
-                                </div>
-
-                                <div class="form-group col-md-3 required">
-                                    <label for="">Time Period:</label>
-                                    <select name="timePeriod" class="form-control">
-                                        <option value="">-- Please select --</option>
-                                        <option value="Full Time">Full Time</option>
-                                        <option value="Part Time">Part Time</option>
-                                    </select>
-                                    <span class="text-danger">
-
-                                    </span>
-                                </div>
-
-                                <div class="form-group col-md-3 required">
-                                    <label for="">Job Status:</label>
-                                    <select name="jobStatus" class="form-control">
-                                        <option value="">-- Please select --</option>
-                                        <option value="Active">Active</option>
-                                        <option value="Inactive">Inactive</option>
-
-                                    </select>
-                                    <span class="text-danger">
-
-                                    </span>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <input type="submit" id="submit" class="btn btn-primary float-right"
-                                        value="Submit">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-
-                </div>
-            </div>
-
-        </section> --}}
-
-
         <section class="content">
             <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-                JOB OPENINGS DATA
+                CASE STUDY DATA
             </h3>
             <div class="form-group col-md-12">
-                <a href="{{ url('/add-jobs') }}" class="btn btn-primary float-right">Add</a>
+                <a href="{{ url('/add-case') }}" class="btn btn-primary float-right">Add</a>
             </div>
             <div class="body_scroll">
                 <div class="block-header">
@@ -235,26 +119,25 @@
 
                                                 <tr>
                                                     <th>S.No</th>
-                                                    <th>Department</th>
-                                                    <th>Job Role</th>
-                                                    <th>Location</th>
-                                                    <th>Time Period</th>
-                                                    <th>Job Status</th>
+                                                    <th>Case</th>
+                                                    <th>Case Title</th>
+                                                    <th>Case Image</th>
+                                                    <th>Posted By</th>
+                                                    {{-- <th>Posted Date</th> --}}
                                                     <th>Description</th>
                                                     <th>Action</th>
                                                 </tr>
 
                                             </thead>
                                             <tbody>
-                                                @foreach ($jobPost as $data)
+                                                @foreach ($combinedData as $data)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $data->department }}</td>
-                                                        <td>{{ $data->job_role }}</td>
-                                                        <td>{{ $data->location }}</td>
-                                                        <td>{{ $data->time_period }}</td>
-
-                                                        <td>{{ $data->is_active }}</td>
+                                                        <td>{{ $data->case }}</td>
+                                                        <td>{{ $data->case_title }}</td>
+                                                        <td><img src="{{ asset($data->avaDocs->path) }}"
+                                                                style="width:70px;height:60px;border-radius:20%" /></td>
+                                                        <td>{{ $data->posted_by }}</td>
                                                         <td>View Description
                                                             <i class="fa fa-eye" type="button"
                                                                 data-id="{{ $data->id }}" data-toggle="modal"
@@ -266,20 +149,17 @@
                                                         </td>
                                                         <td>
                                                             <div class="d-flex">
-                                                                <a href="{{ route('careerjob.edit', ['id' => $data->id]) }}"
+                                                                <a href="{{ route('casestudy.edit', ['id' => $data->id]) }}"
                                                                     class="btn btn-primary">Edit</a>
                                                                 <button onclick="deleteModal('{{ $data->id }}')"
                                                                     class="btn btn-danger">Delete</button>
                                                             </div>
                                                         </td>
-
-
                                                     </tr>
                                                 @endforeach
-
-
                                             </tbody>
                                         </table>
+
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
                                             aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -331,18 +211,15 @@
                                             </div>
                                         </div>
                                         {{-- end --}}
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
         </section>
-
         <script>
             function updateModalBody(id) {
                 // Send an AJAX request
@@ -351,7 +228,7 @@
                 var id = id;
                 $.ajax({
                     type: 'GET',
-                    url: '/career/get-description/' + id,
+                    url: '/case/get-description/' + id,
                     data: id,
                     processData: false,
                     contentType: false,
@@ -374,7 +251,7 @@
                 var modalToastrButton = $('#modalToastr');
 
                 console.log(modalToastrButton);
-                modalToastrButton.attr('href', "{{ url('job-data/delete') }}/" + id);
+                modalToastrButton.attr('href', "{{ url('case-study/delete') }}/" + id);
                 $('#deleteModal').modal('show');
 
                 $('#modalToastr').on('click', function(event) {
@@ -399,58 +276,6 @@
                 });
             }
         </script>
-
-
-        {{-- 
-        <script>
-            $(document).ready(function() {
-
-                $('#postjob').submit(function(e) {
-                    e.preventDefault();
-
-                    // Serialize the form data
-                    const formData = new FormData($(this)[0]);
-
-                    // Send an AJAX request
-                    $.ajax({
-                        type: 'POST',
-                        url: '{{ url('/post-jobs') }}',
-                        data: formData,
-                        processData: false,
-                        contentType: false,
-                        success: function(response) {
-
-                            console.log(response);
-                            toastr.options = {
-                                'closeButton': true,
-                                'progressBar': true
-                            }
-                            toastr.success(response.message);
-                            setTimeout(function() {
-                                window.location.href = "/get-jobs";
-                            }, 3000);
-                        },
-                        error: function(response) {
-                            console.log("hii");
-
-                            if (response.responseJSON && response.responseJSON.errors) {
-                                $('.text-danger').html('');
-                                $.each(response.responseJSON.errors, function(field, errorMessage) {
-
-                                    var errorHtml = '<span class="text-danger">' +
-                                        errorMessage + '</span>';
-                                    $('[name="' + field + '"]').closest(
-                                            '.form-group')
-                                        .find('.text-danger').html(errorHtml);
-                                });
-                            }
-
-
-                        }
-                    });
-                });
-            });
-        </script> --}}
 
 
 

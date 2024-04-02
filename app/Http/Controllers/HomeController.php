@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AvaDocs;
+use App\Models\CaseStudy;
 use App\Models\Description;
 use App\Models\Job;
 use Illuminate\Http\Request;
@@ -39,19 +41,26 @@ class HomeController extends Controller
     }
     public function caseStudy()
     {
-        return view('case-study');
+        $combinedData = CaseStudy::with('avaDocs')->get();
+        // dd($combinedData);
+        return view('case-study')->with('combinedData', $combinedData);
     }
     public function careerDetails(Request $request)
     {
-        $id = Crypt::decrypt($request->route('id'));
+        $id = base64_decode($request->route('id'));
         // $careerData = Job::select('department', 'job_role')->with('description')->where('id', $id)->get();
-        $careerData = Job::with('careerDescription')->where('id', $id)->get();
+        // $careerData = Job::with('careerDescription')->where('id', $id)->get();
+        $careerData = Job::where('id', $id)->first();
+        // dd($careerData);
 
         return view('career-detail')->with('careerData', $careerData);
     }
-    public function caseStudyDetail()
+    public function caseStudyDetail($id)
     {
-        return view('case-study-detail');
+        $id = base64_decode($id);
+        $caseStudyData = CaseStudy::where('id', $id)->first();
+        // dd($description->description);
+        return view('case-study-detail')->with('caseStudyData', $caseStudyData);
     }
     public function services()
     {

@@ -128,4 +128,72 @@ h3.csdt-title2 {
     position: relative;
 }
 
+/* mukesh wrote */
+/* //target all h3 tag except first */
+.csdt-title2 > h3:first-child ~ h3 {
+    /* Your styles here */
+    font-size: 24px;
+    color: #2c2c2c;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 40px;
+    text-transform: uppercase;
+    padding-top: 30px;
+    }
+
+
+    .csdt-title h3 {
+        font-size: 24px;
+        color: #2c2c2c;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 40px;
+        text-transform: uppercase;
+    }
+
+    .csdt-content p {
+        font-size: 17px;
+        font-weight: 400;
+        color: #787878;
+        line-height: 26px;
+        text-align: justify;
+        padding-top: 5px;
+    }
+
+    .key-point ul {
+        list-style: disc;
+        margin-left: 32px;
+    }
+    
+    .key-point ul li {
+        font-size: 17px;
+        font-weight: 400;
+        color: #787878;
+        line-height: 26px;
+        padding-top: 10px;
+    }
+
+    .csdt-title2 > h2:first-child ~ h2 {
+        /* Your styles here */
+        font-size: 24px;
+        color: #2c2c2c;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 40px;
+        text-transform: uppercase;
+        padding-top: 30px;
+        }
+    
+    
+        .csdt-title h2 {
+            font-size: 24px;
+            color: #2c2c2c;
+            font-weight: bold;
+            letter-spacing: 0;
+            line-height: 40px;
+            text-transform: uppercase;
+        }
+
+
+
 
