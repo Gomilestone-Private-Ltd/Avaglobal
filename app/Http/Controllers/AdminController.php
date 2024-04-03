@@ -50,7 +50,11 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
-        return view('admin.index');
+        $jobCount = Job::count();
+        $CaseStudy = CaseStudy::count();
+        $Applicant = Applicant::count();
+        // $jobCount = Job::count();
+        return view('admin.index', ['jobCount' => $jobCount, 'CaseStudy' => $CaseStudy, 'Applicant' => $Applicant]);
     }
 
 
