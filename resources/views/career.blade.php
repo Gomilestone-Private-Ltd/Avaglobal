@@ -40,7 +40,8 @@
                                         <div class="cs-content">
                                             <div class="csc-left">
                                                 <h3 class="cs-category">{{ $job->department }}</h3>
-                                                <a href="{{ url('/career-detail') }}/{{ Crypt::encrypt($job->id) }}">
+                                                <a
+                                                    href="{{ url('/career-detail') }}/{{ $job->id }}/{{ str_replace(' ', '-', strtolower($job->job_role)) }}">
                                                     <h2 class="cs-title">
                                                         {{ $job->job_role }}
                                                     </h2>
@@ -58,7 +59,8 @@
                                                 </div>
                                             </div>
                                             <div class="csc-right">
-                                                <a href="{{ url('/career-detail') }}/{{ base64_encode($job->id) }}">
+                                                <a
+                                                    href="{{ url('/career-detail') }}/{{ $job->id }}/{{ str_replace(' ', '-', strtolower($job->job_role)) }}">
                                                     <div class="knowmore uppercase">Apply Now
                                                         <div class="sprite knwmorearw"></div>
                                                     </div>

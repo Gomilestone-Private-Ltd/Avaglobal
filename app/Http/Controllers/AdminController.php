@@ -56,8 +56,13 @@ class AdminController extends Controller
 
     public function logout()
     {
-        Auth::logout();
-        return redirect('/admin');
+        if (strtoupper(Auth::user()->role['name']) == strtoupper('Admin')) {
+            Auth::logout();
+            return redirect('/admin');
+        } elseif (strtoupper(Auth::user()->role['name']) == strtoupper('Employee')) {
+            Auth::logout();
+            return redirect('/employee-login');
+        }
     }
     public function openJob()
     {

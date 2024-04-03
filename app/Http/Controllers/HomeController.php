@@ -45,9 +45,8 @@ class HomeController extends Controller
         // dd($combinedData);
         return view('case-study')->with('combinedData', $combinedData);
     }
-    public function careerDetails(Request $request)
+    public function careerDetails($id)
     {
-        $id = base64_decode($request->route('id'));
         // $careerData = Job::select('department', 'job_role')->with('description')->where('id', $id)->get();
         // $careerData = Job::with('careerDescription')->where('id', $id)->get();
         $careerData = Job::where('id', $id)->first();
@@ -57,7 +56,6 @@ class HomeController extends Controller
     }
     public function caseStudyDetail($id)
     {
-        $id = base64_decode($id);
         $caseStudyData = CaseStudy::where('id', $id)->first();
         // dd($description->description);
         return view('case-study-detail')->with('caseStudyData', $caseStudyData);

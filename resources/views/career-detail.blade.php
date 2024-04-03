@@ -32,58 +32,6 @@
 
                                         {!! $description = isset($careerData->description) ? $careerData->description : '' !!}
 
-
-                                        {{-- <h3 class="csdt-title">Job Summary</h3>
-                                        <p class="csdt-content">Contrary to popular belief, Lorem Ipsum is not
-                                            simply random text. It has roots in a piece of classical Latin
-                                            literature from 45 BC, making it over 2000 years old. Richard
-                                            McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-                                            looked up one of the more obscure Latin words, consectetur, from a Lorem
-                                            Ipsum passage, and going through the cites of the word in classical
-                                            literature, discovered the undoubtable source.</p>
-
-                                        <h3 class="csdt-title2">Key Responsibilities</h3>
-                                        <ul class="key-point">
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                        </ul>
-
-                                        <h3 class="csdt-title2">Skills & Experience</h3>
-                                        <ul class="key-point">
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                            <li>You provide ongoing sustaining support to the product, addressing
-                                                end to end feature enhancements.</li>
-                                        </ul>
-
-
-                                        <h3 class="csdt-title2">Other Requirements</h3>
-                                        <p class="csdt-content">Contrary to popular belief, Lorem Ipsum is not
-                                            simply random text. It has roots in a piece of classical Latin
-                                            literature from 45 BC, making it over 2000 years old. Richard
-                                            McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-                                            looked up one of the more obscure Latin words, consectetur, from a Lorem
-                                            Ipsum passage, and going through the cites of the word in classical
-                                            literature, discovered the undoubtable source.</p> --}}
-
                                     </div>
                                 </div>
 
@@ -113,28 +61,26 @@
                                                 <div class="placholder">Your Name</div>
                                                 <input type="text" name="name" class="inputclick">
                                                 <span class="text-danger">
-
-
                                                 </span>
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Your Email address</div>
-                                                <input type="email" name="email" class="inputclick" required>
+                                                <input type="email" name="email" class="inputclick" >
                                                 <span class="text-danger">
 
                                                 </span>
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">PHONE number</div>
-                                                <input type="text" name="phone" class="inputclick" pattern=""
-                                                    required>
+                                                <input type="text" name="phone" class="inputclick"
+                                                    >
                                                 <span class="text-danger">
 
                                                 </span>
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Position</div>
-                                                <input type="text" name="position" class="inputclick" required>
+                                                <input type="text" name="position" class="inputclick">
                                                 <span class="text-danger">
 
                                                 </span>
@@ -173,43 +119,43 @@
 
                 <script>
                     $(document).ready(function() {
-                        $("#applicantForm").validate({
-                            rules: {
-                                name: {
-                                    required: true
-                                },
-                                email: {
-                                    required: true
-                                },
-                                phone: {
-                                    required: true
-                                },
-                                position: {
-                                    required: true
-                                },
-                                applicantPdf: {
-                                    required: true
-                                }
-                            },
-                            messages: {
-                                name: {
-                                    required: "Please give your name here"
-                                },
-                                email: {
-                                    required: "Please fill the email field"
-                                },
-                                phone: {
-                                    required: "Please give us your contact detail",
+                        // $("#applicantForm").validate({
+                        //     // rules: {
+                        //     //     name: {
+                        //     //         required: true
+                        //     //     },
+                        //     //     email: {
+                        //     //         required: true
+                        //     //     },
+                        //     //     phone: {
+                        //     //         required: true
+                        //     //     },
+                        //     //     position: {
+                        //     //         required: true
+                        //     //     },
+                        //     //     applicantPdf: {
+                        //     //         required: true
+                        //     //     }
+                        //     // },
+                        //     // messages: {
+                        //     //     name: {
+                        //     //         required: "Please give your name here"
+                        //     //     },
+                        //     //     email: {
+                        //     //         required: "Please fill the email field"
+                        //     //     },
+                        //     //     phone: {
+                        //     //         required: "Please give us your contact detail",
 
-                                },
-                                position: {
-                                    required: "Please tell the position applying for"
-                                },
-                                applicantPdf: {
-                                    required: "Please add your Cv here"
-                                }
-                            },
-                        });
+                        //     //     },
+                        //     //     position: {
+                        //     //         required: "Please tell the position applying for"
+                        //     //     },
+                        //     //     applicantPdf: {
+                        //     //         required: "Please add your Cv here"
+                        //     //     }
+                        //     // },
+                        // });
 
                         $('#applicantForm').submit(function(e) {
                             e.preventDefault();
