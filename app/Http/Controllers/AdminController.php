@@ -155,7 +155,7 @@ class AdminController extends Controller
         $requestData = $request->only('name', 'email', 'phone', 'position', 'applicantPdf');
         $rule = [
             'name' => 'required',
-            'email' => 'required|email|unique:applicants',
+            'email' => 'required|email',
             'phone' => 'required|regex:/^[0-9]{10}$/',
             'position' => 'required',
             'applicantPdf' => 'required|mimes:pdf|max:10000'
