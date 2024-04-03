@@ -93,30 +93,7 @@
             </ul>
         </div>
 
-        <!-- Left Sidebar -->
-        {{-- <aside id="leftsidebar" class="sidebar">
-            <div class="navbar-brand">
-                <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
-                <a href="index.html"><img src="{{ asset('/images/blogo.png') }}" width="100" alt="AvaGlobal"></a>
-            </div>
-            <div class="menu">
-                <ul class="list">
-                    <li>
-                        <div class="user-info">
-                            <a class="image" href="profile.html"><img src="assets/images/profile_av.jpg"
-                                    alt="User"></a>
-                            <div class="detail">
-                                <h4>{{ auth()->user()->name }}</h4>
-                                <small>{{ auth()->user()->role->name }}</small>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="{{ route('dashboard') }}"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
-                    <li><a href="{{ route('opened-job') }}"><span>Job Openings</span></a> </li>
-                    <li><a href="{{ route('career-section') }}"><span>Job Description</span></a></li>
-                </ul>
-            </div>
-        </aside> --}}
+
         @include('admin.layouts.sidebar')
 
         <section class="content">

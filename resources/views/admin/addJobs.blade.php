@@ -277,6 +277,10 @@
                                     $('[name="' + field + '"]').closest(
                                             '.form-group')
                                         .find('.text-danger').html(errorHtml);
+                                    $('[name="' + field + '"]').on('input',
+                                        function() {
+                                            $('.text-danger').html('');
+                                        });
                                 });
                             }
 

@@ -64,6 +64,7 @@ Route::get('/careerjob/edit/{id}', [AdminController::class, 'editCareerJob'])->m
 Route::get('/get-jobs', [AdminController::class, 'getJobs'])->middleware('auth')->name('getJobs');
 Route::get('/applicants', [AdminController::class, 'jobApplicants'])->middleware('auth')->name('applicants');
 Route::post('/post-applicants', [AdminController::class, 'postApplicants'])->middleware('auth')->name('post-applicants');
+Route::get('applicant/delete/{id}', [AdminController::class, 'deleteApplicant'])->middleware('auth')->name('delete-applicant');
 
 Route::get('/career-section', [AdminController::class, 'careerSection'])->middleware('auth')->name('career-section');
 Route::get('/career-description/{id}/{slug}', [AdminController::class, 'careerDescription'])->middleware('auth')->name('career-description');

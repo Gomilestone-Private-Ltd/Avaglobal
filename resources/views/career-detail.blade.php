@@ -126,8 +126,8 @@
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">PHONE number</div>
-                                                <input type="text" name="phone" class="inputclick"
-                                                    pattern="[0-9]{5,15}" required>
+                                                <input type="text" name="phone" class="inputclick" pattern=""
+                                                    required>
                                                 <span class="text-danger">
 
                                                 </span>
@@ -143,10 +143,10 @@
                                                 <div class="form-row">
                                                     <div class="upload-career fl">
                                                         <div class="browse-btn"><input name="applicantPdf" id="file-7"
-                                                                class="inputfile inputfile-6"
+                                                                class="inputfile inputfile-6 fileSeelct"
                                                                 data-multiple-caption="{count} files selected"
                                                                 multiple="" type="file">
-                                                            <label for="file-7">
+                                                            <label for="file-7" id="file_7_id">
                                                                 <span>(FILE FORMAT PDF)</span>
                                                                 <strong>Upload CV</strong>
                                                             </label>
@@ -225,6 +225,12 @@
                                 processData: false,
                                 contentType: false,
                                 success: function(response) {
+                                    $("#applicantForm")[0].reset();
+                                    $('.fileSeelct').val('');
+                                    $('#file_7_id span').html('');
+
+
+
 
                                     console.log(response);
                                     toastr.options = {
@@ -232,6 +238,7 @@
                                         'progressBar': true
                                     }
                                     toastr.success(response.message);
+                                    // window.location.href = "";
                                     // setTimeout(function() {
                                     //     window.location.href = "/get-jobs";
                                     // }, 2000);
@@ -243,6 +250,10 @@
                                             $('input[name="' + field + '"]').closest(
                                                     '.input-container')
                                                 .find('.text-danger').html(errorMessage);
+                                            $('input[name="' + field + '"]').on('input',
+                                                function() {
+                                                    $('.text-danger').html('');
+                                                });
                                         });
                                     }
 

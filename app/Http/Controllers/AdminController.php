@@ -25,7 +25,7 @@ class AdminController extends Controller
 
     public function login()
     {
-        return view('login.index');
+        return view('login.adminLogin');
     }
     public function authenticate(Request $request)
     {
@@ -137,15 +137,17 @@ class AdminController extends Controller
     }
     public function jobApplicants()
     {
-        return view('admin.applicantsData');
+        $applicantData = Applicant::with('avaDocs')->get();
+
+        return view('admin.applicantsData')->with('applicantData', $applicantData);
     }
     public function postApplicants(Request $request)
     {
         $requestData = $request->only('name', 'email', 'phone', 'position', 'applicantPdf');
         $rule = [
             'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
+            'email' => 'required|email|unique:applicants',
+            'phone' => 'required|regex:/^[0-9]{10}$/',
             'position' => 'required',
             'applicantPdf' => 'required|mimes:pdf|max:10000'
         ];
@@ -183,15 +185,27 @@ class AdminController extends Controller
         $jobApplicant->position = $request['position'];
         $jobApplicant->phone = $request['phone'];
         $jobApplicant->save();
-        $case_id = $jobApplicant->id;
+        $appliacnt_id = $jobApplicant->id;
         $avaDocs = new AvaDocs;
-        $avaDocs->case_id = $case_id;
+        $avaDocs->applicant_id = $appliacnt_id;
         $avaDocs->filename = $filename;
         $avaDocs->filetype = $fileType;
         $avaDocs->filesize = $fileSize;
         $avaDocs->path = $actualPdfPath;
         $avaDocs->save();
         return response()->json(['success' => true, 'message' => 'You have Successfully applied for this job']);
+    }
+    public function deleteApplicant($id)
+    {
+        // dd($id);
+        $data = Applicant::find($id);
+        if (!$data) {
+            return response()->json(['message' => 'There is no Applicant found in record', 404]);
+        }
+
+        $data->delete();
+        AvaDocs::where('applicant_id', $id)->delete();
+        return response()->json(['success' => true, 'message' => 'Applicant Data got deleted successfully']);
     }
 
     public function editCaseStudy($id)
