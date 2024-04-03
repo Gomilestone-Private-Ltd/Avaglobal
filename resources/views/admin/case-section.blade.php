@@ -117,7 +117,7 @@
             <div class="container-fluid">
                 <!-- Input -->
                 <div class="row clearfix">
-                    <form action="" enctype="multipart/form-data" id="caseCreate" method="POST">
+                    <form action="" enctype="multipart/form-data" id="caseCreate">
                         @csrf
                         <div class="container mt-4 card p-3 bg-white">
 
@@ -206,7 +206,7 @@
 
         </section>
 
-
+        <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
         <script>
             var selectedFile;
             document.addEventListener("DOMContentLoaded", function() {
@@ -252,46 +252,45 @@
                     }
                 });
             });
-            // $("#caseCreate").validate({
-            //     rules: {
-            //         case: {
-            //             required: true
-            //         },
-            //         casetitle: {
-            //             required: true
-            //         },
-            //         postedby: {
-            //             required: true
-            //         },
-            //         caseimage: {
-            //             required: true
-            //         },
-            //         description: {
-            //             required: true
-            //         }
-            //     },
-            //     messages: {
-            //         case: {
-            //             required: "Please fill the case name"
-            //         },
-            //         casetitle: {
-            //             required: "Please fill the case title"
-            //         },
-            //         postedby: {
-            //             required: "Fill the company name",
+            $("#caseCreate").validate({
+                rules: {
+                    case: {
+                        required: true
+                    },
+                    casetitle: {
+                        required: true
+                    },
+                    postedby: {
+                        required: true
+                    },
+                    caseimage: {
+                        required: true
+                    },
+                    description: {
+                        required: true
+                    }
+                },
+                messages: {
+                    case: {
+                        required: "Please fill the case name"
+                    },
+                    casetitle: {
+                        required: "Please fill the case title"
+                    },
+                    postedby: {
+                        required: "Fill the company name",
 
-            //         },
-            //         caseimage: {
-            //             required: "Please select the case image !!"
-            //         },
-            //         description: {
-            //             required: "Please add Case description"
-            //         }
-            //     },
-            // });
+                    },
+                    caseimage: {
+                        required: "Please select the case image !!"
+                    },
+                    description: {
+                        required: "Please add Case description"
+                    }
+                },
+            });
             // submitHandler: function(form, e) {
             $('#caseCreate').submit(function(e) {
-                console.log("hitting form")
                 e.preventDefault();
                 tinymce.triggerSave(false, true)
                 if (selectedFile) {
