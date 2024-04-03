@@ -114,6 +114,9 @@
 
         {{-- left side bar --}}
         @include('admin.layouts.sidebar')
+
+
+
         <section class="content">
             <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
                 Add Case Section
@@ -121,7 +124,7 @@
             <div class="container-fluid">
                 <!-- Input -->
                 <div class="row clearfix">
-                    <form action="" enctype="multipart/form-data" id="caseCreate">
+                    <form action="" enctype="multipart/form-data" id="caseCreate" method="POST">
                         @csrf
                         <div class="container mt-4 card p-3 bg-white">
 
@@ -295,20 +298,27 @@
             });
             // submitHandler: function(form, e) {
             $('#caseCreate').submit(function(e) {
-                console.log("hitting form")
                 e.preventDefault();
                 tinymce.triggerSave(false, true)
                 if (selectedFile) {
                     var formData = new FormData($("#caseCreate")[0]);
                     console.log(formData);
+
+                    // var descriptionValue = $('textarea#tinymce').val();
+                    // console.log(descriptionValue);
+                    // formData.append('description', descriptionValue);
+
                     $.ajax({
-                        url: "{{ url('/case-store') }}",
+                        url: "{{ url('/case/store') }}",
                         method: 'POST',
                         data: formData,
                         processData: false,
                         contentType: false,
+
+
                         success: function(response) {
                             $('#caseCreate').trigger("reset");
+
                             $('#imagePreview').html('');
                             $('.close-icon').hide();
                             console.log(response.message);
@@ -317,6 +327,9 @@
                                 'progressBar': true
                             }
                             toastr.success(response.message);
+                            // setTimeout(function() {
+                            //     window.location.href = "";
+                            // }, 3000);
                         },
 
                         error: function(response) {
