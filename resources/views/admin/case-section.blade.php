@@ -252,43 +252,43 @@
                     }
                 });
             });
-            $("#caseCreate").validate({
-                rules: {
-                    case: {
-                        required: true
-                    },
-                    casetitle: {
-                        required: true
-                    },
-                    postedby: {
-                        required: true
-                    },
-                    caseimage: {
-                        required: true
-                    },
-                    description: {
-                        required: true
-                    }
-                },
-                messages: {
-                    case: {
-                        required: "Please fill the case name"
-                    },
-                    casetitle: {
-                        required: "Please fill the case title"
-                    },
-                    postedby: {
-                        required: "Fill the company name",
+            // $("#caseCreate").validate({
+            //     rules: {
+            //         case: {
+            //             required: true
+            //         },
+            //         casetitle: {
+            //             required: true
+            //         },
+            //         postedby: {
+            //             required: true
+            //         },
+            //         caseimage: {
+            //             required: true
+            //         },
+            //         description: {
+            //             required: true
+            //         }
+            //     },
+            //     messages: {
+            //         case: {
+            //             required: "Please fill the case name"
+            //         },
+            //         casetitle: {
+            //             required: "Please fill the case title"
+            //         },
+            //         postedby: {
+            //             required: "Fill the company name",
 
-                    },
-                    caseimage: {
-                        required: "Please select the case image !!"
-                    },
-                    description: {
-                        required: "Please add Case description"
-                    }
-                },
-            });
+            //         },
+            //         caseimage: {
+            //             required: "Please select the case image !!"
+            //         },
+            //         description: {
+            //             required: "Please add Case description"
+            //         }
+            //     },
+            // });
             // submitHandler: function(form, e) {
             $('#caseCreate').submit(function(e) {
                 console.log("hitting form")
