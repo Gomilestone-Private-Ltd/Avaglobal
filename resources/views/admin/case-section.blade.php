@@ -122,7 +122,7 @@
             <div class="container-fluid">
                 <!-- Input -->
                 <div class="row clearfix">
-                    <form action="" enctype="multipart/form-data" id="caseCreate">
+                    <form enctype="multipart/form-data" id="caseCreate">
                         @csrf
                         <div class="container mt-4 card p-3 bg-white">
 
@@ -312,8 +312,8 @@
                         data: formData,
                         processData: false,
                         contentType: false,
-
-
+                        type: 'POST',
+                        cache: false,
                         success: function(response) {
                             $('#caseCreate').trigger("reset");
 
