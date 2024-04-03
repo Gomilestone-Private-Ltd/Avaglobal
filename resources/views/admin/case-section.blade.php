@@ -28,6 +28,10 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        {{-- me added --}}
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+        {{-- TinyMce --}}
         <script src="{{ asset('assets/TinyMce/js/tinymce/tinymce.min.js') }}"></script>
         <style>
             label {
@@ -206,7 +210,7 @@
 
         </section>
 
-        <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
         <script>
             var selectedFile;
             document.addEventListener("DOMContentLoaded", function() {
@@ -291,13 +295,14 @@
             });
             // submitHandler: function(form, e) {
             $('#caseCreate').submit(function(e) {
+                console.log("hitting form")
                 e.preventDefault();
                 tinymce.triggerSave(false, true)
                 if (selectedFile) {
                     var formData = new FormData($("#caseCreate")[0]);
                     console.log(formData);
                     $.ajax({
-                        url: "{{ url('/case/store') }}",
+                        url: "{{ url('/case-store') }}",
                         method: 'POST',
                         data: formData,
                         processData: false,
