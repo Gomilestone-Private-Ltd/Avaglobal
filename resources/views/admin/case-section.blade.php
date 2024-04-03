@@ -115,8 +115,6 @@
         {{-- left side bar --}}
         @include('admin.layouts.sidebar')
 
-
-
         <section class="content">
             <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
                 Add Case Section
@@ -124,7 +122,7 @@
             <div class="container-fluid">
                 <!-- Input -->
                 <div class="row clearfix">
-                    <form action="" enctype="multipart/form-data" id="caseCreate" method="POST">
+                    <form action="" enctype="multipart/form-data" id="caseCreate">
                         @csrf
                         <div class="container mt-4 card p-3 bg-white">
 
