@@ -45,19 +45,14 @@ class HomeController extends Controller
         // dd($combinedData);
         return view('case-study')->with('combinedData', $combinedData);
     }
-    public function careerDetails($id)
+    public function careerDetails($slug)
     {
-        // $careerData = Job::select('department', 'job_role')->with('description')->where('id', $id)->get();
-        // $careerData = Job::with('careerDescription')->where('id', $id)->get();
-        $careerData = Job::where('id', $id)->first();
-        // dd($careerData);
-
+        $careerData = Job::where('slug', $slug)->first();
         return view('career-detail')->with('careerData', $careerData);
     }
-    public function caseStudyDetail($id)
+    public function caseStudyDetail($slug)
     {
-        $caseStudyData = CaseStudy::where('id', $id)->first();
-        // dd($description->description);
+        $caseStudyData = CaseStudy::where('slug', $slug)->first();
         return view('case-study-detail')->with('caseStudyData', $caseStudyData);
     }
     public function services()

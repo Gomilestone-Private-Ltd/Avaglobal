@@ -13,7 +13,7 @@ class Job extends Model
 
     protected $table = "job_openings";
 
-    protected $fillable = ['department', 'job_role', 'location', 'time_period', 'is_active', 'experience', 'description'];
+    protected $fillable = ['department', 'job_role', 'location', 'time_period', 'is_active', 'experience', 'description','slug'];
 
     public function getIsActiveAttribute($value)
     {
