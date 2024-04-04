@@ -38,8 +38,7 @@
                                         <div class="cs-content">
                                             {{-- <h3 class="cs-category">Freight Management</h3> --}}
                                             <h3 class="cs-category">{{ $data->case }}</h3>
-                                            <a
-                                                href="{{ url('case-study-detail') }}/{{ $data->id }}/{{ str_replace(' ', '-', strtolower($data->case)) }}">
+                                            <a href="{{ url('case-study-detail') }}/{{ $data->slug }}">
                                                 <h2 class="cs-title">
                                                     {{-- The standard Lorem Ipsum passage, used since the 1500s --}}
                                                     {{ $data->case_title }}
@@ -49,8 +48,7 @@
                                                 <p class="cs-user">{{ $data->posted_by }}</p>
                                                 <p class="cs-date">{{ $data->created_at }}</p>
                                             </div>
-                                            <a
-                                                href="{{ url('case-study-detail') }}/{{ $data->id }}/{{ str_replace(' ', '-', strtolower($data->case)) }}">
+                                            <a href="{{ url('case-study-detail') }}/{{ $data->slug }}">
                                                 <div class="knowmore uppercase">know more
                                                     <div class="sprite knwmorearw"></div>
                                                 </div>

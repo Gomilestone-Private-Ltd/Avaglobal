@@ -7,11 +7,8 @@ use App\Models\AvaDocs;
 use App\Models\CaseStudy;
 use App\Models\Description;
 use App\Models\Job;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session as FacadesSession;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -84,7 +81,7 @@ class AdminController extends Controller
     {
         $jobId = $request->id;
 
-        $requestData = $request->only('department', 'jobStatus', 'timePeriod', 'location', 'jobRole', 'experience', 'description');
+        $requestData = $request->only('department', 'jobStatus', 'timePeriod', 'location', 'jobRole', 'experience', 'description', 'slug');
         $rule = [
             'department' => 'required',
             'jobStatus' => 'required',
@@ -112,16 +109,14 @@ class AdminController extends Controller
         } else {
             $status = 0;
         }
-        // $jobPosted = new Job;
-        // $jobPosted['department'] = $request->department;
-        // $jobPosted['job_role'] = $request->jobRole;
-        // $jobPosted['location'] = $request->location;
-        // $jobPosted['time_period'] = $request->timePeriod;
-        // $jobPosted['is_active'] = $status;
-        // $jobPosted['experience'] = $request->experience;
-        // $jobPosted['description'] = $request->description;
-        // $jobPosted->save();
-        Job::updateOrCreate(
+
+        //Slug-------------------------------------
+        $slug = str_replace(" ", "-", strtolower($request->jobRole));
+        $jobSlug = Job::whereNotNull('slug')->pluck('slug')->toArray();
+        $checkSlug = in_array($slug, $jobSlug);
+        $slug = $checkSlug == true ? $slug . '-' . count($jobSlug) + 1 : $slug;
+        //   -----------------------------------------------------------
+        $record = Job::updateOrCreate(
             ['id' => $jobId],
             [
                 'department' => $request->department,
@@ -129,6 +124,7 @@ class AdminController extends Controller
                 'location' => $request->location,
                 'time_period' => $request->timePeriod,
                 'is_active' => $status,
+                'slug' => $slug,
                 'experience' => $request->experience,
                 'description' => $request->description
             ]
@@ -421,8 +417,17 @@ class AdminController extends Controller
         } else {
             $actualImagePath = null;
         }
+
+        //addSlug here
+        $slug = str_replace(" ", "-", strtolower($request['case']));
+        $caseSlug = CaseStudy::whereNotNull('slug')->pluck('slug')->toArray();
+        $checkSlug = in_array($slug, $caseSlug);
+        $slug = $checkSlug == true ? $slug . '-' . count($caseSlug) + 1 : $slug;
+        //   -----------------------------------------------------------
+
         $caseStudy = new CaseStudy;
         $caseStudy->case = $request['case'];
+        $caseStudy->slug = $slug;
         $caseStudy->case_title = $request['casetitle'];
         $caseStudy->description = $request['description'];
         $caseStudy->posted_by = $request['postedby'];
