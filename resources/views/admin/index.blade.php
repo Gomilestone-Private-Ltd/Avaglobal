@@ -5,9 +5,7 @@
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
-        <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/loader.svg" width="48" height="48"
-                alt="Aero"></div>
-        <p>Please wait...</p>
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="/images/loader.gif" alt="Loder"></div>
     </div>
 </div>
 
@@ -28,11 +26,11 @@
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>Dashboard</h2>
-                    <ul class="breadcrumb">
+                    <!-- <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="zmdi zmdi-home"></i>
                                 AVA-Global</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
-                    </ul>
+                    </ul> -->
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
                             class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>

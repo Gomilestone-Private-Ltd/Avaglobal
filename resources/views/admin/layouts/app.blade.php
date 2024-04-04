@@ -4,7 +4,7 @@
     @include('admin.layouts.sidebar')
 
     <body class="theme-blush">
-        @yield('content');
+        @yield('content')
     </body>
 
 </html>
