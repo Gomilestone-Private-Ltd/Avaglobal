@@ -128,8 +128,8 @@
                         <div class="form-group col-md-6 required">
                             <label for="">Case Image:</label>
                             <div class="file-box">
-                                <input type="file" name="caseimage" id="caseimageinput" class="form-control"
-                                    value="" placeholder="Case Image" />
+                                <input type="file" name="caseimage[]" id="caseimageinput" class="form-control"
+                                    value="" placeholder="Case Image" multiple />
                                 <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
 

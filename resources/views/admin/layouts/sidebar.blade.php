@@ -34,6 +34,27 @@
                 <a href="{{ route('contact-applicants') }}"><span>Contact Us Leads</span></a>
 
             </li>
+            <li class="{{ Request::is('opened-job') ? 'active' : '' }}">
+                <a href="{{ route('contact-applicants') }}"><span>Circulars</span></a>
+            </li>
+            <li class="{{ Request::is('opened-job') ? 'active' : '' }}">
+                <a href="{{ route('contact-applicants') }}"><span>Policy</span></a>
+            </li>
+            <li class="{{ Request::is('opened-job') ? 'active' : '' }}">
+                <a href="{{ route('contact-applicants') }}"><span>Roles And Permissions</span></a>
+            </li>
+            <li class="{{ Request::is('opened-job') ? 'active' : '' }}">
+                <a href="{{ route('contact-applicants') }}"><span>Add Brochure</span></a>
+            </li>
+            <li class="{{ Request::is('opened-job') ? 'active' : '' }}">
+                <a href="{{ route('contact-applicants') }}"><span>Add Popup</span></a>
+            </li>
+
+
+            <li class="{{ Request::is('opened-job') ? 'active' : '' }}">
+                <a href="{{ route('contact-applicants') }}"><span>Scroller</span></a>
+            </li>
+
 
             <!-- <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>
                 <ul class="ml-menu">
