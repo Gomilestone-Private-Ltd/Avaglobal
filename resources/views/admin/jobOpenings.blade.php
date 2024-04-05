@@ -48,6 +48,7 @@
             </li>
         </ul>
     </div>
+
     <section class="content">
         <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
             JOB OPENINGS DATA
@@ -212,7 +213,6 @@
 
         // Delete function 
         function deleteModal(id) {
-
             console.log(id);
             var modalToastrButton = $('#modalToastr');
 
@@ -242,84 +242,4 @@
             });
         }
     </script>
-
-
-    {{-- 
-        <script>
-            $(document).ready(function() {
-
-                $('#postjob').submit(function(e) {
-                    e.preventDefault();
-
-                    // Serialize the form data
-                    const formData = new FormData($(this)[0]);
-
-                    // Send an AJAX request
-                    $.ajax({
-                        type: 'POST',
-                        url: '{{ url('/post-jobs') }}',
-                        data: formData,
-                        processData: false,
-                        contentType: false,
-                        success: function(response) {
-
-                            console.log(response);
-                            toastr.options = {
-                                'closeButton': true,
-                                'progressBar': true
-                            }
-                            toastr.success(response.message);
-                            setTimeout(function() {
-                                window.location.href = "/get-jobs";
-                            }, 3000);
-                        },
-                        error: function(response) {
-                            console.log("hii");
-
-                            if (response.responseJSON && response.responseJSON.errors) {
-                                $('.text-danger').html('');
-                                $.each(response.responseJSON.errors, function(field, errorMessage) {
-
-                                    var errorHtml = '<span class="text-danger">' +
-                                        errorMessage + '</span>';
-                                    $('[name="' + field + '"]').closest(
-                                            '.form-group')
-                                        .find('.text-danger').html(errorHtml);
-                                });
-                            }
-
-
-                        }
-                    });
-                });
-            });
-        </script> --}}
-
-
-
-    {{-- Toastr script --}}
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <!-- Jquery Core Js -->
-    <script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
-    <script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
-
-    <script src="{{ asset('assets/plugins/momentjs/moment.js') }}"></script> <!-- Moment Plugin Js -->
-    <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="{{ asset('assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}">
-    </script>
-
-
-    <script src="{{ asset('assets/js/pages/forms/basic-form-elements.js') }}"></script>
-    <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script><!-- Custom Js -->
-
-    <!-- Jquery DataTable Plugin Js -->
-    <script src="{{ asset('assets/bundles/datatablescripts.bundle.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery-datatable/buttons/buttons.flash.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery-datatable/buttons/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery-datatable/buttons/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
 @endsection

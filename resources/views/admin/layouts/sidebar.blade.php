@@ -31,7 +31,7 @@
 
             </li>
             <li>
-                <a href="#">Contact Us Leads</a>
+                <a href="{{ route('contact-applicants') }}">Contact Us Leads</a>
 
             </li>
             <!-- <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>

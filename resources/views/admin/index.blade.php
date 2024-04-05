@@ -78,7 +78,7 @@
                     <div class="card widget_2 ">
                         <div class="body">
                             <h6>Contact Us Leads</h6>
-                            <h2>{{ isset($contactUs) ? $contactUs : 0 }}</h2>
+                            <h2>{{ isset($contactUsCounts) ? $contactUsCounts : 0 }}</h2>
                             <div class="progress">
                                 <div class="progress-bar l-green" role="progressbar" aria-valuenow="89"
                                     aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
@@ -91,23 +91,5 @@
     </div>
 </section>
 
-<!-- Jquery Core Js -->
-<script>
-    @if (Session::has('success'))
-        toastr.options = {
-            'closeButton': true,
-            'progressBar': true
-        }
-        toastr.success("{{ Session::get('success') }}");
-    @endif
-</script>
-<script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
-<script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script> <!-- slimscroll, waves Scripts Plugin Js -->
 
-<script src="{{ asset('assets/bundles/jvectormap.bundle.js') }}"></script> <!-- JVectorMap Plugin Js -->
-<script src="{{ asset('assets/bundles/sparkline.bundle.js') }}"></script> <!-- Sparkline Plugin Js -->
-<script src="{{ asset('assets/bundles/c3.bundle.js') }}"></script>
-
-<script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
-<script src="{{ asset('assets/js/pages/index.js') }}"></script>
 @endsection

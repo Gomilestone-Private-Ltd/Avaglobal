@@ -7,7 +7,9 @@
         <!---headerwrapper end-->
         <div class="calculatorwrapper">
             <div class="calculatordtlsection">
-                <img src="{{ asset('/images/contactinfobg.jpg') }}" class="csd-banner">
+                {{-- <img src="{{ asset('/images/contactinfobg.jpg') }}" class="csd-banner"> --}}
+                <img src="{{ asset($caseStudyData->avaDocs->path) }}" class="csd-banner">
+
 
             </div>
             <div class="calculatorcontentwrap" data-scroll-index="0">

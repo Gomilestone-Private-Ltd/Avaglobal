@@ -88,7 +88,7 @@
                                     </thead>
 
                                     <tbody>
-                                        @foreach ($applicantData as $data)
+                                        @foreach ($contactUsData as $data)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $data->name }}</td>
@@ -161,7 +161,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('applicant/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('contactUS/delete') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

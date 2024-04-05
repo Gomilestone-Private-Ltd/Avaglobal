@@ -113,7 +113,8 @@
                                                     <div class="d-flex">
                                                         <a href="{{ route('casestudy.edit', ['id' => $data->id]) }}"
                                                             class="btn btn-primary">Edit</a>
-                                                        <button onclick="deleteModal('{{ $data->id }}')"
+                                                        <button id="deleteButton"
+                                                            onclick="deleteModal('{{ $data->id }}')"
                                                             class="btn btn-danger">Delete</button>
                                                     </div>
                                                 </td>
@@ -126,11 +127,13 @@
                                 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
+
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLongTitle">
                                                     Case Description
                                                 </h5>
+
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -222,11 +225,12 @@
                 type: 'GET',
                 url: modalToastrButton.attr('href'),
                 success: function(response) {
+                    // $("#deleteButton").attr("disabled", true)
                     $('#deleteModal').modal('hide');
                     toastr.options = {
                         'progressBar': true,
                         'closeButton': true,
-                        'timeOut': 5000
+                        // 'timeOut': 5000
                     }
                     toastr.success(response.message);
                     window.location.href = "";
@@ -239,31 +243,4 @@
     }
 </script>
 
-
-
-{{-- Toastr script --}}
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<!-- Jquery Core Js -->
-<script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
-<script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
-
-<script src="{{ asset('assets/plugins/momentjs/moment.js') }}"></script> <!-- Moment Plugin Js -->
-<!-- Bootstrap Material Datetime Picker Plugin Js -->
-<script src="{{ asset('assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}">
-</script>
-
-
-<script src="{{ asset('assets/js/pages/forms/basic-form-elements.js') }}"></script>
-<script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script><!-- Custom Js -->
-
-<!-- Jquery DataTable Plugin Js -->
-<script src="{{ asset('assets/bundles/datatablescripts.bundle.js') }}"></script>
-<script src="{{ asset('assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/jquery-datatable/buttons/buttons.flash.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/jquery-datatable/buttons/buttons.html5.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/jquery-datatable/buttons/buttons.print.min.js') }}"></script>
-<script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
 @endsection

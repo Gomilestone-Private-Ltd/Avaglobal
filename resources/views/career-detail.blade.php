@@ -65,15 +65,14 @@
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Your Email address</div>
-                                                <input type="email" name="email" class="inputclick" >
+                                                <input type="email" name="email" class="inputclick">
                                                 <span class="text-danger">
 
                                                 </span>
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">PHONE number</div>
-                                                <input type="text" name="phone" class="inputclick"
-                                                    >
+                                                <input type="text" name="phone" class="inputclick">
                                                 <span class="text-danger">
 
                                                 </span>
@@ -107,7 +106,7 @@
                                                 </div>
                                             </div>
                                             <div class="submitbtn">
-                                                <input type="submit" name="" value="Submit Now" />
+                                                <input type="submit" id="submit" name="" value="Submit Now" />
                                             </div>
                                         </div>
                                     </form>
@@ -119,43 +118,6 @@
 
                 <script>
                     $(document).ready(function() {
-                        // $("#applicantForm").validate({
-                        //     // rules: {
-                        //     //     name: {
-                        //     //         required: true
-                        //     //     },
-                        //     //     email: {
-                        //     //         required: true
-                        //     //     },
-                        //     //     phone: {
-                        //     //         required: true
-                        //     //     },
-                        //     //     position: {
-                        //     //         required: true
-                        //     //     },
-                        //     //     applicantPdf: {
-                        //     //         required: true
-                        //     //     }
-                        //     // },
-                        //     // messages: {
-                        //     //     name: {
-                        //     //         required: "Please give your name here"
-                        //     //     },
-                        //     //     email: {
-                        //     //         required: "Please fill the email field"
-                        //     //     },
-                        //     //     phone: {
-                        //     //         required: "Please give us your contact detail",
-
-                        //     //     },
-                        //     //     position: {
-                        //     //         required: "Please tell the position applying for"
-                        //     //     },
-                        //     //     applicantPdf: {
-                        //     //         required: "Please add your Cv here"
-                        //     //     }
-                        //     // },
-                        // });
 
                         $('#applicantForm').submit(function(e) {
                             e.preventDefault();
@@ -171,8 +133,9 @@
                                 processData: false,
                                 contentType: false,
                                 success: function(response) {
+                                    $("#submit").attr("disabled", true)
                                     $("#applicantForm")[0].reset();
-                                    $('.fileSeelct').val('');
+                                    // $('.fileSeelct').val('');
                                     $('#file_7_id span').html('');
 
 

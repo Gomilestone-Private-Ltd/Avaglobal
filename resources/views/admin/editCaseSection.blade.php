@@ -70,7 +70,7 @@
 </div>
 <section class="content">
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add Case Section
+        Edit Case Section
     </h3>
     <div class="container-fluid">
         <!-- Input -->
@@ -81,7 +81,7 @@
 
                     <div class="row">
                         <div class="form-group col-md-6 required">
-                            <label for="">Case:</label>
+                            <label for="">Case Name:</label>
                             <input type="text" name="case" id="" class="form-control"
                                 value="{{ $data->case }}">
                             <span class="text-danger">
@@ -128,15 +128,16 @@
                                 <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
 
+
+                            <div id="imagePreview">
+                                <img src="{{ asset($data->avaDocs->path) }}" height="50" width="50"
+                                    alt="">
+                            </div>
                             <span class="text-danger">
                                 @error('caseimage')
                                     {{ $message }}
                                 @enderror
                             </span>
-                            <div id="imagePreview">
-                                <img src="{{ asset($data->avaDocs->path) }}" height="50" width="50"
-                                    alt="">
-                            </div>
                         </div>
                         <div class="form-group col-md-12 required">
                             <label for="">Description:</label>
@@ -153,7 +154,8 @@
 
 
                         <div class="form-group col-md-12 ">
-                            <button type="submit" class="btn btn-primary ">Submit</button>
+                            <button type="submit" id="submit"
+                                class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
 
                         </div>
 
@@ -168,6 +170,7 @@
 </section>
 
 
+
 <script>
     var selectedFile;
     document.addEventListener("DOMContentLoaded", function() {
@@ -179,12 +182,46 @@
             plugin_preview_width: "500",
             plugin_preview_height: "600",
             promotion: false,
-            plugins: "code",
+            plugins: ["image", "code"],
             branding: false,
-            height: 400
+            height: 400,
+
+            toolbar: 'undo redo | link image | code ',
+            // enable title field in the Image dialog
+            image_title: true,
+            // enable automatic uploads of images represented by blob or data URIs
+            automatic_uploads: true,
+            // add custom filepicker only to Image dialog
+            file_picker_types: 'image',
+            file_picker_callback: function(cb, value, meta) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+
+                input.onchange = function() {
+                    var file = this.files[0];
+                    var reader = new FileReader();
+
+                    reader.onload = function() {
+                        var id = 'blobid' + (new Date()).getTime();
+                        var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                        var base64 = reader.result.split(',')[1];
+                        var blobInfo = blobCache.create(id, file, base64);
+                        blobCache.add(blobInfo);
+
+                        // call the callback and populate the Title field with the file name
+                        cb(blobInfo.blobUri(), {
+                            title: file.name
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                };
+
+                input.click();
+            }
+
         });
     });
-
 
     $(document).ready(function() {
 
@@ -213,38 +250,7 @@
             }
         });
     });
-    $("#caseEdit").validate({
-        rules: {
-            case: {
-                required: true
-            },
-            casetitle: {
-                required: true
-            },
-            postedby: {
-                required: true
-            },
-            description: {
-                required: true
-            }
-        },
-        messages: {
-            case: {
-                required: "Please fill the case name"
-            },
-            casetitle: {
-                required: "Please fill the case title"
-            },
-            postedby: {
-                required: "Fill the company name",
 
-            },
-            description: {
-                required: "Please add Case description"
-            }
-        },
-    });
-    // submitHandler: function(form, e) {
     $('#caseEdit').submit(function(e) {
         e.preventDefault();
         tinymce.triggerSave(false, true)
@@ -252,10 +258,6 @@
             var formData = new FormData($("#caseEdit")[0]);
             console.log(formData);
 
-            // var descriptionValue = $('textarea#tinymce').val();
-            // console.log(descriptionValue);
-            // formData.append('description', descriptionValue);
-
             $.ajax({
                 url: "{{ url('/case/update') }}",
                 method: 'POST',
@@ -265,6 +267,7 @@
 
 
                 success: function(response) {
+                    $("#submit").attr("disabled", true)
                     $('#caseEdit').trigger("reset");
 
                     $('#imagePreview').html('');
@@ -275,23 +278,30 @@
                         'progressBar': true
                     }
                     toastr.success(response.message);
+                    window.location.href = "/admin/case-study";
                 },
-
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field, errorMessage) {
+
 
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
                             $('[name="' + field + '"]').closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
+                            $('[name="' + field + '"]').on('input',
+                                function() {
+                                    $('.text-danger').html('');
+                                });
                         });
                     }
                 }
             });
         } else {
+            // $('#caseEdit').submit(function(e) {
+            // e.preventDefault();
             var formData = new FormData($("#caseEdit")[0]);
             console.log(formData);
 
@@ -304,6 +314,7 @@
 
 
                 success: function(response) {
+                    $("#submit").attr("disabled", true)
                     $('#caseEdit').trigger("reset");
 
                     $('#imagePreview').html('');
@@ -314,40 +325,36 @@
                         'progressBar': true
                     }
                     toastr.success(response.message);
-                    // setTimeout(function() {
-                    //     window.location.href = "";
-                    // }, 3000);
+
+                    window.location.href = "/admin/case-study";
                 },
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
-                        $.each(response.responseJSON.errors, function(field, errorMessage) {
+
+                        $.each(response.responseJSON.errors, function(field,
+                            errorMessage) {
+
 
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
                             $('[name="' + field + '"]').closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
+                            $('[name="' + field + '"]').on('input',
+                                function() {
+                                    $('.text-danger').html('');
+                                });
                         });
                     }
                 }
 
             });
+            // });
         }
+
+
     });
 </script>
-{{-- Toastr script --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<!-- Jquery Core Js -->
-<script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
-<script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
 
-<script src="{{ asset('assets/plugins/momentjs/moment.js') }}"></script> <!-- Moment Plugin Js -->
-<!-- Bootstrap Material Datetime Picker Plugin Js -->
-<script src="{{ asset('assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}">
-</script>
-
-
-<script src="{{ asset('assets/js/pages/forms/basic-form-elements.js') }}"></script>
-<script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script><!-- Custom Js -->
 @endsection

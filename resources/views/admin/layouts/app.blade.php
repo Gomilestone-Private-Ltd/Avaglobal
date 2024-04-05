@@ -5,6 +5,7 @@
 
     <body class="theme-blush">
         @yield('content')
+        @include('admin.layouts.footer')
     </body>
 
 </html>

@@ -41,7 +41,7 @@
                                             <div class="input-box">
                                                 <label>Email-ID</label>
                                                 <input type="email" name="email" id="email"
-                                                    placeholder="Enter Enail">
+                                                    placeholder="Enter Email">
                                                 <i class="fas fa-envelope login-icon"></i>
                                             </div>
                                             <div class="input-box">

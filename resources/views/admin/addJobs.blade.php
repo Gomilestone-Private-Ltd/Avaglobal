@@ -163,7 +163,7 @@
                         </div>
 
                         <div class="form-group col-md-12">
-                            <input type="submit" id="submit" class="btn btn-primary float-right" value="Submit">
+                            <input type="submit" id="submit" class="btn btn-primary float-right " value="Submit">
                         </div>
                     </div>
                 </div>
@@ -176,11 +176,21 @@
 </section>
 
 
-
-
-
-
 <script>
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     // TinyMCE initialization code here
+    //     tinymce.init({
+    //         selector: 'textarea#tinymce',
+    //         plugins: "preview",
+    //         theme_advanced_buttons3_add: "preview",
+    //         plugin_preview_width: "500",
+    //         plugin_preview_height: "600",
+    //         promotion: false,
+    //         plugins: "code",
+    //         branding: false,
+    //         height: 400
+    //     });
+    // });
     document.addEventListener("DOMContentLoaded", function() {
         // TinyMCE initialization code here
         tinymce.init({
@@ -190,11 +200,47 @@
             plugin_preview_width: "500",
             plugin_preview_height: "600",
             promotion: false,
-            plugins: "code",
+            plugins: ["image", "code"],
             branding: false,
-            height: 400
+            height: 400,
+
+            toolbar: 'undo redo | link image | code ',
+            // enable title field in the Image dialog
+            image_title: true,
+            // enable automatic uploads of images represented by blob or data URIs
+            automatic_uploads: true,
+            // add custom filepicker only to Image dialog
+            file_picker_types: 'image',
+            file_picker_callback: function(cb, value, meta) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+
+                input.onchange = function() {
+                    var file = this.files[0];
+                    var reader = new FileReader();
+
+                    reader.onload = function() {
+                        var id = 'blobid' + (new Date()).getTime();
+                        var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                        var base64 = reader.result.split(',')[1];
+                        var blobInfo = blobCache.create(id, file, base64);
+                        blobCache.add(blobInfo);
+
+                        // call the callback and populate the Title field with the file name
+                        cb(blobInfo.blobUri(), {
+                            title: file.name
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                };
+
+                input.click();
+            }
+
         });
     });
+
     $(document).ready(function() {
 
         $('#postjob').submit(function(e) {
@@ -211,6 +257,7 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
+                    $("#submit").attr("disabled", true)
 
                     console.log(response);
                     toastr.options = {
@@ -224,6 +271,7 @@
                 },
                 error: function(response) {
                     console.log("hii");
+
 
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
@@ -248,21 +296,4 @@
     });
 </script>
 
-
-
-{{-- Toastr script --}}
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<!-- Jquery Core Js -->
-<script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
-<script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
-
-<script src="{{ asset('assets/plugins/momentjs/moment.js') }}"></script> <!-- Moment Plugin Js -->
-<!-- Bootstrap Material Datetime Picker Plugin Js -->
-<script src="{{ asset('assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}">
-</script>
-
-
-<script src="{{ asset('assets/js/pages/forms/basic-form-elements.js') }}"></script>
-<script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script><!-- Custom Js -->
 @endsection
