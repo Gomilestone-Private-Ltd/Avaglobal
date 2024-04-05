@@ -3,7 +3,7 @@
         <!-- <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button> -->
         <a href="{{ route('dashboard') }}"><img src="{{ asset('/images/blogo.png') }}" width="100" alt="AvaGlobal"></a>
     </div>
-    <div class="menu">
+    <div class="menu" id="tabs">
         <ul class="list">
             <li>
                 <div class="user-info">
@@ -15,25 +15,26 @@
                     </div>
                 </div>
             </li>
-            <li class="active open"><a href="{{ route('dashboard') }}"><i
+            <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a href="{{ route('dashboard') }}"><i
                         class="zmdi zmdi-home"></i><span>Dashboard</span></a>
             </li>
-            <li>
-                <a href="{{ route('opened-job') }}">Job Openings</a>
+            <li class="{{ Request::is('job-openings') ? 'active' : '' }}">
+                <a href="{{ route('opened-job') }}"><span>Job Openings</span></a>
 
             </li>
-            <li>
-                <a href="{{ route('applicants') }}">Job Applicants </a>
+            <li class="{{ Request::is('applicants') ? 'active' : '' }}">
+                <a href="{{ route('applicants') }}"><span>Job Applicants </span></a>
 
             </li>
-            <li>
-                <a href="{{ route('case-section') }}">Case Study </a>
+            <li class="{{ Request::is('case-study') ? 'active' : '' }}">
+                <a href="{{ route('case-section') }}"><span>Case Study </span></a>
 
             </li>
-            <li>
-                <a href="{{ route('contact-applicants') }}">Contact Us Leads</a>
+            <li class="{{ Request::is('opened-job') ? 'active' : '' }}">
+                <a href="{{ route('contact-applicants') }}"><span>Contact Us Leads</span></a>
 
             </li>
+
             <!-- <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>
                 <ul class="ml-menu">
                     <li><a href="mail-inbox.html">Email</a></li>
