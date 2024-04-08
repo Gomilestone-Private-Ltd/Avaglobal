@@ -2,22 +2,6 @@
 @section('content')
 @section('title', 'Home')
 
-<!-- Page Loader -->
-<div class="page-loader-wrapper">
-    <div class="loader">
-        <div class="m-t-30"><img class="zmdi-hc-spin" src="/images/loader.gif" alt="Loder"></div>
-    </div>
-</div>
-
-<!-- Overlay For Sidebars -->
-<div class="overlay"></div>
-<!-- Right Icon menu Sidebar -->
-<div class="navbar-right">
-    <ul class="navbar-nav">
-        <li><a href="{{ route('logout') }}" class="mega-menu" title="Sign Out"><i class="zmdi zmdi-power"></i></a>
-        </li>
-    </ul>
-</div>
 
 <!-- Main Content -->
 <section class="content">
@@ -41,11 +25,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2">
                         <div class="body">
-                            <h6>Job Openings</h6>
-                            <h2>{{ isset($jobCount) ? $jobCount : 0 }}</h2>
-                            <div class="progress">
-                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="45"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
+                            <div class="dash-box">
+                                <div class="left-db">
+                                    <img src="{{ asset('assets/images/job.png') }}" alt="Job" class="dash-icon">
+                                </div>
+                                <div class="right-db">
+                                    <h6>Job Openings</h6>
+                                    <h2>{{ isset($jobCount) ? $jobCount : 0 }}</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -53,11 +40,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2 ">
                         <div class="body">
-                            <h6>Case Study</h6>
-                            <h2>{{ isset($CaseStudy) ? $CaseStudy : 0 }}</h2>
-                            <div class="progress">
-                                <div class="progress-bar l-blue" role="progressbar" aria-valuenow="38" aria-valuemin="0"
-                                    aria-valuemax="100" style="width: 38%;"></div>
+                            <div class="dash-box">
+                                <div class="left-db">
+                                    <img src="{{ asset('assets/images/case.png') }}" alt="Job" class="dash-icon">
+                                </div>
+                                <div class="right-db">
+                                    <h6>Case Study</h6>
+                                    <h2>{{ isset($CaseStudy) ? $CaseStudy : 0 }}</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -65,11 +55,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2 ">
                         <div class="body">
-                            <h6>Job Applicant Leads</h6>
+                            <div class="dash-box">
+                                <div class="left-db">
+                                    <img src="{{ asset('assets/images/applicant.png') }}" alt="Job" class="dash-icon">
+                                </div>
+                                <div class="right-db">
+                                    <h6>Job Applicant Leads</h6>
                             <h2>{{ isset($Applicant) ? $Applicant : 0 }}</h2>
-                            <div class="progress">
-                                <div class="progress-bar l-purple" role="progressbar" aria-valuenow="39"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 39%;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,12 +70,16 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card widget_2 ">
                         <div class="body">
-                            <h6>Contact Us Leads</h6>
+                            <div class="dash-box">
+                                <div class="left-db">
+                                    <img src="{{ asset('assets/images/contact.png') }}" alt="Job" class="dash-icon">
+                                </div>
+                                <div class="right-db">
+                                    <h6>Contact Us Leads</h6>
                             <h2>{{ isset($contactUs) ? $contactUs : 0 }}</h2>
-                            <div class="progress">
-                                <div class="progress-bar l-green" role="progressbar" aria-valuenow="89"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
+                                </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
