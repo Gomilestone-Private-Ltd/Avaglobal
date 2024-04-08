@@ -29,3 +29,27 @@
     <script src="{{ asset('assets/TinyMce/js/tinymce/tinymce.min.js') }}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+<div class="header-container">
+    <div class="left-header">
+        <div class="navbar-brand">
+            <a href="/dashboard"><img src="{{ asset('assets/images/blogo.png') }}" width="110" alt="AvaGlobal"></a>
+        </div>
+    </div>
+    <div class="right-header">
+        <div class="rm-container">
+            <div class="rm-left">
+                <h3 class="welcome-text">WELCOME TO AVA GLOBAL</h3>
+            </div>
+            <div class="rm-right">
+                <div class="user-info">
+                    <a class="image" href="#"><img src="{{ asset('assets/images/user.png') }}"
+                            alt="User" class="userimage"></a>
+                    <div class="detail">
+                        <h4 class="username">{{ auth()->user()->name }}</h4>
+                        <small class="userrole">{{ auth()->user()->role->name }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

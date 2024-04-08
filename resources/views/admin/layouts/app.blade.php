@@ -4,6 +4,7 @@
     @include('admin.layouts.sidebar')
 
     <body class="theme-blush">
+        @include('admin.layouts.loader')
         @yield('content')
         @include('admin.layouts.footer')
     </body>

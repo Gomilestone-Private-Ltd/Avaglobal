@@ -11,10 +11,15 @@ img.cs-image {
 
 .case-study-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 30px;
     margin-top: 50px;
     margin-bottom: 50px;
+    flex-wrap: wrap; 
+}
+
+.case-study-item {
+    width: 31.6%;
 }
 
 h2.cs-title {

@@ -23,51 +23,19 @@
         background-color: red !important;
     }
 </style>
-<!-- Page Loader -->
-<div class="page-loader-wrapper">
-    <div class="loader">
-        <div class="m-t-30"><img class="zmdi-hc-spin" src="{{ asset('assets/images/loader.svg') }}" width="48"
-                height="48" alt="Aero"></div>
-        <p>Please wait...</p>
-    </div>
-</div>
 
-<!-- Overlay For Sidebars -->
-<div class="overlay"></div>
-
-<!-- Main Search -->
-<div id="search">
-    <button id="close" type="button" class="close btn btn-primary btn-icon btn-icon-mini btn-round">x</button>
-    <form>
-        <input type="search" value="" placeholder="Search..." />
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
-</div>
-
-<!-- Right Icon menu Sidebar -->
-<div class="navbar-right">
-    <ul class="navbar-nav">
-
-
-        <li><a href="{{ route('logout') }}" class="mega-menu" title="Sign Out"><i class="zmdi zmdi-power"></i></a>
-        </li>
-    </ul>
-</div>
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        CASE STUDY DATA
-    </h3>
-    <div class="form-group col-md-12">
-        <a href="{{ url('/add-case') }}" class="btn btn-primary float-right">Add</a>
-    </div>
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
-
-
+                <div class="col-md-6 col-sm-12">
+                <h2>CASE STUDY DATA</h2>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ url('/add-case') }}" class="btn btn-primary float-right"><span><img src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
+                </div>
             </div>
         </div>
-
         <div class="container-fluid">
             <!-- Basic Examples -->
             <div class="row clearfix">
@@ -101,7 +69,7 @@
                                                 <td><img src="{{ asset($data->avaDocs->path) }}"
                                                         style="width:70px;height:60px;border-radius:20%" /></td>
                                                 <td>{{ $data->posted_by }}</td>
-                                                <td>View Description
+                                                <td>View 
                                                     <i class="fa fa-eye" type="button" data-id="{{ $data->id }}"
                                                         data-toggle="modal" data-target="#exampleModalLong"
                                                         style="font-size:24px;cursor: pointer;"
