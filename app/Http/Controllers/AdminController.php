@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Applicant;
 use App\Models\AvaDocs;
+use App\Models\Brochure;
 use App\Models\CaseStudy;
 use App\Models\Description;
 use App\Models\Job;
 use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -171,6 +173,7 @@ class AdminController extends Controller
     }
     public function caseStore(Request $request)
     {
+        // dd($request->all());
         $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'description');
         $rule = [
             'case' => 'required',
@@ -503,5 +506,204 @@ class AdminController extends Controller
 
         );
         return response()->json(['success' => true, 'message' => 'Description Added Successfully']);
+    }
+
+
+    public function getBrochure()
+    {
+
+        $brochure = Brochure::orderBy('id', 'DESC')->with('avaDocsBrochure')->get();
+        return view('admin.brochureData')->with('brochure', $brochure);
+    }
+    public function brochureForms()
+    {
+        return view('admin.brochureForm');
+    }
+
+    public function postBrochure(Request $request)
+    {
+        $requestData = $request->only('title', 'location', 'brochureimage', 'brochurepdf');
+        $rule = [
+            'title' => 'required',
+            'location' => 'required',
+            'brochureimage' => 'required|mimes:jpeg,png',
+            'brochurepdf' => 'required|mimes:pdf',
+        ];
+        $message = [
+            'title.required' => "please fill the brochure title!!",
+            'location.required' => 'please fill the location',
+            'brochureimage.required' => 'please select a brochure image',
+            'brochureimage.mimes' => 'image extension must be of jpeg,png',
+            'brochurepdf.required' => 'please add brochure pdf here',
+            'brochurepdf.mimes' => 'Extension must be pdf'
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+
+        $filename = '';
+        $path = '';
+        if ($request->hasFile('brochureimage')) {
+            $file = $request->file('brochureimage');
+            $fileType = $file->extension();
+            $fileSize = $file->getSize();
+            $filename = time() . $file->getClientOriginalName();
+            $path = public_path() . '/assets/img/';
+            $file->move($path, $filename);
+        }
+        if ($filename) {
+            $actualImagePath = '/assets/img/' . $filename;
+        } else {
+            $actualImagePath = null;
+        }
+
+        $pdffilename = '';
+        $pdfpath = '';
+        if ($request->hasFile('brochurepdf')) {
+            $pdfFile = $request->file('brochurepdf');
+            $pdfFileType = $pdfFile->extension();
+            $pdfFileSize = $pdfFile->getSize();
+            $pdffilename = time() . $pdfFile->getClientOriginalName();
+            $pdfpath = public_path() . '/assets/pdf/';
+            $pdfFile->move($pdfpath, $pdffilename);
+        }
+        if ($pdffilename) {
+            $actualPdfPath = '/assets/pdf/' . $pdffilename;
+        } else {
+            $actualPdfPath = null;
+        }
+
+        $brochure = new Brochure;
+        $brochure->title = $request['title'];
+        $brochure->location = $request['location'];
+        $brochure->save();
+
+        $brochure_id = $brochure->id;
+
+
+        $avaDocsImage = new AvaDocs; // Create AvaDocs instance for image
+        $avaDocsImage->brochure_id = $brochure_id;
+        $avaDocsImage->filename = $filename;
+        $avaDocsImage->filetype = $fileType;
+        $avaDocsImage->filesize = $fileSize;
+        $avaDocsImage->path = $actualImagePath;
+        $avaDocsImage->save();
+
+        $avaDocsPdf = new AvaDocs; // Create AvaDocs instance for PDF
+        $avaDocsPdf->brochure_id = $brochure_id;
+        $avaDocsPdf->filename = $pdffilename;
+        $avaDocsPdf->filetype = $pdfFileType;
+        $avaDocsPdf->filesize = $pdfFileSize;
+        $avaDocsPdf->path = $actualPdfPath;
+        $avaDocsPdf->save();
+
+        return response()->json(['success' => true, 'message' => 'Brochure Added Successfully']);
+    }
+
+    public function getBrochureEdit($id)
+    {
+
+        $brochure = Brochure::with('avaDocsBrochure')->where('id', $id)->first();
+
+        return view('admin.editBrochureForm')->with('brochure', $brochure);
+    }
+    public function postEditBrochure(Request $request)
+    {
+
+
+        $brochureId = $request->brochureID;
+
+        $requestData = $request->only('title', 'location', 'brochureimage');
+        $rule = [
+            'title' => 'required',
+            'location' => 'required',
+            'brochureimage' => 'mimes:jpeg,png',
+        ];
+        $message = [
+            'title.required' => "please fill the brochure title!!",
+            'location.required' => 'please fill the location',
+            'brochureimage.required' => 'please select a brochure image',
+            'brochureimage.mimes' => 'image extension must be of jpeg,png',
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+
+        $BrochureData = Brochure::find($brochureId);
+
+        $filename = '';
+        $path = '';
+        if ($request->hasFile('brochureimage')) {
+            $file = $request->file('brochureimage');
+            $fileType = $file->extension();
+            $fileSize = $file->getSize();
+            $filename = time() . $file->getClientOriginalName();
+            $path = public_path() . '/assets/img/';
+
+            $replaceLocalImage = public_path() . $BrochureData->avaDocsBrochure->path;
+            // dd($replaceLocalImage);
+
+
+            if (file_exists($replaceLocalImage) && is_file($replaceLocalImage)) {
+                unlink($replaceLocalImage);
+            }
+            $file->move($path, $filename);
+            $actualImagePath = '/assets/img/' . $filename;
+            // dd($actualImagePath);
+
+            $fileId =  $BrochureData->file_id;
+            AvaDocs::updateOrCreate(
+                ['id' => $fileId],
+                [
+                    'filename' => $filename,
+                    'filesize' => $fileSize,
+                    'path' => $actualImagePath,
+                    'filetype' => $fileType
+                ]
+            );
+        } else {
+            $fileId =  $BrochureData->file_id;
+            $olderImagePath = $BrochureData->avaDocsBrochure->path;
+            // dd($olderImagePath);
+            AvaDocs::updateOrCreate(
+                ['id' => $fileId],
+                [
+                    'path' => $olderImagePath,
+                ]
+            );
+        }
+        $BrochureData->title = $request['title'];
+        $BrochureData->location = $request['location'];
+        $BrochureData->file_id = $fileId;
+        $BrochureData->save();
+        return response()->json(['success' => true, 'message' => 'Brochure Updated Successfully']);
+    }
+
+    public function changeBrochureStatus($id)
+    {
+
+
+        $BrochureData = Brochure::find($id);
+        if ($BrochureData->status == 1) {
+            $BrochureData->status = 0;
+        } elseif ($BrochureData->status == 0) {
+            $BrochureData->status = 1;
+        }
+        $BrochureData->save();
+
+        return response()->json(['success' => true, 'message' => 'Brochure Updated Successfully']);
+    }
+    public function downloadBrochure()
+    {
+        //     $file = asset('assets/pdf/brochure.pdf');
+        //     return redirect()->back()->download($file);
+        //     //     $file = Storage::disk('public')->get('/pdf/' . '1712063948teachersData (9).pdf');
+        //     //     return response()->download($file);
+    }
+    public function ScrollerData()
+    {
+        return view('admin.scrollerData');
     }
 }

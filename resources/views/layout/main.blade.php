@@ -121,10 +121,16 @@
     </head>
 
     <body>
+        @php
+            $brochure = \App\Models\Brochure::first();
+        @endphp
+
         @include('layout.menu')
         @yield('content')
         @include('layout.footer')
-        @include('layout.event-popup')
+        @if ($brochure->status == 1)
+            @include('layout.event-popup')
+        @endif
     </body>
 
 </html>

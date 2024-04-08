@@ -73,4 +73,13 @@ Route::group(["middleware" => 'auth'], function () {
     Route::post('post-contacts', [AdminController::class, 'postContactApplicants'])->name('post-contacts');
     Route::get('/contact/applicants', [AdminController::class, 'contactApplicants'])->name('contact-applicants');
     Route::get('contactUS/delete/{id}', [AdminController::class, 'contactUsApplicantsDelete'])->name('contactus-delete');
+
+    Route::get('/get/brochure', [AdminController::class, 'getBrochure'])->name('get-brochure');
+    Route::get('/add-brochure', [AdminController::class, 'brochureForms'])->name('add-brochure');
+    Route::post('/brochure/store', [AdminController::class, 'postBrochure'])->name('store-brochure');
+    Route::get('brochure/edit/{id}', [AdminController::class, 'getBrochureEdit'])->name('brochure.edit');
+    Route::post('/brochure/edit', [AdminController::class, 'postEditBrochure'])->name('post-editbrochure');
+    Route::get('/change/brochure/status/{id}', [AdminController::class, 'changeBrochureStatus'])->name('change-status');
+    // Route::get('download/brochure', [AdminController::class, 'downloadBrochure'])->name('download-brochure');
+    Route::get('scroller', [AdminController::class, 'ScrollerData'])->name('scroller');
 });

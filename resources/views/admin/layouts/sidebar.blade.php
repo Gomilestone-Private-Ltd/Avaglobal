@@ -1,4 +1,4 @@
-<aside id="leftsidebar" class="sidebar">
+<aside id="leftsidebar" class="sidebar" style="overflow: scroll">
     <div class="navbar-brand">
         <!-- <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button> -->
         <a href="{{ route('dashboard') }}"><img src="{{ asset('/images/blogo.png') }}" width="100" alt="AvaGlobal"></a>
@@ -17,6 +17,9 @@
             </li>
             <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a href="{{ route('dashboard') }}"><i
                         class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+            </li>
+            <li class="{{ Request::is('scroller') ? 'active' : '' }}">
+                <a href="{{ route('scroller') }}"><span>Footer Scroller</span></a>
             </li>
             <li class="{{ Request::is('job-openings') ? 'active' : '' }}">
                 <a href="{{ route('opened-job') }}"><span>Job Openings</span></a>
@@ -43,8 +46,8 @@
             <li class="{{ Request::is('opened-job') ? 'active' : '' }}">
                 <a href="{{ route('contact-applicants') }}"><span>Roles And Permissions</span></a>
             </li>
-            <li class="{{ Request::is('opened-job') ? 'active' : '' }}">
-                <a href="{{ route('contact-applicants') }}"><span>Add Brochure</span></a>
+            <li class="{{ Request::is('get-brochure') ? 'active' : '' }}">
+                <a href="{{ route('get-brochure') }}"><span>Add Brochure</span></a>
             </li>
             <li class="{{ Request::is('opened-job') ? 'active' : '' }}">
                 <a href="{{ route('contact-applicants') }}"><span>Add Popup</span></a>
