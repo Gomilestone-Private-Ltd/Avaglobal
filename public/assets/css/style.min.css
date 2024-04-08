@@ -18067,12 +18067,12 @@ video.logo-video {
 }
 
 .sidebar .menu .list li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     background-color: transparent;
 }
 
 .sidebar .menu .list li:hover {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     background-color: transparent;
     
 }
@@ -18189,6 +18189,7 @@ img.add-icon {
 img.side-icon {
     width: 28px;
     margin-right: 12px;
+    margin-top: -5px;
 }
 
 ::-webkit-scrollbar {
@@ -18211,3 +18212,49 @@ img.side-icon {
   ::-webkit-scrollbar-thumb:hover {
     background: #b30000; 
   }
+
+  button.logout-btn.dropdown-toggle {
+    background-color: transparent;
+    border: 0px;
+    margin: 0px;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.dropdown-menu.show {
+    display: block;
+    transform: translate3d(-76px, 72px, 13px)!important;
+}
+
+img.down-icon {
+    width: 16px;
+    margin-left: 8px;
+}
+
+img.logout-icon {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: transparent;
+    color: #222;
+    text-decoration: none;
+    border: 2px solid #4E7AC7;
+    border-radius: 6px;
+}
+
+.dropdown-menu > li > a {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    color: #777;
+    font-size: 14px;
+    padding: 7px 18px;
+    line-height: 25px;
+    border: 2px solid #ffffff;
+    border-radius: 6px;
+}

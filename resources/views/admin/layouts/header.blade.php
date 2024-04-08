@@ -45,7 +45,16 @@
                     <a class="image" href="#"><img src="{{ asset('assets/images/user.png') }}"
                             alt="User" class="userimage"></a>
                     <div class="detail">
-                        <h4 class="username">{{ auth()->user()->name }}</h4>
+                        {{-- <h4 class="username">Test</h4> --}}
+                        <div class="dropdown">
+                            <button class="logout-btn dropdown-toggle" type="button" data-toggle="dropdown">{{ auth()->user()->name }}
+                            <span><img src="{{ asset('assets/images/down.png') }}"
+                                alt="User" class="down-icon"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a href="{{ route('logout') }}"><span><img src="{{ asset('assets/images/logout.png') }}"
+                                alt="User" class="logout-icon"></span>Logout</a></li>
+                            </ul>
+                          </div>
                         <small class="userrole">{{ auth()->user()->role->name }}</small>
                     </div>
                 </div>

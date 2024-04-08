@@ -21,37 +21,37 @@
 
             </li> --}}
             <li>
-                <a href="{{ route('case-section') }}"><img src="{{ asset('assets/images/case1.png') }}" alt="Dashboard"
+                <a href="{{ route('case-section') }}"><img src="{{ asset('assets/images/case-study1.png') }}" alt="Case Study"
                         class="side-icon">Case Study </a>
 
             </li>
             <li>
-                <a href="{{ route('contact-applicants') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
-                        alt="Dashboard" class="side-icon">Contact Us Leads</a>
+                <a href="{{ route('contact-applicants') }}"><img src="{{ asset('assets/images/contact-us.png') }}"
+                        alt="Contact Us Leads" class="side-icon">Contact Us Leads</a>
 
             </li>
             <li>
-                <a href="{{ route('scroller') }}"><img src="{{ asset('assets/images/dashboard.png') }}" alt="Dashboard"
+                <a href="{{ route('scroller') }}"><img src="{{ asset('assets/images/footer.png') }}" alt="Footer"
                         class="side-icon">Footer Scroller</a>
             </li>
             <li>
-                <a href="{{ route('scroller') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
-                        alt="Dashboard" class="side-icon">Circulars</a>
+                <a href="{{ route('scroller') }}"><img src="{{ asset('assets/images/marketing.png') }}"
+                        alt="Marketing" class="side-icon">Circulars</a>
             </li>
             <li>
-                <a href="{{ route('contact-applicants') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
-                        alt="Dashboard" class="side-icon">Policy</a>
+                <a href="{{ route('contact-applicants') }}"><img src="{{ asset('assets/images/policy.png') }}"
+                        alt="Policy" class="side-icon">Policy</a>
             </li>
             <li>
-                <a href="{{ route('get-brochure') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
-                        alt="Dashboard" class="side-icon">Add PopUp</a>
+                <a href="{{ route('get-brochure') }}"><img src="{{ asset('assets/images/pop-up.png') }}"
+                        alt="Pop Up" class="side-icon">Add PopUp</a>
             </li>
             <li>
-                <a href="{{ route('scroller') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
-                        alt="Dashboard" class="side-icon">Add Brochure</a>
+                <a href="{{ route('scroller') }}"><img src="{{ asset('assets/images/brochure.png') }}"
+                        alt="Brochure" class="side-icon">Add Brochure</a>
             </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><img src="{{ asset('assets/images/suitcase.png') }}"
-                        alt="Dashboard" class="side-icon">Roles & Permissions</a>
+            <li><a href="javascript:void(0);" class="menu-toggle"><img src="{{ asset('assets/images/management.png') }}"
+                        alt="Roles & Permissions" class="side-icon">Roles & Permissions</a>
                 <ul class="ml-menu">
                     <li><a href="{{ route('opened-job') }}">Roles</a></li>
                     <li><a href="{{ route('applicants') }}">Permissions</a></li>

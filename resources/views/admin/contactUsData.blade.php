@@ -23,14 +23,15 @@
 
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Applicants Data
-    </h3>
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
-
-
+                <div class="col-md-6 col-sm-12">
+                    <h2>Applicants Data</h2>
+                </div>
+                <div class="col-md-6">
+                   
+                </div>
             </div>
         </div>
 
