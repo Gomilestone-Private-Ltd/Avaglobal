@@ -57,7 +57,7 @@
                                             <input type="text" name="name" id="" class="form-control"
                                                 placeholder="Permission Name" value="{{ $permission->name }}">
                                             <span class="text-danger">
-                                                @error('title')
+                                                @error('name')
                                                     {{ $message }}
                                                 @enderror
                                             </span>

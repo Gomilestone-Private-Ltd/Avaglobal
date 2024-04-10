@@ -56,7 +56,7 @@
                                             <input type="text" name="name" id="" class="form-control"
                                                 placeholder="Role Name" value="{{ $role->name }}">
                                             <span class="text-danger">
-                                                @error('title')
+                                                @error('name')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
