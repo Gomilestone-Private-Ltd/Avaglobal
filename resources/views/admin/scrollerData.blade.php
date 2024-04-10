@@ -29,13 +29,19 @@
         SCROLLER DATA
     </h3>
     <div class="form-group col-md-12">
-        <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right disabled">Add</a>
+        <a href="{{ url('marque/addpage') }}" class="btn btn-primary float-right ">Add</a>
     </div>
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
-
-
+                <div class="col-md-6 col-sm-12">
+                    <h2>SCROLLER DATA</h2>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right"><span><img
+                                src="{{ asset('assets/images/plus.png') }}" alt="All"
+                                class="add-icon"></span>Add</a>
+                </div>
             </div>
         </div>
 
@@ -60,34 +66,31 @@
 
                                     </thead>
                                     <tbody>
-                                        {{--
-                                        @if (count($brochure) > 0)
-                                           @foreach ($brochure as $data)
+
+                                        @if (count($data) > 0)
+                                            @foreach ($data as $Mdata)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $data->title }}</td>
-                                                    <td>{{ $data->location }}</td>
-                                                    <td><img src="{{ asset(isset($data->avaDocsBrochure->path) ? $data->avaDocsBrochure->path : 'assets/img/1711805669avaglobal.png') }}"
-                                                            style="width:70px;height:60px;border-radius:20%" /></td>
+                                                    <td>{{ $Mdata->marque_text }}</td>
                                                     <td>
-                                                        {!! $data->status == 1
-                                                            ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
-                                                            : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
+                                                        {!! $Mdata->status == 1
+                                                            ? '<button class="btn btn-success" onclick="changeStatus(' . $Mdata->id . ')">Active</button>'
+                                                            : '<button class="btn btn-danger" onclick="changeStatus(' . $Mdata->id . ')">Inactive</button>' !!}
                                                     </td>
 
                                                     <td>
                                                         <div class="d-flex">
-                                                            <a href="{{ route('brochure.edit', ['id' => $data->id]) }}"
+                                                            <a href="{{ route('marque.edit', ['id' => $Mdata->id]) }}"
                                                                 class="btn btn-primary">Edit</a>
                                                             <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $data->id }}')"
+                                                                onclick="deleteModal('{{ $Mdata->id }}')"
                                                                 class="btn btn-danger">Delete</button>
-                            </div>
-                            </td>
-                            </tr>
-                            @endforeach 
-                            @endif
-                            --}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+
 
                                     </tbody>
                                 </table>
@@ -158,7 +161,7 @@
     function changeStatus(id) {
         $.ajax({
             type: 'GET',
-            url: '/change/brochure/status/' + id,
+            url: '/change/marque/status/' + id,
             data: id,
             processData: false,
             contentType: false,
@@ -204,7 +207,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('case-study/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('marque/delete') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

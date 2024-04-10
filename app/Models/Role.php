@@ -9,4 +9,15 @@ class Role extends Model
 {
     use HasFactory;
     protected $table = 'roles';
+
+    public static function roleHasPermissions($role, $permissions)
+    {
+        $hasPermission = [];
+        foreach ($permissions as $key => $permission) {
+            if ($role->hasPermissionTo($permission)) {
+                $hasPermission[] = $key;
+            }
+        }
+        return $hasPermission;
+    }
 }

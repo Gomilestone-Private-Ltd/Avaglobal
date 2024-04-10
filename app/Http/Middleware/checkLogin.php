@@ -18,7 +18,7 @@ class checkLogin
     {
         $path = $request->path();
 
-        if (Auth::check() && ($path == "admin" || $path == "login")) {
+        if (Auth::check()) {
 
             return redirect('/dashboard');
         }

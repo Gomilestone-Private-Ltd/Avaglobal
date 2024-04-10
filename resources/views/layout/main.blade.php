@@ -78,6 +78,7 @@
 
                 $('#popup-close').click(function(e) {
                     $('#once-popup').fadeOut();
+
                 });
 
             });
@@ -122,15 +123,17 @@
 
     <body>
         @php
-            $brochure = \App\Models\Brochure::first();
+            $brochure = \App\Models\Brochure::where('status', 1)->first();
+
         @endphp
 
         @include('layout.menu')
         @yield('content')
         @include('layout.footer')
-        @if ($brochure->status == 1)
+        @if (isset($brochure->status) && $brochure->status == 1)
             @include('layout.event-popup')
         @endif
+
     </body>
 
 </html>
