@@ -24,17 +24,12 @@
     }
 </style>
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        POPUP DATA
-    </h3>
-    <div class="form-group col-md-12">
-        <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right ">Add</a>
-    </div>
+
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>BROCHURE DATA</h2>
+                    <h2>POPUP DATA</h2>
                 </div>
                 <div class="col-md-6">
                     <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right"><span><img

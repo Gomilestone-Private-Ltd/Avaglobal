@@ -24,17 +24,17 @@
     }
 </style>
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        CIRCULAR DATA
-    </h3>
-    <div class="form-group col-md-12">
-        <a href="{{ url('/add-circular') }}" class="btn btn-primary float-right ">Add</a>
-    </div>
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
-
-
+                <div class="col-md-6 col-sm-12">
+                    <h2>CIRCULAR DATA</h2>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ url('/add-circular') }}" class="btn btn-primary float-right"><span><img
+                                src="{{ asset('assets/images/plus.png') }}" alt="All"
+                                class="add-icon"></span>Add</a>
+                </div>
             </div>
         </div>
 
@@ -43,7 +43,6 @@
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
-
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable"
