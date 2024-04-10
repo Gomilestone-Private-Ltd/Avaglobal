@@ -53,8 +53,9 @@
             <li><a href="javascript:void(0);" class="menu-toggle"><img src="{{ asset('assets/images/suitcase.png') }}"
                         alt="Dashboard" class="side-icon">Roles & Permissions</a>
                 <ul class="ml-menu">
-                    <li><a href="{{ route('opened-job') }}">Roles</a></li>
-                    <li><a href="{{ route('applicants') }}">Permissions</a></li>
+                    <li><a href="{{ route('roles.index') }}">Roles</a></li>
+                    <li><a href="{{ route('permissions.index') }}">Permissions</a></li>
+                    <li><a href="{{ route('users.index') }}">Users List</a></li>
                 </ul>
             </li>
         </ul>

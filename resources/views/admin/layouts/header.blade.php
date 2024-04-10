@@ -27,7 +27,11 @@
         integrity="sha512-O/nUTF5mdFkhEoQHFn9N5wmgYyW323JO6v8kr6ltSRKriZyTr/8417taVWeabVS4iONGk2V444QD0P2cwhuTkg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('assets/TinyMce/js/tinymce/tinymce.min.js') }}"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script>
+        var baseUrl = "{{ url('') }}";
+    </script>
 </head>
 <div class="header-container">
     <div class="left-header">
@@ -42,11 +46,11 @@
             </div>
             <div class="rm-right">
                 <div class="user-info">
-                    <a class="image" href="#"><img src="{{ asset('assets/images/user.png') }}"
-                            alt="User" class="userimage"></a>
+                    <a class="image" href="#"><img src="{{ asset('assets/images/user.png') }}" alt="User"
+                            class="userimage"></a>
                     <div class="detail">
                         <h4 class="username">{{ auth()->user()->name }}</h4>
-                        <small class="userrole">{{ auth()->user()->role->name }}</small>
+                        {{-- <small class="userrole">{{ auth()->user()->role->name }}</small> --}}
                     </div>
                 </div>
             </div>
