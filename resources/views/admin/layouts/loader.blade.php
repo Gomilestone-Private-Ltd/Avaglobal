@@ -6,10 +6,10 @@
 </div>
 
 <!-- Overlay For Sidebars -->
-<div class="overlay"></div>
+<div class="overlay">
 
-<!-- Main Search -->
-<!-- <div id="search">
+    <!-- Main Search -->
+    <!-- <div id="search">
     <button id="close" type="button" class="close btn btn-primary btn-icon btn-icon-mini btn-round">x</button>
     <form>
         <input type="search" value="" placeholder="Search..." />
@@ -17,11 +17,12 @@
     </form>
 </div> -->
 
-<!-- Right Icon menu Sidebar -->
-<!-- <div class="navbar-right">
-    <ul class="navbar-nav">
+    <!-- Right Icon menu Sidebar -->
+    {{-- <div class="navbar-right"> --}}
+    {{-- <ul class="navbar-nav">
 
-        <li><a href="{{ route('logout') }}" class="mega-menu" title="Sign Out"><i class="zmdi zmdi-power"></i></a>
+      
         </li>
-    </ul>
+    </ul> --}}
+    {{-- </div> --}}
 </div>
