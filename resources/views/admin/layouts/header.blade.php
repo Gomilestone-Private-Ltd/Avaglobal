@@ -46,7 +46,7 @@
                             alt="User" class="userimage"></a>
                     <div class="detail">
                         <h4 class="username">{{ auth()->user()->name }}</h4>
-                        <small class="userrole">{{ auth()->user()->role->name }}</small>
+                        {{-- <small class="userrole">{{ auth()->user()->role->name }}</small> --}}
                     </div>
                 </div>
             </div>
