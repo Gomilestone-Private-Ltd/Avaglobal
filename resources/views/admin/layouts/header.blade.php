@@ -61,7 +61,7 @@
                                                 class="logout-icon"></span>Logout</a></li>
                             </ul>
                         </div>
-                        <small class="userrole">{{ auth()->user()->role->name }}</small>
+                        {{-- <small class="userrole">{{ auth()->user()->role->name }}</small> --}}
                     </div>
                 </div>
             </div>
