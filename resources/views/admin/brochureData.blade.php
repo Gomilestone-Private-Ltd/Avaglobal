@@ -33,11 +33,16 @@
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
-
-
+                <div class="col-md-6 col-sm-12">
+                    <h2>BROCHURE DATA</h2>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right"><span><img
+                                src="{{ asset('assets/images/plus.png') }}" alt="All"
+                                class="add-icon"></span>Add</a>
+                </div>
             </div>
         </div>
-
         <div class="container-fluid">
             <!-- Basic Examples -->
             <div class="row clearfix">

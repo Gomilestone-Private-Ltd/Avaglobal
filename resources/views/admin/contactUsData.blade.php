@@ -29,8 +29,12 @@
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Applicants Data</h2>
+                </div>
+                <div class="col-md-6">
 
-
+                </div>
             </div>
         </div>
 
