@@ -30,14 +30,13 @@
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
         UPDATE PERMISSION
     </h3>
-    <div class="form-group col-md-12">
-        <a href="{{ route('permissions.index') }}" class="btn btn-primary float-left ">BACK</a>
-    </div>
+    
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
-
-
+                <div class="form-group col-md-12">
+                    <a href="{{ route('permissions.index') }}" class="btn btn-primary float-left ">BACK</a>
+                </div>
             </div>
         </div>
 

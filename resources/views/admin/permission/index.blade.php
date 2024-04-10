@@ -27,17 +27,18 @@
     }
 </style>
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        PERMISSION
-    </h3>
-    <div class="form-group col-md-12">
-        <a href="{{ route('permissions.create') }}" class="btn btn-primary float-right ">Add Permission</a>
-    </div>
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
 
-
+                <div class="col-md-6 col-sm-12">
+                    <h2>PERMISSION</h2>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ route('permissions.create') }}" class="btn btn-primary float-right"><span><img
+                                src="{{ asset('assets/images/plus.png') }}" alt="All"
+                                class="add-icon"></span>Add Permission</a>
+                </div>
             </div>
         </div>
 
@@ -49,7 +50,7 @@
 
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
                                             <th>S.No</th>
