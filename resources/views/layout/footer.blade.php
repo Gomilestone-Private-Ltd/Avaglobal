@@ -13,7 +13,14 @@
                 <p class="copyrighttxt footertext">&copy; Copyright {{ date('Y') }} AVA GLOBAL - All
                     Rights Reserved</p>
             </div>
-            <marquee behavior="scroll" direction="left">this is marque</marquee>
+            @php
+                $data = App\Models\Marque::where('status', '1')->first();
+                $marqueText = isset($data->marque_text) ? $data->marque_text : 'Ava Global';
+            @endphp
+
+            <marquee behavior="scroll" direction="left">
+                {{ $marqueText }}</marquee>
+
         </div>
     </div>
 </div>

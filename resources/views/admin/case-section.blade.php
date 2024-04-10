@@ -100,7 +100,7 @@
                             <label for="">Case Image:</label>
                             <div class="file-box">
                                 <input type="file" name="caseimage" id="caseimageinput" class="form-control"
-                                    value="" placeholder="Case Image" multiple />
+                                    value="" placeholder="Case Image" />
                                 <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
 
@@ -146,21 +146,7 @@
 
 <script>
     var selectedFile;
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     // TinyMCE initialization code here
-    //     tinymce.init({
-    //         selector: 'textarea#tinymce',
-    //         plugins: "preview",
-    //         theme_advanced_buttons3_add: "preview",
-    //         plugin_preview_width: "500",
-    //         plugin_preview_height: "600",
-    //         promotion: false,
-    //         plugins: "code",
-    //         // plugins: "image",
-    //         branding: false,
-    //         height: 400
-    //     });
-    // });
+
     document.addEventListener("DOMContentLoaded", function() {
         // TinyMCE initialization code here
         tinymce.init({
@@ -234,8 +220,27 @@
                 $('.close-icon').hide();
             }
         });
+        // $('#caseimageinput').on('change', function(e) {
+        //     var files = this.files;
+        //     if (files && files.length > 0) {
+        //         $('#imagePreview').html(''); // Clear previous previews
+        //         $('.close-icon').show();
 
-
+        //         for (var i = 0; i < files.length; i++) {
+        //             var reader = new FileReader();
+        //             reader.onload = (function(file) {
+        //                 return function(e) {
+        //                     $('#imagePreview').append('<img src="' + e.target.result +
+        //                         '" alt="Preview">');
+        //                 };
+        //             })(files[i]);
+        //             reader.readAsDataURL(files[i]);
+        //         }
+        //     } else {
+        //         $('#imagePreview').html('');
+        //         $('.close-icon').hide();
+        //     }
+        // });
 
     });
 

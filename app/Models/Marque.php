@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class AvaDocs extends Model
+class Marque extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $table = "ava_documents";
-    protected $fillable = ['case_id', 'filename', 'filetype', 'filesize', 'path', 'applicant_id', 'circular_title', 'circular_id', 'policy_title'];
+    protected $table = 'marques';
+    protected $fillable = ['marque_text', 'status'];
 }

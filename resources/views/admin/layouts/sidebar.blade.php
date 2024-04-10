@@ -35,11 +35,11 @@
                         class="side-icon">Footer Scroller</a>
             </li>
             <li>
-                <a href="{{ route('scroller') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
+                <a href="{{ route('circulars') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
                         alt="Dashboard" class="side-icon">Circulars</a>
             </li>
             <li>
-                <a href="{{ route('contact-applicants') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
+                <a href="{{ route('data-policy') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
                         alt="Dashboard" class="side-icon">Policy</a>
             </li>
             <li>
@@ -47,7 +47,7 @@
                         alt="Dashboard" class="side-icon">Add PopUp</a>
             </li>
             <li>
-                <a href="{{ route('scroller') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
+                <a href="{{ route('download.brochureData') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
                         alt="Dashboard" class="side-icon">Add Brochure</a>
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><img src="{{ asset('assets/images/suitcase.png') }}"

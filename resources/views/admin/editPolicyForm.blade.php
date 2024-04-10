@@ -47,72 +47,57 @@
 
 <section class="content">
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add POPUP
+        Add CIRCULARS
     </h3>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form enctype="multipart/form-data" id="brochureCreate">
+            <form enctype="multipart/form-data" id="policyEdit">
                 @csrf
                 <div class="container mt-4 card p-3 bg-white">
 
                     <div class="row">
-                        <div class="form-group col-md-6 required">
-                            <label for="">Popup Title:</label>
-                            <input type="text" name="title" id="" class="form-control" value=""
-                                placeholder="Popup Title">
-                            <span class="text-danger">
-                                @error('title')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                        <input type="hidden" name="policyId" value="{{ $data->id }}">
 
-                        </div>
+                        <div class="form-group col-md-12 required">
+                            <label for="">File Title:</label>
+                            <input type="text" name="policytitle" id="" class="form-control"
+                                value="{{ $data->policy_title }}" placeholder="Add File Title">
 
-                        <div class="form-group col-md-6 required">
-                            <label for="">Location:</label>
-                            <input type="text" name="location" id="" class="form-control" value=""
-                                placeholder="Location">
 
                             <span class="text-danger">
-                                @error('location')
+                                @error('policytitle')
                                     {{ $message }}
                                 @enderror
                             </span>
                         </div>
 
-                        <div class="form-group col-md-6 required">
-                            <label for="">Popup Image:</label>
+                        <div class="form-group col-md-12 required">
+                            <label for="">Upload file:</label>
                             <div class="file-box">
-                                <input type="file" name="brochureimage" id="caseimageinput" class="form-control"
+                                <input type="file" name="policyfile" id="caseimageinput" class="form-control"
                                     value="" placeholder="" />
                                 <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
 
                             <span class="text-danger">
-                                @error('brochureimage')
+                                @error('policyfile')
                                     {{ $message }}
                                 @enderror
                             </span>
+                            @if ($data->filetype == 'pdf')
+                                <div id="filename" style="height:20px;width:250px;color:#422c37 ">
+                                    {{ $data->filename }}
+                                </div>
+                            @endif
                             <div id="imagePreview">
-
+                                @if (isset($data) && $data->filetype != 'pdf')
+                                    <img src="{{ asset(isset($data->path) ? $data->path : '') }}" height="50"
+                                        width="50" alt="">
+                                @endif
                             </div>
                         </div>
 
-                        <div class="form-group col-md-6 required">
-                            <label for="">Brochure Pdf:</label>
-                            <div class="file-box">
-                                <input type="file" name="brochurepdf" class="form-control" value=""
-                                    placeholder="" />
-                                {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
-                            </div>
-
-                            <span class="text-danger">
-                                @error('brochurepdf')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
 
                         <div class="form-group col-md-12 ">
                             <button type="submit" id="submit"
@@ -156,25 +141,38 @@
                 $('.close-icon').hide();
             }
         });
+        $('#caseimageinput').on('change', function(e) {
+            var file = this.files[0];
+            if (file) {
+                selectedFile = file;
+                // extension = selectedFile.split('.').pop().toLowerCase();
+
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#filename').html('');
+                    $('#imagePreview').html('');
+                };
+                reader.readAsDataURL(selectedFile);
+            }
+        });
     });
-    $('#brochureCreate').submit(function(e) {
+    $('#policyEdit').submit(function(e) {
         e.preventDefault();
-        tinymce.triggerSave(false, true)
         if (selectedFile) {
-            var formData = new FormData($("#brochureCreate")[0]);
+            var formData = new FormData($("#policyEdit")[0]);
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/brochure/store') }}",
+                url: "{{ url('/policy/edit/store') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
                 contentType: false,
-                type: 'POST',
-                cache: false,
+
                 success: function(response) {
                     $("#submit").attr("disabled", true)
-                    $('#brochureCreate').trigger("reset");
+                    $('#policyEdit').trigger("reset");
 
                     $('#imagePreview').html('');
                     $('.close-icon').hide();
@@ -184,9 +182,7 @@
                         'progressBar': true
                     }
                     toastr.success(response.message);
-                    setTimeout(function() {
-                        window.location.href = "/get/brochure";
-                    }, 1000);
+                    window.location.href = response.route;
                 },
 
                 error: function(response) {
@@ -208,11 +204,11 @@
                 }
             });
         } else {
-            var formData = new FormData($("#brochureCreate")[0]);
+            var formData = new FormData($("#policyEdit")[0]);
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/brochure/store') }}",
+                url: "{{ url('/policy/edit/store') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -221,7 +217,7 @@
 
                 success: function(response) {
                     $("#submit").attr("disabled", true)
-                    $('#brochureCreate').trigger("reset");
+                    $('#policyEdit').trigger("reset");
 
                     $('#imagePreview').html('');
                     $('.close-icon').hide();
@@ -232,7 +228,7 @@
                     }
                     toastr.success(response.message);
 
-                    window.location.href = "/get/brochure";
+                    window.location.href = response.route;
                 },
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {

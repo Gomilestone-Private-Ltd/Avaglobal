@@ -47,50 +47,40 @@
 
 <section class="content">
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add POPUP
+        ADD POLICY
     </h3>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form enctype="multipart/form-data" id="brochureCreate">
+            <form enctype="multipart/form-data" id="policyCreate">
                 @csrf
                 <div class="container mt-4 card p-3 bg-white">
 
                     <div class="row">
-                        <div class="form-group col-md-6 required">
-                            <label for="">Popup Title:</label>
-                            <input type="text" name="title" id="" class="form-control" value=""
-                                placeholder="Popup Title">
-                            <span class="text-danger">
-                                @error('title')
-                                    {{ $message }}
-                                @enderror
-                            </span>
 
-                        </div>
+                        <div class="form-group col-md-12 required">
+                            <label for="">File Title:</label>
+                            <input type="text" name="policytitle" id="" class="form-control" value=""
+                                placeholder="Add File Title">
 
-                        <div class="form-group col-md-6 required">
-                            <label for="">Location:</label>
-                            <input type="text" name="location" id="" class="form-control" value=""
-                                placeholder="Location">
 
                             <span class="text-danger">
-                                @error('location')
+                                @error('policytitle')
                                     {{ $message }}
                                 @enderror
                             </span>
                         </div>
 
-                        <div class="form-group col-md-6 required">
-                            <label for="">Popup Image:</label>
+                        <div class="form-group col-md-12 required">
+                            <label for="">Upload file:</label>
                             <div class="file-box">
-                                <input type="file" name="brochureimage" id="caseimageinput" class="form-control"
+                                <input type="file" name="policyfile" id="caseimageinput" class="form-control"
                                     value="" placeholder="" />
                                 <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
 
                             <span class="text-danger">
-                                @error('brochureimage')
+                                @error('policyfile')
                                     {{ $message }}
                                 @enderror
                             </span>
@@ -99,20 +89,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group col-md-6 required">
-                            <label for="">Brochure Pdf:</label>
-                            <div class="file-box">
-                                <input type="file" name="brochurepdf" class="form-control" value=""
-                                    placeholder="" />
-                                {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
-                            </div>
-
-                            <span class="text-danger">
-                                @error('brochurepdf')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
 
                         <div class="form-group col-md-12 ">
                             <button type="submit" id="submit"
@@ -148,7 +124,17 @@
                 var reader = new FileReader();
                 $('.close-icon').show();
                 reader.onload = function(e) {
-                    $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview">');
+                    if (selectedFile.type.includes("image")) {
+                        $('#imagePreview').html('<img src="' + e.target.result +
+                            '" alt="Preview">');
+                    } else if (selectedFile.type.includes("pdf")) {
+                        // $('#imagePreview').html('<embed src="' + e.target.result +
+                        //     '" type="application/pdf" width="100%" height="600px">');
+                        $('#imagePreview').html('');
+                    } else {
+                        $('#imagePreview').html('');
+                        $('.close-icon').hide();
+                    }
                 };
                 reader.readAsDataURL(selectedFile);
             } else {
@@ -156,25 +142,24 @@
                 $('.close-icon').hide();
             }
         });
+
     });
-    $('#brochureCreate').submit(function(e) {
+    $('#policyCreate').submit(function(e) {
         e.preventDefault();
-        tinymce.triggerSave(false, true)
         if (selectedFile) {
-            var formData = new FormData($("#brochureCreate")[0]);
+            var formData = new FormData($("#policyCreate")[0]);
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/brochure/store') }}",
+                url: "{{ url('/policy/store') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
                 contentType: false,
-                type: 'POST',
-                cache: false,
+
                 success: function(response) {
                     $("#submit").attr("disabled", true)
-                    $('#brochureCreate').trigger("reset");
+                    $('#policyCreate').trigger("reset");
 
                     $('#imagePreview').html('');
                     $('.close-icon').hide();
@@ -185,7 +170,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "/get/brochure";
+                        window.location.href = "data/policy";
                     }, 1000);
                 },
 
@@ -208,11 +193,11 @@
                 }
             });
         } else {
-            var formData = new FormData($("#brochureCreate")[0]);
+            var formData = new FormData($("#policyCreate")[0]);
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/brochure/store') }}",
+                url: "{{ url('/policy/store') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -221,7 +206,7 @@
 
                 success: function(response) {
                     $("#submit").attr("disabled", true)
-                    $('#brochureCreate').trigger("reset");
+                    $('#policyCreate').trigger("reset");
 
                     $('#imagePreview').html('');
                     $('.close-icon').hide();
@@ -232,7 +217,7 @@
                     }
                     toastr.success(response.message);
 
-                    window.location.href = "/get/brochure";
+                    window.location.href = "data/policy";
                 },
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {

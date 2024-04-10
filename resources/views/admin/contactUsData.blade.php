@@ -24,7 +24,7 @@
 
 <section class="content">
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Applicants Data
+        Through Contact Us Applicants
     </h3>
     <div class="body_scroll">
         <div class="block-header">

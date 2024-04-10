@@ -80,6 +80,36 @@ Route::group(["middleware" => 'auth'], function () {
     Route::get('brochure/edit/{id}', [AdminController::class, 'getBrochureEdit'])->name('brochure.edit');
     Route::post('/brochure/edit', [AdminController::class, 'postEditBrochure'])->name('post-editbrochure');
     Route::get('/change/brochure/status/{id}', [AdminController::class, 'changeBrochureStatus'])->name('change-status');
+    Route::get('popup/delete/{id}', [AdminController::class, 'deletePopup'])->name('delete-popup');
     // Route::get('download/brochure', [AdminController::class, 'downloadBrochure'])->name('download-brochure');
     Route::get('scroller', [AdminController::class, 'ScrollerData'])->name('scroller');
+
+    Route::get('get/circular', [AdminController::class, 'getCircularData'])->name('circulars');
+    Route::get('/add-circular', [AdminController::class, 'getAddCircularForm'])->name('get-addcircular');
+    Route::post('/circular/store', [AdminController::class, 'storeCircular'])->name('store-circular');
+    Route::get('circular/delete/{id}', [AdminController::class, 'deleteCircular'])->name('delete-circular');
+    Route::get('get/edit/circulars/{id}', [AdminController::class, 'getEditCircular'])->name('circular.edit');
+    Route::post('/circular/edit/store', [AdminController::class, 'editStoreCircular'])->name('edit.storecircular');
+
+    Route::get('data/policy', [AdminController::class, 'policyData'])->name('data-policy');
+    Route::get('/add-policy', [AdminController::class, 'getAddPagePolicy'])->name('add-policypage');
+    Route::post('/policy/store', [AdminController::class, 'storePolicy'])->name('store.policy');
+    Route::get('policy/delete/{id}', [AdminController::class, 'deletePolicy'])->name('delete.policy');
+    Route::get('editpolicy/form/{id}', [AdminController::class, 'editPolicyForm'])->name('policy.edit');
+    Route::post('/policy/edit/store', [AdminController::class, 'storePolicyEdit'])->name('store.editPolicy');
+
+    Route::get('marque/addpage', [AdminController::class, 'marqueAddForm'])->name('marque.addform');
+    Route::post('post/marque', [AdminController::class, 'postMarque'])->name('post.marque');
+    Route::get('/change/marque/status/{id}', [AdminController::class, 'marqueStatus'])->name('marque.status');
+    Route::get('marque/delete/{id}', [AdminController::class, 'deleteMarque'])->name('delete.marque');
+    Route::get('marque/editpage/{id}', [AdminController::class, 'editMarquePage'])->name('marque.edit');
+    Route::post('post/edit/marque', [AdminController::class, 'postEditMarque'])->name('postEdit.marque');
+
+    Route::get('event/brochure', [AdminController::class, 'eventBrochureData'])->name('download.brochureData');
+    Route::get('download/addbrochure', [AdminController::class, 'addDownloadBrochure'])->name('download.addBrochure');
+    Route::post('/downloadbrochure/store', [AdminController::class, 'storeDownloadBrochure'])->name('store.downloadBrochure');
+    Route::get('/change/downloadbrochure/status/{id}', [AdminController::class, 'changeDownloadBrochureStatus'])->name('change.downloadBrochureStatus');
+    Route::get('download/brochure/delete/{id}', [AdminController::class, 'deleteDownloadBrochure'])->name('delete.downloadBrochure');
+    Route::get('editpage/downloadbrochure/{id}', [AdminController::class, 'editDownloadBrochurePage'])->name('downloadBrochure.edit');
+    Route::post('/downloadbrochure/edit/store', [AdminController::class, 'editStoreDownloadBrochure'])->name('edit.storeDownloadBrochure');
 });

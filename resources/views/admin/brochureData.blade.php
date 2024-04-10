@@ -25,7 +25,7 @@
 </style>
 <section class="content">
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        BROCHURE DATA
+        POPUP DATA
     </h3>
     <div class="form-group col-md-12">
         <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right ">Add</a>
@@ -52,9 +52,9 @@
 
                                         <tr>
                                             <th>S.No</th>
-                                            <th>Brochure Title</th>
+                                            <th>Popup Title</th>
                                             <th>Location</th>
-                                            <th>Brochure Image</th>
+                                            <th>Popup Image</th>
                                             <th>Brochure Pdf</th>
                                             <th>Status</th>
                                             <th>Action</th>
@@ -68,15 +68,16 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $data->title }}</td>
                                                     <td>{{ $data->location }}</td>
-                                                    @foreach ($data->avaDocsBrochure as $relateData)
+                                                    @foreach ($data->avaDocsBrochure->whereIn('filetype', ['jpg', 'png']) as $relateData)
                                                         <td><img src="{{ asset(isset($relateData->path) ? $relateData->path : 'assets/img/1711805669avaglobal.png') }}"
                                                                 style="width:70px;height:60px;border-radius:20%" /></td>
                                                     @endforeach
-                                                    {{-- <td>
-                                                        <a href="{{ asset($relateData->path) }}" download>Download
-                                                            PDF</a>
-                                                        Pdf is getting generated
-                                                    </td> --}}
+                                                    @foreach ($data->avaDocsBrochure->where('filetype', 'pdf') as $relateData)
+                                                        <td>
+                                                            <a href="{{ asset($relateData->path) }}" download>Download
+                                                                PDF</a>
+                                                        </td>
+                                                    @endforeach
                                                     <td>
                                                         {!! $data->status == 1
                                                             ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
@@ -87,9 +88,9 @@
                                                         <div class="d-flex">
                                                             <a href="{{ route('brochure.edit', ['id' => $data->id]) }}"
                                                                 class="btn btn-primary">Edit</a>
-                                                            {{-- <button id="deleteButton"
+                                                            <button id="deleteButton"
                                                                 onclick="deleteModal('{{ $data->id }}')"
-                                                                class="btn btn-danger">Delete</button> --}}
+                                                                class="btn btn-danger">Delete</button>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -163,6 +164,7 @@
 </section>
 <script>
     function changeStatus(id) {
+        // localStorage.clear();
         $.ajax({
             type: 'GET',
             url: '/change/brochure/status/' + id,
@@ -181,29 +183,6 @@
     }
 </script>
 <script>
-    function updateModalBody(id) {
-        // Send an AJAX request
-        // $('#exampleModalLong').modal('hide');
-        $('#modalBody').html('');
-        var id = id;
-        $.ajax({
-            type: 'GET',
-            url: '/case/get-description/' + id,
-            data: id,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                console.log(response);
-                $('#modalBody').html('');
-                $('#modalBody').html(response.description);
-                $('#exampleModalLong').modal('show');
-            },
-            error: function(response) {
-                console.log("hii");
-            }
-        });
-    }
-
     // Delete function 
     function deleteModal(id) {
 
@@ -211,7 +190,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('case-study/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('popup/delete') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

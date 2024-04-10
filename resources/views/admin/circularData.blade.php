@@ -23,13 +23,12 @@
         background-color: red !important;
     }
 </style>
-
 <section class="content">
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        SCROLLER DATA
+        CIRCULAR DATA
     </h3>
     <div class="form-group col-md-12">
-        <a href="{{ url('marque/addpage') }}" class="btn btn-primary float-right ">Add</a>
+        <a href="{{ url('/add-circular') }}" class="btn btn-primary float-right ">Add</a>
     </div>
     <div class="body_scroll">
         <div class="block-header">
@@ -53,31 +52,34 @@
 
                                         <tr>
                                             <th>S.No</th>
-                                            <th>Scroller Text</th>
-                                            <th>Status</th>
+                                            <th>Title</th>
+                                            <th>File</th>
                                             <th>Action</th>
                                         </tr>
 
                                     </thead>
                                     <tbody>
-
-                                        @if (count($data) > 0)
-                                            @foreach ($data as $Mdata)
+                                        @if (count($circularData) > 0)
+                                            @foreach ($circularData as $data)
                                                 <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $Mdata->marque_text }}</td>
                                                     <td>
-                                                        {!! $Mdata->status == 1
-                                                            ? '<button class="btn btn-success" onclick="changeStatus(' . $Mdata->id . ')">Active</button>'
-                                                            : '<button class="btn btn-danger" onclick="changeStatus(' . $Mdata->id . ')">Inactive</button>' !!}
+                                                        {{ $loop->iteration }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $data->circular_title }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $data->filename }}
+                                                        <a href="{{ asset($data->path) }}" download>Download
+                                                            File</a>
                                                     </td>
 
                                                     <td>
                                                         <div class="d-flex">
-                                                            <a href="{{ route('marque.edit', ['id' => $Mdata->id]) }}"
+                                                            <a href="{{ route('circular.edit', ['id' => $data->id]) }}"
                                                                 class="btn btn-primary">Edit</a>
                                                             <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $Mdata->id }}')"
+                                                                onclick="deleteModal('{{ $data->id }}')"
                                                                 class="btn btn-danger">Delete</button>
                                                         </div>
                                                     </td>
@@ -85,35 +87,10 @@
                                             @endforeach
                                         @endif
 
-
                                     </tbody>
                                 </table>
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
 
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">
-                                                    Case Description
-                                                </h5>
-
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body" id="modalBody">
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {{-- endModal --}}
                                 {{-- Delete Model --}}
                                 <!-- Modal -->
                                 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
@@ -151,49 +128,8 @@
         </div>
     </div>
 </section>
-<script>
-    function changeStatus(id) {
-        $.ajax({
-            type: 'GET',
-            url: '/change/marque/status/' + id,
-            data: id,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                console.log(response);
-                window.location.href = "";
 
-            },
-            error: function(response) {
-                console.log("something went wrong");
-            }
-        });
-    }
-</script>
 <script>
-    function updateModalBody(id) {
-        // Send an AJAX request
-        // $('#exampleModalLong').modal('hide');
-        $('#modalBody').html('');
-        var id = id;
-        $.ajax({
-            type: 'GET',
-            url: '/case/get-description/' + id,
-            data: id,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                console.log(response);
-                $('#modalBody').html('');
-                $('#modalBody').html(response.description);
-                $('#exampleModalLong').modal('show');
-            },
-            error: function(response) {
-                console.log("hii");
-            }
-        });
-    }
-
     // Delete function 
     function deleteModal(id) {
 
@@ -201,7 +137,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('marque/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('circular/delete') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

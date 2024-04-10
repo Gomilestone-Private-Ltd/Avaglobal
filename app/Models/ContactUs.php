@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ContactUs extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    // use SoftDeletes;
     protected $table = 'contacts';
     protected $fillable = ['name', 'email', 'position', 'phone', 'applicantPdf', 'deleted_at'];
     public function avaDocs()

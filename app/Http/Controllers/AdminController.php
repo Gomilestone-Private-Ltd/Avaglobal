@@ -8,9 +8,12 @@ use App\Models\Brochure;
 use App\Models\CaseStudy;
 use App\Models\Description;
 use App\Models\Job;
+use App\Models\Marque;
+use DB;
 use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -179,7 +182,8 @@ class AdminController extends Controller
             'case' => 'required',
             'casetitle' => 'required',
             'postedby' => 'required',
-            'caseimage' => 'required|mimes:jpeg,png',
+            'caseimage' => 'required|mimes:jpeg,jpg,png',
+            'caseimage' => 'required',
             'description' => 'required'
         ];
         $message = [
@@ -187,7 +191,7 @@ class AdminController extends Controller
             'casetitle.required' => 'please fill the case title',
             'postedby.required' => 'please fill the company name',
             'caseimage.required' => 'please select a case image',
-            'caseimage.mimes' => 'image extension must be of jpeg,png',
+            'caseimage.mimes' => 'image extension must be of jpeg,jpg,png',
             'description.required' => 'Please add Case description here'
         ];
         $validate = Validator::make($requestData, $rule, $message);
@@ -196,11 +200,14 @@ class AdminController extends Controller
         }
         $filename = '';
         $path = '';
+
         if ($request->hasFile('caseimage')) {
+            // $allowedfileExtension = ['jpeg', 'jpg', 'png'];
             $file = $request->file('caseimage');
             $fileType = $file->extension();
             $fileSize = $file->getSize();
             $filename = time() . $file->getClientOriginalName();
+            // $check=in_array($fileType,$allowedfileExtension);
             $path = public_path() . '/assets/img/';
             $file->move($path, $filename);
         }
@@ -513,6 +520,7 @@ class AdminController extends Controller
     {
 
         $brochure = Brochure::orderBy('id', 'DESC')->with('avaDocsBrochure')->get();
+
         return view('admin.brochureData')->with('brochure', $brochure);
     }
     public function brochureForms()
@@ -546,7 +554,7 @@ class AdminController extends Controller
         $path = '';
         if ($request->hasFile('brochureimage')) {
             $file = $request->file('brochureimage');
-            $fileType = $file->extension();
+            $fileType = strtolower($file->extension());
             $fileSize = $file->getSize();
             $filename = time() . $file->getClientOriginalName();
             $path = public_path() . '/assets/img/';
@@ -562,7 +570,7 @@ class AdminController extends Controller
         $pdfpath = '';
         if ($request->hasFile('brochurepdf')) {
             $pdfFile = $request->file('brochurepdf');
-            $pdfFileType = $pdfFile->extension();
+            $pdfFileType = strtolower($pdfFile->extension());
             $pdfFileSize = $pdfFile->getSize();
             $pdffilename = time() . $pdfFile->getClientOriginalName();
             $pdfpath = public_path() . '/assets/pdf/';
@@ -598,93 +606,110 @@ class AdminController extends Controller
         $avaDocsPdf->path = $actualPdfPath;
         $avaDocsPdf->save();
 
-        return response()->json(['success' => true, 'message' => 'Brochure Added Successfully']);
+        return response()->json(['success' => true, 'message' => 'Popup Added Successfully']);
     }
 
     public function getBrochureEdit($id)
     {
 
         $brochure = Brochure::with('avaDocsBrochure')->where('id', $id)->first();
+        foreach ($brochure->avaDocsBrochure->where('filetype', 'pdf') as $data) {
+            // $pdf = asset($data->path);
+            $name = $data->filename;
+        }
+        foreach ($brochure->avaDocsBrochure->whereIn('filetype', ['jpg', 'png']) as $data) {
+            $image = asset($data->path);
+        }
+        $data = compact('name', 'image', 'brochure');
 
-        return view('admin.editBrochureForm')->with('brochure', $brochure);
+        return view('admin.editBrochureForm')->with($data);
     }
     public function postEditBrochure(Request $request)
     {
-
-
-        $brochureId = $request->brochureID;
-
-        $requestData = $request->only('title', 'location', 'brochureimage');
+        $requestData = $request->only('title', 'location', 'brochureimage', 'brochurepdf');
         $rule = [
             'title' => 'required',
             'location' => 'required',
-            'brochureimage' => 'mimes:jpeg,png',
+            'brochureimage' => 'nullable|mimes:jpg,png',
+            'brochurepdf' => 'nullable|mimes:pdf',
         ];
         $message = [
             'title.required' => "please fill the brochure title!!",
             'location.required' => 'please fill the location',
-            'brochureimage.required' => 'please select a brochure image',
-            'brochureimage.mimes' => 'image extension must be of jpeg,png',
+            'brochureimage.mimes' => 'image extension must be of jpg,png',
+            'brochurepdf.mimes' => 'Extension must be pdf'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);
         }
 
-        $BrochureData = Brochure::find($brochureId);
+        $brochureData = [
+            'title' => $request['title'],
+            'location' => $request['location'],
+        ];
 
-        $filename = '';
-        $path = '';
+        $brochure = Brochure::updateOrCreate(['id' => $request->brochureID], $brochureData);
+
+        $brochure_id = $brochure->id;
+
+        $avaDocsImage = null;
+        $avaDocsPdf = null;
+
         if ($request->hasFile('brochureimage')) {
             $file = $request->file('brochureimage');
-            $fileType = $file->extension();
+            $fileType = strtolower($file->extension());
             $fileSize = $file->getSize();
             $filename = time() . $file->getClientOriginalName();
             $path = public_path() . '/assets/img/';
-
-            $replaceLocalImage = public_path() . $BrochureData->avaDocsBrochure->path;
-            // dd($replaceLocalImage);
-
-
-            if (file_exists($replaceLocalImage) && is_file($replaceLocalImage)) {
-                unlink($replaceLocalImage);
-            }
             $file->move($path, $filename);
-            $actualImagePath = '/assets/img/' . $filename;
-            // dd($actualImagePath);
 
-            $fileId =  $BrochureData->file_id;
-            AvaDocs::updateOrCreate(
-                ['id' => $fileId],
+            $avaDocsImage = AvaDocs::updateOrCreate(
+                ['brochure_id' => $brochure_id, 'filetype' => $fileType],
                 [
                     'filename' => $filename,
+                    'filetype' => $fileType,
                     'filesize' => $fileSize,
-                    'path' => $actualImagePath,
-                    'filetype' => $fileType
+                    'path' => '/assets/img/' . $filename,
                 ]
             );
         } else {
-            $fileId =  $BrochureData->file_id;
-            $olderImagePath = $BrochureData->avaDocsBrochure->path;
-            // dd($olderImagePath);
-            AvaDocs::updateOrCreate(
-                ['id' => $fileId],
+            // If no new brochure image, fetch the existing one
+            $avaDocsImage = AvaDocs::where('brochure_id', $brochure_id)
+                ->where('filetype', 'like', 'image%')
+                ->first();
+        }
+
+
+        if ($request->hasFile('brochurepdf')) {
+            $pdfFile = $request->file('brochurepdf');
+            $pdfFileType = strtolower($pdfFile->extension());
+            $pdfFileSize = $pdfFile->getSize();
+            $pdffilename = time() . $pdfFile->getClientOriginalName();
+            $pdfpath = public_path() . '/assets/pdf/';
+            $pdfFile->move($pdfpath, $pdffilename);
+
+            $avaDocsPdf = AvaDocs::updateOrCreate(
+                ['brochure_id' => $brochure_id, 'filetype' => $pdfFileType],
                 [
-                    'path' => $olderImagePath,
+                    'filename' => $pdffilename,
+                    'filetype' => $pdfFileType,
+                    'filesize' => $pdfFileSize,
+                    'path' => '/assets/pdf/' . $pdffilename,
                 ]
             );
+        } else {
+            // If no new brochure PDF, retrieve the existing one
+            $avaDocsPdf = AvaDocs::where('brochure_id', $brochure_id)
+                ->where('filetype', 'pdf')
+                ->first();
         }
-        $BrochureData->title = $request['title'];
-        $BrochureData->location = $request['location'];
-        $BrochureData->file_id = $fileId;
-        $BrochureData->save();
+
         return response()->json(['success' => true, 'message' => 'Brochure Updated Successfully']);
     }
 
     public function changeBrochureStatus($id)
     {
-
-
         $BrochureData = Brochure::find($id);
         if ($BrochureData->status == 1) {
             $BrochureData->status = 0;
@@ -695,6 +720,14 @@ class AdminController extends Controller
 
         return response()->json(['success' => true, 'message' => 'Brochure Updated Successfully']);
     }
+
+    public function deletePopup($id)
+    {
+        Brochure::where('id', $id)->delete();
+
+        AvaDocs::where('brochure_id', $id)->delete();
+        return response()->json(['success' => true, 'message' => "Popup Got deleted successfully"]);
+    }
     public function downloadBrochure()
     {
         //     $file = asset('assets/pdf/brochure.pdf');
@@ -702,8 +735,477 @@ class AdminController extends Controller
         //     //     $file = Storage::disk('public')->get('/pdf/' . '1712063948teachersData (9).pdf');
         //     //     return response()->download($file);
     }
+
+    public function getCircularData()
+    {
+        $circularData = AvaDocs::orderBy('circular_id', 'DESC')->whereNotNull('circular_id')->get();
+
+        return view('admin.circularData')->with('circularData', $circularData);
+    }
+    public function getAddCircularForm()
+    {
+        return view('admin.addCircularForm');
+    }
+    public function storeCircular(Request $request)
+    {
+        $requestData = $request->only('circularfile', 'circulartitle');
+        $rule = [
+            'circularfile' => 'required|mimes:jpg,png,jpeg,pdf',
+            'circulartitle' => 'required|max:25',
+        ];
+        $message = [
+            'circularfile.required' => "please upload file",
+            'circularfile.mimes' => 'image extension must be of jpeg,png,jpg,pdf',
+            'circulartitle.required' => 'please add file title here',
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+        $filename = '';
+        $path = '';
+        if ($request->hasFile('circularfile')) {
+            $file = $request->file('circularfile');
+            $fileType = strtolower($file->extension());
+            $fileSize = $file->getSize();
+            $filename = time() . $file->getClientOriginalName();
+            $path = public_path() . '/assets/circulars/';
+            $file->move($path, $filename);
+        }
+        if ($filename) {
+            $actualPath = '/assets/circulars/' . $filename;
+        } else {
+            $actualPath = null;
+        }
+        $avaDocsFile = new AvaDocs; // Create AvaDocs instance for PDF
+        $avaDocsFile->filename = $filename;
+        $avaDocsFile->filetype = $fileType;
+        $avaDocsFile->filesize = $fileSize;
+        $avaDocsFile->path = $actualPath;
+        $avaDocsFile->circular_title = $request['circulartitle'];
+        $avaDocsFile->save();
+        $avaDocsFile->circular_id = $avaDocsFile->id;
+        $avaDocsFile->save();
+
+        return response()->json(['success' => true, 'message' => 'Circular file uploaded successfully']);
+    }
+    public function deleteCircular($id)
+    {
+        AvaDocs::where('id', $id)->delete();
+        return response()->json(['success' => true, 'message' => 'Circular file got deleted Successfully']);
+    }
+    public function getEditCircular($id)
+    {
+        $data =  AvaDocs::where('id', $id)->first();
+
+        return view('admin.editCircularForm')->with('data', $data);
+    }
+    public function editStoreCircular(Request $request)
+    {
+
+        $circularTitle = $request->circulartitle;
+        $circular_id = $request->circularId;
+        $olderPath = AvaDocs::where('circular_id', $circular_id)->first();
+        // dd($olderPath);
+        $requestData = $request->only('circularfile', 'circulartitle');
+        $rule = [
+            'circularfile' => 'mimes:jpg,png,jpeg,pdf',
+            'circulartitle' => 'required',
+        ];
+        $message = [
+            'circularfile.mimes' => 'image extension must be of jpeg,png,jpg,pdf',
+            'circulartitle.required' => "Please write the title here"
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+
+
+        if ($request->hasFile('circularfile')) {
+            $file = $request->file('circularfile');
+            $fileType = strtolower($file->extension());
+            $fileSize = $file->getSize();
+            $filename = time() . $file->getClientOriginalName();
+            $path = public_path() . '/assets/circulars/';
+
+
+
+            $replaceLocalFilePath = public_path() . $olderPath->path;
+            // dd($replaceLocalFilePath);
+
+
+            if (file_exists($replaceLocalFilePath) && is_file($replaceLocalFilePath)) {
+                unlink($replaceLocalFilePath);
+            }
+            $file->move($path, $filename);
+            $actualImagePath = '/assets/circulars/' . $filename;
+
+            $avaDocsFile = AvaDocs::updateOrCreate(
+                ['circular_id' => $circular_id],
+                [
+                    'circular_title' => $circularTitle,
+                    'filename' => $filename,
+                    'filetype' => $fileType,
+                    'filesize' => $fileSize,
+                    // 'path' => '/assets/circulars/' . $filename,
+                    'path' => $actualImagePath,
+                ]
+            );
+        } else {
+
+            $avaDocsFile = AvaDocs::updateOrCreate(
+                ['circular_id' => $circular_id],
+                [
+                    'circular_title' => $circularTitle,
+                ]
+            );
+
+            $avaDocsFile = AvaDocs::where('circular_id', $circular_id)
+                ->where('filetype', 'like', 'image%')
+                ->orWhere('filetype', 'pdf')
+                ->first();
+        }
+        return response()->json(['success' => true, 'message' => 'Cicular file Updated successfully', 'route' => route('circulars')]);
+    }
+
+
+    public function policyData()
+    {
+        $policyData = AvaDocs::orderBy('policy_id', 'DESC')->whereNotNull('policy_id')->get();
+        return view('admin.getPolicyData')->with('policyData', $policyData);
+    }
+    public function getAddPagePolicy()
+    {
+        return view('admin.addPolicyPage');
+    }
+    public function deletePolicy($id)
+    {
+        AvaDocs::where('id', $id)->delete();
+        return response()->json(['success' => true, 'message' => 'Policy file got deleted Successfully']);
+    }
+    public function storePolicy(Request $request)
+    {
+
+        $requestData = $request->only('policyfile', 'policytitle');
+        $rule = [
+            'policyfile' => 'required|mimes:jpg,png,jpeg,pdf',
+            'policytitle' => 'required',
+        ];
+        $message = [
+            'policyfile.required' => "please upload file",
+            'policyfile.mimes' => 'image extension must be of jpeg,png,jpg,pdf',
+            'policytitle.required' => 'please add file title here',
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+        $filename = '';
+        $path = '';
+        if ($request->hasFile('policyfile')) {
+            $file = $request->file('policyfile');
+            $fileType = strtolower($file->extension());
+            $fileSize = $file->getSize();
+            $filename = time() . $file->getClientOriginalName();
+            $path = public_path() . '/assets/policies/';
+            $file->move($path, $filename);
+        }
+        if ($filename) {
+            $actualPath = '/assets/policies/' . $filename;
+        } else {
+            $actualPath = null;
+        }
+        $avaDocsFile = new AvaDocs; // Create AvaDocs instance for PDF
+        $avaDocsFile->filename = $filename;
+        $avaDocsFile->filetype = $fileType;
+        $avaDocsFile->filesize = $fileSize;
+        $avaDocsFile->path = $actualPath;
+        $avaDocsFile->save();
+        $avaDocsFile->policy_id = $avaDocsFile->id;
+        $avaDocsFile->policy_title = $request->policytitle;
+        $avaDocsFile->save();
+
+        return response()->json(['success' => true, 'message' => 'Policy file uploaded successfully']);
+    }
+    public function editPolicyForm($id)
+    {
+        $data =  AvaDocs::where('id', $id)->first();
+
+        return view('admin.editPolicyForm')->with('data', $data);
+    }
+    public function storePolicyEdit(Request $request)
+    {
+        $policy_id = $request->policyId;
+        $olderPath = AvaDocs::where('policy_id', $policy_id)->first();
+        // dd($olderPath);
+        $requestData = $request->only('policyfile', 'policytitle');
+        $rule = [
+            'policyfile' => 'mimes:jpg,png,jpeg,pdf',
+            'policytitle' => 'required',
+        ];
+        $message = [
+            'policyfile.mimes' => 'image extension must be of jpeg,png,jpg,pdf',
+            'policytitle.required' => 'please add some file title here',
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+
+
+        if ($request->hasFile('policyfile')) {
+            $file = $request->file('policyfile');
+            $fileType = strtolower($file->extension());
+            $fileSize = $file->getSize();
+            $filename = time() . $file->getClientOriginalName();
+            $path = public_path() . '/assets/policies/';
+
+
+
+            $replaceLocalFilePath = public_path() . $olderPath->path;
+            // dd($replaceLocalFilePath);
+
+
+            if (file_exists($replaceLocalFilePath) && is_file($replaceLocalFilePath)) {
+                unlink($replaceLocalFilePath);
+            }
+            $file->move($path, $filename);
+            $actualImagePath = '/assets/policies/' . $filename;
+
+            $avaDocsImage = AvaDocs::updateOrCreate(
+                ['policy_id' => $policy_id],
+                [
+                    'filename' => $filename,
+                    'filetype' => $fileType,
+                    'filesize' => $fileSize,
+                    // 'path' => '/assets/circulars/' . $filename,
+                    'path' => $actualImagePath,
+                ]
+            );
+        } else {
+            $avaDocsImage = AvaDocs::updateOrCreate(
+                ['policy_id' => $policy_id],
+                [
+                    'policy_title' => $request->policytitle,
+                ]
+            );
+
+            $avaDocsFile = AvaDocs::where('policy_id', $policy_id)
+                ->where('filetype', 'like', 'image%')
+                ->orWhere('filetype', 'pdf')
+                ->first();
+        }
+        return response()->json(['success' => true, 'message' => 'Policy file Updated successfully', 'route' => route('data-policy')]);
+    }
+
     public function ScrollerData()
     {
-        return view('admin.scrollerData');
+        $data = Marque::get();
+        return view('admin.scrollerData')->with('data', $data);
+    }
+
+    public function marqueAddForm()
+    {
+
+        return view('admin.marqueForm');
+    }
+    public function postMarque(Request $request)
+    {
+
+        $requestData = $request->only('marquetext');
+        $rule = [
+            'marquetext' => 'required|string|max:50',
+        ];
+        $message = [
+            'marquetext.required' => 'Please add some text here'
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+
+        $marqueText = new Marque;
+        $marqueText->marque_text = $request['marquetext'];
+        $marqueText->save();
+        return response()->json(['success' => true, 'message' => 'Marque Added Successfully']);
+    }
+    public function marqueStatus($id)
+    {
+        // dd($id);
+        $marqueData = Marque::find($id);
+        if ($marqueData->status == 1) {
+            $marqueData->status = 0;
+        } elseif ($marqueData->status == 0) {
+            $marqueData->status = 1;
+        }
+        $marqueData->save();
+
+        return response()->json(['success' => true, 'message' => 'Marque status changed Successfully']);
+    }
+
+    public function deleteMarque($id)
+    {
+        Marque::where('id', $id)->delete();
+        return response()->json(['success' => true, 'message' => "Marque got Deleted"]);
+    }
+    public function editMarquePage($id)
+    {
+        $data = Marque::where('id', $id)->first();
+        return view('admin.marqueEditPage')->with('data', $data);
+    }
+    public function postEditMarque(Request $request)
+    {
+        $mId = $request->marqueId;
+
+        $requestData = $request->only('marquetext');
+        $rule = [
+            'marquetext' => 'required|string|max:50',
+        ];
+        $message = [
+            'marquetext.required' => 'Please add some text here'
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+
+        $marqueText = Marque::updateOrCreate(
+            ['id' => $mId],
+            ['marque_text' => $request->marquetext],
+        );
+        return response()->json(['success' => true, 'message' => 'Marque Updated Successfully']);
+    }
+    public function eventBrochureData()
+    {
+        $BrochureData = AvaDocs::orderBy('downloadBrochureId', 'DESC')->whereNotNull('downloadBrochureId')->get();
+        return view('admin.eventBrochure')->with('BrochureData', $BrochureData);
+    }
+
+    public function addDownloadBrochure()
+    {
+        return view('admin.brochureAddPage');
+    }
+    public function storeDownloadBrochure(Request $request)
+    {
+        // dd($request->all());
+        $requestData = $request->only('downloadbrochure');
+        $rule = [
+            'downloadbrochure' => 'required|mimes:pdf',
+        ];
+        $message = [
+            'downloadbrochure.required' => "please upload file",
+            'downloadbrochure.mimes' => 'file extension must be of pdf',
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+        $filename = '';
+        $path = '';
+        if ($request->hasFile('downloadbrochure')) {
+            $file = $request->file('downloadbrochure');
+            $fileType = strtolower($file->extension());
+            $fileSize = $file->getSize();
+            $filename = time() . $file->getClientOriginalName();
+            $path = public_path() . '/assets/downloadBrochure/';
+            $file->move($path, $filename);
+        }
+        if ($filename) {
+            $actualPath = '/assets/downloadBrochure/' . $filename;
+        } else {
+            $actualPath = null;
+        }
+        $avaDocsFile = new AvaDocs; // Create AvaDocs instance for PDF
+        $avaDocsFile->filename = $filename;
+        $avaDocsFile->filetype = $fileType;
+        $avaDocsFile->filesize = $fileSize;
+        $avaDocsFile->path = $actualPath;
+        $avaDocsFile->save();
+        $avaDocsFile->downloadBrochureId = $avaDocsFile->id;
+        $avaDocsFile->save();
+
+        return response()->json(['success' => true, 'message' => 'Brochure Pdf uploaded successfully']);
+    }
+
+    public function changeDownloadBrochureStatus($id)
+    {
+        $Data = AvaDocs::find($id);
+        if ($Data->downloadbrochurePdfStatus == 1) {
+            $Data->downloadbrochurePdfStatus = 0;
+        } elseif ($Data->downloadbrochurePdfStatus == 0) {
+            $Data->downloadbrochurePdfStatus = 1;
+        }
+        $Data->save();
+
+        return response()->json(['success' => true, 'message' => 'Brochure status changed Successfully']);
+    }
+
+    public function deleteDownloadBrochure($id)
+    {
+        AvaDocs::where('downloadBrochureId', $id)->delete();
+        return response()->json(['success' => true, 'message' => 'Brochure got deleted successfully']);
+    }
+    public function editDownloadBrochurePage($id)
+    {
+        $data =  AvaDocs::where('downloadBrochureId', $id)->first();
+
+        return view('admin.editDownloadBrochureForm')->with('data', $data);
+    }
+    public function editStoreDownloadBrochure(Request $request)
+    {
+        // dd($request->all());
+        $brochId = $request->brochId;
+        $olderPath = AvaDocs::where('downloadBrochureId', $brochId)->first();
+        // dd($olderPath);
+        $requestData = $request->only('downloadbrochure');
+        $rule = [
+            'downloadbrochure' => 'mimes:pdf',
+        ];
+        $message = [
+            'downloadbrochure.mimes' => 'file extension must be of pdf',
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+
+
+        if ($request->hasFile('downloadbrochure')) {
+            $file = $request->file('downloadbrochure');
+            $fileType = strtolower($file->extension());
+            $fileSize = $file->getSize();
+            $filename = time() . $file->getClientOriginalName();
+            $path = public_path() . '/assets/downloadBrochure/';
+
+
+
+            $replaceLocalFilePath = public_path() . $olderPath->path;
+            // dd($replaceLocalFilePath);
+
+
+            if (file_exists($replaceLocalFilePath) && is_file($replaceLocalFilePath)) {
+                unlink($replaceLocalFilePath);
+            }
+            $file->move($path, $filename);
+            $actualImagePath = '/assets/downloadBrochure/' . $filename;
+
+            $avaDocsImage = AvaDocs::updateOrCreate(
+                ['downloadBrochureId' => $brochId],
+                [
+                    'filename' => $filename,
+                    'filetype' => $fileType,
+                    'filesize' => $fileSize,
+                    // 'path' => '/assets/circulars/' . $filename,
+                    'path' => $actualImagePath,
+                ]
+            );
+        } else {
+
+            $avaDocsFile = AvaDocs::where('downloadBrochureId', $brochId)
+                ->Where('filetype', 'pdf')
+                ->first();
+        }
+        return response()->json(['success' => true, 'message' => 'Brochure file Updated successfully']);
     }
 }

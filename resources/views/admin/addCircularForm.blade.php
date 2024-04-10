@@ -47,50 +47,40 @@
 
 <section class="content">
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add POPUP
+        ADD CIRCULARS
     </h3>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form enctype="multipart/form-data" id="brochureCreate">
+            <form enctype="multipart/form-data" id="circularCreate">
                 @csrf
                 <div class="container mt-4 card p-3 bg-white">
 
                     <div class="row">
-                        <div class="form-group col-md-6 required">
-                            <label for="">Popup Title:</label>
-                            <input type="text" name="title" id="" class="form-control" value=""
-                                placeholder="Popup Title">
-                            <span class="text-danger">
-                                @error('title')
-                                    {{ $message }}
-                                @enderror
-                            </span>
 
-                        </div>
+                        <div class="form-group col-md-12 required">
+                            <label for="">File Title:</label>
+                            <input type="text" name="circulartitle" id="" class="form-control"
+                                value="" placeholder="Add File Title">
 
-                        <div class="form-group col-md-6 required">
-                            <label for="">Location:</label>
-                            <input type="text" name="location" id="" class="form-control" value=""
-                                placeholder="Location">
 
                             <span class="text-danger">
-                                @error('location')
+                                @error('circulartitle')
                                     {{ $message }}
                                 @enderror
                             </span>
                         </div>
 
-                        <div class="form-group col-md-6 required">
-                            <label for="">Popup Image:</label>
+                        <div class="form-group col-md-12 required">
+                            <label for="">Upload file:</label>
                             <div class="file-box">
-                                <input type="file" name="brochureimage" id="caseimageinput" class="form-control"
+                                <input type="file" name="circularfile" id="caseimageinput" class="form-control"
                                     value="" placeholder="" />
                                 <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
 
                             <span class="text-danger">
-                                @error('brochureimage')
+                                @error('circularfile')
                                     {{ $message }}
                                 @enderror
                             </span>
@@ -99,20 +89,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group col-md-6 required">
-                            <label for="">Brochure Pdf:</label>
-                            <div class="file-box">
-                                <input type="file" name="brochurepdf" class="form-control" value=""
-                                    placeholder="" />
-                                {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
-                            </div>
-
-                            <span class="text-danger">
-                                @error('brochurepdf')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
 
                         <div class="form-group col-md-12 ">
                             <button type="submit" id="submit"
@@ -148,7 +124,15 @@
                 var reader = new FileReader();
                 $('.close-icon').show();
                 reader.onload = function(e) {
-                    $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview">');
+                    if (selectedFile.type.includes("image")) {
+                        $('#imagePreview').html('<img src="' + e.target.result +
+                            '" alt="Preview">');
+                    } else if (selectedFile.type.includes("pdf")) {
+                        $('#imagePreview').html('');
+                    } else {
+                        $('#imagePreview').html('');
+                        $('.close-icon').hide();
+                    }
                 };
                 reader.readAsDataURL(selectedFile);
             } else {
@@ -156,25 +140,24 @@
                 $('.close-icon').hide();
             }
         });
+
     });
-    $('#brochureCreate').submit(function(e) {
+    $('#circularCreate').submit(function(e) {
         e.preventDefault();
-        tinymce.triggerSave(false, true)
         if (selectedFile) {
-            var formData = new FormData($("#brochureCreate")[0]);
+            var formData = new FormData($("#circularCreate")[0]);
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/brochure/store') }}",
+                url: "{{ url('/circular/store') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
                 contentType: false,
-                type: 'POST',
-                cache: false,
+
                 success: function(response) {
                     $("#submit").attr("disabled", true)
-                    $('#brochureCreate').trigger("reset");
+                    $('#circularCreate').trigger("reset");
 
                     $('#imagePreview').html('');
                     $('.close-icon').hide();
@@ -185,7 +168,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "/get/brochure";
+                        window.location.href = "get/circular";
                     }, 1000);
                 },
 
@@ -208,11 +191,11 @@
                 }
             });
         } else {
-            var formData = new FormData($("#brochureCreate")[0]);
+            var formData = new FormData($("#circularCreate")[0]);
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/brochure/store') }}",
+                url: "{{ url('/circular/store') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -221,7 +204,7 @@
 
                 success: function(response) {
                     $("#submit").attr("disabled", true)
-                    $('#brochureCreate').trigger("reset");
+                    $('#circularCreate').trigger("reset");
 
                     $('#imagePreview').html('');
                     $('.close-icon').hide();
@@ -232,7 +215,7 @@
                     }
                     toastr.success(response.message);
 
-                    window.location.href = "/get/brochure";
+                    window.location.href = "get/circular";
                 },
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {

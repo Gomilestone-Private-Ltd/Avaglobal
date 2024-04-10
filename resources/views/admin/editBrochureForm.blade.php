@@ -47,7 +47,7 @@
 
 <section class="content">
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add Brochure
+        Edit Popup
     </h3>
     <div class="container-fluid">
         <!-- Input -->
@@ -99,9 +99,27 @@
                             </span>
                             <div id="imagePreview">
                                 @if (isset($brochure))
-                                    <img src="{{ asset(isset($brochure->avaDocsBrochure->path) ? $brochure->avaDocsBrochure->path : '') }}"
-                                        height="50" width="50" alt="">
+                                    <img src="{{ asset(isset($image) ? $image : '') }}" height="50" width="50"
+                                        alt="">
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6 required">
+                            <label for="">Brochure Pdf:</label>
+                            <div class="file-box">
+                                <input type="file" name="brochurepdf" id="brochurepdffile" class="form-control"
+                                    value="" placeholder="" />
+                                {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
+                            </div>
+
+                            <span class="text-danger">
+                                @error('brochurepdf')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                            <div id="filename" style="height:20px;width:200px;color:#422c37 ">
+                                {{ $name }}
                             </div>
                         </div>
 
@@ -147,6 +165,19 @@
                 $('.close-icon').hide();
             }
         });
+        $('#brochurepdffile').on('change', function(e) {
+            var file = this.files[0];
+            if (file) {
+                selectedFile = file;
+
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#filename').html('');
+                };
+                reader.readAsDataURL(selectedFile);
+            }
+        });
     });
     $('#brochureCreate').submit(function(e) {
         e.preventDefault();
@@ -177,7 +208,7 @@
                     toastr.success(response.message);
                     setTimeout(function() {
                         window.location.href = "/get/brochure";
-                    }, 2000);
+                    }, 1000);
                 },
 
                 error: function(response) {
