@@ -33,8 +33,7 @@
                 </div>
                 <div class="col-md-6">
                     <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All"
-                                class="add-icon"></span>Add</a>
+                                src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
                 </div>
             </div>
         </div>
