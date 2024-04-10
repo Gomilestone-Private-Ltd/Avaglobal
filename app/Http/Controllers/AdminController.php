@@ -25,16 +25,16 @@ class AdminController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
-        $remember_me = $request->has('remember_me') ? true : false;
+        // $remember_me = $request->has('remember_me') ? true : false;
         $user = null;
-        if (Auth::attempt($credentials, $remember_me)) {
+        if (Auth::attempt($credentials)) {
             $user = Auth::user();
             //check role
-            if (in_array($user->role->name, ['Admin', 'Employee']) && Auth::user()->status == "1") {
-                return redirect()->intended('dashboard')->with('success', 'Logged In Successfully');
-            } else {
-                return redirect()->back()->with('failed', 'Hey User Please Contact to admin!!');
-            }
+            return redirect()->intended('dashboard')->with('success', 'Logged In Successfully');
+            // if (in_array($user->role->name, ['Admin', 'Employee']) && Auth::user()->status == "1") {
+            // } else {
+            //     return redirect()->back()->with('failed', 'Hey User Please Contact to admin!!');
+            // }
         } else {
             return redirect()->back()->with('error', 'Invalid Login Credential');
         }
@@ -330,13 +330,13 @@ class AdminController extends Controller
     //end
     public function logout()
     {
-        if (strtoupper(Auth::user()->role['name']) == strtoupper('Admin')) {
-            Auth::logout();
-            return redirect('/admin');
-        } elseif (strtoupper(Auth::user()->role['name']) == strtoupper('Employee')) {
-            Auth::logout();
-            return redirect('/employee-login');
-        }
+        // if (strtoupper(Auth::user()->role['name']) == strtoupper('Admin')) {
+        Auth::logout();
+        return redirect('/admin');
+        // } elseif (strtoupper(Auth::user()->role['name']) == strtoupper('Employee')) {
+        //     Auth::logout();
+        //     return redirect('/employee-login');
+        // }
     }
     public function jobApplicants()
     {

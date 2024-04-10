@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +18,20 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Here we controll all the ROLES
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('permissions', PermissionController::class);
+    Route::get('permissions/{permissionId}/delete', [PermissionController::class, 'destroy']);
+    Route::resource('roles', RoleController::class);
+    Route::get('roles/{roleId}/delete', [RoleController::class, 'destroy']);
+    //permission give to role
+    Route::get('roles/{roleId}/give-permissions', [RoleController::class, 'addPermissionToRole']);
+    Route::put('roles/{roleId}/give-permissions', [RoleController::class, 'givePermissionToRole']);
 
-// Route::get('/pages', function () {
-//     return view('admin.careerDescp');
-// });
+    //users have multiple roles
+    Route::resource('users', UserController::class);
+    Route::get('users/{userId}/delete', [UserController::class, 'destroy']);
+});
 
 
 //After login

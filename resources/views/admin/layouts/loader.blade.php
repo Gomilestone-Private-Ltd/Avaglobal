@@ -24,4 +24,4 @@
         <li><a href="{{ route('logout') }}" class="mega-menu" title="Sign Out"><i class="zmdi zmdi-power"></i></a>
         </li>
     </ul>
-</div> -->
+</div>
