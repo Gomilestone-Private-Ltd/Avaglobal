@@ -30,12 +30,12 @@
                 <div class="col-md-6 col-sm-12">
                     <h2>POLICY DATA</h2>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{ url('/add-policy') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All"
-                                class="add-icon"></span>Add</a>
-                </div>
-
+                @can('add-policy')
+                    <div class="col-md-6">
+                        <a href="{{ url('/add-policy') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
+                    </div>
+                @endcan
             </div>
         </div>
 
@@ -55,7 +55,9 @@
                                             <th>S.No</th>
                                             <th>Title</th>
                                             <th>File</th>
-                                            <th>Action</th>
+                                            @if (auth()->user()->can('edit-policy') || auth()->user()->can('delete-policy'))
+                                                <th>Action</th>
+                                            @endif
                                         </tr>
 
                                     </thead>
@@ -75,15 +77,21 @@
                                                         <a href="{{ asset($data->path) }}" download>Download
                                                             File</a>
                                                     </td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="{{ route('policy.edit', ['id' => $data->id]) }}"
-                                                                class="btn btn-primary">Edit</a>
-                                                            <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $data->id }}')"
-                                                                class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </td>
+                                                    @if (auth()->user()->can('edit-policy') || auth()->user()->can('delete-policy'))
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @can('edit-policy')
+                                                                    <a href="{{ route('policy.edit', ['id' => $data->id]) }}"
+                                                                        class="btn btn-primary">Edit</a>
+                                                                @endcan
+                                                                @can('delete-policy')
+                                                                    <button id="deleteButton"
+                                                                        onclick="deleteModal('{{ $data->id }}')"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         @endif

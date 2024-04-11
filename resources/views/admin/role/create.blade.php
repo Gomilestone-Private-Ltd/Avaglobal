@@ -45,8 +45,7 @@
                     <div class="card">
 
                         <div class="body">
-                            <form action="{{ url('roles') }}" enctype="multipart/form-data" id="brochureCreate"
-                                method="POST">
+                            <form action="{{ url('roles') }}" method="POST">
                                 @csrf
                                 <div class="container mt-4 card p-3 bg-white">
                                     <div class="row">
@@ -55,7 +54,7 @@
                                             <input type="text" name="name" id="" class="form-control"
                                                 placeholder="Role Name">
                                             <span class="text-danger">
-                                                @error('title')
+                                                @error('name')
                                                     {{ $message }}
                                                 @enderror
                                             </span>

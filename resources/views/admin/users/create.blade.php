@@ -30,7 +30,7 @@
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
         CREATE USERS
     </h3>
-    
+
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
@@ -44,8 +44,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{{ url('users') }}" enctype="multipart/form-data" id="brochureCreate"
-                                method="POST">
+                            <form action="{{ url('users') }}" method="POST">
                                 @csrf
                                 <div class="mt-4 card p-3">
                                     <div class="row">
@@ -53,16 +52,28 @@
                                             <label for="">User Name</label>
                                             <input type="text" name="name" id="" class="form-control"
                                                 placeholder="Enter Name">
+                                            <span class="text-danger"> @error('name')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="">User Email</label>
                                             <input type="email" name="email" id="" class="form-control"
                                                 placeholder="Enter Email">
+                                            <span class="text-danger"> @error('email')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="">Password</label>
                                             <input type="password" name="password" id="" class="form-control"
                                                 placeholder="Enter Password">
+                                            <span class="text-danger"> @error('password')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="">Roles</label>
@@ -72,6 +83,10 @@
                                                     <option value="{{ $role->name }}">{{ $role->name }}</option>
                                                 @endforeach
                                             </select>
+                                            <span class="text-danger"> @error('roles')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                         </div>
 
                                     </div>

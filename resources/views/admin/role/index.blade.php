@@ -31,10 +31,12 @@
                 <div class="col-md-6 col-sm-12">
                     <h2>ROLES</h2>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{ route('roles.create') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
-                </div>
+                @can('add-roles')
+                    <div class="col-md-6">
+                        <a href="{{ route('roles.create') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
+                    </div>
+                @endcan
             </div>
         </div>
 
@@ -45,13 +47,16 @@
                     <div class="card">
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table
+                                    class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
                                             <th>S.No</th>
                                             <th>NAME</th>
                                             <th>PERMISSIONS</th>
-                                            <th>ACTION</th>
+                                            @if (auth()->user()->can('edit-role-permissions') || auth()->user()->can('delete-roles'))
+                                                <th>ACTION</th>
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -68,18 +73,24 @@
                                                             @endforeach
                                                         @endif
                                                     </td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="{{ url('roles/' . $role->id . '/give-permissions') }}"
-                                                                class="btn btn-warning mr-3">Add / Edit Role
-                                                                Permission</a>
-                                                            {{-- <a href="{{ url('roles/' . $role->id . '/edit') }}"
+                                                    @if (auth()->user()->can('edit-role-permissions') || auth()->user()->can('delete-roles'))
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @can('edit-role-permissions')
+                                                                    <a href="{{ url('roles/' . $role->id . '/give-permissions') }}"
+                                                                        class="btn btn-warning mr-3">Add / Edit Role
+                                                                        Permission</a>
+                                                                @endcan
+                                                                {{-- <a href="{{ url('roles/' . $role->id . '/edit') }}"
                                                                 class="btn btn-primary mr-3">Edit</a> --}}
-                                                            <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $role->id }}')"
-                                                                class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </td>
+                                                                @can('delete-roles')
+                                                                    <button id="deleteButton"
+                                                                        onclick="deleteModal('{{ $role->id }}')"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         @endif

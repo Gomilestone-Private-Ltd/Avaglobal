@@ -56,12 +56,14 @@
                                             <input type="text" name="name" id="" class="form-control"
                                                 placeholder="Role Name" value="{{ $role->name }}">
                                             <span class="text-danger">
-                                                @error('title')
+                                                @error('name')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <button type="submit" id="submit"
-                                                class="btn btn-primary btn-lg float-right from-prevent-multiple-submits">UPDATE</button>
+                                            @can('update-role-permissions')
+                                                <button type="submit" id="submit"
+                                                    class="btn btn-primary btn-lg float-right from-prevent-multiple-submits">UPDATE</button>
+                                            @endcan
                                         </div>
                                     </div>
                                 </div>

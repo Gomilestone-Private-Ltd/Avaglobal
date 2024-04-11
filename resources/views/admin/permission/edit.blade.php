@@ -30,7 +30,7 @@
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
         UPDATE PERMISSION
     </h3>
-    
+
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
@@ -57,12 +57,14 @@
                                             <input type="text" name="name" id="" class="form-control"
                                                 placeholder="Permission Name" value="{{ $permission->name }}">
                                             <span class="text-danger">
-                                                @error('title')
+                                                @error('name')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <button type="submit" id="submit"
-                                                class="btn btn-primary btn-lg float-right from-prevent-multiple-submits">UPDATE</button>
+                                            @can('update-permissions')
+                                                <button type="submit" id="submit"
+                                                    class="btn btn-primary btn-lg float-right from-prevent-multiple-submits">UPDATE</button>
+                                            @endcan
                                         </div>
                                     </div>
                                 </div>

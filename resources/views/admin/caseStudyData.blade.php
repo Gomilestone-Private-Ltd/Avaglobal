@@ -31,10 +31,12 @@
                 <div class="col-md-6 col-sm-12">
                     <h2>CASE STUDY DATA</h2>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{ url('/add-case') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
-                </div>
+                @can('add-case-study')
+                    <div class="col-md-6">
+                        <a href="{{ url('/add-case') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
+                    </div>
+                @endcan
             </div>
         </div>
         <div class="container-fluid">
@@ -56,7 +58,9 @@
                                             <th>Posted By</th>
                                             {{-- <th>Posted Date</th> --}}
                                             <th>Description</th>
-                                            <th>Action</th>
+                                            @if (auth()->user()->can('edit-case-study') || auth()->user()->can('delete-case-study'))
+                                                <th>Action</th>
+                                            @endif
                                         </tr>
 
                                     </thead>
@@ -82,15 +86,21 @@
                                                     </i>
 
                                                 </td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <a href="{{ route('casestudy.edit', ['id' => $data->id]) }}"
-                                                            class="btn btn-primary">Edit</a>
-                                                        <button id="deleteButton"
-                                                            onclick="deleteModal('{{ $data->id }}')"
-                                                            class="btn btn-danger">Delete</button>
-                                                    </div>
-                                                </td>
+                                                @if (auth()->user()->can('edit-case-study') || auth()->user()->can('delete-case-study'))
+                                                    <td>
+                                                        <div class="d-flex">
+                                                            @can('edit-case-study')
+                                                                <a href="{{ route('casestudy.edit', ['id' => $data->id]) }}"
+                                                                    class="btn btn-primary">Edit</a>
+                                                            @endcan
+                                                            @can('delete-case-study')
+                                                                <button id="deleteButton"
+                                                                    onclick="deleteModal('{{ $data->id }}')"
+                                                                    class="btn btn-danger">Delete</button>
+                                                            @endcan
+                                                        </div>
+                                                    </td>
+                                                @endif
                                             </tr>
                                         @endforeach
                                     </tbody>

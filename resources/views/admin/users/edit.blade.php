@@ -50,11 +50,19 @@
                                             <label for="">User Name</label>
                                             <input type="text" name="name" id="" class="form-control"
                                                 placeholder="Enter Name" value="{{ $user->name }}">
+                                            <span class="text-danger"> @error('name')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="">User Email</label>
                                             <input type="email" name="email" id="" class="form-control"
                                                 placeholder="Enter Email" value="{{ $user->email }}">
+                                            <span class="text-danger"> @error('email')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="">Password</label>
@@ -71,13 +79,19 @@
                                                         {{ $role }}</option>
                                                 @endforeach
                                             </select>
+                                            <span class="text-danger"> @error('roles')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                         </div>
 
                                     </div>
-                                    <div class="mt-3">
-                                        <button type="submit" id="submit"
-                                            class="btn btn-primary btn-lg float-right">UPDATE USER</button>
-                                    </div>
+                                    @can('update-users')
+                                        <div class="mt-3">
+                                            <button type="submit" id="submit"
+                                                class="btn btn-primary btn-lg float-right">UPDATE USER</button>
+                                        </div>
+                                    @endcan
                                 </div>
                             </form>
                         </div>
@@ -88,8 +102,3 @@
     </div>
 </section>
 @endsection
-{{-- <span class="text-danger">
-    @error('title')
-        {{ $message }}
-    @enderror
-</span> --}}

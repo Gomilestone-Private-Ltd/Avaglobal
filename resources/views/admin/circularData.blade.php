@@ -30,11 +30,12 @@
                 <div class="col-md-6 col-sm-12">
                     <h2>CIRCULAR DATA</h2>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{ url('/add-circular') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All"
-                                class="add-icon"></span>Add</a>
-                </div>
+                @can('add-circular')
+                    <div class="col-md-6">
+                        <a href="{{ url('/add-circular') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
+                    </div>
+                @endcan
             </div>
         </div>
 
@@ -53,7 +54,9 @@
                                             <th>S.No</th>
                                             <th>Title</th>
                                             <th>File</th>
-                                            <th>Action</th>
+                                            @if (auth()->user()->can('edit-circular') || auth()->user()->can('delete-circular'))
+                                                <th>Action</th>
+                                            @endif
                                         </tr>
 
                                     </thead>
@@ -72,16 +75,21 @@
                                                         <a href="{{ asset($data->path) }}" download>Download
                                                             File</a>
                                                     </td>
-
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="{{ route('circular.edit', ['id' => $data->id]) }}"
-                                                                class="btn btn-primary">Edit</a>
-                                                            <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $data->id }}')"
-                                                                class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </td>
+                                                    @if (auth()->user()->can('edit-circular') || auth()->user()->can('delete-circular'))
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @can('edit-circular')
+                                                                    <a href="{{ route('circular.edit', ['id' => $data->id]) }}"
+                                                                        class="btn btn-primary">Edit</a>
+                                                                @endcan
+                                                                @can('delete-circular')
+                                                                    <button id="deleteButton"
+                                                                        onclick="deleteModal('{{ $data->id }}')"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         @endif

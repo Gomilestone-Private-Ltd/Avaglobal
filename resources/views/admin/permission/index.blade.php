@@ -34,11 +34,13 @@
                 <div class="col-md-6 col-sm-12">
                     <h2>PERMISSION</h2>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{ route('permissions.create') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All"
-                                class="add-icon"></span>Add Permission</a>
-                </div>
+                @can('add-permissions')
+                    <div class="col-md-6">
+                        <a href="{{ route('permissions.create') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add
+                            Permission</a>
+                    </div>
+                @endcan
             </div>
         </div>
 
@@ -50,12 +52,15 @@
 
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table
+                                    class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
                                             <th>S.No</th>
                                             <th>NAME</th>
-                                            <th>ACTION</th>
+                                            @if (auth()->user()->can('edit-permissions') || auth()->user()->can('delete-permissions'))
+                                                <th>ACTION</th>
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -64,15 +69,21 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $permission->name }}</td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="{{ url('permissions/' . $permission->id . '/edit') }}"
-                                                                class="btn btn-primary mr-3">Edit</a>
-                                                            <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $permission->id }}')"
-                                                                class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </td>
+                                                    @if (auth()->user()->can('edit-permissions') || auth()->user()->can('delete-permissions'))
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @can('edit-permissions')
+                                                                    <a href="{{ url('permissions/' . $permission->id . '/edit') }}"
+                                                                        class="btn btn-primary mr-3">Edit</a>
+                                                                @endcan
+                                                                @can('delete-permissions')
+                                                                    <button id="deleteButton"
+                                                                        onclick="deleteModal('{{ $permission->id }}')"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         @endif

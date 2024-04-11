@@ -30,7 +30,7 @@
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
         CREATE PERMISSION
     </h3>
-    
+
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
@@ -47,8 +47,7 @@
                     <div class="card">
 
                         <div class="body">
-                            <form action="{{ url('permissions') }}" enctype="multipart/form-data" id="brochureCreate"
-                                method="POST">
+                            <form action="{{ url('permissions') }}" method="POST">
                                 @csrf
                                 <div class="container mt-4 card p-3 bg-white">
                                     <div class="row">
@@ -57,7 +56,7 @@
                                             <input type="text" name="name" id="" class="form-control"
                                                 placeholder="Permission Name">
                                             <span class="text-danger">
-                                                @error('title')
+                                                @error('name')
                                                     {{ $message }}
                                                 @enderror
                                             </span>

@@ -31,11 +31,12 @@
                 <div class="col-md-6 col-sm-12">
                     <h2>SCROLLER DATA</h2>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{ url('marque/addpage') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All"
-                                class="add-icon"></span>Add</a>
-                </div>
+                @can('add-footer-marque')
+                    <div class="col-md-6">
+                        <a href="{{ url('marque/addpage') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
+                    </div>
+                @endcan
             </div>
         </div>
 
@@ -54,8 +55,12 @@
                                         <tr>
                                             <th>S.No</th>
                                             <th>Scroller Text</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
+                                            @can('edit-status-footer-marque')
+                                                <th>Status</th>
+                                            @endcan
+                                            @if (auth()->user()->can('edit-footer-marque') || auth()->user()->can('delete-footer-marque'))
+                                                <th>Action</th>
+                                            @endif
                                         </tr>
 
                                     </thead>
@@ -66,21 +71,28 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $Mdata->marque_text }}</td>
-                                                    <td>
-                                                        {!! $Mdata->status == 1
-                                                            ? '<button class="btn btn-success" onclick="changeStatus(' . $Mdata->id . ')">Active</button>'
-                                                            : '<button class="btn btn-danger" onclick="changeStatus(' . $Mdata->id . ')">Inactive</button>' !!}
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="{{ route('marque.edit', ['id' => $Mdata->id]) }}"
-                                                                class="btn btn-primary">Edit</a>
-                                                            <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $Mdata->id }}')"
-                                                                class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </td>
+                                                    @can('edit-status-footer-marque')
+                                                        <td>
+                                                            {!! $Mdata->status == 1
+                                                                ? '<button class="btn btn-success" onclick="changeStatus(' . $Mdata->id . ')">Active</button>'
+                                                                : '<button class="btn btn-danger" onclick="changeStatus(' . $Mdata->id . ')">Inactive</button>' !!}
+                                                        </td>
+                                                    @endcan
+                                                    @if (auth()->user()->can('edit-footer-marque') || auth()->user()->can('delete-footer-marque'))
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @can('edit-footer-marque')
+                                                                    <a href="{{ route('marque.edit', ['id' => $Mdata->id]) }}"
+                                                                        class="btn btn-primary">Edit</a>
+                                                                @endcan
+                                                                @can('delete-footer-marque')
+                                                                    <button id="deleteButton"
+                                                                        onclick="deleteModal('{{ $Mdata->id }}')"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         @endif
