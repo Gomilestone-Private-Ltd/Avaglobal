@@ -31,12 +31,12 @@
                 <div class="col-md-6 col-sm-12">
                     <h2>EVENT BROCHURE DATA</h2>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{ url('download/addbrochure') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All"
-                                class="add-icon"></span>Add</a>
-                </div>
-
+                @can('add-brochure')
+                    <div class="col-md-6">
+                        <a href="{{ url('download/addbrochure') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
+                    </div>
+                @endcan
             </div>
         </div>
 
@@ -55,8 +55,12 @@
                                         <tr>
                                             <th>S.No</th>
                                             <th>Brochure Pdf File</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
+                                            @can('edit-status-brochure')
+                                                <th>Status</th>
+                                            @endcan
+                                            @if (auth()->user()->can('edit-brochure') || auth()->user()->can('delete-brochure'))
+                                                <th>Action</th>
+                                            @endif
                                         </tr>
 
                                     </thead>
@@ -72,21 +76,29 @@
                                                         <a href="{{ asset($data->path) }}" download>Download
                                                             Brochure</a>
                                                     </td>
-                                                    <td>
-                                                        {!! $data->downloadbrochurePdfStatus == 1
-                                                            ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
-                                                            : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
-                                                    </td>
-                                                    <td>
+                                                    @can('edit-status-brochure')
+                                                        <td>
+                                                            {!! $data->downloadbrochurePdfStatus == 1
+                                                                ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
+                                                                : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
+                                                        </td>
+                                                    @endcan
+                                                    @if (auth()->user()->can('edit-brochure') || auth()->user()->can('delete-brochure'))
+                                                        <td>
 
-                                                        <div class="d-flex">
-                                                            <a href="{{ route('downloadBrochure.edit', ['id' => $data->id]) }}"
-                                                                class="btn btn-primary">Edit</a>
-                                                            <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $data->id }}')"
-                                                                class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </td>
+                                                            <div class="d-flex">
+                                                                @can('edit-brochure')
+                                                                    <a href="{{ route('downloadBrochure.edit', ['id' => $data->id]) }}"
+                                                                        class="btn btn-primary">Edit</a>
+                                                                @endcan
+                                                                @can('delete-brochure')
+                                                                    <button id="deleteButton"
+                                                                        onclick="deleteModal('{{ $data->id }}')"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         @endif

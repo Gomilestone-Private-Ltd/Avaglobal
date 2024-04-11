@@ -86,10 +86,12 @@
                                         </div>
 
                                     </div>
-                                    <div class="mt-3">
-                                        <button type="submit" id="submit"
-                                            class="btn btn-primary btn-lg float-right">UPDATE USER</button>
-                                    </div>
+                                    @can('update-users')
+                                        <div class="mt-3">
+                                            <button type="submit" id="submit"
+                                                class="btn btn-primary btn-lg float-right">UPDATE USER</button>
+                                        </div>
+                                    @endcan
                                 </div>
                             </form>
                         </div>

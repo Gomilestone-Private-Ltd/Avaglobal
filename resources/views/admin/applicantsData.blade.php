@@ -52,7 +52,9 @@
                                             <th>Contact No.</th>
                                             <th>Job Position</th>
                                             <th>Applicant CV</th>
-                                            <th>Action</th>
+                                            @can('delete-job-applicants')
+                                                <th>Action</th>
+                                            @endcan
                                         </tr>
 
                                     </thead>
@@ -69,15 +71,15 @@
                                                     <a href="{{ asset($data->avaDocs->path) }}" download>Download
                                                         PDF</a>
                                                 </td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <button onclick="deleteModal('{{ $data->id }}')"
-                                                            class="btn btn-danger">Delete</button>
+                                                @can('delete-job-applicants')
+                                                    <td>
+                                                        <div class="d-flex">
+                                                            <button onclick="deleteModal('{{ $data->id }}')"
+                                                                class="btn btn-danger">Delete</button>
 
-                                                    </div>
-                                                </td>
-
-
+                                                        </div>
+                                                    </td>
+                                                @endcan
                                             </tr>
                                         @endforeach
 

@@ -28,9 +28,11 @@
                         <h2>JOB OPENINGS DATA</h2>
                     </div>
                     <div class="col-md-6">
-                        <a href="{{ url('/add-jobs') }}" class="btn btn-primary float-right"><span><img
-                                    src="{{ asset('assets/images/plus.png') }}" alt="All"
-                                    class="add-icon"></span>Add</a>
+                        @can('add-job-opening')
+                            <a href="{{ url('/add-jobs') }}" class="btn btn-primary float-right"><span><img
+                                        src="{{ asset('assets/images/plus.png') }}" alt="All"
+                                        class="add-icon"></span>Add</a>
+                        @endcan
                     </div>
                 </div>
             </div>
@@ -55,9 +57,10 @@
                                                 <th>Time Period</th>
                                                 <th>Job Status</th>
                                                 <th>Description</th>
-                                                <th>Action</th>
+                                                @if (auth()->user()->can('edit-job-opening') || auth()->user()->can('delete-job-opening'))
+                                                    <th>Action</th>
+                                                @endif
                                             </tr>
-
                                         </thead>
                                         <tbody>
                                             @foreach ($jobPost as $data)
@@ -76,18 +79,21 @@
                                                             style="font-size:24px;cursor: pointer;"
                                                             onclick="updateModalBody('{{ $data->id }}')">
                                                         </i>
-
                                                     </td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="{{ route('careerjob.edit', ['id' => $data->id]) }}"
-                                                                class="btn btn-primary">Edit</a>
-                                                            <button onclick="deleteModal('{{ $data->id }}')"
-                                                                class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </td>
-
-
+                                                    @if (auth()->user()->can('edit-job-opening') || auth()->user()->can('delete-job-opening'))
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @can('edit-job-opening')
+                                                                    <a href="{{ route('careerjob.edit', ['id' => $data->id]) }}"
+                                                                        class="btn btn-primary">Edit</a>
+                                                                @endcan
+                                                                @can('delete-job-opening')
+                                                                    <button onclick="deleteModal('{{ $data->id }}')"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
 

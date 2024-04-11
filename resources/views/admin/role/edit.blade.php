@@ -60,8 +60,10 @@
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <button type="submit" id="submit"
-                                                class="btn btn-primary btn-lg float-right from-prevent-multiple-submits">UPDATE</button>
+                                            @can('update-role-permissions')
+                                                <button type="submit" id="submit"
+                                                    class="btn btn-primary btn-lg float-right from-prevent-multiple-submits">UPDATE</button>
+                                            @endcan
                                         </div>
                                     </div>
                                 </div>

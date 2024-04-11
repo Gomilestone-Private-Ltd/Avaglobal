@@ -31,10 +31,12 @@
                 <div class="col-md-6 col-sm-12">
                     <h2>POPUP DATA</h2>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
-                </div>
+                @can('add-popup')
+                    <div class="col-md-6">
+                        <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
+                    </div>
+                @endcan
             </div>
         </div>
         <div class="container-fluid">
@@ -55,8 +57,12 @@
                                             <th>Location</th>
                                             <th>Popup Image</th>
                                             <th>Brochure Pdf</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
+                                            @can('edit-status-popup')
+                                                <th>Status</th>
+                                            @endcan
+                                            @if (auth()->user()->can('edit-popup') || auth()->user()->can('delete-popup'))
+                                                <th>Action</th>
+                                            @endif
                                         </tr>
 
                                     </thead>
@@ -77,21 +83,28 @@
                                                                 PDF</a>
                                                         </td>
                                                     @endforeach
-                                                    <td>
-                                                        {!! $data->status == 1
-                                                            ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
-                                                            : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="{{ route('brochure.edit', ['id' => $data->id]) }}"
-                                                                class="btn btn-primary">Edit</a>
-                                                            <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $data->id }}')"
-                                                                class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </td>
+                                                    @can('edit-status-popup')
+                                                        <td>
+                                                            {!! $data->status == 1
+                                                                ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
+                                                                : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
+                                                        </td>
+                                                    @endcan
+                                                    @if (auth()->user()->can('edit-popup') || auth()->user()->can('delete-popup'))
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @can('edit-popup')
+                                                                    <a href="{{ route('brochure.edit', ['id' => $data->id]) }}"
+                                                                        class="btn btn-primary">Edit</a>
+                                                                @endcan
+                                                                @can('delete-popup')
+                                                                    <button id="deleteButton"
+                                                                        onclick="deleteModal('{{ $data->id }}')"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         @endif

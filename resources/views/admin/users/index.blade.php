@@ -30,12 +30,13 @@
                 <div class="col-md-6 col-sm-12">
                     <h2>USERS LIST</h2>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{ route('users.create') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All"
-                                class="add-icon"></span>Add Users</a>
-                </div>
-
+                @can('add-users')
+                    <div class="col-md-6">
+                        <a href="{{ route('users.create') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add
+                            Users</a>
+                    </div>
+                @endcan
             </div>
         </div>
 
@@ -47,14 +48,17 @@
 
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table
+                                    class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
                                             <th>S.No</th>
                                             <th>NAME</th>
                                             <th>EMAIL</th>
                                             <th>ROLES</th>
-                                            <th>ACTION</th>
+                                            @if (auth()->user()->can('edit-users') || auth()->user()->can('delete-users'))
+                                                <th>ACTION</th>
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -72,15 +76,21 @@
                                                             @endforeach
                                                         @endif
                                                     </td>
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="{{ url('users/' . $user->id . '/edit') }}"
-                                                                class="btn btn-primary mr-3">Edit</a>
-                                                            <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $user->id }}')"
-                                                                class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </td>
+                                                    @if (auth()->user()->can('edit-users') || auth()->user()->can('delete-users'))
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @can('edit-users')
+                                                                    <a href="{{ url('users/' . $user->id . '/edit') }}"
+                                                                        class="btn btn-primary mr-3">Edit</a>
+                                                                @endcan
+                                                                @can('delete-users')
+                                                                    <button id="deleteButton"
+                                                                        onclick="deleteModal('{{ $user->id }}')"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         @endif
