@@ -22,69 +22,77 @@
         </div>
         <div class="container-fluid">
             <div class="row clearfix">
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2">
-                        <div class="body">
-                            <div class="dash-box">
-                                <div class="left-db">
-                                    <img src="{{ asset('assets/images/job.png') }}" alt="Job" class="dash-icon">
-                                </div>
-                                <div class="right-db">
-                                    <h6>Job Openings</h6>
-                                    <h2>{{ isset($jobCount) ? $jobCount : 0 }}</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2 ">
-                        <div class="body">
-                            <div class="dash-box">
-                                <div class="left-db">
-                                    <img src="{{ asset('assets/images/case.png') }}" alt="Job" class="dash-icon">
-                                </div>
-                                <div class="right-db">
-                                    <h6>Case Study</h6>
-                                    <h2>{{ isset($CaseStudy) ? $CaseStudy : 0 }}</h2>
+                @can('view-job-opening')
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2">
+                            <div class="body">
+                                <div class="dash-box">
+                                    <div class="left-db">
+                                        <img src="{{ asset('assets/images/job.png') }}" alt="Job" class="dash-icon">
+                                    </div>
+                                    <div class="right-db">
+                                        <h6>Job Openings</h6>
+                                        <h2>{{ isset($jobCount) ? $jobCount : 0 }}</h2>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2 ">
-                        <div class="body">
-                            <div class="dash-box">
-                                <div class="left-db">
-                                    <img src="{{ asset('assets/images/applicant.png') }}" alt="Job"
-                                        class="dash-icon">
-                                </div>
-                                <div class="right-db">
-                                    <h6>Job Applicant Leads</h6>
-                                    <h2>{{ isset($Applicant) ? $Applicant : 0 }}</h2>
+                @endcan
+                @can('view-case-study')
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 ">
+                            <div class="body">
+                                <div class="dash-box">
+                                    <div class="left-db">
+                                        <img src="{{ asset('assets/images/case.png') }}" alt="Job" class="dash-icon">
+                                    </div>
+                                    <div class="right-db">
+                                        <h6>Case Study</h6>
+                                        <h2>{{ isset($CaseStudy) ? $CaseStudy : 0 }}</h2>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2 ">
-                        <div class="body">
-                            <div class="dash-box">
-                                <div class="left-db">
-                                    <img src="{{ asset('assets/images/contact.png') }}" alt="Job"
-                                        class="dash-icon">
-                                </div>
-                                <div class="right-db">
-                                    <h6>Contact Us Leads</h6>
-                                    <h2>{{ isset($contactUs) ? $contactUs : 0 }}</h2>
+                @endcan
+                @can('view-job-applicants')
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 ">
+                            <div class="body">
+                                <div class="dash-box">
+                                    <div class="left-db">
+                                        <img src="{{ asset('assets/images/applicant.png') }}" alt="Job"
+                                            class="dash-icon">
+                                    </div>
+                                    <div class="right-db">
+                                        <h6>Job Applicant Leads</h6>
+                                        <h2>{{ isset($Applicant) ? $Applicant : 0 }}</h2>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                @endcan
+                @can('view-contactus-lead')
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 ">
+                            <div class="body">
+                                <div class="dash-box">
+                                    <div class="left-db">
+                                        <img src="{{ asset('assets/images/contact.png') }}" alt="Job"
+                                            class="dash-icon">
+                                    </div>
+                                    <div class="right-db">
+                                        <h6>Contact Us Leads</h6>
+                                        <h2>{{ isset($contactUs) ? $contactUs : 0 }}</h2>
+                                    </div>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endcan
             </div>
         </div>
     </div>

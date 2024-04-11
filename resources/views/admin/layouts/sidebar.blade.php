@@ -79,9 +79,9 @@
                         @can('view-roles')
                             <li><a href="{{ route('roles.index') }}">Roles</a></li>
                         @endcan
-                        @can('view-permissions')
+                        {{-- @can('view-permissions')
                             <li><a href="{{ route('permissions.index') }}">Permissions</a></li>
-                        @endcan
+                        @endcan --}}
                         @can('view-users')
                             <li><a href="{{ route('users.index') }}">Users List</a></li>
                         @endcan
