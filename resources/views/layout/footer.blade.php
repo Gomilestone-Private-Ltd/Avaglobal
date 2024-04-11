@@ -18,14 +18,19 @@
                 $marqueText = isset($data->marque_text) ? $data->marque_text : 'Ava Global';
             @endphp
 
-            <marquee behavior="scroll" direction="left">
-                {{ $marqueText }}</marquee>
+            {{-- <marquee behavior="scroll" direction="left">
+                {{ $marqueText }}</marquee> --}}
+                
 
         </div>
     </div>
 </div>
 </div>
 </div>
+</div>
+<div class="marquee-container">
+    <marquee behavior="scroll" direction="left">
+        {{ $marqueText }}</marquee>
 </div>
 <script src="{{ asset('js/wow.js') }}"></script>
 <script>

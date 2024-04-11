@@ -1,5 +1,7 @@
 @push('styles')
     <link type="text/css" rel="stylesheet" href="{{ asset('/css/casestudydetail.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ asset('/css/owl.carousel.css') }}" />
+    <link type="text/css" rel="stylesheet" href="{{ asset('/css/owl.theme.css') }}" />
 @endpush
 @extends('layout.main')
 @section('content')
@@ -7,10 +9,25 @@
         <!---headerwrapper end-->
         <div class="calculatorwrapper">
             <div class="calculatordtlsection">
+                <div id="demo">
+                    <div class="container">
+                      <div class="row">
+                        <div class="span12">
+                          <div id="owl-demo" class="owl-carousel">
+                            @if (count($caseStudyData->avaDocs) >0 )
+                                @foreach ($caseStudyData->avaDocs as $images)
+                                    <div class="item"><img src="{{ asset($images->path) }}" alt="The Last of us"></div>
+                                @endforeach
+                            @endif
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
                 {{-- <img src="{{ asset('/images/contactinfobg.jpg') }}" class="csd-banner"> --}}
-                @foreach ($caseStudyData->avaDocs as $images)
+                {{-- @foreach ($caseStudyData->avaDocs as $images)
                     <img src="{{ asset($images->path) }}" class="csd-banner" />
-                @endforeach
+                @endforeach --}}
                 {{-- <img src="{{ asset($caseStudyData->avaDocs->path) }}" class="csd-banner"> --}}
 
 
@@ -60,6 +77,27 @@
                     </div>
                 </div> --}}
                 {{-- <script src="{{ asset('/js/scrollIt.min.js') }}"></script> --}}
+
+                <script>
+                    $(document).ready(function() {
+                      $("#owl-demo").owlCarousel({
+                
+                    //   navigation : true,
+                      slideSpeed : 300,
+                      paginationSpeed : 400,
+                      singleItem : true
+                      
+                
+                      // "singleItem:true" is a shortcut for:
+                      // items : 1, 
+                      // itemsDesktop : false,
+                      // itemsDesktopSmall : false,
+                      // itemsTablet: false,
+                      // itemsMobile : false
+                
+                      });
+                    });
+                    </script>
 
                 <!-- DESKTOP MENU JS SATRT -->
                 <script>

@@ -199,7 +199,7 @@
                         @if ($file)
                             <a href="{{ asset($file) }}" class="db-btn" download>Download Brochure</a>
                         @else
-                            <a href="javascript:void(0)" class="db-btn" style="color:#838383">Download Brochure</a>
+                            <a href="javascript:void(0)" class="db-btn">Download Brochure</a>
                         @endif
 
                     </div>
