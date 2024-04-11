@@ -185,7 +185,7 @@ class AdminController extends Controller
             'casetitle' => 'required',
             'postedby' => 'required',
             // 'caseimage[]' => 'required',
-            'caseimage.*' => 'mimes:jpeg,jpg,png|max:2048',
+            'caseimage.*' => 'mimes:jpeg,jpg,png',
             'description' => 'required',
         ];
         $message = [
