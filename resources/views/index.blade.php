@@ -75,7 +75,7 @@
                                         <div class="sprite knwmorearw"></div>
                                     </div>
                                 </a>
-                               
+
                             </div>
                             <div class="overviewimgrightblk">
                                 <img src="{{ asset('images/mobile-images/overviewimg-resp.jpg') }}" alt=""
@@ -114,7 +114,8 @@
                                 </a>
                             </div>
                             <div class="overviewimgrightblk">
-                                <img src="{{ asset('images/mobile-images/challengeimg-mob.jpg') }}" alt="Global Presence" class="overvwsldimg">
+                                <img src="{{ asset('images/mobile-images/challengeimg-mob.jpg') }}" alt="Global Presence"
+                                    class="overvwsldimg">
                                 <div class="oversldimgtxt">
                                     <div class="tabrighttxtblk">
                                         <div class="ibvm twentytxt">
@@ -170,26 +171,39 @@
                                 </div>
                             </div>
                         </li>
-                        
+
                     </ul>
                     <div class="counter-box">
-                                    <div class="counter-box-inner">
-                                        <div class="counter-b1">
-                                            <h3><span id="customer">0</span>+</h3>
-                                            <h4 class="ct-heading">Trusted Customers</h4>
-                                        </div>
-                                        <div class="counter-b2">
-                                            <h3><span id="footprint">0</span>+</h3>
-                                            <h4 class="ct-heading">Footprints Countries</h4>
-                                        </div>
-                                        <div class="counter-b3">
-                                            <h3><span id="ocean">0</span>+</h3>
-                                            <h4 class="ct-heading">Ocean routes</h4>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="db-btn">Download Brochure</a>
-                                </div>
-                                
+                        <div class="counter-box-inner">
+                            <div class="counter-b1">
+                                <h3><span id="customer">0</span>+</h3>
+                                <h4 class="ct-heading">Trusted Customers</h4>
+                            </div>
+                            <div class="counter-b2">
+                                <h3><span id="footprint">0</span>+</h3>
+                                <h4 class="ct-heading">Footprints Countries</h4>
+                            </div>
+                            <div class="counter-b3">
+                                <h3><span id="ocean">0</span>+</h3>
+                                <h4 class="ct-heading">Ocean routes</h4>
+                            </div>
+                        </div>
+
+                        @php
+                            $brochure = \App\Models\AvaDocs::whereNotNull('downloadBrochureId')
+                                ->where('downloadbrochurePdfStatus', 1)
+                                ->first();
+                            $file = $brochure ? $brochure->path : null;
+                        @endphp
+
+                        @if ($file)
+                            <a href="{{ asset($file) }}" class="db-btn" download>Download Brochure</a>
+                        @else
+                            <a href="javascript:void(0)" class="db-btn" style="color:#838383">Download Brochure</a>
+                        @endif
+
+                    </div>
+
                 </div>
             </div>
 
@@ -394,9 +408,9 @@
                                     <div class="banner-container">
                                         <p class="slidetxt"><b>Ava Global Logistics wins 'Emerging Agri Business
                                                 Logistics Co. of the year 2017' award at Globoil India 2017.</b></p>
-                                                <div class="media-link">
-                                                    <a href="#" class="home-media-link">Read More</a>
-                                                </div>
+                                        <div class="media-link">
+                                            <a href="#" class="home-media-link">Read More</a>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -425,11 +439,12 @@
                                     <span class="sprite locationwhite"></span>
                                 </div>
                                 <div class="contacttxt ibvt">
-                                    4th FLOOR, Sahar Plaza COMPLEX, Windfall,<br /> 405, Andheri - Kurla Rd, J B Nagar, Andheri East,<br /> Mumbai, Maharashtra 400059
+                                    4th FLOOR, Sahar Plaza COMPLEX, Windfall,<br /> 405, Andheri - Kurla Rd, J B Nagar,
+                                    Andheri East,<br /> Mumbai, Maharashtra 400059
 
 
                                     <!-- 405, 4th Floor, Windfall, Sahar Plaza Complex, J.B Nagar, Andheri - Kurla
-                                    Road, Andheri (East), <br /> Mumbai - 400059. -->
+                                                                                                                Road, Andheri (East), <br /> Mumbai - 400059. -->
                                 </div>
                             </div>
                             <div class="contactblk">
@@ -469,173 +484,173 @@
                             alt="" />
                     </div>
                 </div>
-               
-
-    <script>
-        // number count for stats, using jQuery animate
-        function numCounter(tagId, maxCount, speed) {
-            var initialNumber = 0;
-
-            function counter() {
-                document.getElementById(tagId).innerHTML = initialNumber;
-                if (maxCount == initialNumber) {
-                    initialNumber = initialNumber;
-                } else {
-                    ++initialNumber
-                }
-            }
-            var counterDelay = setInterval(counter, speed);
 
 
-        }
+                <script>
+                    // number count for stats, using jQuery animate
+                    function numCounter(tagId, maxCount, speed) {
+                        var initialNumber = 0;
 
-        numCounter("customer", 250, 28);
-        numCounter("footprint", 170, 40);
-        numCounter("ocean", 850, 7);
-    </script>
-    <script>
-        window.onpageshow = function(event) {
-            // If the event persisted property is false, it means the page is loaded from the server cache
-            if (event.persisted) {
-                window.location.reload(); // Reload the page
-            }
-        };
-    </script>
-    <script src="{{ asset('/js/jquery.bxslider.min.js') }}"></script>
-    <script>
-        $(".bxslider").bxSlider({
-                auto: !0,
-                autoControls: !0
-            }), $(".bxslideroverview")
-            .bxSlider({
-                pagerCustom: "#bx-pager",
-                mode: "fade"
-            }),
-            $(".bxsliderproduct").bxSlider({
-                pagerCustom: "#product-bx-pager",
-                mode: "fade"
-            }),
-            $(".bxslidernews").bxSlider({
-                mode: "fade"
-            }),
-            $("#previousPage").click(function(e) {
-                e.preventDefault(), $.fn.fullpage.moveSectionUp()
-            }), $("#nextPage").click(function(e) {
-                e.preventDefault(), $.fn.fullpage.moveSectionDown()
-            });
-    </script>
-    <script>
-        $(document).ready(function() {
-            var e = document.getElementById("myVideomob");
-            e.pause(), $(".play").hide(), $(".pause").click(function() {
-                e.play(), $(".pause").hide(), $(".play").show()
-            }), $(".play").click(function() {
-                e.pause(), $(".pause").show(), $(".play").hide()
-            })
-        });
-    </script>
-    {{-- <script src="{{ asset('/js/scrollIt.min.js') }}"></script>
+                        function counter() {
+                            document.getElementById(tagId).innerHTML = initialNumber;
+                            if (maxCount == initialNumber) {
+                                initialNumber = initialNumber;
+                            } else {
+                                ++initialNumber
+                            }
+                        }
+                        var counterDelay = setInterval(counter, speed);
+
+
+                    }
+
+                    numCounter("customer", 250, 28);
+                    numCounter("footprint", 170, 40);
+                    numCounter("ocean", 850, 7);
+                </script>
+                <script>
+                    window.onpageshow = function(event) {
+                        // If the event persisted property is false, it means the page is loaded from the server cache
+                        if (event.persisted) {
+                            window.location.reload(); // Reload the page
+                        }
+                    };
+                </script>
+                <script src="{{ asset('/js/jquery.bxslider.min.js') }}"></script>
+                <script>
+                    $(".bxslider").bxSlider({
+                            auto: !0,
+                            autoControls: !0
+                        }), $(".bxslideroverview")
+                        .bxSlider({
+                            pagerCustom: "#bx-pager",
+                            mode: "fade"
+                        }),
+                        $(".bxsliderproduct").bxSlider({
+                            pagerCustom: "#product-bx-pager",
+                            mode: "fade"
+                        }),
+                        $(".bxslidernews").bxSlider({
+                            mode: "fade"
+                        }),
+                        $("#previousPage").click(function(e) {
+                            e.preventDefault(), $.fn.fullpage.moveSectionUp()
+                        }), $("#nextPage").click(function(e) {
+                            e.preventDefault(), $.fn.fullpage.moveSectionDown()
+                        });
+                </script>
+                <script>
+                    $(document).ready(function() {
+                        var e = document.getElementById("myVideomob");
+                        e.pause(), $(".play").hide(), $(".pause").click(function() {
+                            e.play(), $(".pause").hide(), $(".play").show()
+                        }), $(".play").click(function() {
+                            e.pause(), $(".pause").show(), $(".play").hide()
+                        })
+                    });
+                </script>
+                {{-- <script src="{{ asset('/js/scrollIt.min.js') }}"></script>
     <script src="{{ asset('/js/jquery.fullPage.js') }}"></script> --}}
-    <script>
-        $(document).ready(function() {
-            if ($(window).width() >= 1024) {
-                $('#fullpage').fullpage({
-                    anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', '5thPage', '6thPage',
-                        '7thPage', '8thPage'
-                    ],
-                    navigation: true,
-                    navigationPosition: 'right',
-                    navigationTooltips: ['', '', '', '', '', '', '']
-                });
-            }
-        });
-        //script for arrow scroll
-        $("#previousPage").click(function(e) {
-            e.preventDefault();
-            $.fn.fullpage.moveSectionUp();
-        });
-        $("#nextPage").click(function(e) {
-            e.preventDefault();
-            $.fn.fullpage.moveSectionDown();
-        });
-    </script>
-    {{-- <script src="{{ asset('/js/jquery.jscrollpane.min.js') }}"></script>
+                <script>
+                    $(document).ready(function() {
+                        if ($(window).width() >= 1024) {
+                            $('#fullpage').fullpage({
+                                anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', '5thPage', '6thPage',
+                                    '7thPage', '8thPage'
+                                ],
+                                navigation: true,
+                                navigationPosition: 'right',
+                                navigationTooltips: ['', '', '', '', '', '', '']
+                            });
+                        }
+                    });
+                    //script for arrow scroll
+                    $("#previousPage").click(function(e) {
+                        e.preventDefault();
+                        $.fn.fullpage.moveSectionUp();
+                    });
+                    $("#nextPage").click(function(e) {
+                        e.preventDefault();
+                        $.fn.fullpage.moveSectionDown();
+                    });
+                </script>
+                {{-- <script src="{{ asset('/js/jquery.jscrollpane.min.js') }}"></script>
     <script src="{{ asset('/js/jquery.mousewheel.js') }}"></script> --}}
-    <script>
-        $(document).ready(function() {
-            if ($(window).width() >= 1001) {
-                $('.scroll-pane').jScrollPane({
-                    autoReinitialise: true
-                });
-            }
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            if ($(window).width() >= 1024) {
-                $('#menublk').click(function() {
-                    $('.navigation').addClass('navigationopen')
-                });
-                $('.closeicon').click(function() {
-                    $('.navigation').removeClass('navigationopen')
-                });
-            }
-        });
-    </script>
-    {{-- <script src="{{ asset('/js/jquery.mmenu.min.all.js') }}"></script> --}}
-    <script>
-        $(function() {
-            if ($(window).width() <= 1023) {
-                $("nav#menu").mmenu({
-                    offCanvas: {
-                        position: "right",
-                        zposition: "back",
-                        moveBackground: "true",
-                    },
-                    navbars: [{
-                        position: 'top',
-                        content: ['prev', 'title', 'close']
-                    }, ]
-                });
-            }
-        });
-    </script>
-    <script>
-        $(window).load(function() {
-            $("#preloader").delay(1000).fadeOut("slow");
-        });
-        $(document).ready(function() {
-            setTimeout(function() {
-                $('body').removeClass("overflow-hidden");
-            }, 1000);
-        });
-    </script>
-    <a href="#" class="back-to-top">Back to Top</a>
-    <script>
-        $(document).ready(function() {
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 200) {
-                    $('.back-to-top').fadeIn();
-                } else {
-                    $('.back-to-top').fadeOut();
-                }
-            });
-            $('.back-to-top').click(function() {
-                $("html, body").animate({
-                    scrollTop: 0
-                }, 1000);
-                return false;
-            });
-        });
-    </script>
+                <script>
+                    $(document).ready(function() {
+                        if ($(window).width() >= 1001) {
+                            $('.scroll-pane').jScrollPane({
+                                autoReinitialise: true
+                            });
+                        }
+                    });
+                </script>
+                <script>
+                    $(document).ready(function() {
+                        if ($(window).width() >= 1024) {
+                            $('#menublk').click(function() {
+                                $('.navigation').addClass('navigationopen')
+                            });
+                            $('.closeicon').click(function() {
+                                $('.navigation').removeClass('navigationopen')
+                            });
+                        }
+                    });
+                </script>
+                {{-- <script src="{{ asset('/js/jquery.mmenu.min.all.js') }}"></script> --}}
+                <script>
+                    $(function() {
+                        if ($(window).width() <= 1023) {
+                            $("nav#menu").mmenu({
+                                offCanvas: {
+                                    position: "right",
+                                    zposition: "back",
+                                    moveBackground: "true",
+                                },
+                                navbars: [{
+                                    position: 'top',
+                                    content: ['prev', 'title', 'close']
+                                }, ]
+                            });
+                        }
+                    });
+                </script>
+                <script>
+                    $(window).load(function() {
+                        $("#preloader").delay(1000).fadeOut("slow");
+                    });
+                    $(document).ready(function() {
+                        setTimeout(function() {
+                            $('body').removeClass("overflow-hidden");
+                        }, 1000);
+                    });
+                </script>
+                <a href="#" class="back-to-top">Back to Top</a>
+                <script>
+                    $(document).ready(function() {
+                        $(window).scroll(function() {
+                            if ($(this).scrollTop() > 200) {
+                                $('.back-to-top').fadeIn();
+                            } else {
+                                $('.back-to-top').fadeOut();
+                            }
+                        });
+                        $('.back-to-top').click(function() {
+                            $("html, body").animate({
+                                scrollTop: 0
+                            }, 1000);
+                            return false;
+                        });
+                    });
+                </script>
 
-    <!-- <script>
-        let video = document.querySelector('video');
+                <!-- <script>
+                    let video = document.querySelector('video');
 
-        // Set the default playing speed
-        video.defaultPlaybackRate = 3
+                    // Set the default playing speed
+                    video.defaultPlaybackRate = 3
 
-        // Loading the video after setting 
-        video.load();
-    </script> -->
-@endsection
+                    // Loading the video after setting 
+                    video.load();
+                </script> -->
+            @endsection

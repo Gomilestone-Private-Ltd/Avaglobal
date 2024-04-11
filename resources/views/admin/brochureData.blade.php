@@ -24,17 +24,19 @@
     }
 </style>
 <section class="content">
+
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>BROCHURE DATA</h2>
+                    <h2>POPUP DATA</h2>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All"
-                                class="add-icon"></span>Add</a>
-                </div>
+                @can('add-popup')
+                    <div class="col-md-6">
+                        <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
+                    </div>
+                @endcan
             </div>
         </div>
         <div class="container-fluid">
@@ -51,12 +53,16 @@
 
                                         <tr>
                                             <th>S.No</th>
-                                            <th>Brochure Title</th>
+                                            <th>Popup Title</th>
                                             <th>Location</th>
-                                            <th>Brochure Image</th>
+                                            <th>Popup Image</th>
                                             <th>Brochure Pdf</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
+                                            @can('edit-status-popup')
+                                                <th>Status</th>
+                                            @endcan
+                                            @if (auth()->user()->can('edit-popup') || auth()->user()->can('delete-popup'))
+                                                <th>Action</th>
+                                            @endif
                                         </tr>
 
                                     </thead>
@@ -67,30 +73,38 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $data->title }}</td>
                                                     <td>{{ $data->location }}</td>
-                                                    @foreach ($data->avaDocsBrochure as $relateData)
+                                                    @foreach ($data->avaDocsBrochure->whereIn('filetype', ['jpg', 'png']) as $relateData)
                                                         <td><img src="{{ asset(isset($relateData->path) ? $relateData->path : 'assets/img/1711805669avaglobal.png') }}"
                                                                 style="width:70px;height:60px;border-radius:20%" /></td>
                                                     @endforeach
-                                                    {{-- <td>
-                                                        <a href="{{ asset($relateData->path) }}" download>Download
-                                                            PDF</a>
-                                                        Pdf is getting generated
-                                                    </td> --}}
-                                                    <td>
-                                                        {!! $data->status == 1
-                                                            ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
-                                                            : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="{{ route('brochure.edit', ['id' => $data->id]) }}"
-                                                                class="btn btn-primary">Edit</a>
-                                                            {{-- <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $data->id }}')"
-                                                                class="btn btn-danger">Delete</button> --}}
-                                                        </div>
-                                                    </td>
+                                                    @foreach ($data->avaDocsBrochure->where('filetype', 'pdf') as $relateData)
+                                                        <td>
+                                                            <a href="{{ asset($relateData->path) }}" download>Download
+                                                                PDF</a>
+                                                        </td>
+                                                    @endforeach
+                                                    @can('edit-status-popup')
+                                                        <td>
+                                                            {!! $data->status == 1
+                                                                ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
+                                                                : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
+                                                        </td>
+                                                    @endcan
+                                                    @if (auth()->user()->can('edit-popup') || auth()->user()->can('delete-popup'))
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @can('edit-popup')
+                                                                    <a href="{{ route('brochure.edit', ['id' => $data->id]) }}"
+                                                                        class="btn btn-primary">Edit</a>
+                                                                @endcan
+                                                                @can('delete-popup')
+                                                                    <button id="deleteButton"
+                                                                        onclick="deleteModal('{{ $data->id }}')"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -162,6 +176,7 @@
 </section>
 <script>
     function changeStatus(id) {
+        // localStorage.clear();
         $.ajax({
             type: 'GET',
             url: '/change/brochure/status/' + id,
@@ -180,29 +195,6 @@
     }
 </script>
 <script>
-    function updateModalBody(id) {
-        // Send an AJAX request
-        // $('#exampleModalLong').modal('hide');
-        $('#modalBody').html('');
-        var id = id;
-        $.ajax({
-            type: 'GET',
-            url: '/case/get-description/' + id,
-            data: id,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                console.log(response);
-                $('#modalBody').html('');
-                $('#modalBody').html(response.description);
-                $('#exampleModalLong').modal('show');
-            },
-            error: function(response) {
-                console.log("hii");
-            }
-        });
-    }
-
     // Delete function 
     function deleteModal(id) {
 
@@ -210,7 +202,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('case-study/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('popup/delete') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

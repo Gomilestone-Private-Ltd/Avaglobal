@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('marques', function (Blueprint $table) {
             $table->id();
+            $table->longText('marque_text');
+            $table->integer('status')->default('1');
+            $table->softDeletes();
             $table->timestamps();
-            $table->string('name');
         });
     }
 
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('marques');
     }
 };

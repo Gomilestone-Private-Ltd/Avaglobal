@@ -23,6 +23,9 @@
 
 
 <section class="content">
+    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
+        Through Contact Us Applicants
+    </h3>
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
@@ -30,7 +33,7 @@
                     <h2>Applicants Data</h2>
                 </div>
                 <div class="col-md-6">
-                   
+
                 </div>
             </div>
         </div>
@@ -54,7 +57,9 @@
                                             <th>Contact No.</th>
                                             <th>Job Position</th>
                                             <th>Applicant CV</th>
-                                            <th>Action</th>
+                                            @can('delete-contactus-lead')
+                                                <th>Action</th>
+                                            @endcan
                                         </tr>
 
                                     </thead>
@@ -71,15 +76,15 @@
                                                     <a href="{{ asset($data->avaDocs->path) }}" download>Download
                                                         PDF</a>
                                                 </td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        <button onclick="deleteModal('{{ $data->id }}')"
-                                                            class="btn btn-danger">Delete</button>
+                                                @can('delete-contactus-lead')
+                                                    <td>
+                                                        <div class="d-flex">
+                                                            <button onclick="deleteModal('{{ $data->id }}')"
+                                                                class="btn btn-danger">Delete</button>
 
-                                                    </div>
-                                                </td>
-
-
+                                                        </div>
+                                                    </td>
+                                                @endcan
                                             </tr>
                                         @endforeach
 

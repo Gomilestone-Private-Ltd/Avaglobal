@@ -33,8 +33,12 @@
                                     <div class="case-study-item">
 
                                         {{-- <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" /> --}}
-                                        <img class="cs-image" src="{{ asset($data->avaDocs->path) }}" />
-
+                                        {{-- <img class="cs-image" src="{{ asset($data->avaDocs->path) }}" /> --}}
+                                        @if (count($data->avaDocs) > 0)
+                                            <img src="{{ asset($data->avaDocs[0]->path) }}" class="cs-image" />
+                                        @else
+                                            <img src="{{ asset('assets/images/no-image.jpg') }}" class="cs-image" />
+                                        @endif
                                         <div class="cs-content">
                                             {{-- <h3 class="cs-category">Freight Management</h3> --}}
                                             <h3 class="cs-category">{{ $data->case }}</h3>

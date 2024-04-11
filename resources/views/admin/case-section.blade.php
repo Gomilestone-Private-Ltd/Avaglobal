@@ -61,11 +61,7 @@
                             <label for="">Case Name:</label>
                             <input type="text" name="case" id="" class="form-control" value=""
                                 placeholder="Case Name">
-                            <span class="text-danger">
-                                @error('case')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                            <span class="text-danger case-error"></span>
 
                         </div>
 
@@ -97,19 +93,19 @@
 
 
                         <div class="form-group col-md-6 required">
-                            <label for="">Case Image:</label>
+
+                            <label for="">Case Image: (max 4 files allowed)</label>
                             <div class="file-box">
-                                <input type="file" name="caseimage" id="caseimageinput" class="form-control"
-                                    value="" placeholder="Case Image" multiple />
+                                <input type="file" accept="image/png, image/jpg, image/jpeg" name="caseimage[]"
+                                    id="caseimageinput" class="form-control" value="" placeholder="Case Image"
+                                    multiple />
                                 <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
+                            <span class="text-danger" id="imageError">
 
-                            <span class="text-danger">
-                                @error('caseimage')
-                                    {{ $message }}
-                                @enderror
                             </span>
-                            <div id="imagePreview">
+
+                            <div id="imagePreview" style="display:flex;">
 
                             </div>
                         </div>
@@ -146,21 +142,7 @@
 
 <script>
     var selectedFile;
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     // TinyMCE initialization code here
-    //     tinymce.init({
-    //         selector: 'textarea#tinymce',
-    //         plugins: "preview",
-    //         theme_advanced_buttons3_add: "preview",
-    //         plugin_preview_width: "500",
-    //         plugin_preview_height: "600",
-    //         promotion: false,
-    //         plugins: "code",
-    //         // plugins: "image",
-    //         branding: false,
-    //         height: 400
-    //     });
-    // });
+
     document.addEventListener("DOMContentLoaded", function() {
         // TinyMCE initialization code here
         tinymce.init({
@@ -218,23 +200,49 @@
             $('#caseimageinput').val('');
             $('.close-icon').hide();
         });
-        $('#caseimageinput').on('change', function(e) {
-            var file = this.files[0];
-            if (file) {
-                selectedFile = file;
+        // $('#caseimageinput').on('change', function(e) {
+        //     var file = this.files[0];
+        //     if (file) {
+        //         selectedFile = file;
 
-                var reader = new FileReader();
+        //         var reader = new FileReader();
+        //         $('.close-icon').show();
+        //         reader.onload = function(e) {
+        //             $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview">');
+        //         };
+        //         reader.readAsDataURL(selectedFile);
+        //     } else {
+        //         $('#imagePreview').html('');
+        //         $('.close-icon').hide();
+        //     }
+        // });
+        $('#caseimageinput').on('change', function(e) {
+            var files = this.files; // Get the array of files
+
+            if (files.length > 0) {
                 $('.close-icon').show();
-                reader.onload = function(e) {
-                    $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview">');
-                };
-                reader.readAsDataURL(selectedFile);
+                $('#imagePreview').html(''); // Clear previous previews
+
+                // Loop through each file
+                for (var i = 0; i < files.length; i++) {
+                    var reader = new FileReader();
+                    reader.onload = (function(file) {
+                        return function(e) {
+                            // Create an image element for each file
+                            // $('#imagePreview').append('<div><img src="' + e.target.result +
+                            //     '" alt="Preview"></div>');
+                            $('#imagePreview').append('<div><img src="' + e.target.result +
+                                '" alt="Preview" style="width:70px;height:60px;border-radius:20%"></div>'
+                            );
+                        };
+                    })(files[i]);
+                    reader.readAsDataURL(files[i]); // Read the file as a data URL
+                }
             } else {
-                $('#imagePreview').html('');
+                $('#imagePreview').html(''); // Clear preview if no file selected
                 $('.close-icon').hide();
             }
         });
-
 
 
     });
@@ -277,14 +285,15 @@
 
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {
+
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field, errorMessage) {
-
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
                             $('[name="' + field + '"]').closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
+
                             $('[name="' + field + '"]').on('input',
                                 function() {
                                     $('.text-danger').html('');
@@ -322,22 +331,38 @@
                 },
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {
+                        // $('#imageError').html('');
+                        console.log(response.responseJSON.errors);
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field,
                             errorMessage) {
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
+
                             $('[name="' + field + '"]').closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
+
+
                             $('[name="' + field + '"]').on('input',
                                 function() {
                                     $('.text-danger').html('');
                                 });
-
                         });
-
                     }
+                    // if (response.responseJSON && response.responseJSON.errors) {
+
+                    //     $('.text-danger').html('');
+                    //     console.log(response.responseJSON.errors);
+
+                    //     var errorMessage = '<span class="text-danger">' + response
+                    //         .responseJSON.errors + '</span>';
+
+                    //     // Update the content of the span with the error message
+                    //     $('input[name="caseimage[]"]').closest('.form-group').find('.text-danger')
+                    //         .html(errorMessage);
+
+                    // }
                 }
 
             });

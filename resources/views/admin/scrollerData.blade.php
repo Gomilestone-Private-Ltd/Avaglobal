@@ -31,11 +31,12 @@
                 <div class="col-md-6 col-sm-12">
                     <h2>SCROLLER DATA</h2>
                 </div>
-                <div class="col-md-6">
-                    <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All"
-                                class="add-icon"></span>Add</a>
-                </div>
+                @can('add-footer-marque')
+                    <div class="col-md-6">
+                        <a href="{{ url('marque/addpage') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
+                    </div>
+                @endcan
             </div>
         </div>
 
@@ -54,40 +55,48 @@
                                         <tr>
                                             <th>S.No</th>
                                             <th>Scroller Text</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
+                                            @can('edit-status-footer-marque')
+                                                <th>Status</th>
+                                            @endcan
+                                            @if (auth()->user()->can('edit-footer-marque') || auth()->user()->can('delete-footer-marque'))
+                                                <th>Action</th>
+                                            @endif
                                         </tr>
 
                                     </thead>
                                     <tbody>
-                                        {{--
-                                        @if (count($brochure) > 0)
-                                           @foreach ($brochure as $data)
+
+                                        @if (count($data) > 0)
+                                            @foreach ($data as $Mdata)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $data->title }}</td>
-                                                    <td>{{ $data->location }}</td>
-                                                    <td><img src="{{ asset(isset($data->avaDocsBrochure->path) ? $data->avaDocsBrochure->path : 'assets/img/1711805669avaglobal.png') }}"
-                                                            style="width:70px;height:60px;border-radius:20%" /></td>
-                                                    <td>
-                                                        {!! $data->status == 1
-                                                            ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
-                                                            : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
-                                                    </td>
+                                                    <td>{{ $Mdata->marque_text }}</td>
+                                                    @can('edit-status-footer-marque')
+                                                        <td>
+                                                            {!! $Mdata->status == 1
+                                                                ? '<button class="btn btn-success" onclick="changeStatus(' . $Mdata->id . ')">Active</button>'
+                                                                : '<button class="btn btn-danger" onclick="changeStatus(' . $Mdata->id . ')">Inactive</button>' !!}
+                                                        </td>
+                                                    @endcan
+                                                    @if (auth()->user()->can('edit-footer-marque') || auth()->user()->can('delete-footer-marque'))
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                @can('edit-footer-marque')
+                                                                    <a href="{{ route('marque.edit', ['id' => $Mdata->id]) }}"
+                                                                        class="btn btn-primary">Edit</a>
+                                                                @endcan
+                                                                @can('delete-footer-marque')
+                                                                    <button id="deleteButton"
+                                                                        onclick="deleteModal('{{ $Mdata->id }}')"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
+                                                </tr>
+                                            @endforeach
+                                        @endif
 
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            <a href="{{ route('brochure.edit', ['id' => $data->id]) }}"
-                                                                class="btn btn-primary">Edit</a>
-                                                            <button id="deleteButton"
-                                                                onclick="deleteModal('{{ $data->id }}')"
-                                                                class="btn btn-danger">Delete</button>
-                            </div>
-                            </td>
-                            </tr>
-                            @endforeach 
-                            @endif
-                            --}}
 
                                     </tbody>
                                 </table>
@@ -158,7 +167,7 @@
     function changeStatus(id) {
         $.ajax({
             type: 'GET',
-            url: '/change/brochure/status/' + id,
+            url: '/change/marque/status/' + id,
             data: id,
             processData: false,
             contentType: false,
@@ -204,7 +213,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('case-study/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('marque/delete') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

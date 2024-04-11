@@ -47,7 +47,7 @@
 
 <section class="content">
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add Brochure
+        Add POPUP
     </h3>
     <div class="container-fluid">
         <!-- Input -->
@@ -58,9 +58,9 @@
 
                     <div class="row">
                         <div class="form-group col-md-6 required">
-                            <label for="">Brochure Title:</label>
+                            <label for="">Popup Title:</label>
                             <input type="text" name="title" id="" class="form-control" value=""
-                                placeholder="Brochure Title">
+                                placeholder="Popup Title">
                             <span class="text-danger">
                                 @error('title')
                                     {{ $message }}
@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="form-group col-md-6 required">
-                            <label for="">Brochure Image:</label>
+                            <label for="">Popup Image:</label>
                             <div class="file-box">
                                 <input type="file" name="brochureimage" id="caseimageinput" class="form-control"
                                     value="" placeholder="" />
@@ -186,7 +186,7 @@
                     toastr.success(response.message);
                     setTimeout(function() {
                         window.location.href = "/get/brochure";
-                    }, 2000);
+                    }, 1000);
                 },
 
                 error: function(response) {
