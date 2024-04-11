@@ -74,7 +74,7 @@ class PermissionSeeder extends Seeder
             'edit-permissions',
             'update-permissions',
             'delete-permissions',
-            //users
+            //users-list
             'view-users',
             'add-users',
             'edit-users',
