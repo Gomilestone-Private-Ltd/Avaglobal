@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 // Here we controll all the ROLES
 Route::group(['middleware' => ['auth']], function () {
-    // Route::resource('permissions', PermissionController::class);
-    // Route::get('permissions/{permissionId}/delete', [PermissionController::class, 'destroy']);
+    Route::resource('permissions', PermissionController::class);
+    Route::get('permissions/{permissionId}/delete', [PermissionController::class, 'destroy']);
     Route::resource('roles', RoleController::class);
     Route::get('roles/{roleId}/delete', [RoleController::class, 'destroy']);
     //permission give to role
