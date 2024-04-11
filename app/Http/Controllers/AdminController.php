@@ -1038,7 +1038,7 @@ class AdminController extends Controller
 
         $requestData = $request->only('marquetext');
         $rule = [
-            'marquetext' => 'required|string|max:50',
+            'marquetext' => 'required|string|max:120',
         ];
         $message = [
             'marquetext.required' => 'Please add some text here'
