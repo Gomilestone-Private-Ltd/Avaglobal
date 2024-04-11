@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('filesize');
             $table->string('path');
         });
+        // Schema::table('ava_documents', function ($table) {
+        //     $table->string('brochure_title');
+        // });
     }
 
     /**
@@ -28,5 +31,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('ava_documents');
+        // Schema::table('ava_documents', function ($table) {
+        //     $table->dropColumn('brochure_title');
+        // });
     }
 };

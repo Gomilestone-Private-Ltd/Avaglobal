@@ -33,8 +33,7 @@
                 </div>
                 <div class="col-md-6">
                     <a href="{{ url('download/addbrochure') }}" class="btn btn-primary float-right"><span><img
-                                src="{{ asset('assets/images/plus.png') }}" alt="All"
-                                class="add-icon"></span>Add</a>
+                                src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
                 </div>
 
             </div>
@@ -54,6 +53,7 @@
 
                                         <tr>
                                             <th>S.No</th>
+                                            <th>Title</th>
                                             <th>Brochure Pdf File</th>
                                             <th>Status</th>
                                             <th>Action</th>
@@ -67,6 +67,7 @@
                                                     <td>
                                                         {{ $loop->iteration }}
                                                     </td>
+                                                    <td>{{ $data->brochure_title }}</td>
                                                     <td>
                                                         {{ $data->filename }}
                                                         <a href="{{ asset($data->path) }}" download>Download

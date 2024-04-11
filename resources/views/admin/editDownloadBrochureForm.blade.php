@@ -61,6 +61,19 @@
                         <input type="hidden" name="brochId" value={{ $data->downloadBrochureId }}>
 
                         <div class="form-group col-md-12 required">
+                            <label for="">Brochure Title:</label>
+                            <input type="text" name="brochuretitle" id="" class="form-control"
+                                value="{{ $data->brochure_title }}" placeholder="Add File Title">
+
+
+                            <span class="text-danger">
+                                @error('brochuretitle')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
+
+                        <div class="form-group col-md-12 required">
                             <label for="">Upload Pdf file:</label>
                             <div class="file-box">
                                 <input type="file" name="downloadbrochure" id="caseimageinput" class="form-control"

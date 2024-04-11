@@ -94,15 +94,22 @@
                             <label for="">Case Image:</label>
 
                             <div class="file-box">
-                                <input type="file" name="caseimage" id="caseimageinput" class="form-control"
-                                    value="" placeholder="Case Image" />
+                                <input type="file" name="caseimage[]" accept="image/png, image/jpg, image/jpeg"
+                                    id="caseimageinput" class="form-control" value="" placeholder="Case Image"
+                                    multiple />
                                 <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
 
 
                             <div id="imagePreview">
-                                <img src="{{ asset($data->avaDocs->path) }}" height="50" width="50"
-                                    alt="">
+                                @foreach ($data->avaDocs as $images)
+                                    <div>
+                                        <img src="{{ asset($images->path) }}"
+                                            style="width:70px;height:60px;border-radius:20%" />
+                                    </div>
+                                @endforeach
+                                {{-- <img src="{{ asset($data->avaDocs->path) }}" height="50" width="50"
+                                    alt=""> --}}
                             </div>
                             <span class="text-danger">
                                 @error('caseimage')
@@ -202,21 +209,45 @@
             $('.close-icon').hide();
         });
 
+        // $('#caseimageinput').on('change', function(e) {
+        //     var file = this.files[0];
+        //     if (file) {
+        //         selectedFile = file;
 
-
+        //         var reader = new FileReader();
+        //         $('.close-icon').show();
+        //         reader.onload = function(e) {
+        //             $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview">');
+        //         };
+        //         reader.readAsDataURL(selectedFile);
+        //     } else {
+        //         $('#imagePreview').html('');
+        //         $('.close-icon').hide();
+        //     }
+        // });
         $('#caseimageinput').on('change', function(e) {
-            var file = this.files[0];
-            if (file) {
-                selectedFile = file;
+            var files = this.files; // Get the array of files
 
-                var reader = new FileReader();
+            if (files.length > 0) {
                 $('.close-icon').show();
-                reader.onload = function(e) {
-                    $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview">');
-                };
-                reader.readAsDataURL(selectedFile);
+                // $('#imagePreview').html(''); // Clear previous previews
+
+                // Loop through each file
+                for (var i = 0; i < files.length; i++) {
+                    var reader = new FileReader();
+                    reader.onload = (function(file) {
+                        return function(e) {
+
+                            $('#imagePreview').append('<div><img src="' + e.target.result +
+                                '" alt="Preview" style="width:70px;height:60px;border-radius:20%"></div>'
+                            );
+
+                        };
+                    })(files[i]);
+                    reader.readAsDataURL(files[i]); // Read the file as a data URL
+                }
             } else {
-                $('#imagePreview').html('');
+                $('#imagePreview').html(''); // Clear preview if no file selected
                 $('.close-icon').hide();
             }
         });

@@ -162,6 +162,7 @@ class AdminController extends Controller
     public function caseSection()
     {
         $combinedData = CaseStudy::with('avaDocs')->orderBy('id', 'DESC')->get();
+
         return view('admin.caseStudyData')->with('combinedData', $combinedData);
     }
     public function addCase()
@@ -176,47 +177,33 @@ class AdminController extends Controller
     }
     public function caseStore(Request $request)
     {
-        // dd($request->all());
+
         $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'description');
+
         $rule = [
             'case' => 'required',
             'casetitle' => 'required',
             'postedby' => 'required',
-            'caseimage' => 'required|mimes:jpeg,jpg,png',
-            'caseimage' => 'required',
-            'description' => 'required'
+            // 'caseimage[]' => 'required',
+            'caseimage.*' => 'mimes:jpeg,jpg,png|max:2048',
+            'description' => 'required',
         ];
         $message = [
             'case.required' => "please fill the case name !!",
             'casetitle.required' => 'please fill the case title',
             'postedby.required' => 'please fill the company name',
-            'caseimage.required' => 'please select a case image',
-            'caseimage.mimes' => 'image extension must be of jpeg,jpg,png',
+            // 'caseimage[].required' => 'please select case image',
+            // // 'caseimage.max' => 'Maximum three files are allowed',
+            'caseimage.*.mimes' => 'image extension must be of jpeg,jpg,png',
             'description.required' => 'Please add Case description here'
         ];
         $validate = Validator::make($requestData, $rule, $message);
+        // dd($validate);
+
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);
         }
-        $filename = '';
-        $path = '';
-
-        if ($request->hasFile('caseimage')) {
-            // $allowedfileExtension = ['jpeg', 'jpg', 'png'];
-            $file = $request->file('caseimage');
-            $fileType = $file->extension();
-            $fileSize = $file->getSize();
-            $filename = time() . $file->getClientOriginalName();
-            // $check=in_array($fileType,$allowedfileExtension);
-            $path = public_path() . '/assets/img/';
-            $file->move($path, $filename);
-        }
-        if ($filename) {
-            $actualImagePath = '/assets/img/' . $filename;
-        } else {
-            $actualImagePath = null;
-        }
-
+        // dd("hii");
         //addSlug here
         $slug = str_replace(" ", "-", strtolower($request['case']));
         $caseSlug = CaseStudy::whereNotNull('slug')->pluck('slug')->toArray();
@@ -231,20 +218,55 @@ class AdminController extends Controller
         $caseStudy->description = $request['description'];
         $caseStudy->posted_by = $request['postedby'];
         $caseStudy->save();
-        $case_id = $caseStudy->id;
-        $avaDocs = new AvaDocs;
-        $avaDocs->case_id = $case_id;
-        $avaDocs->filename = $filename;
-        $avaDocs->filetype = $fileType;
-        $avaDocs->filesize = $fileSize;
-        $avaDocs->path = $actualImagePath;
-        $avaDocs->save();
+
+        $filename = '';
+        $path = '';
+
+        if ($request->hasFile('caseimage')) {
+            $allowedfileExtension = ['jpeg', 'jpg', 'png'];
+            $files = $request->file('caseimage');
+            foreach ($files as $file) {
+                $fileSize = $file->getSize();
+                $fileType = $file->extension();
+                $filename = time() . $file->getClientOriginalName();
+                $check = in_array($fileType, $allowedfileExtension);
+                if ($check) {
+                    $path = public_path() . '/assets/img/';
+                    $file->move($path, $filename);
+                    $actualImagePath = '/assets/img/' . $filename;
+                } else {
+                    $actualImagePath = null;
+                }
+                $case_id = $caseStudy->id;
+                $avaDocs = new AvaDocs;
+                $avaDocs->case_id = $case_id;
+                $avaDocs->filename = $filename;
+                $avaDocs->filetype = $fileType;
+                $avaDocs->filesize = $fileSize;
+                $avaDocs->path = $actualImagePath;
+                $avaDocs->save();
+            }
+        }
         return response()->json(['success' => true, 'message' => 'Case Added Successfully']);
+        // $data = $request->all();
+        // if (count($data['caseimage']) > 4) {
+        //     return response()->json(['errors' => "maximum four files allowed"], 400);
+        // }
+        // foreach ($data['caseimage'] as $dataimage) {
+        // }
+        // $validateError = ($validate->errors())->toArray();
+        // ($validateError['caseimage'][1] = "name");
+        // dd($validateError);
     }
     public function updateCaseStudy(Request $request)
     {
 
         $caseId = $request->id;
+
+        $data = $request->all();
+        if (count($data['caseimage']) > 4) {
+            return response()->json(['errors' => "maximum four files allowed"], 400);
+        }
 
         $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'description');
         $rule = [
@@ -263,6 +285,7 @@ class AdminController extends Controller
             'description.required' => 'Please add Case description here'
         ];
         $validate = Validator::make($requestData, $rule, $message);
+
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);
         }
@@ -1089,13 +1112,15 @@ class AdminController extends Controller
     public function storeDownloadBrochure(Request $request)
     {
         // dd($request->all());
-        $requestData = $request->only('downloadbrochure');
+        $requestData = $request->only('downloadbrochure', 'brochuretitle');
         $rule = [
             'downloadbrochure' => 'required|mimes:pdf',
+            'brochuretitle' => 'required',
         ];
         $message = [
             'downloadbrochure.required' => "please upload file",
             'downloadbrochure.mimes' => 'file extension must be of pdf',
+            'brochuretitle.required' => 'please add a title here',
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -1123,6 +1148,7 @@ class AdminController extends Controller
         $avaDocsFile->path = $actualPath;
         $avaDocsFile->save();
         $avaDocsFile->downloadBrochureId = $avaDocsFile->id;
+        $avaDocsFile->brochure_title = $request['brochuretitle'];
         $avaDocsFile->save();
 
         return response()->json(['success' => true, 'message' => 'Brochure Pdf uploaded successfully']);
@@ -1154,16 +1180,21 @@ class AdminController extends Controller
     }
     public function editStoreDownloadBrochure(Request $request)
     {
-        // dd($request->all());
+
         $brochId = $request->brochId;
+        $brochureTitle = $request->brochuretitle;
+
+
         $olderPath = AvaDocs::where('downloadBrochureId', $brochId)->first();
         // dd($olderPath);
-        $requestData = $request->only('downloadbrochure');
+        $requestData = $request->only('downloadbrochure', 'brochuretitle');
         $rule = [
             'downloadbrochure' => 'mimes:pdf',
+            'brochuretitle' => 'required',
         ];
         $message = [
             'downloadbrochure.mimes' => 'file extension must be of pdf',
+            'brochuretitle.required' => 'please add title here',
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -1190,7 +1221,7 @@ class AdminController extends Controller
             $file->move($path, $filename);
             $actualImagePath = '/assets/downloadBrochure/' . $filename;
 
-            $avaDocsImage = AvaDocs::updateOrCreate(
+            $avaDocsFile = AvaDocs::updateOrCreate(
                 ['downloadBrochureId' => $brochId],
                 [
                     'filename' => $filename,
@@ -1200,7 +1231,11 @@ class AdminController extends Controller
                     'path' => $actualImagePath,
                 ]
             );
+            $update = array('brochure_title' => $brochureTitle);
+            $Idsave = AvaDocs::where('downloadBrochureId', $brochId)->update($update);
         } else {
+            $update = array('brochure_title' => $brochureTitle);
+            $Idsave = AvaDocs::where('downloadBrochureId', $brochId)->update($update);
 
             $avaDocsFile = AvaDocs::where('downloadBrochureId', $brochId)
                 ->Where('filetype', 'pdf')

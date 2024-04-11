@@ -29,10 +29,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                <h2>CASE STUDY DATA</h2>
+                    <h2>CASE STUDY DATA</h2>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ url('/add-case') }}" class="btn btn-primary float-right"><span><img src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
+                    <a href="{{ url('/add-case') }}" class="btn btn-primary float-right"><span><img
+                                src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
                 </div>
             </div>
         </div>
@@ -65,10 +66,15 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $data->case }}</td>
                                                 <td>{{ $data->case_title }}</td>
-                                                <td><img src="{{ asset($data->avaDocs->path) }}"
-                                                        style="width:70px;height:60px;border-radius:20%" /></td>
+
+                                                <td>
+                                                    @foreach ($data->avaDocs as $images)
+                                                        <img src="{{ asset($images->path) }}"
+                                                            style="width:70px;height:60px;border-radius:20%" />
+                                                    @endforeach
+                                                </td>
                                                 <td>{{ $data->posted_by }}</td>
-                                                <td>View 
+                                                <td>View
                                                     <i class="fa fa-eye" type="button" data-id="{{ $data->id }}"
                                                         data-toggle="modal" data-target="#exampleModalLong"
                                                         style="font-size:24px;cursor: pointer;"

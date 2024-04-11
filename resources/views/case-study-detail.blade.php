@@ -8,7 +8,10 @@
         <div class="calculatorwrapper">
             <div class="calculatordtlsection">
                 {{-- <img src="{{ asset('/images/contactinfobg.jpg') }}" class="csd-banner"> --}}
-                <img src="{{ asset($caseStudyData->avaDocs->path) }}" class="csd-banner">
+                @foreach ($caseStudyData->avaDocs as $images)
+                    <img src="{{ asset($images->path) }}" class="csd-banner" />
+                @endforeach
+                {{-- <img src="{{ asset($caseStudyData->avaDocs->path) }}" class="csd-banner"> --}}
 
 
             </div>

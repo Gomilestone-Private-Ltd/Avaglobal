@@ -14,7 +14,7 @@ class CaseStudy extends Model
 
     public function avaDocs()
     {
-        return $this->hasOne(AvaDocs::class, 'case_id', 'id');
+        return $this->hasMany(AvaDocs::class, 'case_id', 'id');
     }
     public function getCreatedAtAttribute($value)
     {
