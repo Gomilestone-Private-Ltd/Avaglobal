@@ -33,7 +33,7 @@ class AdminController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             //check role
-            return redirect()->intended('dashboard')->with('success', 'Logged In Successfully');
+            return redirect()->intended('admin/dashboard')->with('success', 'Logged In Successfully');
             // if (in_array($user->role->name, ['Admin', 'Employee']) && Auth::user()->status == "1") {
             // } else {
             //     return redirect()->back()->with('failed', 'Hey User Please Contact to admin!!');
