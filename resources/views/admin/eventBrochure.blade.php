@@ -161,7 +161,7 @@
             success: function(response) {
                 if (response.success == true) {
                     toastr.success(response.message);
-                    // window.location.href = "";
+                    window.location.href = "";
                 } else {
                     toastr.error(response.message);
                     // window.location.href = "";
