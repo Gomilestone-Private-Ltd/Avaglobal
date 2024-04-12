@@ -46,7 +46,7 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
+    <h3 class="text-center " style="font-weight: bold;color:#1f161a">
         Edit Popup
     </h3>
     <div class="container-fluid">
@@ -187,7 +187,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/brochure/edit') }}",
+                url: "{{ url('admin/edit/event-popup-record') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -207,7 +207,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "/get/brochure";
+                        window.location.href = response.route;
                     }, 1000);
                 },
 
@@ -234,7 +234,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/brochure/edit') }}",
+                url: "{{ url('admin/edit/event-popup-record') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -254,7 +254,7 @@
                     }
                     toastr.success(response.message);
 
-                    window.location.href = "/get/brochure";
+                    window.location.href = response.route;
                 },
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {

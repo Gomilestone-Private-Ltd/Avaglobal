@@ -46,16 +46,15 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        EDIT MARQUE TEXT
+    <h3 class="text-center " style="font-weight: bold;color:#110c0e">
+        Edit Marque Text
     </h3>
     <div class="container-fluid">
-        <!-- Input -->
         <div class="row clearfix">
+
             <form enctype="multipart/form-data" id="marqueEdit">
                 @csrf
-                <div class="container mt-4 card p-3 bg-white">
-
+                <div class="mt-4 card p-3 bg-white">
                     <div class="row">
                         <div class="form-group col-md-12 required">
                             <label for=""> Add Marque Text:</label>
@@ -69,17 +68,11 @@
                             </span>
 
                         </div>
-
-
                         <div class="form-group col-md-12 ">
                             <button type="submit" id="submit"
                                 class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
                         </div>
-
-
                     </div>
-
                 </div>
             </form>
         </div>
@@ -98,7 +91,7 @@
             // Send an AJAX request
             $.ajax({
                 type: 'POST',
-                url: '{{ url('post/edit/marque') }}',
+                url: "{{ url('admin/post-edit-marque') }}",
                 data: formData,
                 processData: false,
                 contentType: false,
@@ -112,7 +105,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "/scroller";
+                        window.location.href = response.route;
                     }, 1000);
                 },
                 error: function(response) {

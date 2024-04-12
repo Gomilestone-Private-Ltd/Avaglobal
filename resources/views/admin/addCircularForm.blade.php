@@ -46,8 +46,8 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        ADD CIRCULARS
+    <h3 class="text-center " style="font-weight: bold;color:#181516">
+        Add Circulars
     </h3>
     <div class="container-fluid">
         <!-- Input -->
@@ -149,7 +149,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/circular/store') }}",
+                url: "{{ url('admin/store-records') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -168,7 +168,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "get/circular";
+                        window.location.href = "circular";
                     }, 1000);
                 },
 
@@ -195,7 +195,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/circular/store') }}",
+                url: "{{ url('admin/store-records') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -214,8 +214,7 @@
                         'progressBar': true
                     }
                     toastr.success(response.message);
-
-                    window.location.href = "get/circular";
+                    window.location.href = "circular";
                 },
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {

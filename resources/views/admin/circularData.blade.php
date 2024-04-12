@@ -28,11 +28,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>CIRCULAR DATA</h2>
+                    <h2>Circular Records</h2>
                 </div>
                 @can('add-circular')
                     <div class="col-md-6">
-                        <a href="{{ url('/add-circular') }}" class="btn btn-primary float-right"><span><img
+                        <a href="{{ url('admin/add-circular') }}" class="btn btn-primary float-right"><span><img
                                     src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
                     </div>
                 @endcan
@@ -144,7 +144,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('circular/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('admin/delete-circular-records') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

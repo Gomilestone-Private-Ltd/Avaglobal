@@ -46,8 +46,8 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add POPUP
+    <h3 class="text-center " style="font-weight: bold;color:#33242b">
+        Add Event PopUp
     </h3>
     <div class="container-fluid">
         <!-- Input -->
@@ -100,7 +100,7 @@
                         </div>
 
                         <div class="form-group col-md-6 required">
-                            <label for="">Brochure Pdf:</label>
+                            <label for="">Brochure Pdf/Image:</label>
                             <div class="file-box">
                                 <input type="file" name="brochurepdf" class="form-control" value=""
                                     placeholder="" />
@@ -159,13 +159,11 @@
     });
     $('#brochureCreate').submit(function(e) {
         e.preventDefault();
-        tinymce.triggerSave(false, true)
+
         if (selectedFile) {
             var formData = new FormData($("#brochureCreate")[0]);
-            console.log(formData);
-
             $.ajax({
-                url: "{{ url('/brochure/store') }}",
+                url: "{{ url('admin/store-event-popup') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -185,7 +183,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "/get/brochure";
+                        window.location.href = response.route;
                     }, 1000);
                 },
 
@@ -212,17 +210,14 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/brochure/store') }}",
+                url: "{{ url('admin/store-event-popup') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
                 contentType: false,
-
-
                 success: function(response) {
                     $("#submit").attr("disabled", true)
                     $('#brochureCreate').trigger("reset");
-
                     $('#imagePreview').html('');
                     $('.close-icon').hide();
                     console.log(response.message);
@@ -232,7 +227,7 @@
                     }
                     toastr.success(response.message);
 
-                    window.location.href = "/get/brochure";
+                    window.location.href = response.route;
                 },
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {

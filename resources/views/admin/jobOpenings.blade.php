@@ -25,11 +25,11 @@
             <div class="block-header">
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
-                        <h2>JOB OPENINGS DATA</h2>
+                        <h2>Job Openings Records</h2>
                     </div>
                     <div class="col-md-6">
                         @can('add-job-opening')
-                            <a href="{{ url('/add-jobs') }}" class="btn btn-primary float-right"><span><img
+                            <a href="{{ route('add-job-openings') }}" class="btn btn-primary float-right"><span><img
                                         src="{{ asset('assets/images/plus.png') }}" alt="All"
                                         class="add-icon"></span>Add</a>
                         @endcan
@@ -84,7 +84,7 @@
                                                         <td>
                                                             <div class="d-flex">
                                                                 @can('edit-job-opening')
-                                                                    <a href="{{ route('careerjob.edit', ['id' => $data->id]) }}"
+                                                                    <a href="{{ route('edit-job-openings', ['id' => $data->id]) }}"
                                                                         class="btn btn-primary">Edit</a>
                                                                 @endcan
                                                                 @can('delete-job-opening')
@@ -171,7 +171,7 @@
             var id = id;
             $.ajax({
                 type: 'GET',
-                url: '/career/get-description/' + id,
+                url: '/admin/career/get-description/' + id,
                 data: id,
                 processData: false,
                 contentType: false,
@@ -193,7 +193,7 @@
             var modalToastrButton = $('#modalToastr');
 
             console.log(modalToastrButton);
-            modalToastrButton.attr('href', "{{ url('job-data/delete') }}/" + id);
+            modalToastrButton.attr('href', "{{ url('admin/delete/job-openings') }}/" + id);
             $('#deleteModal').modal('show');
 
             $('#modalToastr').on('click', function(event) {

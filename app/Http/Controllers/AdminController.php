@@ -360,13 +360,8 @@ class AdminController extends Controller
     //end
     public function logout()
     {
-        // if (strtoupper(Auth::user()->role['name']) == strtoupper('Admin')) {
         Auth::logout();
-        return redirect('/admin');
-        // } elseif (strtoupper(Auth::user()->role['name']) == strtoupper('Employee')) {
-        //     Auth::logout();
-        //     return redirect('/employee-login');
-        // }
+        return redirect('/login');
     }
     public function jobApplicants()
     {
@@ -629,7 +624,7 @@ class AdminController extends Controller
         $avaDocsPdf->path = $actualPdfPath;
         $avaDocsPdf->save();
 
-        return response()->json(['success' => true, 'message' => 'Popup Added Successfully']);
+        return response()->json(['success' => true, 'message' => 'Popup Added Successfully', 'route' => route('event-popup')]);
     }
 
     public function getBrochureEdit($id)
@@ -728,7 +723,7 @@ class AdminController extends Controller
                 ->first();
         }
 
-        return response()->json(['success' => true, 'message' => 'Brochure Updated Successfully']);
+        return response()->json(['success' => true, 'message' => 'Brochure Updated Successfully', 'route' => route('event-popup')]);
     }
 
     public function changeBrochureStatus($id)
@@ -741,7 +736,7 @@ class AdminController extends Controller
         }
         $BrochureData->save();
 
-        return response()->json(['success' => true, 'message' => 'Brochure Updated Successfully']);
+        return response()->json(['success' => true, 'message' => 'Brochure Updated Successfully', 'route' => route('event-popup')]);
     }
 
     public function deletePopup($id)
@@ -905,7 +900,7 @@ class AdminController extends Controller
     public function deletePolicy($id)
     {
         AvaDocs::where('id', $id)->delete();
-        return response()->json(['success' => true, 'message' => 'Policy file got deleted Successfully']);
+        return response()->json(['success' => true, 'message' => 'Records Deleted Successfully']);
     }
     public function storePolicy(Request $request)
     {
@@ -949,7 +944,7 @@ class AdminController extends Controller
         $avaDocsFile->policy_title = $request->policytitle;
         $avaDocsFile->save();
 
-        return response()->json(['success' => true, 'message' => 'Policy file uploaded successfully']);
+        return response()->json(['success' => true, 'message' => 'Policy file uploaded successfully', 'route' => route('data-policy')]);
     }
     public function editPolicyForm($id)
     {
@@ -1038,7 +1033,7 @@ class AdminController extends Controller
 
         $requestData = $request->only('marquetext');
         $rule = [
-            'marquetext' => 'required|string|max:120',
+            'marquetext' => 'required|string|max:125',
         ];
         $message = [
             'marquetext.required' => 'Please add some text here'
@@ -1097,7 +1092,7 @@ class AdminController extends Controller
             ['id' => $mId],
             ['marque_text' => $request->marquetext],
         );
-        return response()->json(['success' => true, 'message' => 'Marque Updated Successfully']);
+        return response()->json(['success' => true, 'message' => 'Marque Updated Successfully', 'route' => route('marque-records')]);
     }
     public function eventBrochureData()
     {
@@ -1163,7 +1158,6 @@ class AdminController extends Controller
             $Data->downloadbrochurePdfStatus = 1;
         }
         $Data->save();
-
         return response()->json(['success' => true, 'message' => 'Brochure status changed Successfully']);
     }
 

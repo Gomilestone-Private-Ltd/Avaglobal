@@ -26,7 +26,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Applicants Data</h2>
+                    <h2>Applicants Records</h2>
                 </div>
                 <div class="col-md-6">
 
@@ -133,7 +133,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('applicant/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('admin/delete-applicant') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

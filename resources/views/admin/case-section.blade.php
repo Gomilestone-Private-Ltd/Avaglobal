@@ -47,7 +47,7 @@
 
 <section class="content">
     <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add Case Section
+        Add Case
     </h3>
     <div class="container-fluid">
         <!-- Input -->
@@ -259,7 +259,7 @@
             // formData.append('description', descriptionValue);
 
             $.ajax({
-                url: "{{ url('/case/store') }}",
+                url: "{{ url('admin/create-case') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -307,7 +307,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/case/store') }}",
+                url: "{{ url('admin/create-case') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,

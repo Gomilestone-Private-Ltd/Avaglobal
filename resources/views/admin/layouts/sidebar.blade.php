@@ -43,8 +43,8 @@
             @endcan
             @can('view-footer-marque')
                 <li>
-                    <a href="{{ route('scroller') }}"><img src="{{ asset('assets/images/footer.png') }}" alt="Footer"
-                            class="side-icon">Footer Scroller</a>
+                    <a href="{{ route('marque-records') }}"><img src="{{ asset('assets/images/footer.png') }}"
+                            alt="Footer" class="side-icon">Footer Marque</a>
                 </li>
             @endcan
             @can('view-circular')
@@ -61,14 +61,14 @@
             @endcan
             @can('view-popup')
                 <li>
-                    <a href="{{ route('get-brochure') }}"><img src="{{ asset('assets/images/pop-up.png') }}"
-                            alt="Pop Up" class="side-icon">Add PopUp</a>
+                    <a href="{{ route('event-popup') }}"><img src="{{ asset('assets/images/pop-up.png') }}" alt="Pop Up"
+                            class="side-icon">Event PopUp</a>
                 </li>
             @endcan
             @can('view-brochure')
                 <li>
                     <a href="{{ route('download.brochureData') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
-                            alt="Dashboard" class="side-icon">Add Brochure</a>
+                            alt="Dashboard" class="side-icon">Brochure</a>
                 </li>
             @endcan
             @can('view-roles-and-permissions')

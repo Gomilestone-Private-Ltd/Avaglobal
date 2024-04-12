@@ -23,14 +23,14 @@
 
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
+    {{-- <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
         Through Contact Us Applicants
-    </h3>
+    </h3> --}}
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Applicants Data</h2>
+                    <h2>Applicants Records</h2>
                 </div>
                 <div class="col-md-6">
 
@@ -138,7 +138,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('contactUS/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('admin/delete/contact-us-leads') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Here we controll all the ROLES
-Route::group(['middleware' => ['auth']], function () {
+// Here we controll all the ROLES and permissions
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('permissions', PermissionController::class);
     Route::get('permissions/{permissionId}/delete', [PermissionController::class, 'destroy']);
     Route::resource('roles', RoleController::class);
@@ -33,8 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('users/{userId}/delete', [UserController::class, 'destroy']);
 });
 
-
-//After login
+//ava global public routes
 Route::get('/', [HomeController::class, 'homePage'])->name('home');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
@@ -53,76 +52,92 @@ Route::get('services/cargo-insurance', [HomeController::class, 'cargoInsurance']
 Route::get('container-sizes', [HomeController::class, 'containerSizes'])->name('containerSizes');
 Route::get('tariffs-calculators', [HomeController::class, 'tariffsCalculators'])->name('tariffsCalculators');
 Route::get('news-and-event', [HomeController::class, 'newsEvent'])->name('newsEvent');
+//applicant-submit
+Route::post('/post-applicants', [AdminController::class, 'postApplicants'])->name('post-applicants');
 
 
 //Admin panel Routes
-Route::get('/employee-login', [HomeController::class, 'empLogin'])->middleware('checkLogin')->name('employee-login');
-Route::get('/admin', [AdminController::class, 'login'])->middleware('checkLogin')->name('login');
+// Route::get('/employee-login', [HomeController::class, 'empLogin'])->middleware('checkLogin')->name('employee-login');
+Route::get('/login', [AdminController::class, 'login'])->name('login');
 Route::post('/authenticate', [AdminController::class, 'authenticate'])->name('authenticate');
-Route::group(["middleware" => 'auth'], function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+    //dashboard
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    //career
     Route::get('/job-openings', [AdminController::class, 'openJob'])->name('opened-job');
+    Route::get('/add-job-openings', [AdminController::class, 'addJobs'])->name('add-job-openings');
     Route::get('/career/get-description/{id}', [AdminController::class, 'getCareerDescription'])->name('getcareer-description');
-    Route::get('job-data/delete/{id}', [AdminController::class, 'deleteCareerData'])->name('jobData-delete');
-    Route::get('/add-jobs', [AdminController::class, 'addJobs'])->name('add-jobs');
-    Route::post('/post-jobs', [AdminController::class, 'postJob'])->name('postJobs');
-    Route::get('/careerjob/edit/{id}', [AdminController::class, 'editCareerJob'])->name('careerjob.edit');
-    Route::get('/get-jobs', [AdminController::class, 'getJobs'])->name('getJobs');
+    Route::post('/post-job-openings', [AdminController::class, 'postJob'])->name('post-job-openings');
+    Route::get('delete/job-openings/{id}', [AdminController::class, 'deleteCareerData'])->name('delete/job-openings');
+    Route::get('/job-opening-details', [AdminController::class, 'getJobs'])->name('job-opening-details');
+    Route::get('/edit/job-openings/{id}', [AdminController::class, 'editCareerJob'])->name('edit-job-openings');
     Route::get('/applicants', [AdminController::class, 'jobApplicants'])->name('applicants');
-    Route::post('/post-applicants', [AdminController::class, 'postApplicants'])->name('post-applicants');
-    Route::get('applicant/delete/{id}', [AdminController::class, 'deleteApplicant'])->name('delete-applicant');
+    Route::get('/delete-applicant/{id}', [AdminController::class, 'deleteApplicant'])->name('delete-applicant');
+    //case-study
+    Route::get('/add-case', [AdminController::class, 'addCase'])->name('add-case');
+    Route::post('/create-case', [AdminController::class, 'caseStore'])->name('caseStore');
+    Route::get('/case-study', [AdminController::class, 'caseSection'])->name('case-section');
+    Route::get('/case/get-description/{id}', [AdminController::class, 'getCaseDescription'])->name('get-description');
+    Route::get('/casestudy/edit/{id}', [AdminController::class, 'editCaseStudy'])->name('casestudy.edit');
+    Route::post('/case/update', [AdminController::class, 'updateCaseStudy'])->name('update-casestudy');
+    Route::get('case-study/delete/{id}', [AdminController::class, 'deleteCaseStudy'])->name('delete-caseStudy');
+    //contactuslead
+    Route::get('contact-us-leads', [AdminController::class, 'contactApplicants'])->name('contact-applicants');
+    Route::post('post-contacts', [AdminController::class, 'postContactApplicants'])->name('post-contacts');
+    Route::get('/delete/contact-us-leads/{id}', [AdminController::class, 'contactUsApplicantsDelete'])->name('delete-contact-us');
+    //footerscroller
+    Route::get('marque-records', [AdminController::class, 'ScrollerData'])->name('marque-records');
+    Route::get('add-marque', [AdminController::class, 'marqueAddForm'])->name('marque.addform');
+    Route::post('post-marque', [AdminController::class, 'postMarque'])->name('post.marque');
+    Route::get('change-marque-status/{id}', [AdminController::class, 'marqueStatus'])->name('marque.status');
+    Route::get('delete-marque/{id}', [AdminController::class, 'deleteMarque'])->name('delete.marque');
+    Route::get('edit-marque/{id}', [AdminController::class, 'editMarquePage'])->name('marque.edit');
+    Route::post('post-edit-marque', [AdminController::class, 'postEditMarque'])->name('postEdit.marque');
+    //circular
+    Route::get('circular', [AdminController::class, 'getCircularData'])->name('circulars');
+    Route::get('/add-circular', [AdminController::class, 'getAddCircularForm'])->name('get-addcircular');
+    Route::post('/store-records', [AdminController::class, 'storeCircular'])->name('store-circular');
+    Route::get('delete-circular-records/{id}', [AdminController::class, 'deleteCircular'])->name('delete-circular');
+    Route::get('edit-circulars/{id}', [AdminController::class, 'getEditCircular'])->name('circular.edit');
+    Route::post('/store-circular-records', [AdminController::class, 'editStoreCircular'])->name('edit.storecircular');
+    //policy
+    Route::get('policy', [AdminController::class, 'policyData'])->name('data-policy');
+    Route::get('/add-policy', [AdminController::class, 'getAddPagePolicy'])->name('add-policypage');
+    Route::post('/policy/store', [AdminController::class, 'storePolicy'])->name('store.policy');
+    Route::get('delete-policy/{id}', [AdminController::class, 'deletePolicy'])->name('delete.policy');
+    Route::get('edit-policy-records/{id}', [AdminController::class, 'editPolicyForm'])->name('policy.edit');
+    Route::post('/edit-policy', [AdminController::class, 'storePolicyEdit'])->name('store.editPolicy');
+    //Window Event PopUp
+    Route::get('/add-event-popup', [AdminController::class, 'brochureForms'])->name('add-event-popup');
+    Route::get('/event-popup', [AdminController::class, 'getBrochure'])->name('event-popup');
+    Route::post('/store-event-popup', [AdminController::class, 'postBrochure'])->name('store-brochure');
+    Route::get('edit-event-popup/{id}', [AdminController::class, 'getBrochureEdit'])->name('edit-event-popup');
+    Route::post('edit/event-popup-record', [AdminController::class, 'postEditBrochure'])->name('edit.event-popup');
+    Route::get('/event-popup-status/{id}', [AdminController::class, 'changeBrochureStatus'])->name('event-popup-status');
+    Route::get('delete-event-popup/{id}', [AdminController::class, 'deletePopup'])->name('delete-popup');
+    //Brochure
+    Route::get('brochure', [AdminController::class, 'eventBrochureData'])->name('download.brochureData');
+    Route::get('add-brochure', [AdminController::class, 'addDownloadBrochure'])->name('download.addBrochure');
+    Route::post('store-brochure', [AdminController::class, 'storeDownloadBrochure'])->name('store.downloadBrochure');
+    Route::get('/change-status/{id}', [AdminController::class, 'changeDownloadBrochureStatus'])->name('change.downloadBrochureStatus');
+    Route::get('/edit-brochure/{id}', [AdminController::class, 'editDownloadBrochurePage'])->name('downloadBrochure.edit');
+    Route::get('/delete-brochure/{id}', [AdminController::class, 'deleteDownloadBrochure'])->name('delete.downloadBrochure');
+    Route::post('/store-brochure-records', [AdminController::class, 'editStoreDownloadBrochure'])->name('edit.storeDownloadBrochure');
+    
+    
+    
+
+
+
+    // -----------------------------------------------------------
     Route::get('/career-section', [AdminController::class, 'careerSection'])->name('career-section');
     Route::get('/career-description/{id}/{slug}', [AdminController::class, 'careerDescription'])->name('career-description');
     Route::post('/text-editor', [AdminController::class, 'textEditor'])->name('text-editor');
     Route::get('/edit-description/{id}', [AdminController::class, 'editDescription'])->name('edit-description');
-    Route::get('/admin/case-study', [AdminController::class, 'caseSection'])->name('case-section');
-    Route::get('/add-case', [AdminController::class, 'addCase'])->name('add-case');
-    Route::get('/case/get-description/{id}', [AdminController::class, 'getCaseDescription'])->name('get-description');
-    Route::get('case-study/delete/{id}', [AdminController::class, 'deleteCaseStudy'])->name('delete-caseStudy');
-    Route::get('/casestudy/edit/{id}', [AdminController::class, 'editCaseStudy'])->name('casestudy.edit');
-    Route::post('/case/update', [AdminController::class, 'updateCaseStudy'])->name('update-casestudy');
-    Route::post('/case/store', [AdminController::class, 'caseStore'])->name('caseStore');
-    Route::post('post-contacts', [AdminController::class, 'postContactApplicants'])->name('post-contacts');
-    Route::get('/contact/applicants', [AdminController::class, 'contactApplicants'])->name('contact-applicants');
-    Route::get('contactUS/delete/{id}', [AdminController::class, 'contactUsApplicantsDelete'])->name('contactus-delete');
 
-    Route::get('/get/brochure', [AdminController::class, 'getBrochure'])->name('get-brochure');
-    Route::get('/add-brochure', [AdminController::class, 'brochureForms'])->name('add-brochure');
-    Route::post('/brochure/store', [AdminController::class, 'postBrochure'])->name('store-brochure');
-    Route::get('brochure/edit/{id}', [AdminController::class, 'getBrochureEdit'])->name('brochure.edit');
-    Route::post('/brochure/edit', [AdminController::class, 'postEditBrochure'])->name('post-editbrochure');
-    Route::get('/change/brochure/status/{id}', [AdminController::class, 'changeBrochureStatus'])->name('change-status');
-    Route::get('popup/delete/{id}', [AdminController::class, 'deletePopup'])->name('delete-popup');
-    // Route::get('download/brochure', [AdminController::class, 'downloadBrochure'])->name('download-brochure');
-    Route::get('scroller', [AdminController::class, 'ScrollerData'])->name('scroller');
 
-    Route::get('get/circular', [AdminController::class, 'getCircularData'])->name('circulars');
-    Route::get('/add-circular', [AdminController::class, 'getAddCircularForm'])->name('get-addcircular');
-    Route::post('/circular/store', [AdminController::class, 'storeCircular'])->name('store-circular');
-    Route::get('circular/delete/{id}', [AdminController::class, 'deleteCircular'])->name('delete-circular');
-    Route::get('get/edit/circulars/{id}', [AdminController::class, 'getEditCircular'])->name('circular.edit');
-    Route::post('/circular/edit/store', [AdminController::class, 'editStoreCircular'])->name('edit.storecircular');
 
-    Route::get('data/policy', [AdminController::class, 'policyData'])->name('data-policy');
-    Route::get('/add-policy', [AdminController::class, 'getAddPagePolicy'])->name('add-policypage');
-    Route::post('/policy/store', [AdminController::class, 'storePolicy'])->name('store.policy');
-    Route::get('policy/delete/{id}', [AdminController::class, 'deletePolicy'])->name('delete.policy');
-    Route::get('editpolicy/form/{id}', [AdminController::class, 'editPolicyForm'])->name('policy.edit');
-    Route::post('/policy/edit/store', [AdminController::class, 'storePolicyEdit'])->name('store.editPolicy');
 
-    Route::get('marque/addpage', [AdminController::class, 'marqueAddForm'])->name('marque.addform');
-    Route::post('post/marque', [AdminController::class, 'postMarque'])->name('post.marque');
-    Route::get('/change/marque/status/{id}', [AdminController::class, 'marqueStatus'])->name('marque.status');
-    Route::get('marque/delete/{id}', [AdminController::class, 'deleteMarque'])->name('delete.marque');
-    Route::get('marque/editpage/{id}', [AdminController::class, 'editMarquePage'])->name('marque.edit');
-    Route::post('post/edit/marque', [AdminController::class, 'postEditMarque'])->name('postEdit.marque');
 
-    Route::get('event/brochure', [AdminController::class, 'eventBrochureData'])->name('download.brochureData');
-    Route::get('download/addbrochure', [AdminController::class, 'addDownloadBrochure'])->name('download.addBrochure');
-    Route::post('/downloadbrochure/store', [AdminController::class, 'storeDownloadBrochure'])->name('store.downloadBrochure');
-    Route::get('/change/downloadbrochure/status/{id}', [AdminController::class, 'changeDownloadBrochureStatus'])->name('change.downloadBrochureStatus');
-    Route::get('download/brochure/delete/{id}', [AdminController::class, 'deleteDownloadBrochure'])->name('delete.downloadBrochure');
-    Route::get('editpage/downloadbrochure/{id}', [AdminController::class, 'editDownloadBrochurePage'])->name('downloadBrochure.edit');
-    Route::post('/downloadbrochure/edit/store', [AdminController::class, 'editStoreDownloadBrochure'])->name('edit.storeDownloadBrochure');
 });

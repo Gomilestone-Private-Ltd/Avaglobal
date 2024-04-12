@@ -46,8 +46,8 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        UPDATE BROCHURE
+    <h3 class="text-center " style="font-weight: bold;color:#312129">
+        Update Brochure
     </h3>
     <div class="container-fluid">
         <!-- Input -->
@@ -147,7 +147,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/downloadbrochure/edit/store') }}",
+                url: "{{ url('admin/store-brochure-records') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -166,7 +166,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "/event/brochure";
+                        window.location.href = "/admin/brochure";
                     }, 1000);
                 },
 
@@ -190,10 +190,8 @@
             });
         } else {
             var formData = new FormData($("#downloadBrochureEdit")[0]);
-            console.log(formData);
-
             $.ajax({
-                url: "{{ url('/downloadbrochure/edit/store') }}",
+                url: "{{ url('admin/store-brochure-records') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -212,8 +210,7 @@
                         'progressBar': true
                     }
                     toastr.success(response.message);
-
-                    window.location.href = "/event/brochure";
+                    window.location.href = "/admin/brochure";
                 },
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {

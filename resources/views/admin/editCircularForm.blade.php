@@ -46,8 +46,8 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add CIRCULARS
+    <h3 class="text-center " style="font-weight: bold;color:#181516">
+        Edit Circulars Record
     </h3>
     <div class="container-fluid">
         <!-- Input -->
@@ -164,7 +164,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/circular/edit/store') }}",
+                url: "{{ url('admin/store-circular-records') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -208,7 +208,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/circular/edit/store') }}",
+                url: "{{ url('admin/store-circular-records') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,

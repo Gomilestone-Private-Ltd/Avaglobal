@@ -97,7 +97,7 @@
             // Send an AJAX request
             $.ajax({
                 type: 'POST',
-                url: '{{ url('post/marque') }}',
+                url: "{{ url('admin/post-marque') }}",
                 data: formData,
                 processData: false,
                 contentType: false,
@@ -111,7 +111,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "/scroller";
+                        window.location.href = "admin/marque-records";
                     }, 1000);
                 },
                 error: function(response) {

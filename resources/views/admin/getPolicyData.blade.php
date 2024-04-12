@@ -28,11 +28,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>POLICY DATA</h2>
+                    <h2>Policy Records</h2>
                 </div>
                 @can('add-policy')
                     <div class="col-md-6">
-                        <a href="{{ url('/add-policy') }}" class="btn btn-primary float-right"><span><img
+                        <a href="{{ url('admin/add-policy') }}" class="btn btn-primary float-right"><span><img
                                     src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
                     </div>
                 @endcan
@@ -146,7 +146,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('policy/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('admin/delete-policy') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

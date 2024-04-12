@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Case Study Details')
+@section('title', 'Event PopUp')
 <style>
     label {
         color: black;
@@ -29,11 +29,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>POPUP DATA</h2>
+                    <h2>Popup Records</h2>
                 </div>
                 @can('add-popup')
                     <div class="col-md-6">
-                        <a href="{{ url('/add-brochure') }}" class="btn btn-primary float-right"><span><img
+                        <a href="{{ url('admin/add-event-popup') }}" class="btn btn-primary float-right"><span><img
                                     src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
                     </div>
                 @endcan
@@ -94,7 +94,7 @@
                                                         <td>
                                                             <div class="d-flex">
                                                                 @can('edit-popup')
-                                                                    <a href="{{ route('brochure.edit', ['id' => $data->id]) }}"
+                                                                    <a href="{{ route('edit-event-popup', ['id' => $data->id]) }}"
                                                                         class="btn btn-primary">Edit</a>
                                                                 @endcan
                                                                 @can('delete-popup')
@@ -176,17 +176,14 @@
 </section>
 <script>
     function changeStatus(id) {
-        // localStorage.clear();
         $.ajax({
             type: 'GET',
-            url: '/change/brochure/status/' + id,
+            url: baseUrl + '/admin/event-popup-status/' + id,
             data: id,
             processData: false,
             contentType: false,
             success: function(response) {
-                console.log(response);
-                window.location.href = "";
-
+                window.location.href = response.route;
             },
             error: function(response) {
                 console.log("something went wrong");
@@ -202,7 +199,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('popup/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('admin/delete-event-popup') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

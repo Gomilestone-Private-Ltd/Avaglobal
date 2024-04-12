@@ -29,11 +29,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>EVENT BROCHURE DATA</h2>
+                    <h2>Brocure Records</h2>
                 </div>
                 @can('add-brochure')
                     <div class="col-md-6">
-                        <a href="{{ url('download/addbrochure') }}" class="btn btn-primary float-right"><span><img
+                        <a href="{{ url('admin/add-brochure') }}" class="btn btn-primary float-right"><span><img
                                     src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
                     </div>
                 @endcan
@@ -147,16 +147,25 @@
 </section>
 <script>
     function changeStatus(id) {
+        toastr.options = {
+            'progressBar': true,
+            'closeButton': true,
+            'timeOut': 5000
+        }
         $.ajax({
             type: 'GET',
-            url: '/change/downloadbrochure/status/' + id,
+            url: baseUrl + '/admin/change-status/' + id,
             data: id,
             processData: false,
             contentType: false,
             success: function(response) {
-                console.log(response);
-                window.location.href = "";
-
+                if (response.success == true) {
+                    toastr.success(response.message);
+                    // window.location.href = "";
+                } else {
+                    toastr.error(response.message);
+                    // window.location.href = "";
+                }
             },
             error: function(response) {
                 console.log("something went wrong");
@@ -172,7 +181,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('download/brochure/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('admin/delete-brochure') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

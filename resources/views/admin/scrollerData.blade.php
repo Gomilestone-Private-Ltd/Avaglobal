@@ -29,11 +29,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>SCROLLER DATA</h2>
+                    <h2>Footer Marque Records</h2>
                 </div>
                 @can('add-footer-marque')
                     <div class="col-md-6">
-                        <a href="{{ url('marque/addpage') }}" class="btn btn-primary float-right"><span><img
+                        <a href="{{ url('admin/add-marque') }}" class="btn btn-primary float-right"><span><img
                                     src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
                     </div>
                 @endcan
@@ -167,7 +167,7 @@
     function changeStatus(id) {
         $.ajax({
             type: 'GET',
-            url: '/change/marque/status/' + id,
+            url: 'change-marque-status/' + id,
             data: id,
             processData: false,
             contentType: false,
@@ -213,7 +213,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('marque/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('admin/delete-marque') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

@@ -46,8 +46,8 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add CIRCULARS
+    <h3 class="text-center " style="font-weight: bold;color:#1f171b">
+        Edit Policy
     </h3>
     <div class="container-fluid">
         <!-- Input -->
@@ -164,7 +164,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/policy/edit/store') }}",
+                url: "{{ url('admin/edit-policy') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -208,7 +208,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/policy/edit/store') }}",
+                url: "{{ url('admin/edit-policy') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,

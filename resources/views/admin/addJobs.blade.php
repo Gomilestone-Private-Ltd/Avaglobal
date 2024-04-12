@@ -22,7 +22,7 @@
 <section class="content">
     <div class="row">
         <div class="col-lg-7 col-md-6 col-sm-12">
-            <h2>JOB OPENINGS</h2>
+            <h2>Add Job Openings</h2>
         </div>
     </div>
     <div class="container-fluid">
@@ -212,13 +212,12 @@
             // Send an AJAX request
             $.ajax({
                 type: 'POST',
-                url: '{{ url('/post-jobs') }}',
+                url: "{{ route('post-job-openings') }}",
                 data: formData,
                 processData: false,
                 contentType: false,
                 success: function(response) {
                     $("#submit").attr("disabled", true)
-
                     console.log(response);
                     toastr.options = {
                         'closeButton': true,
@@ -226,17 +225,13 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "/get-jobs";
-                    }, 2000);
+                        window.location.href = "/admin/job-opening-details";
+                    }, 1000);
                 },
                 error: function(response) {
-                    console.log("hii");
-
-
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field, errorMessage) {
-
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
                             $('[name="' + field + '"]').closest(

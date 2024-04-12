@@ -29,11 +29,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>CASE STUDY DATA</h2>
+                    <h2>Case Study Records</h2>
                 </div>
                 @can('add-case-study')
                     <div class="col-md-6">
-                        <a href="{{ url('/add-case') }}" class="btn btn-primary float-right"><span><img
+                        <a href="{{ url('admin/add-case') }}" class="btn btn-primary float-right"><span><img
                                     src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
                     </div>
                 @endcan

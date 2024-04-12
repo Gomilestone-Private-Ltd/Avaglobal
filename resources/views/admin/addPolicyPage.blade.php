@@ -46,8 +46,8 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        ADD POLICY
+    <h3 class="text-center " style="font-weight: bold;color:#181516">
+        Add Policy
     </h3>
     <div class="container-fluid">
         <!-- Input -->
@@ -151,7 +151,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/policy/store') }}",
+                url: "{{ url('admin/policy/store') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -170,7 +170,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "data/policy";
+                        window.location.href = response.route;
                     }, 1000);
                 },
 
@@ -197,7 +197,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/policy/store') }}",
+                url: "{{ url('admin/policy/store') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -217,7 +217,7 @@
                     }
                     toastr.success(response.message);
 
-                    window.location.href = "data/policy";
+                    window.location.href = response.route;
                 },
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {

@@ -36,7 +36,8 @@
 <div class="header-container">
     <div class="left-header">
         <div class="navbar-brand">
-            <a href="/dashboard"><img src="{{ asset('assets/images/blogo.png') }}" width="110" alt="AvaGlobal"></a>
+            <a href="{{ route('dashboard') }}"><img src="{{ asset('assets/images/blogo.png') }}" width="110"
+                    alt="AvaGlobal"></a>
         </div>
     </div>
     <div class="right-header">

@@ -148,11 +148,11 @@
                                                         </span>
                                                     </div>
                                                     <!--
-                                                                                                        <div class="browse-btn fl">
-                                                                                                            <span>Upload</span>
-                                                                                                            <input name="upfile" class="upload" id="uploadBtn" type="file">
-                                                                                                        </div>
-                                                        -->
+                                                                                                            <div class="browse-btn fl">
+                                                                                                                <span>Upload</span>
+                                                                                                                <input name="upfile" class="upload" id="uploadBtn" type="file">
+                                                                                                            </div>
+                                                            -->
                                                     <div class="clear"></div>
                                                 </div>
                                             </div>
@@ -166,13 +166,13 @@
                             </div>
 
                             <!--
-                                                                                    <div class="innertabdataitem press">
+                                                                                        <div class="innertabdataitem press">
 
-                                                                                    </div>
-                                                                                    <div class="innertabdataitem vendor">
+                                                                                        </div>
+                                                                                        <div class="innertabdataitem vendor">
 
-                                                                                    </div>
-                                                        -->
+                                                                                        </div>
+                                                            -->
                             <div class="innertabdataitem investor">
                                 <p class="pagetxt">
                                     AVA Global aim to provide accurate and relevant information to all our investors to
@@ -200,7 +200,7 @@
                                 // Send an AJAX request
                                 $.ajax({
                                     type: 'POST',
-                                    url: '{{ url('/post-contacts') }}',
+                                    url: "{{ url('admin/post-contacts') }}",
                                     data: formData,
                                     processData: false,
                                     contentType: false,
