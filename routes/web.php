@@ -124,9 +124,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/edit-brochure/{id}', [AdminController::class, 'editDownloadBrochurePage'])->name('downloadBrochure.edit');
     Route::get('/delete-brochure/{id}', [AdminController::class, 'deleteDownloadBrochure'])->name('delete.downloadBrochure');
     Route::post('/store-brochure-records', [AdminController::class, 'editStoreDownloadBrochure'])->name('edit.storeDownloadBrochure');
-    
-    
-    
+
+
+
 
 
 
@@ -138,6 +138,24 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 
 
+    //media
+    Route::get('/online-coverage', [AdminController::class, 'onlineCoverage'])->name('online-coverage');
+    Route::get('/add-online-coverage', [AdminController::class, 'addOnlineCoverage'])->name('add-online-coverage');
+    Route::post('/save-online-coverage', [AdminController::class, 'saveOnlineCoverage'])->name('save-online-coverage');
+    Route::get('/edit-online-coverage/{id}', [AdminController::class, 'editOnlineCoverage'])->name('edit-online-coverage');
+    Route::post('/update-online-coverage/{id}', [AdminController::class, 'updateOnlineCoverage'])->name('update-online-coverage');
+    Route::delete('/delete-online-coverage/{id}', [AdminController::class, 'deleteOnlineCoverageRecords'])->name('delete-online-coverage');
 
+     //pdf-media
+     Route::get('/print-coverage', [AdminController::class, 'printCoverage'])->name('print-coverage');
+     Route::get('/add-print-coverage', [AdminController::class, 'addPrintCoverage'])->name('add-print-coverage');
+     Route::post('/save-print-coverage', [AdminController::class, 'savePrintCoverage'])->name('save-print-coverage');
+     Route::get('/edit-print-coverage/{id}', [AdminController::class, 'editPrintCoverage'])->name('edit-print-coverage');
+     Route::post('/update-print-coverage/{id}', [AdminController::class, 'updatePrintCoverage'])->name('update-print-coverage');
+     Route::delete('/delete-print-coverage/{id}', [AdminController::class, 'deletePrintCoverageRecords'])->name('delete-print-coverage');
+
+    // Route::get('/career-description/{id}/{slug}', [AdminController::class, 'careerDescription'])->name('career-description');
+    // Route::post('/text-editor', [AdminController::class, 'textEditor'])->name('text-editor');
+    // Route::get('/edit-description/{id}', [AdminController::class, 'editDescription'])->name('edit-description');
 
 });

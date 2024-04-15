@@ -47,7 +47,7 @@
                                     {{ $message }}
                                 @enderror
                             </span>
-                            <form action="{{ url('roles/' . $role->id . '/give-permissions') }}" method="POST">
+                            <form action="{{ url('/admin/roles/' . $role->id . '/give-permissions') }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="container mt-4 card p-3">

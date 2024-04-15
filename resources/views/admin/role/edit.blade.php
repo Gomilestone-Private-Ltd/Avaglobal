@@ -1,6 +1,3 @@
-@php
-    // dd($permissions);
-@endphp
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'update permissions')
@@ -46,7 +43,7 @@
                     <div class="card">
 
                         <div class="body">
-                            <form action="{{ url('roles/' . $role->id) }}" method="POST">
+                            <form action="{{ url('/admin/roles/' . $role->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="container mt-4 card p-3 bg-white">

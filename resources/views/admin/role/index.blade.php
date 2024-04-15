@@ -77,7 +77,7 @@
                                                         <td>
                                                             <div class="d-flex">
                                                                 @can('edit-role-permissions')
-                                                                    <a href="{{ url('roles/' . $role->id . '/give-permissions') }}"
+                                                                    <a href="{{ url('/admin/roles/' . $role->id . '/give-permissions') }}"
                                                                         class="btn btn-warning mr-3">Add / Edit Role
                                                                         Permission</a>
                                                                 @endcan
@@ -139,7 +139,7 @@
     function deleteModal(id) {
         var modalToastrButton = $('#modalToastr');
         $('#deleteModal').modal('show');
-        var url = baseUrl + "/roles/" + id + "/delete";
+        var url = baseUrl + "/admin/roles/" + id + "/delete";
         $('#modalToastr').on('click', function(event) {
             event.preventDefault();
             $.ajax({

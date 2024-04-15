@@ -71,6 +71,22 @@
                             alt="Dashboard" class="side-icon">Brochure</a>
                 </li>
             @endcan
+
+            {{-- Media --}}
+            @can('view-media-corner')
+                <li><a href="javascript:void(0);" class="menu-toggle"><img src="{{ asset('assets/images/suitcase.png') }}"
+                            alt="Dashboard" class="side-icon">Media Corner</a>
+                    <ul class="ml-menu">
+                        @can('view-online-coverage')
+                            <li><a href="{{ route('online-coverage') }}">Online Coverage</a></li>
+                        @endcan
+                        @can('view-print-coverage')
+                            <li><a href="{{ route('print-coverage') }}">Print Coverage</a></li>
+                        @endcan
+                    </ul>
+                </li>
+            @endcan
+            {{-- end ---------------------------------- --}}
             @can('view-roles-and-permissions')
                 <li><a href="javascript:void(0);" class="menu-toggle"><img
                             src="{{ asset('assets/images/management.png') }}" alt="Roles & Permissions"
