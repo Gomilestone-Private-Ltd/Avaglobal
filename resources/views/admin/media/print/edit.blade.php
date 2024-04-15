@@ -41,7 +41,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{{ route('update-print-coverage', $records->id) }}" method="POST">
+                            <form action="{{ route('update-print-coverage', $records->id) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="mt-4 card p-3">
                                     <div class="row">
@@ -67,6 +68,10 @@
                                             <label for="">Upload PDF</label>
                                             <input type="file" name="printMediaFile" id=""
                                                 class="form-control">
+                                            @if ($records->avaDocs->path)
+                                                <p>{{ $records->avaDocs->filename }}
+                                                </p>
+                                            @endif
                                             <span class="text-danger"> @error('printMediaFile')
                                                     {{ $message }}
                                                 @enderror

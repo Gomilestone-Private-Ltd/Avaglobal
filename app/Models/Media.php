@@ -9,5 +9,10 @@ class Media extends Model
 {
     use HasFactory;
     protected $table = 'media';
-    protected $fillable = ['title', 'location','media_url','pdf_file_id'];
+    protected $fillable = ['title', 'location', 'media_url', 'pdf_file_id'];
+
+    public function avaDocs()
+    {
+        return $this->hasOne(AvaDocs::class, 'id', 'pdf_file_id');
+    }
 }

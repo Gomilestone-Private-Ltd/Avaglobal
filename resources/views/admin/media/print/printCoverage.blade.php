@@ -64,12 +64,24 @@
                                     <tbody>
                                         @if (count($mediaRecord) > 0)
                                             @foreach ($mediaRecord as $record)
+                                                {{-- @php
+                                                    dd(asset($record->avaDocs->path));
+                                                @endphp --}}
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $record->title }}</td>
                                                     <td>{{ $record->created_at }}</td>
                                                     <td>{{ $record->location }}</td>
-                                                    <td>{{ $record->pdf_file_id }}</td>
+                                                    @if (isset($record->avaDocs->path))
+                                                        <td><a href="{{ asset($record->avaDocs->path) }}" download><i
+                                                                    class="fa fa-eye"
+                                                                    style="font-size:24px;color:rgb(14, 12, 12)""></i></a>
+                                                        </td>
+                                                    @else
+                                                        <td><i class="fa fa-eye"
+                                                                style="font-size:24px;color:rgb(14, 12, 12)""></i></a>
+                                                        </td>
+                                                    @endif
                                                     @if (auth()->user()->can('edit-print-coverage') || auth()->user()->can('delete-print-coverage'))
                                                         <td>
                                                             <div class="d-flex">

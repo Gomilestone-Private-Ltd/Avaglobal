@@ -28,7 +28,6 @@ class Controller extends BaseController
 
     function customFileUpload($file)
     {
-
         $data = [];
         $allowedfileExtensions = ['jpeg', 'jpg', 'png', 'pdf'];
         $fileSize = $file->getSize();
@@ -52,12 +51,27 @@ class Controller extends BaseController
 
     public function deleteFile($filename)
     {
-        $caseStudy = AvaDocs::where('filename', $filename)->first();
-        $replaceLocalImage = public_path() . $caseStudy->path;
+        $fileRecord = AvaDocs::where('filename', $filename)->first();
+        $replaceLocalImage = public_path() . $fileRecord->path;
         if (file_exists($replaceLocalImage) && is_file($replaceLocalImage)) {
             $response = unlink($replaceLocalImage);
             if ($response) {
-                $caseStudy->delete();
+                $fileRecord->delete();
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function unlinkFile($path)
+    {
+        $replaceLocalImage = public_path() . $path;
+        if (file_exists($replaceLocalImage) && is_file($replaceLocalImage)) {
+            $response = unlink($replaceLocalImage);
+            if ($response) {
                 return true;
             } else {
                 return false;

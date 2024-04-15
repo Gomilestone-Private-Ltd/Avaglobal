@@ -1155,7 +1155,6 @@ class AdminController extends Controller
     }
     public function updateCaseStudy(Request $request)
     {
-        // dd($request->all());
         $caseId = $request->id;
         $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'tinymce');
         $rule = [
@@ -1281,7 +1280,7 @@ class AdminController extends Controller
     //print Coverage
     public function printCoverage()
     {
-        $records = Media::select('id', 'title', 'location', 'pdf_file_id', 'created_at')->whereNotNull('pdf_file_id')->get();
+        $records = Media::select('id', 'title', 'location', 'pdf_file_id', 'created_at')->whereNotNull('pdf_file_id')->with('avaDocs')->get();
         return view('admin.media.print.printCoverage', ['mediaRecord' => $records]);
     }
 
@@ -1295,55 +1294,86 @@ class AdminController extends Controller
         $validate = Validator::make($request->all(), [
             'title' => 'required',
             'location' => 'required',
-            'printMediaFile' => 'required',
+            'printMediaFile' => 'required|mimes:pdf',
         ]);
         if ($validate->fails()) {
             return redirect()->back()
                 ->withInput()
                 ->withErrors($validate);
         }
-
-        $avaDocsFileId = 5;
-        $saveRecords = [
-            'title' => $request->title,
-            'location' => $request->location,
-            'pdf_file_id' => $avaDocsFileId,
+        //Save file data
+        $avaDocsFileData = $this->customFileUpload($request->file('printMediaFile'));
+        $fileData = [
+            'filename' => $avaDocsFileData['filename'],
+            'filetype' => $avaDocsFileData['fileType'],
+            'filesize' => $avaDocsFileData['fileSize'],
+            'path' => $avaDocsFileData['actualImagePath'],
         ];
-        Media::create($saveRecords);
-        return redirect()->route('print-coverage')->with('message', 'Records added sucessfully');
+        $fileSaveResponse = AvaDocs::Create($fileData);
+        if ($fileSaveResponse) {
+            $saveRecords = [
+                'title' => $request->title,
+                'location' => $request->location,
+                'pdf_file_id' => $fileSaveResponse->id,
+            ];
+            Media::create($saveRecords);
+            return redirect()->route('print-coverage')->with('message', 'Records added sucessfully');
+        } else {
+            return redirect()->route('print-coverage')->with('error', 'Something went wrong');
+        }
     }
 
     public function editPrintCoverage($id)
     {
-        $printMediaRecords = Media::find($id);
+        $printMediaRecords = Media::where('id', $id)->with('avaDOcs')->first();
         return view('admin.media.print.edit', ['records' => $printMediaRecords]);
     }
 
     public function updatePrintCoverage(Request $request, $id)
     {
         $validate = Validator::make($request->all(), [
-            'title' => 'required',
-            'location' => 'required',
-            'printMediaFile' => 'required',
+            'title' => 'nullable',
+            'location' => 'nullable',
+            'printMediaFile' => 'nullable|mimes:pdf',
         ]);
         if ($validate->fails()) {
             return redirect()->back()
                 ->withInput()
                 ->withErrors($validate);
         }
-        $avaDocsFileId = 10;
-        $saveRecords = [
-            'title' => $request->title,
-            'location' => $request->location,
-            'pdf_file_id' => $avaDocsFileId,
-        ];
-        Media::updateOrCreate(['id' => $id], $saveRecords);
+        $mediaPrintRecords = Media::where('id', $id)->with('avaDocs')->first();
+        if ($request->file('printMediaFile')) {
+            if (!empty($mediaPrintRecords->avaDocs->path)) {
+                $fileUnlink = $this->unlinkFile($mediaPrintRecords->avaDocs->path);
+                if ($fileUnlink == true) {
+                    $avaDocsFileData = $this->customFileUpload($request->file('printMediaFile'));
+                    $avaDOcs = AvaDocs::where('id', $mediaPrintRecords->pdf_file_id)->first();
+                    $avaDOcs->filename = $avaDocsFileData['filename'];
+                    $avaDOcs->filetype = $avaDocsFileData['fileType'];
+                    $avaDOcs->filesize = $avaDocsFileData['fileSize'];
+                    $avaDOcs->path = $avaDocsFileData['actualImagePath'];
+                    $avaDOcs->save();
+                }
+            }
+        }
+        $mediaPrintRecords->title = $request->title;
+        $mediaPrintRecords->location = $request->location;
+        $mediaPrintRecords->save();
+        // $saveRecords = [
+        //     'title' => $request->title,
+        //     'location' => $request->location,
+        //     'pdf_file_id' => $avaDocsFileId,
+        // ];
+        // Media::updateOrCreate(['id' => $id], $saveRecords);
         return redirect()->route('print-coverage')->with('message', 'Records added sucessfully');
     }
 
     public function deletePrintCoverageRecords($id)
     {
-        $mediaRecord = Media::findOrfail($id);
+        $mediaRecord = Media::where('id', $id)->with('avaDocs')->first();
+        if (!empty($mediaRecord->pdf_file_id)) {
+            $this->deleteFile($mediaRecord->avaDocs->filename);
+        }
         $mediaRecord->delete();
         return response()->json(['success' => true, 'route' => route('print-coverage'), 'message' => 'Records deleted successfully']);
     }

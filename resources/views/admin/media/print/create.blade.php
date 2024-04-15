@@ -41,7 +41,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{{ route('save-print-coverage') }}" method="POST">
+                            <form action="{{ route('save-print-coverage') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="mt-4 card p-3">
                                     <div class="row">
