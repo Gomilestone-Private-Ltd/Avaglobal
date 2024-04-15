@@ -176,7 +176,7 @@
         var id = id;
         $.ajax({
             type: 'GET',
-            url: '/case/get-description/' + id,
+            url: 'case/get-description/' + id,
             data: id,
             processData: false,
             contentType: false,
@@ -194,12 +194,8 @@
 
     // Delete function 
     function deleteModal(id) {
-
-        console.log(id);
         var modalToastrButton = $('#modalToastr');
-
-        console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('case-study/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('admin/case-study/delete') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {
@@ -216,10 +212,11 @@
                         // 'timeOut': 5000
                     }
                     toastr.success(response.message);
-                    window.location.href = "";
+                    window.location.href = response.route;
                 },
                 error: function(response) {
                     toastr.error(response.message);
+                    window.location.href = response.route;
                 }
             });
         });

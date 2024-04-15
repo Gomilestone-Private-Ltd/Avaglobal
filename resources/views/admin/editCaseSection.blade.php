@@ -18,7 +18,7 @@
     .close-icon {
         position: absolute;
         right: 21px;
-        top: 40px;
+        top: 61px;
         color: red;
         font-size: 18px;
         display: none;
@@ -37,6 +37,10 @@
         margin-top: 5px;
 
     }
+
+    #imagePreview {
+        display: flex;
+    }
 </style>
 
 <section class="content">
@@ -53,7 +57,7 @@
                     <div class="row">
                         <div class="form-group col-md-6 required">
                             <label for="">Case Name:</label>
-                            <input type="text" name="case" id="" class="form-control"
+                            <input type="text" name="case" id="case" class="form-control"
                                 value="{{ $data->case }}">
                             <span class="text-danger">
                                 @error('case')
@@ -65,7 +69,7 @@
 
                         <div class="form-group col-md-6 required">
                             <label for="">Case Title:</label>
-                            <input type="text" name="casetitle" id="" class="form-control"
+                            <input type="text" name="casetitle" id="casetitle" class="form-control"
                                 value="{{ $data->case_title }}">
 
 
@@ -79,7 +83,7 @@
 
                         <div class="form-group col-md-6 required">
                             <label for="">Posted By:</label>
-                            <input type="text" name="postedby" id="" class="form-control"
+                            <input type="text" name="postedby" id="postedby" class="form-control"
                                 value="{{ $data->posted_by }}">
                             <span class="text-danger">
                                 @error('dob')
@@ -91,26 +95,32 @@
 
 
                         <div class="form-group col-md-6">
-                            <label for="">Case Image:</label>
+                            <label for="">Case Image: (max 4 files allowed with extension jpg,jpeg,png)<br>
+                                (select images at once)
+                            </label>
 
                             <div class="file-box">
                                 <input type="file" name="caseimage[]" accept="image/png, image/jpg, image/jpeg"
-                                    id="caseimageinput" class="form-control" value="" placeholder="Case Image"
+                                    id="caseimage" class="form-control" value="" placeholder="Case Image"
                                     multiple />
                                 <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
-
-
-                            <div id="imagePreview">
+                            <div class="d-flex">
                                 @foreach ($data->avaDocs as $images)
-                                    <div>
+                                    <div class="ml-3">
                                         <img src="{{ asset($images->path) }}"
                                             style="width:70px;height:60px;border-radius:20%" />
+                                        <i class="fa fa-close" style="font-size:24px;color:red"
+                                            onclick="deleteImage('{{ $images->filename }}')"></i>
                                     </div>
                                 @endforeach
-                                {{-- <img src="{{ asset($data->avaDocs->path) }}" height="50" width="50"
-                                    alt=""> --}}
+                                <div id="imagePreview">
+
+                                    {{-- <img src="{{ asset($data->avaDocs->path) }}" height="50" width="50"
+                                        alt=""> --}}
+                                </div>
                             </div>
+
                             <span class="text-danger">
                                 @error('caseimage')
                                     {{ $message }}
@@ -119,7 +129,7 @@
                         </div>
                         <div class="form-group col-md-12 required">
                             <label for="">Description:</label>
-                            <textarea id="tinymce" name="description" class="form-control" placeholder="Description"
+                            <textarea id="tinymce" name="tinymce" class="form-control" placeholder="Description"
                                 OnClientClick="tinyMCE.triggerSave(false,true);">{!! $data->description !!}</textarea>
                             <span class="text-danger">
                                 @error('description')
@@ -147,7 +157,29 @@
 
 </section>
 
+<script>
+    function deleteImage(name) {
 
+        var filename = name;
+        $.ajax({
+            type: 'GET',
+            url: baseUrl + '/admin/case-study/delete-image/' + filename,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                if (response == true) {
+                    window.location.href = "";
+                } else {
+                    toastr.error("file not found");
+                }
+
+            },
+            error: function(response) {
+                console.log("something went wrong");
+            }
+        });
+    }
+</script>
 
 <script>
     var selectedFile;
@@ -205,7 +237,7 @@
 
         $('#closeIcon').on('click', function() {
             $('#imagePreview').empty();
-            $('#caseimageinput').val('');
+            $('#caseimage').val('');
             $('.close-icon').hide();
         });
 
@@ -225,7 +257,7 @@
         //         $('.close-icon').hide();
         //     }
         // });
-        $('#caseimageinput').on('change', function(e) {
+        $('#caseimage').on('change', function(e) {
             var files = this.files; // Get the array of files
 
             if (files.length > 0) {
@@ -241,6 +273,8 @@
                             $('#imagePreview').append('<div><img src="' + e.target.result +
                                 '" alt="Preview" style="width:70px;height:60px;border-radius:20%"></div>'
                             );
+
+
 
                         };
                     })(files[i]);
@@ -261,7 +295,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/case/update') }}",
+                url: "{{ url('admin/case/update') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -290,10 +324,19 @@
 
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
-                            $('[name="' + field + '"]').closest(
+                            // $('[name="' + field + '"]').closest(
+                            //         '.form-group')
+                            //     .find('.text-danger').html(errorHtml);
+                            // $('[name="' + field + '"]').on('input',
+                            //     function() {
+                            //         $('.text-danger').html('');
+                            //     });
+                            $('#' + field).closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
-                            $('[name="' + field + '"]').on('input',
+
+
+                            $('#' + field).on('input',
                                 function() {
                                     $('.text-danger').html('');
                                 });
@@ -308,7 +351,7 @@
             console.log(formData);
 
             $.ajax({
-                url: "{{ url('/case/update') }}",
+                url: "{{ url('admin/case/update') }}",
                 method: 'POST',
                 data: formData,
                 processData: false,
@@ -340,10 +383,19 @@
 
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
-                            $('[name="' + field + '"]').closest(
+                            // $('[name="' + field + '"]').closest(
+                            //         '.form-group')
+                            //     .find('.text-danger').html(errorHtml);
+                            // $('[name="' + field + '"]').on('input',
+                            //     function() {
+                            //         $('.text-danger').html('');
+                            //     });
+                            $('#' + field).closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
-                            $('[name="' + field + '"]').on('input',
+
+
+                            $('#' + field).on('input',
                                 function() {
                                     $('.text-danger').html('');
                                 });

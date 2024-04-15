@@ -16,7 +16,7 @@ class AvaDocs extends Model
 
     public function checkStatus()
     {
-        $status = AvaDocs::where('downloadbrochurePdfStatus',1)->count();
+        $status = self::where('downloadbrochurePdfStatus', 1)->count();
         return $status;
     }
 }

@@ -56,7 +56,7 @@
                                             <th>Popup Title</th>
                                             <th>Location</th>
                                             <th>Popup Image</th>
-                                            <th>Brochure Pdf</th>
+                                            <th>Brochure Image/Pdf</th>
                                             @can('edit-status-popup')
                                                 <th>Status</th>
                                             @endcan
@@ -144,9 +144,7 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Delete Case
-                                                    Study
-                                                    Data</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Delete PopUp Record</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -175,6 +173,12 @@
     </div>
 </section>
 <script>
+    toastr.options = {
+        'progressBar': true,
+        'closeButton': true,
+        // 'timeOut': 5000
+    }
+
     function changeStatus(id) {
         $.ajax({
             type: 'GET',
@@ -183,7 +187,17 @@
             processData: false,
             contentType: false,
             success: function(response) {
-                window.location.href = response.route;
+                if (response.success == true) {
+                    toastr.success(response.message);
+                    setTimeout(function() {
+                        window.location.href = response.route
+                    }, 1000);
+                } else {
+                    toastr.error(response.message);
+                    setTimeout(function() {
+                        window.location.href = response.route
+                    }, 1000);
+                }
             },
             error: function(response) {
                 console.log("something went wrong");

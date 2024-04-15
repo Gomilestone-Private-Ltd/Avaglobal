@@ -123,7 +123,7 @@
         var modalToastrButton = $('#modalToastr');
 
         console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('case-study/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('admin/case-study/delete') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

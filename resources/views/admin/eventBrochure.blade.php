@@ -115,9 +115,8 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Delete Case
-                                                    Study
-                                                    Data</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Delete Brochure's Record
+                                                </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -161,10 +160,10 @@
             success: function(response) {
                 if (response.success == true) {
                     toastr.success(response.message);
-                    // window.location.href = "";
+                    window.location.href = "";
                 } else {
                     toastr.error(response.message);
-                    // window.location.href = "";
+                    window.location.href = "";
                 }
             },
             error: function(response) {

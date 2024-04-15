@@ -82,6 +82,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/casestudy/edit/{id}', [AdminController::class, 'editCaseStudy'])->name('casestudy.edit');
     Route::post('/case/update', [AdminController::class, 'updateCaseStudy'])->name('update-casestudy');
     Route::get('case-study/delete/{id}', [AdminController::class, 'deleteCaseStudy'])->name('delete-caseStudy');
+    Route::get('case-study/delete-image/{filename}', [AdminController::class, 'deleteFile'])->name('delete-caseStudy-file');
     //contactuslead
     Route::get('contact-us-leads', [AdminController::class, 'contactApplicants'])->name('contact-applicants');
     Route::post('post-contacts', [AdminController::class, 'postContactApplicants'])->name('post-contacts');
@@ -124,9 +125,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/edit-brochure/{id}', [AdminController::class, 'editDownloadBrochurePage'])->name('downloadBrochure.edit');
     Route::get('/delete-brochure/{id}', [AdminController::class, 'deleteDownloadBrochure'])->name('delete.downloadBrochure');
     Route::post('/store-brochure-records', [AdminController::class, 'editStoreDownloadBrochure'])->name('edit.storeDownloadBrochure');
-    
-    
-    
+
+
+
 
 
 
@@ -135,9 +136,4 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/career-description/{id}/{slug}', [AdminController::class, 'careerDescription'])->name('career-description');
     Route::post('/text-editor', [AdminController::class, 'textEditor'])->name('text-editor');
     Route::get('/edit-description/{id}', [AdminController::class, 'editDescription'])->name('edit-description');
-
-
-
-
-
 });

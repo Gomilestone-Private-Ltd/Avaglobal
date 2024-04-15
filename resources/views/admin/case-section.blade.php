@@ -59,7 +59,7 @@
                     <div class="row">
                         <div class="form-group col-md-6 required">
                             <label for="">Case Name:</label>
-                            <input type="text" name="case" id="" class="form-control" value=""
+                            <input type="text" name="case" id="case" class="form-control" value=""
                                 placeholder="Case Name">
                             <span class="text-danger case-error"></span>
 
@@ -67,7 +67,7 @@
 
                         <div class="form-group col-md-6 required">
                             <label for="">Case Title:</label>
-                            <input type="text" name="casetitle" id="" class="form-control" value=""
+                            <input type="text" name="casetitle" id="casetitle" class="form-control" value=""
                                 placeholder="Case Title">
 
 
@@ -81,7 +81,7 @@
 
                         <div class="form-group col-md-6 required">
                             <label for="">Posted By:</label>
-                            <input type="text" name="postedby" id="" class="form-control" value=""
+                            <input type="text" name="postedby" id="postedby" class="form-control" value=""
                                 placeholder="Posted By">
                             <span class="text-danger">
                                 @error('dob')
@@ -94,10 +94,11 @@
 
                         <div class="form-group col-md-6 required">
 
-                            <label for="">Case Image: (max 4 files allowed)</label>
+                            <label for="">Case Image: (max 4 files allowed with extension
+                                jpg,jpeg,png)</label>
                             <div class="file-box">
                                 <input type="file" accept="image/png, image/jpg, image/jpeg" name="caseimage[]"
-                                    id="caseimageinput" class="form-control" value="" placeholder="Case Image"
+                                    id="caseimage" class="form-control" value="" placeholder="Case Image"
                                     multiple />
                                 <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
@@ -112,13 +113,12 @@
 
                         <div class="form-group col-md-12 required">
                             <label for="">Description:</label>
-                            <textarea id="tinymce" name="description" class="form-control" placeholder="Add Description Here"
+                            <textarea id="tinymce" name="tinymce" class="form-control" placeholder="Add Description Here"
                                 OnClientClick="tinyMCE.triggerSave(false,true);"></textarea>
                             <span class="text-danger">
                                 @error('description')
                                     {{ $message }}
                                 @enderror
-
                             </span>
                         </div>
 
@@ -197,7 +197,7 @@
 
         $('#closeIcon').on('click', function() {
             $('#imagePreview').empty();
-            $('#caseimageinput').val('');
+            $('#caseimage').val('');
             $('.close-icon').hide();
         });
         // $('#caseimageinput').on('change', function(e) {
@@ -216,7 +216,7 @@
         //         $('.close-icon').hide();
         //     }
         // });
-        $('#caseimageinput').on('change', function(e) {
+        $('#caseimage').on('change', function(e) {
             var files = this.files; // Get the array of files
 
             if (files.length > 0) {
@@ -290,11 +290,20 @@
                         $.each(response.responseJSON.errors, function(field, errorMessage) {
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
-                            $('[name="' + field + '"]').closest(
+                            // $('[name="' + field + '"]').closest(
+                            //         '.form-group')
+                            //     .find('.text-danger').html(errorHtml);
+
+                            // $('[name="' + field + '"]').on('input',
+                            //     function() {
+                            //         $('.text-danger').html('');
+                            //     });
+                            $('#' + field).closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
 
-                            $('[name="' + field + '"]').on('input',
+
+                            $('#' + field).on('input',
                                 function() {
                                     $('.text-danger').html('');
                                 });
@@ -339,17 +348,18 @@
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
 
-                            $('[name="' + field + '"]').closest(
+                            $('#' + field).closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
 
 
-                            $('[name="' + field + '"]').on('input',
+                            $('#' + field).on('input',
                                 function() {
                                     $('.text-danger').html('');
                                 });
                         });
                     }
+
                     // if (response.responseJSON && response.responseJSON.errors) {
 
                     //     $('.text-danger').html('');

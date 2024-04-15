@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 class AdminController extends Controller
 {
@@ -177,25 +178,25 @@ class AdminController extends Controller
     }
     public function caseStore(Request $request)
     {
-
-        $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'description');
+        //made description as tinymce because i made id and name in blade file same
+        $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'tinymce');
 
         $rule = [
             'case' => 'required',
             'casetitle' => 'required',
             'postedby' => 'required',
-            // 'caseimage[]' => 'required',
+            'caseimage' => 'required|array|max:4',
             'caseimage.*' => 'mimes:jpeg,jpg,png',
-            'description' => 'required',
+            'tinymce' => 'required',
         ];
         $message = [
             'case.required' => "please fill the case name !!",
             'casetitle.required' => 'please fill the case title',
             'postedby.required' => 'please fill the company name',
-            // 'caseimage[].required' => 'please select case image',
-            // // 'caseimage.max' => 'Maximum three files are allowed',
+            'caseimage.required' => 'please select case image',
+            'caseimage.max' => 'Maximum four files are allowed',
             'caseimage.*.mimes' => 'image extension must be of jpeg,jpg,png',
-            'description.required' => 'Please add Case description here'
+            'tinymce.required' => 'Please add Case description here'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         // dd($validate);
@@ -215,127 +216,26 @@ class AdminController extends Controller
         $caseStudy->case = $request['case'];
         $caseStudy->slug = $slug;
         $caseStudy->case_title = $request['casetitle'];
-        $caseStudy->description = $request['description'];
+        $caseStudy->description = $request['tinymce'];
         $caseStudy->posted_by = $request['postedby'];
         $caseStudy->save();
 
-        $filename = '';
-        $path = '';
 
         if ($request->hasFile('caseimage')) {
-            $allowedfileExtension = ['jpeg', 'jpg', 'png'];
             $files = $request->file('caseimage');
             foreach ($files as $file) {
-                $fileSize = $file->getSize();
-                $fileType = $file->extension();
-                $filename = time() . $file->getClientOriginalName();
-                $check = in_array($fileType, $allowedfileExtension);
-                if ($check) {
-                    $path = public_path() . '/assets/img/';
-                    $file->move($path, $filename);
-                    $actualImagePath = '/assets/img/' . $filename;
-                } else {
-                    $actualImagePath = null;
-                }
+                $data = $this->customFileUpload($file);
                 $case_id = $caseStudy->id;
                 $avaDocs = new AvaDocs;
                 $avaDocs->case_id = $case_id;
-                $avaDocs->filename = $filename;
-                $avaDocs->filetype = $fileType;
-                $avaDocs->filesize = $fileSize;
-                $avaDocs->path = $actualImagePath;
+                $avaDocs->filename = $data['filename'];
+                $avaDocs->filetype = $data['fileType'];
+                $avaDocs->filesize = $data['fileSize'];
+                $avaDocs->path = $data['actualImagePath'];
                 $avaDocs->save();
             }
         }
         return response()->json(['success' => true, 'message' => 'Case Added Successfully']);
-        // $data = $request->all();
-        // if (count($data['caseimage']) > 4) {
-        //     return response()->json(['errors' => "maximum four files allowed"], 400);
-        // }
-        // foreach ($data['caseimage'] as $dataimage) {
-        // }
-        // $validateError = ($validate->errors())->toArray();
-        // ($validateError['caseimage'][1] = "name");
-        // dd($validateError);
-    }
-    public function updateCaseStudy(Request $request)
-    {
-
-        $caseId = $request->id;
-
-        $data = $request->all();
-        if (count($data['caseimage']) > 4) {
-            return response()->json(['errors' => "maximum four files allowed"], 400);
-        }
-
-        $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'description');
-        $rule = [
-            'case' => 'required',
-            'casetitle' => 'required',
-            'postedby' => 'required',
-            'caseimage' => 'mimes:jpeg,png',
-            'description' => 'required'
-        ];
-        $message = [
-            'case.required' => "please fill the case name !!",
-            'casetitle.required' => 'please fill the case title',
-            'postedby.required' => 'please fill the company name',
-            // 'caseimage.required' => 'please select a case image',
-            'caseimage.mimes' => 'image extension must be of jpeg,png',
-            'description.required' => 'Please add Case description here'
-        ];
-        $validate = Validator::make($requestData, $rule, $message);
-
-        if ($validate->fails()) {
-            return response()->json(['errors' => $validate->errors()], 400);
-        }
-
-        $caseStudy = CaseStudy::find($caseId);
-
-        $filename = '';
-        $path = '';
-        if ($request->hasFile('caseimage')) {
-            $file = $request->file('caseimage');
-            $fileType = $file->extension();
-            $fileSize = $file->getSize();
-            $filename = time() . $file->getClientOriginalName();
-            $path = public_path() . '/assets/img/';
-
-            $replaceLocalImage = public_path() . $caseStudy->avaDocs->path;
-            // dd($replaceLocalImage);
-
-
-            if (file_exists($replaceLocalImage) && is_file($replaceLocalImage)) {
-                unlink($replaceLocalImage);
-            }
-            $file->move($path, $filename);
-            $actualImagePath = '/assets/img/' . $filename;
-
-            AvaDocs::updateOrCreate(
-                ['case_id' => $caseId],
-                [
-                    'filename' => $filename,
-                    'filesize' => $fileSize,
-                    'path' => $actualImagePath,
-                    'filetype' => $fileType
-                ]
-            );
-        } else {
-            $olderImagePath = $caseStudy->avaDocs->path;
-            // dd($olderImagePath);
-            AvaDocs::updateOrCreate(
-                ['case_id' => $caseId],
-                [
-                    'path' => $olderImagePath,
-                ]
-            );
-        }
-        $caseStudy->case = $request['case'];
-        $caseStudy->case_title = $request['casetitle'];
-        $caseStudy->description = $request['description'];
-        $caseStudy->posted_by = $request['postedby'];
-        $caseStudy->save();
-        return response()->json(['success' => true, 'message' => 'Case Updated Successfully']);
     }
     public function getCaseDescription($id)
     {
@@ -347,14 +247,27 @@ class AdminController extends Controller
     public function deleteCaseStudy($id)
     {
         // dd($id);
-        $data = CaseStudy::find($id);
-        if (!$data) {
-            return response()->json(['message' => 'There is no Case found in record', 404]);
+        $data = CaseStudy::with('avaDocs')->where('id', $id)->first();
+        if ($data) {
+            if (count($data->avaDocs) > 0) {
+                foreach ($data->avaDocs as $oldfile) {
+                    $replaceLocalImage = public_path() . $oldfile->path;
+                    if (file_exists($replaceLocalImage) && is_file($replaceLocalImage)) {
+                        $response = unlink($replaceLocalImage);
+                        if ($response) {
+                            AvaDocs::where('case_id', $id)->delete();
+                        }
+                    } else {
+                        continue;
+                    }
+                }
+            }
+            $data->delete();
+            AvaDocs::where('case_id', $id)->delete();
+            return response()->json(['success' => true, 'message' => 'Case deleted successfully', 'route' => route('case-section')]);
+        } else {
+            return response()->json(['message' => 'There is no Case found in record', 404, 'route' => route('case-section')]);
         }
-
-        $data->delete();
-        AvaDocs::where('case_id', $id)->delete();
-        return response()->json(['success' => true, 'message' => 'Case deleted successfully']);
     }
 
     //end
@@ -396,22 +309,7 @@ class AdminController extends Controller
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);
         }
-        $filename = '';
-        $path = '';
-        if ($request->hasFile('applicantPdf')) {
-            $file = $request->file('applicantPdf');
 
-            $fileType = $file->extension();
-            $fileSize = $file->getSize();
-            $filename = time() . $file->getClientOriginalName();
-            $path = public_path() . '/assets/pdf/';
-            $file->move($path, $filename);
-        }
-        if ($filename) {
-            $actualPdfPath = '/assets/pdf/' . $filename;
-        } else {
-            $actualPdfPath = null;
-        }
         $contactApplicants = new ContactUs;
         $contactApplicants->name = $request['name'];
         $contactApplicants->email = $request['email'];
@@ -419,13 +317,32 @@ class AdminController extends Controller
         $contactApplicants->phone = $request['phone'];
         $contactApplicants->save();
         $contact_id = $contactApplicants->id;
-        $avaDocs = new AvaDocs;
-        $avaDocs->contact_id = $contact_id;
-        $avaDocs->filename = $filename;
-        $avaDocs->filetype = $fileType;
-        $avaDocs->filesize = $fileSize;
-        $avaDocs->path = $actualPdfPath;
-        $avaDocs->save();
+
+        if ($request->hasFile('applicantPdf')) {
+            $files = $request->file('applicantPdf');
+            if (is_array($files)) {
+                foreach ($files as $file) {
+                    $data = $this->customFileUpload($file);
+                    $avaDocs = new AvaDocs;
+                    $avaDocs->contact_id = $contact_id;
+                    $avaDocs->filename = $data['filename'];
+                    $avaDocs->filetype = $data['fileType'];
+                    $avaDocs->filesize = $data['fileSize'];
+                    $avaDocs->path = $data['actualImagePath'];
+                    $avaDocs->save();
+                }
+            } else {
+                $data = $this->customFileUpload($files);
+                $avaDocs = new AvaDocs;
+                $avaDocs->contact_id = $contact_id;
+                $avaDocs->filename = $data['filename'];
+                $avaDocs->filetype = $data['fileType'];
+                $avaDocs->filesize = $data['fileSize'];
+                $avaDocs->path = $data['actualImagePath'];
+                $avaDocs->save();
+            }
+        }
+
         return response()->json(['success' => true, 'message' => 'You have Successfully applied for this job']);
     }
     public function postApplicants(Request $request)
@@ -607,7 +524,6 @@ class AdminController extends Controller
 
         $brochure_id = $brochure->id;
 
-
         $avaDocsImage = new AvaDocs; // Create AvaDocs instance for image
         $avaDocsImage->brochure_id = $brochure_id;
         $avaDocsImage->filename = $filename;
@@ -731,6 +647,22 @@ class AdminController extends Controller
         $BrochureData = Brochure::find($id);
         if ($BrochureData->status == 1) {
             $BrochureData->status = 0;
+            $BrochureData->save();
+            return response()->json(['success' => true, 'message' => 'PopUp Status Changed Successfully', 'route' => route('event-popup')]);
+        }
+
+        if ($BrochureData->checkPopStatus() == 0) {
+            if ($BrochureData->status == 0) {
+                $BrochureData->status = 1;
+                $BrochureData->save();
+                return response()->json(['success' => true, 'message' => 'PopUp Status Changed Successfully', 'route' => route('event-popup')]);
+            }
+        } else {
+            return response()->json(['success' => false, 'message' => 'Please inactive another active status first', 'route' => route('event-popup')]);
+        }
+        $BrochureData = Brochure::find($id);
+        if ($BrochureData->status == 1) {
+            $BrochureData->status = 0;
         } elseif ($BrochureData->status == 0) {
             $BrochureData->status = 1;
         }
@@ -820,7 +752,6 @@ class AdminController extends Controller
     }
     public function editStoreCircular(Request $request)
     {
-
         $circularTitle = $request->circulartitle;
         $circular_id = $request->circularId;
         $olderPath = AvaDocs::where('circular_id', $circular_id)->first();
@@ -838,21 +769,13 @@ class AdminController extends Controller
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);
         }
-
-
         if ($request->hasFile('circularfile')) {
             $file = $request->file('circularfile');
             $fileType = strtolower($file->extension());
             $fileSize = $file->getSize();
             $filename = time() . $file->getClientOriginalName();
             $path = public_path() . '/assets/circulars/';
-
-
-
             $replaceLocalFilePath = public_path() . $olderPath->path;
-            // dd($replaceLocalFilePath);
-
-
             if (file_exists($replaceLocalFilePath) && is_file($replaceLocalFilePath)) {
                 unlink($replaceLocalFilePath);
             }
@@ -970,21 +893,13 @@ class AdminController extends Controller
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);
         }
-
-
         if ($request->hasFile('policyfile')) {
             $file = $request->file('policyfile');
             $fileType = strtolower($file->extension());
             $fileSize = $file->getSize();
             $filename = time() . $file->getClientOriginalName();
             $path = public_path() . '/assets/policies/';
-
-
-
             $replaceLocalFilePath = public_path() . $olderPath->path;
-            // dd($replaceLocalFilePath);
-
-
             if (file_exists($replaceLocalFilePath) && is_file($replaceLocalFilePath)) {
                 unlink($replaceLocalFilePath);
             }
@@ -1154,11 +1069,18 @@ class AdminController extends Controller
         $Data = AvaDocs::find($id);
         if ($Data->downloadbrochurePdfStatus == 1) {
             $Data->downloadbrochurePdfStatus = 0;
-        } elseif ($Data->downloadbrochurePdfStatus == 0) {
-            $Data->downloadbrochurePdfStatus = 1;
+            $Data->save();
+            return response()->json(['success' => true, 'message' => 'Brochure status changed Successfully']);
         }
-        $Data->save();
-        return response()->json(['success' => true, 'message' => 'Brochure status changed Successfully']);
+        if ($Data->checkStatus() == 0) {
+            if ($Data->downloadbrochurePdfStatus == 0) {
+                $Data->downloadbrochurePdfStatus = 1;
+                $Data->save();
+                return response()->json(['success' => true, 'message' => 'Brochure status changed Successfully']);
+            }
+        } else {
+            return response()->json(['success' => false, 'message' => 'Please inactive another active status first']);
+        }
     }
 
     public function deleteDownloadBrochure($id)
@@ -1194,21 +1116,13 @@ class AdminController extends Controller
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);
         }
-
-
         if ($request->hasFile('downloadbrochure')) {
             $file = $request->file('downloadbrochure');
             $fileType = strtolower($file->extension());
             $fileSize = $file->getSize();
             $filename = time() . $file->getClientOriginalName();
             $path = public_path() . '/assets/downloadBrochure/';
-
-
-
             $replaceLocalFilePath = public_path() . $olderPath->path;
-            // dd($replaceLocalFilePath);
-
-
             if (file_exists($replaceLocalFilePath) && is_file($replaceLocalFilePath)) {
                 unlink($replaceLocalFilePath);
             }
@@ -1236,5 +1150,63 @@ class AdminController extends Controller
                 ->first();
         }
         return response()->json(['success' => true, 'message' => 'Brochure file Updated successfully']);
+    }
+    public function updateCaseStudy(Request $request)
+    {
+        // dd($request->all());
+        $caseId = $request->id;
+        $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'tinymce');
+        $rule = [
+            'case' => 'required',
+            'casetitle' => 'required',
+            'postedby' => 'required',
+            'caseimage' => 'array|max:4',
+            'caseimage.*' => 'mimes:jpeg,jpg,png',
+            'tinymce' => 'required'
+        ];
+        $message = [
+            'case.required' => "please fill the case name !!",
+            'casetitle.required' => 'please fill the case title',
+            'postedby.required' => 'please fill the company name',
+            'caseimage.required' => 'please select a case image',
+            'caseimage.max' => 'Maximum four files are allowed',
+            'caseimage.*.mimes' => 'image extension must be of jpeg,jpg,png',
+            'description.required' => 'Please add Case description here'
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+        $olderData = CaseStudy::with('avaDocs')->where('id', $caseId)->first();
+        $oldCount = count($olderData->avaDocs);
+        $intOldCount = (int)$oldCount;
+        $newCount = count($request['caseimage']);
+        $intNewCount = (int)$newCount;
+        $totalImageCount = $intNewCount + $intOldCount;
+        if ($totalImageCount > 4) {
+            return response()->json(['errors' => array('caseimage' => 'Maximum four images are allowed')], 400);
+        }
+        $caseStudy = CaseStudy::find($caseId);
+        if ($request->hasFile('caseimage')) {
+            $files = $request->file('caseimage');
+            foreach ($files as $file) {
+                $data = $this->customFileUpload($file);
+                AvaDocs::updateOrCreate(
+                    ['case_id' => $caseId, 'filename' => $data['filename']],
+                    [
+                        'filename' => $data['filename'],
+                        'filesize' => $data['fileSize'],
+                        'path' => $data['actualImagePath'],
+                        'filetype' => $data['fileType']
+                    ]
+                );
+            }
+        }
+        $caseStudy->case = $request['case'];
+        $caseStudy->case_title = $request['casetitle'];
+        $caseStudy->description = $request['tinymce'];
+        $caseStudy->posted_by = $request['postedby'];
+        $caseStudy->save();
+        return response()->json(['success' => true, 'message' => 'Case Updated Successfully']);
     }
 }

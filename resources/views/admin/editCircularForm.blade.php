@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="form-group col-md-12 required">
-                            <label for="">Upload file:</label>
+                            <label for="">Upload file:(Pdf only)</label>
                             <div class="file-box">
                                 <input type="file" name="circularfile" id="caseimageinput" class="form-control"
                                     value="" placeholder="" />

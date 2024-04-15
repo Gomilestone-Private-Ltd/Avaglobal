@@ -23,4 +23,9 @@ class Brochure extends Model
     {
         return $this->hasMany(AvaDocs::class, 'brochure_id', 'id');
     }
+    public function checkPopStatus()
+    {
+        $status = self::where('status', 1)->count();
+        return $status;
+    }
 }
