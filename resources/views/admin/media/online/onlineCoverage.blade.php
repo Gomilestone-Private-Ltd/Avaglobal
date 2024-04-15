@@ -55,6 +55,7 @@
                                             <th>TITLE</th>
                                             <th>DATE</th>
                                             <th>LOCATION</th>
+                                            <th>IMAGE</th>
                                             <th>MEDIA URL</th>
                                             @if (auth()->user()->can('edit-online-coverage') || auth()->user()->can('delete-online-coverage'))
                                                 <th>ACTION</th>
@@ -69,6 +70,13 @@
                                                     <td>{{ $record->title }}</td>
                                                     <td>{{ $record->created_at }}</td>
                                                     <td>{{ $record->location }}</td>
+                                                    @if (isset($record->onlineDocsImage->path))
+                                                        <td> <img src="{{ asset($record->onlineDocsImage->path) }}"
+                                                                alt="profile Pic" height="50" width="50"></td>
+                                                    @else
+                                                        <td> No Image</td>
+                                                    @endif
+
                                                     <td>{{ $record->media_url }}</td>
                                                     @if (auth()->user()->can('edit-online-coverage') || auth()->user()->can('delete-online-coverage'))
                                                         <td>

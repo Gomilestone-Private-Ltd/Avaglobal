@@ -55,6 +55,7 @@
                                             <th>TITLE</th>
                                             <th>DATE</th>
                                             <th>LOCATION</th>
+                                            <th>IMAGE</th>
                                             <th>PDF FILE</th>
                                             @if (auth()->user()->can('edit-print-coverage') || auth()->user()->can('delete-print-coverage'))
                                                 <th>ACTION</th>
@@ -64,14 +65,17 @@
                                     <tbody>
                                         @if (count($mediaRecord) > 0)
                                             @foreach ($mediaRecord as $record)
-                                                {{-- @php
-                                                    dd(asset($record->avaDocs->path));
-                                                @endphp --}}
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $record->title }}</td>
                                                     <td>{{ $record->created_at }}</td>
                                                     <td>{{ $record->location }}</td>
+                                                    @if (isset($record->printDocsImage->path))
+                                                        <td> <img src="{{ asset($record->printDocsImage->path) }}"
+                                                                alt="profile Pic" height="50" width="50"></td>
+                                                    @else
+                                                        <td> No Image</td>
+                                                    @endif
                                                     @if (isset($record->avaDocs->path))
                                                         <td><a href="{{ asset($record->avaDocs->path) }}" download><i
                                                                     class="fa fa-eye"

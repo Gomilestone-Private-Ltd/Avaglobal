@@ -65,6 +65,15 @@
                                             </span>
                                         </div>
                                         <div class="col-md-6">
+                                            <label for="">Upload Image</label>
+                                            <input type="file" name="printMediaImage" id=""
+                                                class="form-control">
+                                            <span class="text-danger"> @error('printMediaImage')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                        </div>
+                                        <div class="col-md-6">
                                             <label for="">Upload PDF</label>
                                             <input type="file" name="printMediaFile" id=""
                                                 class="form-control">

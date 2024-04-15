@@ -41,7 +41,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{{ route('update-online-coverage', $records->id) }}" method="POST">
+                            <form action="{{ route('update-online-coverage', $records->id) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="mt-4 card p-3">
                                     <div class="row">
@@ -59,6 +60,21 @@
                                             <input type="text" name="location" id="" class="form-control"
                                                 placeholder="Enter location" value="{{ $records->location }}">
                                             <span class="text-danger"> @error('location')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">Upload Image</label>
+                                            <input type="file" name="onlineMediaImage" id=""
+                                                class="form-control">
+                                            <div class="mt-3">
+                                                @if (isset($records->onlineDocsImage->path))
+                                                    <img src="{{ asset($records->onlineDocsImage->path) }}"
+                                                        alt="profile Pic" height="50" width="50">
+                                                @endif
+                                            </div>
+                                            <span class="text-danger"> @error('onlineMediaImage')
                                                     {{ $message }}
                                                 @enderror
                                             </span>

@@ -65,6 +65,21 @@
                                             </span>
                                         </div>
                                         <div class="col-md-6">
+                                            <label for="">Upload Image</label>
+                                            <input type="file" name="printMediaImage" id=""
+                                                class="form-control">
+                                            <div class="mt-3">
+                                                @if (isset($records->printDocsImage->path))
+                                                    <img src="{{ asset($records->printDocsImage->path) }}"
+                                                        alt="profile Pic" height="50" width="50">
+                                                @endif
+                                            </div>
+                                            <span class="text-danger"> @error('printMediaImage')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                        </div>
+                                        <div class="col-md-6">
                                             <label for="">Upload PDF</label>
                                             <input type="file" name="printMediaFile" id=""
                                                 class="form-control">

@@ -41,7 +41,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{{ route('save-online-coverage') }}" method="POST">
+                            <form action="{{ route('save-online-coverage') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="mt-4 card p-3">
                                     <div class="row">
@@ -59,6 +60,15 @@
                                             <input type="text" name="location" id="" class="form-control"
                                                 placeholder="Enter location" value="{{ old('location') }}">
                                             <span class="text-danger"> @error('location')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">Upload Image</label>
+                                            <input type="file" name="onlineMediaImage" id=""
+                                                class="form-control">
+                                            <span class="text-danger"> @error('onlineMediaImage')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
