@@ -106,7 +106,7 @@
                         </div>
 
                         <div class="form-group col-md-6 required">
-                            <label for="">Brochure Pdf:</label>
+                            <label for="">Brochure Image/Pdf:</label>
                             <div class="file-box">
                                 <input type="file" name="brochurepdf" id="brochurepdffile" class="form-control"
                                     value="" placeholder="" />
