@@ -73,7 +73,7 @@
                                                         <td>
                                                             <div class="d-flex">
                                                                 @can('edit-permissions')
-                                                                    <a href="{{ url('permissions/' . $permission->id . '/edit') }}"
+                                                                    <a href="{{ url('/admin/permissions/' . $permission->id . '/edit') }}"
                                                                         class="btn btn-primary mr-3">Edit</a>
                                                                 @endcan
                                                                 @can('delete-permissions')
@@ -128,34 +128,11 @@
 </section>
 
 <script>
-    function updateModalBody(id) {
-        // Send an AJAX request
-        // $('#exampleModalLong').modal('hide');
-        $('#modalBody').html('');
-        var id = id;
-        $.ajax({
-            type: 'GET',
-            url: '/case/get-description/' + id,
-            data: id,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                console.log(response);
-                $('#modalBody').html('');
-                $('#modalBody').html(response.description);
-                $('#exampleModalLong').modal('show');
-            },
-            error: function(response) {
-                console.log("hii");
-            }
-        });
-    }
-
     // Delete function 
     function deleteModal(id) {
         var modalToastrButton = $('#modalToastr');
         $('#deleteModal').modal('show');
-        var url = baseUrl + "/permissions/" + id + "/delete";
+        var url = baseUrl + "/admin/permissions/" + id + "/delete";
         $('#modalToastr').on('click', function(event) {
             event.preventDefault();
             $.ajax({

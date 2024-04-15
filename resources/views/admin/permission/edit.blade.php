@@ -47,7 +47,7 @@
                     <div class="card">
 
                         <div class="body">
-                            <form action="{{ url('permissions/' . $permission->id) }}" method="POST">
+                            <form action="{{ url('/admin/permissions/' . $permission->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="container mt-4 card p-3 bg-white">
@@ -77,56 +77,10 @@
     </div>
 </section>
 <script>
-    function changeStatus(id) {
-        $.ajax({
-            type: 'GET',
-            url: '/change/brochure/status/' + id,
-            data: id,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                console.log(response);
-                window.location.href = "";
-
-            },
-            error: function(response) {
-                console.log("something went wrong");
-            }
-        });
-    }
-</script>
-<script>
-    function updateModalBody(id) {
-        // Send an AJAX request
-        // $('#exampleModalLong').modal('hide');
-        $('#modalBody').html('');
-        var id = id;
-        $.ajax({
-            type: 'GET',
-            url: '/case/get-description/' + id,
-            data: id,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                console.log(response);
-                $('#modalBody').html('');
-                $('#modalBody').html(response.description);
-                $('#exampleModalLong').modal('show');
-            },
-            error: function(response) {
-                console.log("hii");
-            }
-        });
-    }
-
     // Delete function 
     function deleteModal(id) {
-
-        console.log(id);
         var modalToastrButton = $('#modalToastr');
-
-        console.log(modalToastrButton);
-        modalToastrButton.attr('href', "{{ url('case-study/delete') }}/" + id);
+        modalToastrButton.attr('href', "{{ url('/admin/case-study/delete') }}/" + id);
         $('#deleteModal').modal('show');
 
         $('#modalToastr').on('click', function(event) {

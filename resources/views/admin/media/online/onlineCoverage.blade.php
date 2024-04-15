@@ -28,13 +28,12 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>USERS LIST</h2>
+                    <h2>Online Coverage Records</h2>
                 </div>
-                @can('add-users')
+                @can('add-online-coverage')
                     <div class="col-md-6">
-                        <a href="{{ route('users.create') }}" class="btn btn-primary float-right"><span><img
-                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add
-                            Users</a>
+                        <a href="{{ route('add-online-coverage') }}" class="btn btn-primary float-right"><span><img
+                                    src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
                     </div>
                 @endcan
             </div>
@@ -53,39 +52,34 @@
                                     <thead>
                                         <tr>
                                             <th>S.No</th>
-                                            <th>NAME</th>
-                                            <th>EMAIL</th>
-                                            <th>ROLES</th>
-                                            @if (auth()->user()->can('edit-users') || auth()->user()->can('delete-users'))
+                                            <th>TITLE</th>
+                                            <th>DATE</th>
+                                            <th>LOCATION</th>
+                                            <th>MEDIA URL</th>
+                                            @if (auth()->user()->can('edit-online-coverage') || auth()->user()->can('delete-online-coverage'))
                                                 <th>ACTION</th>
                                             @endif
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (count($users) > 0)
-                                            @foreach ($users as $user)
+                                        @if (count($mediaRecord) > 0)
+                                            @foreach ($mediaRecord as $record)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $user->name }}</td>
-                                                    <td>{{ $user->email }}</td>
-                                                    <td>
-                                                        @if (!empty($user->getRoleNames()))
-                                                            @foreach ($user->getRoleNames() as $rolesName)
-                                                                <span
-                                                                    class="badge badge-primary">{{ $rolesName }}</span>
-                                                            @endforeach
-                                                        @endif
-                                                    </td>
-                                                    @if (auth()->user()->can('edit-users') || auth()->user()->can('delete-users'))
+                                                    <td>{{ $record->title }}</td>
+                                                    <td>{{ $record->created_at }}</td>
+                                                    <td>{{ $record->location }}</td>
+                                                    <td>{{ $record->media_url }}</td>
+                                                    @if (auth()->user()->can('edit-online-coverage') || auth()->user()->can('delete-online-coverage'))
                                                         <td>
                                                             <div class="d-flex">
-                                                                @can('edit-users')
-                                                                    <a href="{{ url('/admin/users/' . $user->id . '/edit') }}"
+                                                                @can('edit-online-coverage')
+                                                                    <a href="{{ url('admin/edit-online-coverage/' . $record->id) }}"
                                                                         class="btn btn-primary mr-3">Edit</a>
                                                                 @endcan
-                                                                @can('delete-users')
+                                                                @can('delete-online-coverage')
                                                                     <button id="deleteButton"
-                                                                        onclick="deleteModal('{{ $user->id }}')"
+                                                                        onclick="deleteModal('{{ $record->id }}')"
                                                                         class="btn btn-danger">Delete</button>
                                                                 @endcan
                                                             </div>
@@ -103,9 +97,7 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Delete Case
-                                                    Study
-                                                    Data</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Delete Record</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -135,16 +127,24 @@
 </section>
 
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
     // Delete function 
     function deleteModal(id) {
         var modalToastrButton = $('#modalToastr');
         $('#deleteModal').modal('show');
-        var url = baseUrl + "/admin/users/" + id + "/delete";
+        var url = baseUrl + "/admin/delete-online-coverage/" + id;
         $('#modalToastr').on('click', function(event) {
             event.preventDefault();
             $.ajax({
-                type: 'GET',
+                type: 'DELETE',
                 url: url,
+                data: {
+                    "_token": token,
+                },
                 success: function(response) {
                     if (response.success == true) {
                         toastr.options = {
@@ -152,8 +152,11 @@
                             'closeButton': true,
                             'timeOut': 5000
                         }
-                        toastr.success(response.message);
-                        window.location.href = response.route;
+                        toastr.error(response.message);
+                        setTimeout(() => {
+                            window.location.href = response.route;
+                        }, 1500);
+
                     }
 
                 },

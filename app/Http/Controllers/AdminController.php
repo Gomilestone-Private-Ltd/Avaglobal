@@ -11,6 +11,8 @@ use App\Models\Job;
 use App\Models\Marque;
 use DB;
 use App\Models\ContactUs;
+use App\Models\Media;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB as FacadesDB;
@@ -1208,5 +1210,141 @@ class AdminController extends Controller
         $caseStudy->posted_by = $request['postedby'];
         $caseStudy->save();
         return response()->json(['success' => true, 'message' => 'Case Updated Successfully']);
+    }
+
+    public function onlineCoverage()
+    {
+        $records = Media::select('id', 'title', 'location', 'media_url', 'created_at')->whereNotNull('media_url')->get();
+        return view('admin.media.online.onlineCoverage', ['mediaRecord' => $records]);
+    }
+
+    public function addOnlineCoverage()
+    {
+        return view('admin.media.online.create', ['type' => 'ONLINEMEDIA']);
+    }
+
+    public function saveOnlineCoverage(Request $request)
+    {
+        $validate = Validator::make($request->all(), [
+            'title' => 'required',
+            'location' => 'required',
+            'mediaUrl' => 'required|url',
+        ]);
+        if ($validate->fails()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validate);
+        }
+        $saveRecords = [
+            'title' => $request->title,
+            'location' => $request->location,
+            'media_url' => $request->mediaUrl,
+        ];
+        Media::create($saveRecords);
+        return redirect()->route('online-coverage')->with('message', 'Records added sucessfully');
+    }
+
+    public function editOnlineCoverage($id)
+    {
+        $onlineMediaRecords = Media::find($id);
+        return view('admin.media.online.edit', ['type' => 'ONLINEMEDIA', 'records' => $onlineMediaRecords]);
+    }
+
+    public function updateOnlineCoverage(Request $request, $id)
+    {
+        $validate = Validator::make($request->all(), [
+            'title' => 'required',
+            'location' => 'required',
+            'mediaUrl' => 'required|url',
+        ]);
+        if ($validate->fails()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validate);
+        }
+        $saveRecords = [
+            'title' => $request->title,
+            'location' => $request->location,
+            'media_url' => $request->mediaUrl,
+        ];
+        Media::updateOrCreate(['id' => $id], $saveRecords);
+        return redirect()->route('online-coverage')->with('message', 'Records added sucessfully');
+    }
+
+    public function deleteOnlineCoverageRecords($id)
+    {
+        $mediaRecord = Media::findOrfail($id);
+        $mediaRecord->delete();
+        return response()->json(['success' => true, 'route' => route('online-coverage'), 'message' => 'Records deleted successfully']);
+    }
+
+    //print Coverage
+    public function printCoverage()
+    {
+        $records = Media::select('id', 'title', 'location', 'pdf_file_id', 'created_at')->whereNotNull('pdf_file_id')->get();
+        return view('admin.media.print.printCoverage', ['mediaRecord' => $records]);
+    }
+
+    public function addPrintCoverage()
+    {
+        return view('admin.media.print.create');
+    }
+
+    public function savePrintCoverage(Request $request)
+    {
+        $validate = Validator::make($request->all(), [
+            'title' => 'required',
+            'location' => 'required',
+            'printMediaFile' => 'required',
+        ]);
+        if ($validate->fails()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validate);
+        }
+
+        $avaDocsFileId = 5;
+        $saveRecords = [
+            'title' => $request->title,
+            'location' => $request->location,
+            'pdf_file_id' => $avaDocsFileId,
+        ];
+        Media::create($saveRecords);
+        return redirect()->route('print-coverage')->with('message', 'Records added sucessfully');
+    }
+
+    public function editPrintCoverage($id)
+    {
+        $printMediaRecords = Media::find($id);
+        return view('admin.media.print.edit', ['records' => $printMediaRecords]);
+    }
+
+    public function updatePrintCoverage(Request $request, $id)
+    {
+        $validate = Validator::make($request->all(), [
+            'title' => 'required',
+            'location' => 'required',
+            'printMediaFile' => 'required',
+        ]);
+        if ($validate->fails()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validate);
+        }
+        $avaDocsFileId = 10;
+        $saveRecords = [
+            'title' => $request->title,
+            'location' => $request->location,
+            'pdf_file_id' => $avaDocsFileId,
+        ];
+        Media::updateOrCreate(['id' => $id], $saveRecords);
+        return redirect()->route('print-coverage')->with('message', 'Records added sucessfully');
+    }
+
+    public function deletePrintCoverageRecords($id)
+    {
+        $mediaRecord = Media::findOrfail($id);
+        $mediaRecord->delete();
+        return response()->json(['success' => true, 'route' => route('print-coverage'), 'message' => 'Records deleted successfully']);
     }
 }

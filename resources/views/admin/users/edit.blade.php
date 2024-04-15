@@ -41,7 +41,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{{ url('users/' . $user->id) }}" method="POST">
+                            <form action="{{ url('/admin/users/' . $user->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="mt-4 card p-3">

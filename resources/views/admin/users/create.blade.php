@@ -1,6 +1,3 @@
-@php
-    // dd($permissions);
-@endphp
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'create permissions')
@@ -44,7 +41,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{{ url('users') }}" method="POST">
+                            <form action="{{ url('/admin/users') }}" method="POST">
                                 @csrf
                                 <div class="mt-4 card p-3">
                                     <div class="row">
@@ -104,8 +101,3 @@
     </div>
 </section>
 @endsection
-{{-- <span class="text-danger">
-    @error('title')
-        {{ $message }}
-    @enderror
-</span> --}}
