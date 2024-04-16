@@ -80,4 +80,13 @@ class Controller extends BaseController
             return false;
         }
     }
+
+    //download file
+    public function downloadFile($filePath)
+    {
+        $filePath = public_path() . $filePath;
+        if (file_exists($filePath)) {
+            return response()->back()->download($filePath);
+        }
+    }
 }

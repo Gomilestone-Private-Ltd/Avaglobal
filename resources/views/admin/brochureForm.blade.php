@@ -133,30 +133,7 @@
 
 <script>
     var selectedFile;
-    $(document).ready(function() {
 
-        $('#closeIcon').on('click', function() {
-            $('#imagePreview').empty();
-            $('#caseimageinput').val('');
-            $('.close-icon').hide();
-        });
-        $('#caseimageinput').on('change', function(e) {
-            var file = this.files[0];
-            if (file) {
-                selectedFile = file;
-
-                var reader = new FileReader();
-                $('.close-icon').show();
-                reader.onload = function(e) {
-                    $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview">');
-                };
-                reader.readAsDataURL(selectedFile);
-            } else {
-                $('#imagePreview').html('');
-                $('.close-icon').hide();
-            }
-        });
-    });
     $('#brochureCreate').submit(function(e) {
         e.preventDefault();
 
@@ -253,6 +230,31 @@
 
         }
     });
+
+    // $(document).ready(function() {
+
+    //     $('#closeIcon').on('click', function() {
+    //         $('#imagePreview').empty();
+    //         $('#caseimageinput').val('');
+    //         $('.close-icon').hide();
+    //     });
+    //     $('#caseimageinput').on('change', function(e) {
+    //         var file = this.files[0];
+    //         if (file) {
+    //             selectedFile = file;
+
+    //             var reader = new FileReader();
+    //             $('.close-icon').show();
+    //             reader.onload = function(e) {
+    //                 $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview">');
+    //             };
+    //             reader.readAsDataURL(selectedFile);
+    //         } else {
+    //             $('#imagePreview').html('');
+    //             $('.close-icon').hide();
+    //         }
+    //     });
+    // });
 </script>
 
 @endsection

@@ -73,16 +73,23 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $data->title }}</td>
                                                     <td>{{ $data->location }}</td>
-                                                    @foreach ($data->avaDocsBrochure->whereIn('filetype', ['jpg', 'png']) as $relateData)
-                                                        <td><img src="{{ asset(isset($relateData->path) ? $relateData->path : 'assets/img/1711805669avaglobal.png') }}"
+                                                    @if (isset($data->avaDocsPopUpImage->path))
+                                                        <td><img src="{{ asset(isset($data->avaDocsPopUpImage->path) ? $data->avaDocsPopUpImage->path : 'assets/img/1711805669avaglobal.png') }}"
                                                                 style="width:70px;height:60px;border-radius:20%" /></td>
-                                                    @endforeach
-                                                    @foreach ($data->avaDocsBrochure->where('filetype', 'pdf') as $relateData)
+                                                    @endif
+
+                                                    @if (isset($data->avaDocsBrochureFiles->path) && strtoupper($data->avaDocsBrochureFiles->filetype) == 'PDF')
                                                         <td>
-                                                            <a href="{{ asset($relateData->path) }}" download>Download
-                                                                PDF</a>
+                                                            <a href="{{ asset($data->avaDocsBrochureFiles->path) }}"
+                                                                download>Download FILE</a>
                                                         </td>
-                                                    @endforeach
+                                                    @elseif (isset($data->avaDocsBrochureFiles->path) && strtoupper($data->avaDocsPopUpImage->filetype) != 'PDF')
+                                                        <td><img src="{{ asset(isset($data->avaDocsBrochureFiles->path) ? $data->avaDocsBrochureFiles->path : 'assets/img/1711805669avaglobal.png') }}"
+                                                                style="width:70px;height:60px;border-radius:20%" />
+                                                        </td>
+                                                    @else
+                                                        <td>No FIle</td>
+                                                    @endif
                                                     @can('edit-status-popup')
                                                         <td>
                                                             {!! $data->status == 1

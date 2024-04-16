@@ -403,12 +403,10 @@ class AdminController extends Controller
     }
     public function deleteApplicant($id)
     {
-        // dd($id);
         $data = Applicant::find($id);
         if (!$data) {
             return response()->json(['message' => 'There is no Applicant found in record', 404]);
         }
-
         $data->delete();
         AvaDocs::where('applicant_id', $id)->delete();
         return response()->json(['success' => true, 'message' => 'Applicant Data got deleted successfully']);
@@ -432,7 +430,6 @@ class AdminController extends Controller
     }
     public function textEditor(Request $request)
     {
-        // dd($request->all());
         $requestData = $request->only('description', 'routeId',);
         $rule = [
             'description' => 'required',
@@ -451,13 +448,9 @@ class AdminController extends Controller
         );
         return response()->json(['success' => true, 'message' => 'Description Added Successfully']);
     }
-
-
     public function getBrochure()
     {
-
-        $brochure = Brochure::orderBy('id', 'DESC')->with('avaDocsBrochure')->get();
-
+        $brochure = Brochure::with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])->get();
         return view('admin.brochureData')->with('brochure', $brochure);
     }
     public function brochureForms()
@@ -472,93 +465,51 @@ class AdminController extends Controller
             'title' => 'required',
             'location' => 'required',
             'brochureimage' => 'required|mimes:jpeg,png',
-            'brochurepdf' => 'required|mimes:pdf',
+            'brochurepdf' => 'required|mimes:pdf,jpeg,png,jpg',
         ];
         $message = [
             'title.required' => "please fill the brochure title!!",
             'location.required' => 'please fill the location',
             'brochureimage.required' => 'please select a brochure image',
             'brochureimage.mimes' => 'image extension must be of jpeg,png',
-            'brochurepdf.required' => 'please add brochure pdf here',
-            'brochurepdf.mimes' => 'Extension must be pdf'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);
         }
-
-        $filename = '';
-        $path = '';
-        if ($request->hasFile('brochureimage')) {
-            $file = $request->file('brochureimage');
-            $fileType = strtolower($file->extension());
-            $fileSize = $file->getSize();
-            $filename = time() . $file->getClientOriginalName();
-            $path = public_path() . '/assets/img/';
-            $file->move($path, $filename);
+        $avaDocsPopUpImage = $this->customFileUpload($request->file('brochureimage'));
+        if ($avaDocsPopUpImage) {
+            $fileData = [
+                'filename' => $avaDocsPopUpImage['filename'],
+                'filetype' => $avaDocsPopUpImage['fileType'],
+                'filesize' => $avaDocsPopUpImage['fileSize'],
+                'path' => $avaDocsPopUpImage['actualImagePath'],
+            ];
+            $fileSaveImageResponse = AvaDocs::Create($fileData);
         }
-        if ($filename) {
-            $actualImagePath = '/assets/img/' . $filename;
-        } else {
-            $actualImagePath = null;
+        $avaDocsBrochureFile = $this->customFileUpload($request->file('brochurepdf'));
+        if ($avaDocsBrochureFile) {
+            $fileData = [
+                'filename' => $avaDocsBrochureFile['filename'],
+                'filetype' => $avaDocsBrochureFile['fileType'],
+                'filesize' => $avaDocsBrochureFile['fileSize'],
+                'path' => $avaDocsBrochureFile['actualImagePath'],
+            ];
+            $fileSaveResponse = AvaDocs::Create($fileData);
         }
-
-        $pdffilename = '';
-        $pdfpath = '';
-        if ($request->hasFile('brochurepdf')) {
-            $pdfFile = $request->file('brochurepdf');
-            $pdfFileType = strtolower($pdfFile->extension());
-            $pdfFileSize = $pdfFile->getSize();
-            $pdffilename = time() . $pdfFile->getClientOriginalName();
-            $pdfpath = public_path() . '/assets/pdf/';
-            $pdfFile->move($pdfpath, $pdffilename);
-        }
-        if ($pdffilename) {
-            $actualPdfPath = '/assets/pdf/' . $pdffilename;
-        } else {
-            $actualPdfPath = null;
-        }
-
         $brochure = new Brochure;
         $brochure->title = $request['title'];
         $brochure->location = $request['location'];
+        $brochure->image_id = $fileSaveImageResponse->id;
+        $brochure->brochure_id = $fileSaveResponse->id;
         $brochure->save();
-
-        $brochure_id = $brochure->id;
-
-        $avaDocsImage = new AvaDocs; // Create AvaDocs instance for image
-        $avaDocsImage->brochure_id = $brochure_id;
-        $avaDocsImage->filename = $filename;
-        $avaDocsImage->filetype = $fileType;
-        $avaDocsImage->filesize = $fileSize;
-        $avaDocsImage->path = $actualImagePath;
-        $avaDocsImage->save();
-
-        $avaDocsPdf = new AvaDocs; // Create AvaDocs instance for PDF
-        $avaDocsPdf->brochure_id = $brochure_id;
-        $avaDocsPdf->filename = $pdffilename;
-        $avaDocsPdf->filetype = $pdfFileType;
-        $avaDocsPdf->filesize = $pdfFileSize;
-        $avaDocsPdf->path = $actualPdfPath;
-        $avaDocsPdf->save();
-
         return response()->json(['success' => true, 'message' => 'Popup Added Successfully', 'route' => route('event-popup')]);
     }
 
     public function getBrochureEdit($id)
     {
-
-        $brochure = Brochure::with('avaDocsBrochure')->where('id', $id)->first();
-        foreach ($brochure->avaDocsBrochure->where('filetype', 'pdf') as $data) {
-            // $pdf = asset($data->path);
-            $name = $data->filename;
-        }
-        foreach ($brochure->avaDocsBrochure->whereIn('filetype', ['jpg', 'png']) as $data) {
-            $image = asset($data->path);
-        }
-        $data = compact('name', 'image', 'brochure');
-
-        return view('admin.editBrochureForm')->with($data);
+        $brochure = Brochure::with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])->where('id', $id)->first();
+        return view('admin.editBrochureForm')->with('brochure', $brochure);
     }
     public function postEditBrochure(Request $request)
     {
@@ -567,80 +518,50 @@ class AdminController extends Controller
             'title' => 'required',
             'location' => 'required',
             'brochureimage' => 'nullable|mimes:jpg,png',
-            'brochurepdf' => 'nullable|mimes:pdf',
+            'brochurepdf' => 'nullable|mimes:pdf,jpg,png,jpeg',
         ];
         $message = [
             'title.required' => "please fill the brochure title!!",
             'location.required' => 'please fill the location',
             'brochureimage.mimes' => 'image extension must be of jpg,png',
-            'brochurepdf.mimes' => 'Extension must be pdf'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);
         }
 
-        $brochureData = [
-            'title' => $request['title'],
-            'location' => $request['location'],
-        ];
-
-        $brochure = Brochure::updateOrCreate(['id' => $request->brochureID], $brochureData);
-
-        $brochure_id = $brochure->id;
-
-        $avaDocsImage = null;
-        $avaDocsPdf = null;
-
-        if ($request->hasFile('brochureimage')) {
-            $file = $request->file('brochureimage');
-            $fileType = strtolower($file->extension());
-            $fileSize = $file->getSize();
-            $filename = time() . $file->getClientOriginalName();
-            $path = public_path() . '/assets/img/';
-            $file->move($path, $filename);
-
-            $avaDocsImage = AvaDocs::updateOrCreate(
-                ['brochure_id' => $brochure_id, 'filetype' => $fileType],
-                [
-                    'filename' => $filename,
-                    'filetype' => $fileType,
-                    'filesize' => $fileSize,
-                    'path' => '/assets/img/' . $filename,
-                ]
-            );
-        } else {
-            // If no new brochure image, fetch the existing one
-            $avaDocsImage = AvaDocs::where('brochure_id', $brochure_id)
-                ->where('filetype', 'like', 'image%')
-                ->first();
+        $brochureRecords = Brochure::where('id', $request->brochureID)->with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])->first();
+        if ($request->file('brochureimage')) {
+            if (!empty($brochureRecords->avaDocsPopUpImage->path)) {
+                $fileUnlink = $this->unlinkFile($brochureRecords->avaDocsPopUpImage->path);
+                if ($fileUnlink == true) {
+                    $avaDocsFileData = $this->customFileUpload($request->file('brochureimage'));
+                    $avaDOcs = AvaDocs::where('id', $brochureRecords->image_id)->first();
+                    $avaDOcs->filename = $avaDocsFileData['filename'];
+                    $avaDOcs->filetype = $avaDocsFileData['fileType'];
+                    $avaDOcs->filesize = $avaDocsFileData['fileSize'];
+                    $avaDOcs->path = $avaDocsFileData['actualImagePath'];
+                    $avaDOcs->save();
+                }
+            }
         }
-
-
-        if ($request->hasFile('brochurepdf')) {
-            $pdfFile = $request->file('brochurepdf');
-            $pdfFileType = strtolower($pdfFile->extension());
-            $pdfFileSize = $pdfFile->getSize();
-            $pdffilename = time() . $pdfFile->getClientOriginalName();
-            $pdfpath = public_path() . '/assets/pdf/';
-            $pdfFile->move($pdfpath, $pdffilename);
-
-            $avaDocsPdf = AvaDocs::updateOrCreate(
-                ['brochure_id' => $brochure_id, 'filetype' => $pdfFileType],
-                [
-                    'filename' => $pdffilename,
-                    'filetype' => $pdfFileType,
-                    'filesize' => $pdfFileSize,
-                    'path' => '/assets/pdf/' . $pdffilename,
-                ]
-            );
-        } else {
-            // If no new brochure PDF, retrieve the existing one
-            $avaDocsPdf = AvaDocs::where('brochure_id', $brochure_id)
-                ->where('filetype', 'pdf')
-                ->first();
+        if ($request->file('brochurepdf')) {
+            if (!empty($brochureRecords->avaDocsBrochureFiles->path)) {
+                $fileUnlink = $this->unlinkFile($brochureRecords->avaDocsBrochureFiles->path);
+                if ($fileUnlink == true) {
+                    $avaDocsImageData = $this->customFileUpload($request->file('brochurepdf'));
+                    $avaDOcsImage = AvaDocs::where('id', $brochureRecords->brochure_id)->first();
+                    $avaDOcsImage->filename = $avaDocsImageData['filename'];
+                    $avaDOcsImage->filetype = $avaDocsImageData['fileType'];
+                    $avaDOcsImage->filesize = $avaDocsImageData['fileSize'];
+                    $avaDOcsImage->path = $avaDocsImageData['actualImagePath'];
+                    $avaDOcsImage->save();
+                }
+            }
         }
-
+        $brochureRecords->title = $request['title'];
+        $brochureRecords->location = $request['location'];
+        $brochureRecords->save();
         return response()->json(['success' => true, 'message' => 'Brochure Updated Successfully', 'route' => route('event-popup')]);
     }
 
@@ -675,10 +596,13 @@ class AdminController extends Controller
 
     public function deletePopup($id)
     {
-        Brochure::where('id', $id)->delete();
-
-        AvaDocs::where('brochure_id', $id)->delete();
-        return response()->json(['success' => true, 'message' => "Popup Got deleted successfully"]);
+        $data = Brochure::where('id', $id)->with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])->first();
+        if (!empty($data->image_id) && !empty($data->brochure_id)) {
+            $this->deleteFile($data->avaDocsPopUpImage->filename);
+            $this->deleteFile($data->avaDocsBrochureFiles->filename);
+        }
+        $data->delete();
+        return response()->json(['success' => true, 'message' => "Popup deleted successfully"]);
     }
     public function downloadBrochure()
     {

@@ -1,9 +1,8 @@
         @php
-            $data = App\Models\Brochure::with('avaDocsBrochure')->where('status', '1')->first();
-            // dd($brochure);
+            $data = App\Models\Brochure::with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])
+                ->where('status', '1')
+                ->first();
         @endphp
-
-
         <div id="once-popup">
             <div class="inner">
                 {{-- @if (count($brochure) > 0) --}}
@@ -11,12 +10,11 @@
                 <div class="pop-content">
                     <div id="popup-close"><span class="close-icon">×</span></div>
                     {{-- <img class="popup-image" src="{{ asset('/images/event/popup.jpg') }}" /> --}}
-                    @foreach ($data->avaDocsBrochure->whereIn('filetype', ['jpg', 'png']) as $relateData)
+                    @if ($data->avaDocsPopUpImage->path)
                         <img class="popup-image"
-                            src="{{ asset(isset($relateData->path) ? $relateData->path : 'images/event/popup.jpg') }}" />
+                            src="{{ asset(isset($data->avaDocsPopUpImage->path) ? $data->avaDocsPopUpImage->path : 'images/event/popup.jpg') }}" />
                         {{-- src="{{ asset(isset($brochure->avaDocsBrochure->path) ? $brochure->avaDocsBrochure->path : 'assets/img/1711805669avaglobal.png') }}" /> --}}
-                    @endforeach
-
+                    @endif
                     <div class="popup-logo">
                         <img class="popup-logo-img" src="{{ asset('/images/blogo.png') }}" />
                     </div>
@@ -37,10 +35,13 @@
                                 <span>{{ isset($data->created_at) ? $data->created_at : '25 MAR 2020' }}</span>
                             </p>
                         </div>
-                        @foreach ($data->avaDocsBrochure->where('filetype', 'pdf') as $relateData)
-                            <a href="{{ asset($relateData->path) }}" class="db-pop" download>Download Event
+                        @if (isset($data->avaDocsBrochureFiles->path))
+                            <a href="{{ $data->avaDocsBrochureFiles->path }}" class="db-pop" download>Download Event
                                 Brochure</a>
-                        @endforeach
+                        @else
+                            <a href="#" class="db-pop" download>Download Event
+                                Brochure</a>
+                        @endif
                     </div>
                     {{-- @endforeach --}}
                     {{-- @endif --}}

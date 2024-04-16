@@ -11,7 +11,7 @@ class Brochure extends Model
     use HasFactory;
     use SoftDeletes;
     protected $table = 'brochures';
-    protected $fillable = ['file_id', 'title', 'location', 'status'];
+    protected $fillable = ['image_id', 'brochure_id', 'title', 'location', 'status'];
 
 
     public function getCreatedAtAttribute($value)
@@ -19,9 +19,13 @@ class Brochure extends Model
         return date("d F Y", strtotime($value));
     }
 
-    public function avaDocsBrochure()
+    public function avaDocsPopUpImage()
     {
-        return $this->hasMany(AvaDocs::class, 'brochure_id', 'id');
+        return $this->hasOne(AvaDocs::class, 'id', 'image_id');
+    }
+    public function avaDocsBrochureFiles()
+    {
+        return $this->hasOne(AvaDocs::class, 'id', 'brochure_id');
     }
     public function checkPopStatus()
     {
