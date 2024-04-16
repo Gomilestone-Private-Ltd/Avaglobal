@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Case Store')
+@section('title', 'Marque Edit')
 {{-- TinyMce --}}
 <style>
     label {

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Add Jobs')
+@section('title', 'Jobs')
 <style>
     label {
         color: black;
