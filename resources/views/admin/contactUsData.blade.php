@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Applicant Details')
+@section('title', 'ContactUs')
 
 <style>
     label {

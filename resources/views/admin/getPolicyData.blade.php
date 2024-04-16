@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Case Study Details')
+@section('title', 'Policy Records')
 <style>
     label {
         color: black;
