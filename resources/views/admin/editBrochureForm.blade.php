@@ -58,7 +58,7 @@
 
                     <div class="row">
                         <div class="form-group col-md-6 required">
-                            <label for="">Brochure Title:</label>
+                            <label for="">PopUp Title:</label>
                             <input type="text" name="title" id="" class="form-control"
                                 value="{{ isset($brochure->title) ? $brochure->title : '' }}"
                                 placeholder="Brochure Title">
@@ -85,7 +85,7 @@
                         <input type="hidden" name="brochureID" value="{{ isset($brochure->id) ? $brochure->id : '' }}">
 
                         <div class="form-group col-md-6 required">
-                            <label for="">Brochure Image:</label>
+                            <label for="">PopUp Image:</label>
                             <div class="file-box">
                                 <input type="file" name="brochureimage" id="caseimageinput" class="form-control"
                                     value="" placeholder="" />
