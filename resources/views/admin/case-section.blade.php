@@ -28,7 +28,7 @@
         color: red;
         font-size: 18px;
         display: none;
-
+        margin-top: 19px;
         cursor: pointer;
     }
 
@@ -95,8 +95,9 @@
 
                         <div class="form-group col-md-6 required">
 
-                            <label for="">Case Image: (max 4 files allowed with extension
-                                jpg,jpeg,png)</label>
+                            <label for="">Case Image: (max 5 files allowed with extension
+                                jpg,jpeg,png)<br>
+                                (select images at once)</label>
                             <div class="file-box">
                                 <input type="file" accept="image/png, image/jpg, image/jpeg" name="caseimage[]"
                                     id="caseimage" class="form-control" value="" placeholder="Case Image"
@@ -222,16 +223,11 @@
 
             if (files.length > 0) {
                 $('.close-icon').show();
-                $('#imagePreview').html(''); // Clear previous previews
-
-                // Loop through each file
+                $('#imagePreview').html('');
                 for (var i = 0; i < files.length; i++) {
                     var reader = new FileReader();
                     reader.onload = (function(file) {
                         return function(e) {
-                            // Create an image element for each file
-                            // $('#imagePreview').append('<div><img src="' + e.target.result +
-                            //     '" alt="Preview"></div>');
                             $('#imagePreview').append('<div><img src="' + e.target.result +
                                 '" alt="Preview" style="width:70px;height:60px;border-radius:20%"></div>'
                             );

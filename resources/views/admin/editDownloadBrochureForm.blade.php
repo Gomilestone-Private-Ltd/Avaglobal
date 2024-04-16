@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="form-group col-md-12 required">
-                            <label for="">Upload Pdf file:</label>
+                            <label for="">Upload file:(image/pdf)</label>
                             <div class="file-box">
                                 <input type="file" name="downloadbrochure" id="caseimageinput" class="form-control"
                                     value="" placeholder="" />
@@ -86,9 +86,16 @@
                                     {{ $message }}
                                 @enderror
                             </span>
-                            @if ($data->filetype == 'pdf')
-                                <div id="filename" style="height:20px;width:250px;color:#422c37 ">
+                            @if (isset($data->filetype) && strtoupper($data->filetype) == 'PDF')
+                                <div id="filename" style="height:20px;width:200px;color:#422c37 ">
                                     {{ $data->filename }}
+                                </div>
+                            @else
+                                <div id="imagePreview" class="mt-3">
+                                    @if (isset($data->path))
+                                        <img src="{{ asset(isset($data->path) ? $data->path : '') }}" height="50"
+                                            width="50" alt="">
+                                    @endif
                                 </div>
                             @endif
                         </div>
@@ -122,21 +129,34 @@
         });
         $('#caseimageinput').on('change', function(e) {
             var file = this.files[0];
+            var mimeType = this.files[0]['type'];
             if (file) {
                 selectedFile = file;
-
                 var reader = new FileReader();
                 $('.close-icon').show();
                 reader.onload = function(e) {
-                    $('#imagePreview').html('');
-                    $('#filename').html('');
-                    // $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview">');
+                    if (mimeType == 'application/pdf') {
+                        $('#imagePreview').html('');
+                    } else {
+                        $('#imagePreview').html('<img src="' + e.target.result +
+                            '" alt="Preview">');
+                    }
                 };
                 reader.readAsDataURL(selectedFile);
             } else {
                 $('#imagePreview').html('');
-
                 $('.close-icon').hide();
+            }
+        });
+        $('#brochurepdffile').on('change', function(e) {
+            var file = this.files[0];
+            if (file) {
+                selectedFile = file;
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#filename').html('');
+                };
+                reader.readAsDataURL(selectedFile);
             }
         });
     });

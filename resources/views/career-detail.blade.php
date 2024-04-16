@@ -12,8 +12,10 @@
                     <div class="jd-herder-main">
                         <div class="jd-herder-left">
 
-                            <h3 class="csd-category">{{ $careerData->department }}</h3>
-                            <h1 class="csd-title">{{ $careerData->job_role }}</h1>
+                            <h3 class="csd-category">
+                                {{ isset($careerData->department) ? $careerData->department : '' }}
+                            </h3>
+                            <h1 class="csd-title">{{ isset($careerData->job_role) ? $careerData->job_role : '' }}</h1>
 
                         </div>
                         <div class="jd-herder-right">
@@ -38,17 +40,18 @@
                                 <div class="job-right" id="apply">
                                     <h3 class="csdt-title">Job Details</h3>
                                     <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">
-                                        Category :<span> {{ $careerData->job_role }}</span>
+                                        Category :<span>
+                                            {{ isset($careerData->job_role) ? $careerData->job_role : '' }}</span>
                                     </p>
                                     <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Workday :
-                                        <span>{{ $careerData->time_period }}</span>
+                                        <span>{{ isset($careerData->time_period) ? $careerData->time_period : '' }}</span>
                                     </p>
                                     <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Location :
-                                        <span> {{ $careerData->location }}</span>
+                                        <span> {{ isset($careerData->location) ? $careerData->location : '' }}</span>
                                     </p>
                                     <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Experience
                                         :
-                                        <span> {{ $careerData->experience }}</span>
+                                        <span> {{ isset($careerData->experience) ? $careerData->experience : '' }}</span>
                                     </p>
 
 

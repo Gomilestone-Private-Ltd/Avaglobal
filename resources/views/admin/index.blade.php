@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="right-db">
                                         <h6>Contact Us Leads</h6>
-                                        <h2>{{ isset($contactUs) ? $contactUs : 0 }}</h2>
+                                        <h2>{{ isset($contactUsCounts) ? $contactUsCounts : 0 }}</h2>
                                     </div>
                                 </div>
 

@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="form-group col-md-12 required">
-                            <label for="">Upload Pdf file:</label>
+                            <label for="">Upload image/pdf:</label>
                             <div class="file-box">
                                 <input type="file" name="downloadbrochure" id="caseimageinput" class="form-control"
                                     value="" placeholder="" />

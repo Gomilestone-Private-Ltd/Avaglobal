@@ -78,7 +78,7 @@
                                                     @endforeach
                                                 </td>
                                                 <td>{{ $data->posted_by }}</td>
-                                                <td>View
+                                                <td>
                                                     <i class="fa fa-eye" type="button" data-id="{{ $data->id }}"
                                                         data-toggle="modal" data-target="#exampleModalLong"
                                                         style="font-size:24px;cursor: pointer;"

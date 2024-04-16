@@ -145,8 +145,6 @@
             var file = this.files[0];
             if (file) {
                 selectedFile = file;
-                // extension = selectedFile.split('.').pop().toLowerCase();
-
                 var reader = new FileReader();
 
                 reader.onload = function(e) {

@@ -46,7 +46,7 @@
                                 @csrf
                                 <div class="mt-4 card p-3">
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-3 required">
                                             <label for="">Media Title</label>
                                             <input type="text" name="title" id="" class="form-control"
                                                 placeholder="Enter Title" value="{{ $records->title }}">
@@ -55,7 +55,7 @@
                                                 @enderror
                                             </span>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-3 required">
                                             <label for="">Location</label>
                                             <input type="text" name="location" id="" class="form-control"
                                                 placeholder="Enter location" value="{{ $records->location }}">
@@ -79,7 +79,7 @@
                                                 @enderror
                                             </span>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 required">
                                             <label for="">Media URL</label>
                                             <input type="text" name="mediaUrl" id="" class="form-control"
                                                 placeholder="Enter Url" value="{{ $records->media_url }}">
@@ -103,4 +103,20 @@
         </div>
     </div>
 </section>
+<script>
+    function startToastr() {
+        toastr.options = {
+            'closeButton': true,
+            'progressBar': true,
+        }
+        if (session('success')) {
+            toastr.success("{{ session('success') }}");
+        } else {
+            toastr.error("{{ session('error') }}");
+        }
+    }
+    if (session('error') || session('success')) {
+        startToastr()
+    }
+</script>
 @endsection

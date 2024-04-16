@@ -58,7 +58,7 @@
 
                     <div class="row">
                         <div class="form-group col-md-12 required">
-                            <label for="">Add Marque Text:</label>
+                            <label for="">Add Marque Text:(max 125 characters)</label>
                             <textarea type="text" name="marquetext" id="" class="form-control" value=""
                                 placeholder="Add Marque Text Here"></textarea>
                             <span class="text-danger">

@@ -29,7 +29,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Brocure Records</h2>
+                    <h2>Brochure Records</h2>
                 </div>
                 @can('add-brochure')
                     <div class="col-md-6">
@@ -55,7 +55,7 @@
                                         <tr>
                                             <th>S.No</th>
                                             <th>Title</th>
-                                            <th>Brochure Pdf File</th>
+                                            <th>Brochure File</th>
                                             @can('edit-status-brochure')
                                                 <th>Status</th>
                                             @endcan
@@ -73,11 +73,23 @@
                                                         {{ $loop->iteration }}
                                                     </td>
                                                     <td>{{ $data->brochure_title }}</td>
-                                                    <td>
+                                                    {{-- <td>
                                                         {{ $data->filename }}
                                                         <a href="{{ asset($data->path) }}" download>Download
                                                             Brochure</a>
-                                                    </td>
+                                                    </td> --}}
+                                                    @if (isset($data->path) && strtoupper($data->filetype) == 'PDF')
+                                                        <td>
+                                                            <a href="{{ asset($data->path) }}" download>Download
+                                                                FILE</a>
+                                                        </td>
+                                                    @elseif (isset($data->path) && strtoupper($data->filetype) != 'PDF')
+                                                        <td><img src="{{ asset(isset($data->path) ? $data->path : 'assets/img/1711805669avaglobal.png') }}"
+                                                                style="width:70px;height:60px;border-radius:20%" />
+                                                        </td>
+                                                    @else
+                                                        <td>No FIle</td>
+                                                    @endif
                                                     @can('edit-status-brochure')
                                                         <td>
                                                             {!! $data->downloadbrochurePdfStatus == 1

@@ -187,7 +187,7 @@ class AdminController extends Controller
             'case' => 'required',
             'casetitle' => 'required',
             'postedby' => 'required',
-            'caseimage' => 'required|array|max:4',
+            'caseimage' => 'required|array|max:5',
             'caseimage.*' => 'mimes:jpeg,jpg,png',
             'tinymce' => 'required',
         ];
@@ -196,7 +196,7 @@ class AdminController extends Controller
             'casetitle.required' => 'please fill the case title',
             'postedby.required' => 'please fill the company name',
             'caseimage.required' => 'please select case image',
-            'caseimage.max' => 'Maximum four files are allowed',
+            'caseimage.max' => 'Maximum five images are allowed',
             'caseimage.*.mimes' => 'image extension must be of jpeg,jpg,png',
             'tinymce.required' => 'Please add Case description here'
         ];
@@ -626,12 +626,12 @@ class AdminController extends Controller
     {
         $requestData = $request->only('circularfile', 'circulartitle');
         $rule = [
-            'circularfile' => 'required|mimes:jpg,png,jpeg,pdf',
-            'circulartitle' => 'required|max:25',
+            'circularfile' => 'required|mimes:pdf',
+            'circulartitle' => 'required|max:125',
         ];
         $message = [
             'circularfile.required' => "please upload file",
-            'circularfile.mimes' => 'image extension must be of jpeg,png,jpg,pdf',
+            'circularfile.mimes' => 'file extension must be of pdf',
             'circulartitle.required' => 'please add file title here',
         ];
         $validate = Validator::make($requestData, $rule, $message);
@@ -684,11 +684,11 @@ class AdminController extends Controller
         // dd($olderPath);
         $requestData = $request->only('circularfile', 'circulartitle');
         $rule = [
-            'circularfile' => 'mimes:jpg,png,jpeg,pdf',
-            'circulartitle' => 'required',
+            'circularfile' => 'mimes:pdf',
+            'circulartitle' => 'required|max:125',
         ];
         $message = [
-            'circularfile.mimes' => 'image extension must be of jpeg,png,jpg,pdf',
+            'circularfile.mimes' => 'file extension must be of pdf',
             'circulartitle.required' => "Please write the title here"
         ];
         $validate = Validator::make($requestData, $rule, $message);
@@ -756,12 +756,12 @@ class AdminController extends Controller
 
         $requestData = $request->only('policyfile', 'policytitle');
         $rule = [
-            'policyfile' => 'required|mimes:jpg,png,jpeg,pdf',
+            'policyfile' => 'required|mimes:pdf',
             'policytitle' => 'required',
         ];
         $message = [
             'policyfile.required' => "please upload file",
-            'policyfile.mimes' => 'image extension must be of jpeg,png,jpg,pdf',
+            'policyfile.mimes' => 'file extension must be of pdf',
             'policytitle.required' => 'please add file title here',
         ];
         $validate = Validator::make($requestData, $rule, $message);
@@ -808,11 +808,11 @@ class AdminController extends Controller
         // dd($olderPath);
         $requestData = $request->only('policyfile', 'policytitle');
         $rule = [
-            'policyfile' => 'mimes:jpg,png,jpeg,pdf',
+            'policyfile' => 'mimes:pdf',
             'policytitle' => 'required',
         ];
         $message = [
-            'policyfile.mimes' => 'image extension must be of jpeg,png,jpg,pdf',
+            'policyfile.mimes' => 'file extension must be of pdf',
             'policytitle.required' => 'please add some file title here',
         ];
         $validate = Validator::make($requestData, $rule, $message);
@@ -919,7 +919,7 @@ class AdminController extends Controller
 
         $requestData = $request->only('marquetext');
         $rule = [
-            'marquetext' => 'required|string|max:50',
+            'marquetext' => 'required|string|max:125',
         ];
         $message = [
             'marquetext.required' => 'Please add some text here'
@@ -950,44 +950,33 @@ class AdminController extends Controller
         // dd($request->all());
         $requestData = $request->only('downloadbrochure', 'brochuretitle');
         $rule = [
-            'downloadbrochure' => 'required|mimes:pdf',
+            'downloadbrochure' => 'required|mimes:pdf,jpeg,jpg,png',
             'brochuretitle' => 'required',
         ];
         $message = [
             'downloadbrochure.required' => "please upload file",
-            'downloadbrochure.mimes' => 'file extension must be of pdf',
+            'downloadbrochure.mimes' => 'file extension must be of pdf,jpeg,jpg',
             'brochuretitle.required' => 'please add a title here',
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);
         }
-        $filename = '';
-        $path = '';
-        if ($request->hasFile('downloadbrochure')) {
-            $file = $request->file('downloadbrochure');
-            $fileType = strtolower($file->extension());
-            $fileSize = $file->getSize();
-            $filename = time() . $file->getClientOriginalName();
-            $path = public_path() . '/assets/downloadBrochure/';
-            $file->move($path, $filename);
-        }
-        if ($filename) {
-            $actualPath = '/assets/downloadBrochure/' . $filename;
-        } else {
-            $actualPath = null;
-        }
-        $avaDocsFile = new AvaDocs; // Create AvaDocs instance for PDF
-        $avaDocsFile->filename = $filename;
-        $avaDocsFile->filetype = $fileType;
-        $avaDocsFile->filesize = $fileSize;
-        $avaDocsFile->path = $actualPath;
-        $avaDocsFile->save();
-        $avaDocsFile->downloadBrochureId = $avaDocsFile->id;
-        $avaDocsFile->brochure_title = $request['brochuretitle'];
-        $avaDocsFile->save();
 
-        return response()->json(['success' => true, 'message' => 'Brochure Pdf uploaded successfully']);
+        $avaDocsBrochureFile = $this->customFileUpload($request->file('downloadbrochure'));
+        if ($avaDocsBrochureFile) {
+            $avaDocsFile = new AvaDocs; // Create AvaDocs instance for PDF
+            $avaDocsFile->filename = $avaDocsBrochureFile['filename'];
+            $avaDocsFile->filetype = $avaDocsBrochureFile['fileType'];
+            $avaDocsFile->filesize = $avaDocsBrochureFile['fileSize'];
+            $avaDocsFile->path = $avaDocsBrochureFile['actualImagePath'];
+            $avaDocsFile->save();
+            $avaDocsFile->downloadBrochureId = $avaDocsFile->id;
+            $avaDocsFile->brochure_title = $request['brochuretitle'];
+            $avaDocsFile->save();
+        }
+
+        return response()->json(['success' => true, 'message' => 'Brochure uploaded successfully']);
     }
 
     public function changeDownloadBrochureStatus($id)
@@ -1008,10 +997,13 @@ class AdminController extends Controller
             return response()->json(['success' => false, 'message' => 'Please inactive another active status first']);
         }
     }
-
     public function deleteDownloadBrochure($id)
     {
-        AvaDocs::where('downloadBrochureId', $id)->delete();
+        $data = AvaDocs::where('downloadBrochureId', $id)->first();
+        if (!empty($data->path)) {
+            $this->deleteFile($data->filename);
+        }
+        $data->delete();
         return response()->json(['success' => true, 'message' => 'Brochure got deleted successfully']);
     }
     public function editDownloadBrochurePage($id)
@@ -1022,20 +1014,16 @@ class AdminController extends Controller
     }
     public function editStoreDownloadBrochure(Request $request)
     {
-
         $brochId = $request->brochId;
         $brochureTitle = $request->brochuretitle;
-
-
-        $olderPath = AvaDocs::where('downloadBrochureId', $brochId)->first();
-        // dd($olderPath);
+        $eventBrochure = AvaDocs::where('downloadBrochureId', $brochId)->first();
         $requestData = $request->only('downloadbrochure', 'brochuretitle');
         $rule = [
-            'downloadbrochure' => 'mimes:pdf',
+            'downloadbrochure' => 'nullable|mimes:pdf,jpeg,jpg,png',
             'brochuretitle' => 'required',
         ];
         $message = [
-            'downloadbrochure.mimes' => 'file extension must be of pdf',
+            'downloadbrochure.mimes' => 'file extension must be of pdf,jpeg,jpg',
             'brochuretitle.required' => 'please add title here',
         ];
         $validate = Validator::make($requestData, $rule, $message);
@@ -1043,40 +1031,25 @@ class AdminController extends Controller
             return response()->json(['errors' => $validate->errors()], 400);
         }
         if ($request->hasFile('downloadbrochure')) {
-            $file = $request->file('downloadbrochure');
-            $fileType = strtolower($file->extension());
-            $fileSize = $file->getSize();
-            $filename = time() . $file->getClientOriginalName();
-            $path = public_path() . '/assets/downloadBrochure/';
-            $replaceLocalFilePath = public_path() . $olderPath->path;
-            if (file_exists($replaceLocalFilePath) && is_file($replaceLocalFilePath)) {
-                unlink($replaceLocalFilePath);
+            if (!empty($eventBrochure->path)) {
+                $fileUnlink = $this->unlinkFile($eventBrochure->path);
+                if ($fileUnlink == true) {
+                    $downloadBrochure =  $this->customFileUpload($request->file('downloadbrochure'));
+                    $avaDocs = AvaDocs::where('downloadBrochureId', $brochId)->first();
+                    $avaDocs->filename = $downloadBrochure['filename'];
+                    $avaDocs->filetype = $downloadBrochure['fileType'];
+                    $avaDocs->filesize = $downloadBrochure['fileSize'];
+                    $avaDocs->path = $downloadBrochure['actualImagePath'];
+                    $avaDocs->brochure_title = $brochureTitle;
+                    $avaDocs->save();
+                }
             }
-            $file->move($path, $filename);
-            $actualImagePath = '/assets/downloadBrochure/' . $filename;
-
-            $avaDocsFile = AvaDocs::updateOrCreate(
-                ['downloadBrochureId' => $brochId],
-                [
-                    'filename' => $filename,
-                    'filetype' => $fileType,
-                    'filesize' => $fileSize,
-                    // 'path' => '/assets/circulars/' . $filename,
-                    'path' => $actualImagePath,
-                ]
-            );
-            $update = array('brochure_title' => $brochureTitle);
-            $Idsave = AvaDocs::where('downloadBrochureId', $brochId)->update($update);
-        } else {
-            $update = array('brochure_title' => $brochureTitle);
-            $Idsave = AvaDocs::where('downloadBrochureId', $brochId)->update($update);
-
-            $avaDocsFile = AvaDocs::where('downloadBrochureId', $brochId)
-                ->Where('filetype', 'pdf')
-                ->first();
         }
+        $eventBrochure->brochure_title = $brochureTitle;
+        $eventBrochure->save();
         return response()->json(['success' => true, 'message' => 'Brochure file Updated successfully']);
     }
+
     public function updateCaseStudy(Request $request)
     {
         $newCount = 0;
@@ -1086,7 +1059,7 @@ class AdminController extends Controller
             'case' => 'required',
             'casetitle' => 'required',
             'postedby' => 'required',
-            'caseimage' => 'array|max:4',
+            'caseimage' => 'array|max:5',
             'caseimage.*' => 'mimes:jpeg,jpg,png',
             'tinymce' => 'required'
         ];
@@ -1095,7 +1068,7 @@ class AdminController extends Controller
             'casetitle.required' => 'please fill the case title',
             'postedby.required' => 'please fill the company name',
             'caseimage.required' => 'please select a case image',
-            'caseimage.max' => 'Maximum four files are allowed',
+            'caseimage.max' => 'Maximum five images are allowed',
             'caseimage.*.mimes' => 'image extension must be of jpeg,jpg,png',
             'description.required' => 'Please add Case description here'
         ];
@@ -1111,8 +1084,8 @@ class AdminController extends Controller
         }
         $intNewCount = (int)$newCount;
         $totalImageCount = $intNewCount + $intOldCount;
-        if ($totalImageCount > 4) {
-            return response()->json(['errors' => array('caseimage' => 'Maximum four images are allowed')], 400);
+        if ($totalImageCount > 5) {
+            return response()->json(['errors' => array('caseimage' => 'Maximum five images are allowed')], 400);
         }
         $caseStudy = CaseStudy::find($caseId);
         if ($request->hasFile('caseimage')) {
@@ -1178,7 +1151,7 @@ class AdminController extends Controller
                 'media_url' => $request->mediaUrl,
             ];
             Media::create($saveRecords);
-            return redirect()->route('online-coverage')->with('message', 'Records added sucessfully');
+            return redirect()->route('online-coverage')->with('success', 'Records added sucessfully');
         } else {
             return redirect()->route('online-coverage')->with('error', 'Something went wrong');
         }
@@ -1195,7 +1168,7 @@ class AdminController extends Controller
         $validate = Validator::make($request->all(), [
             'title' => 'required',
             'location' => 'required',
-            'onlineMediaImage' => 'required|mimes:png,jpg,jpeg',
+            'onlineMediaImage' => 'mimes:png,jpg,jpeg',
             'mediaUrl' => 'required|url',
         ]);
         if ($validate->fails()) {
@@ -1223,7 +1196,7 @@ class AdminController extends Controller
         $mediaPrintRecords->location = $request->location;
         $mediaPrintRecords->media_url = $request->mediaUrl;
         $mediaPrintRecords->save();
-        return redirect()->route('online-coverage')->with('message', 'Records added sucessfully');
+        return redirect()->route('online-coverage')->with('success', 'Records updated sucessfully');
     }
 
     public function deleteOnlineCoverageRecords($id)
@@ -1291,7 +1264,7 @@ class AdminController extends Controller
                 'pdf_file_id' => $fileSavePdfResponse->id,
             ];
             Media::create($saveRecords);
-            return redirect()->route('print-coverage')->with('message', 'Records added sucessfully');
+            return redirect()->route('print-coverage')->with('success', 'Records added sucessfully');
         } else {
             return redirect()->route('print-coverage')->with('error', 'Something went wrong');
         }
@@ -1347,7 +1320,7 @@ class AdminController extends Controller
         $mediaPrintRecords->title = $request->title;
         $mediaPrintRecords->location = $request->location;
         $mediaPrintRecords->save();
-        return redirect()->route('print-coverage')->with('message', 'Records added sucessfully');
+        return redirect()->route('print-coverage')->with('success', 'Records updated sucessfully');
     }
 
     public function deletePrintCoverageRecords($id)

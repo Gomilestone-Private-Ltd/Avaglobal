@@ -34,12 +34,43 @@
     #imagePreview img {
         width: 28%;
         height: 90px;
-        margin-top: 5px;
+        margin-top: 0px;
 
     }
 
     #imagePreview {
         display: flex;
+        flex-wrap: wrap;
+
+    }
+
+    .main-image-select-box {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .select-image-box {
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+    .crossIcon {
+        font-size: 20px;
+        position: absolute;
+        color: red;
+        top: -10px;
+        font-weight: 100;
+        right: -6px;
+        background-color: #fff;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 5px #ff1212;
+        cursor: pointer;
     }
 </style>
 
@@ -58,7 +89,7 @@
                         <div class="form-group col-md-6 required">
                             <label for="">Case Name:</label>
                             <input type="text" name="case" id="case" class="form-control"
-                                value="{{ $data->case }}">
+                                value="{{ $data->case }}" placeholder="Case Name">
                             <span class="text-danger">
                                 @error('case')
                                     {{ $message }}
@@ -70,7 +101,7 @@
                         <div class="form-group col-md-6 required">
                             <label for="">Case Title:</label>
                             <input type="text" name="casetitle" id="casetitle" class="form-control"
-                                value="{{ $data->case_title }}">
+                                value="{{ $data->case_title }}" placeholder="Case Title">
 
 
                             <span class="text-danger">
@@ -84,7 +115,7 @@
                         <div class="form-group col-md-6 required">
                             <label for="">Posted By:</label>
                             <input type="text" name="postedby" id="postedby" class="form-control"
-                                value="{{ $data->posted_by }}">
+                                value="{{ $data->posted_by }}" placeholder="Posted By">
                             <span class="text-danger">
                                 @error('dob')
                                     {{ $message }}
@@ -95,7 +126,7 @@
 
 
                         <div class="form-group col-md-6">
-                            <label for="">Case Image: (max 4 files allowed with extension jpg,jpeg,png)<br>
+                            <label for="">Case Image: (max 5 files allowed with extension jpg,jpeg,png)<br>
                                 (select images at once)
                             </label>
 
@@ -105,12 +136,12 @@
                                     multiple />
                                 <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
-                            <div class="d-flex">
+                            <div class="main-image-select-box">
                                 @foreach ($data->avaDocs as $images)
-                                    <div class="ml-3">
+                                    <div class="ml-3 select-image-box">
                                         <img src="{{ asset($images->path) }}"
                                             style="width:70px;height:60px;border-radius:20%" />
-                                        <i class="fa fa-close" style="font-size:24px;color:red"
+                                        <i class="fa fa-close crossIcon"
                                             onclick="deleteImage('{{ $images->filename }}')"></i>
                                     </div>
                                 @endforeach
@@ -129,7 +160,7 @@
                         </div>
                         <div class="form-group col-md-12 required">
                             <label for="">Description:</label>
-                            <textarea id="tinymce" name="tinymce" class="form-control" placeholder="Description"
+                            <textarea id="tinymce" name="tinymce" class="form-control" placeholder="Add Description Here"
                                 OnClientClick="tinyMCE.triggerSave(false,true);">{!! $data->description !!}</textarea>
                             <span class="text-danger">
                                 @error('description')
@@ -240,42 +271,21 @@
             $('#caseimage').val('');
             $('.close-icon').hide();
         });
-
-        // $('#caseimageinput').on('change', function(e) {
-        //     var file = this.files[0];
-        //     if (file) {
-        //         selectedFile = file;
-
-        //         var reader = new FileReader();
-        //         $('.close-icon').show();
-        //         reader.onload = function(e) {
-        //             $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview">');
-        //         };
-        //         reader.readAsDataURL(selectedFile);
-        //     } else {
-        //         $('#imagePreview').html('');
-        //         $('.close-icon').hide();
-        //     }
-        // });
         $('#caseimage').on('change', function(e) {
             var files = this.files; // Get the array of files
-
             if (files.length > 0) {
                 $('.close-icon').show();
                 // $('#imagePreview').html(''); // Clear previous previews
-
                 // Loop through each file
                 for (var i = 0; i < files.length; i++) {
                     var reader = new FileReader();
                     reader.onload = (function(file) {
                         return function(e) {
 
-                            $('#imagePreview').append('<div><img src="' + e.target.result +
+                            $('#imagePreview').append('<div class="ml-3"><img src="' + e
+                                .target.result +
                                 '" alt="Preview" style="width:70px;height:60px;border-radius:20%"></div>'
                             );
-
-
-
                         };
                     })(files[i]);
                     reader.readAsDataURL(files[i]); // Read the file as a data URL
