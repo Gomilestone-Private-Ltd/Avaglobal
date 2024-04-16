@@ -1155,6 +1155,7 @@ class AdminController extends Controller
     }
     public function updateCaseStudy(Request $request)
     {
+        $newCount = 0;
         $caseId = $request->id;
         $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'tinymce');
         $rule = [
@@ -1181,7 +1182,9 @@ class AdminController extends Controller
         $olderData = CaseStudy::with('avaDocs')->where('id', $caseId)->first();
         $oldCount = count($olderData->avaDocs);
         $intOldCount = (int)$oldCount;
-        $newCount = count($request['caseimage']);
+        if ($request['caseimage']) {
+            $newCount = count($request['caseimage']);
+        }
         $intNewCount = (int)$newCount;
         $totalImageCount = $intNewCount + $intOldCount;
         if ($totalImageCount > 4) {

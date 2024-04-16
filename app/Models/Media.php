@@ -24,4 +24,8 @@ class Media extends Model
     {
         return $this->hasOne(AvaDocs::class, 'id', 'print_image_id');
     }
+    public function getCreatedAtAttribute($value)
+    {
+        return date("d F Y", strtotime($value));
+    }
 }

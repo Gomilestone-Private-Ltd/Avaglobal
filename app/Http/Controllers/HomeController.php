@@ -6,6 +6,7 @@ use App\Models\AvaDocs;
 use App\Models\CaseStudy;
 use App\Models\Description;
 use App\Models\Job;
+use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Js;
@@ -101,6 +102,10 @@ class HomeController extends Controller
     }
     public function newsEvent()
     {
-        return view('news-and-event');
+        $newsData = Media::with('onlineDocsImage')
+            ->whereHas('onlineDocsImage')
+            ->get();
+        // dd($newsData);
+        return view('news-and-event')->with('newsData', $newsData);
     }
 }

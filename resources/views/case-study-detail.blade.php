@@ -11,17 +11,18 @@
             <div class="calculatordtlsection">
                 <div id="demo">
                     <div class="container">
-                      <div class="row">
-                        <div class="span12">
-                          <div id="owl-demo" class="owl-carousel">
-                            @if (count($caseStudyData->avaDocs) >0 )
-                                @foreach ($caseStudyData->avaDocs as $images)
-                                    <div class="item"><img src="{{ asset($images->path) }}" alt="The Last of us"></div>
-                                @endforeach
-                            @endif
-                          </div>
+                        <div class="row">
+                            <div class="span12">
+                                <div id="owl-demo" class="owl-carousel">
+                                    @if (isset($caseStudyData->avaDocs))
+                                        @foreach ($caseStudyData->avaDocs as $images)
+                                            <div class="item"><img src="{{ asset($images->path) }}" alt="The Last of us">
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
                 </div>
                 {{-- <img src="{{ asset('/images/contactinfobg.jpg') }}" class="csd-banner"> --}}
@@ -37,15 +38,21 @@
                     <div class="wrapper">
                         <div class="eva-container">
                             <div class="case-study-box">
-                                <h3 class="csd-category">{{ $caseStudyData->case }}</h3>
-                                <h1 class="csd-title">{{ $caseStudyData->case_title }}</h1>
+                                <h3 class="csd-category">{{ isset($caseStudyData->case) ? $caseStudyData->case : '' }}</h3>
+                                <h1 class="csd-title">
+                                    {{ isset($caseStudyData->case_title) ? $caseStudyData->case_title : '' }}
+                                </h1>
                                 <div class="csd-box">
-                                    <p class="cs-user">{{ $caseStudyData->posted_by }}</p>
-                                    <p class="cs-date">{{ $caseStudyData->created_at }}</p>
+                                    <p class="cs-user">
+                                        {{ isset($caseStudyData->posted_by) ? $caseStudyData->posted_by : '' }}
+                                    </p>
+                                    <p class="cs-date">
+                                        {{ isset($caseStudyData->created_at) ? $caseStudyData->created_at : '' }}
+                                    </p>
                                 </div>
                             </div>
                             <div class="csd-contnet detail key-point csdt-title csdt-content">
-                                {!! $caseStudyData->description !!}
+                                {!! isset($caseStudyData->description) ? $caseStudyData->description : '' !!}
                             </div>
                         </div>
                     </div>
@@ -80,24 +87,24 @@
 
                 <script>
                     $(document).ready(function() {
-                      $("#owl-demo").owlCarousel({
-                
-                    //   navigation : true,
-                      slideSpeed : 300,
-                      paginationSpeed : 400,
-                      singleItem : true
-                      
-                
-                      // "singleItem:true" is a shortcut for:
-                      // items : 1, 
-                      // itemsDesktop : false,
-                      // itemsDesktopSmall : false,
-                      // itemsTablet: false,
-                      // itemsMobile : false
-                
-                      });
+                        $("#owl-demo").owlCarousel({
+
+                            //   navigation : true,
+                            slideSpeed: 300,
+                            paginationSpeed: 400,
+                            singleItem: true
+
+
+                            // "singleItem:true" is a shortcut for:
+                            // items : 1, 
+                            // itemsDesktop : false,
+                            // itemsDesktopSmall : false,
+                            // itemsTablet: false,
+                            // itemsMobile : false
+
+                        });
                     });
-                    </script>
+                </script>
 
                 <!-- DESKTOP MENU JS SATRT -->
                 <script>

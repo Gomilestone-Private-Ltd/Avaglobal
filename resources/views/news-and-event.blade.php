@@ -32,29 +32,35 @@
                                 <h1 class="csd-title">Recent News</h1>
                             </div>
                             <div class="case-study-box">
-                                <div class="case-study-item">
-                                    <img class="cs-image" src="{{ asset('/images/event/media1.jpg') }}" />
-                                    <div class="cs-content">
-                                        <h2 class="cs-title">
-                                            The standard Lorem Ipsum passage, used since the 1500s
-                                        </h2>
-                                        <div class="cl-location-box">
-                                            <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
-                                                    class="location-img">
-                                                <span>Mumbai</span>
-                                            </p>
-                                            <p class="work"><img src="{{ asset('/images/event.png') }}" class="time-img">
-                                                <span>25 MAR 2020</span>
-                                            </p>
-                                        </div>
-                                        <a href="#">
-                                            <div class="knowmore uppercase">Read more
-                                                <div class="sprite knwmorearw"></div>
+                                @if (count($newsData) > 0)
+                                    @foreach ($newsData as $data)
+                                        <div class="case-study-item">
+                                            <img src="{{ isset($data->onlineDocsImage->path) ? asset($data->onlineDocsImage->path) : asset('/images/event/media1.jpg') }}"
+                                                class="cs-image" />
+                                            <div class="cs-content">
+                                                <h2 class="cs-title">
+                                                    {{ $data->title }}
+                                                </h2>
+                                                <div class="cl-location-box">
+                                                    <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
+                                                            class="location-img">
+                                                        <span>{{ $data->location }}</span>
+                                                    </p>
+                                                    <p class="work"><img src="{{ asset('/images/event.png') }}"
+                                                            class="time-img">
+                                                        <span>{{ $data->created_at }}</span>
+                                                    </p>
+                                                </div>
+                                                <a href="{{ $data->media_url }}">
+                                                    <div class="knowmore uppercase">Read more
+                                                        <div class="sprite knwmorearw"></div>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="case-study-item">
+                                        </div>
+                                    @endforeach
+                                @endif
+                                {{-- <div class="case-study-item">
                                     <img class="cs-image" src="{{ asset('/images/event/media2.jpg') }}" />
                                     <div class="cs-content">
                                         <h2 class="cs-title">
@@ -75,41 +81,54 @@
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="case-study-item">
 
                                 </div>
                             </div>
                         </div>
+                        @php
+                            $latestEventData = App\Models\Media::with('avaDocs', 'printDocsImage')
+                                ->whereHas('avaDocs')
+                                ->whereHas('printDocsImage')
+                                ->get();
+                        @endphp
                         <div class="eva-container event">
                             <div class="cr-title-box">
                                 <h1 class="csd-title">Latest Events</h1>
                             </div>
                             <div class="case-study-box">
                                 <div class="case-study-item">
-                                    <img class="cs-image" src="{{ asset('/images/event/event1.jpg') }}" />
-                                    <div class="cs-content">
-                                        <h2 class="cs-title">
-                                            The standard Lorem Ipsum passage, used since the 1500s
-                                        </h2>
-                                        <div class="cl-location-box">
-                                            <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
-                                                    class="location-img">
-                                                <span>Mumbai</span>
-                                            </p>
-                                            <p class="work"><img src="{{ asset('/images/event.png') }}" class="time-img">
-                                                <span>25 MAR 2020</span>
-                                            </p>
-                                        </div>
-                                        {{-- {{route('caseStudyDetail')}} --}}
-                                        <a href="">
-                                            <div class="knowmore uppercase">Download Event Brochure
-                                                <div class="sprite knwmorearw"></div>
+                                    @if (count($latestEventData) > 0)
+                                        @foreach ($latestEventData as $event)
+                                            <img src="{{ isset($event->printDocsImage->path) ? asset($event->printDocsImage->path) : asset('/images/event/event1.jpg') }}"
+                                                class="cs-image" />
+                                            <div class="cs-content">
+                                                <h2 class="cs-title">
+                                                    {{-- The standard Lorem Ipsum passage, used since the 1500s --}}
+                                                    {{ $event->title }}
+                                                </h2>
+                                                <div class="cl-location-box">
+                                                    <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
+                                                            class="location-img">
+                                                        <span>{{ $event->location }}</span>
+                                                    </p>
+                                                    <p class="work"><img src="{{ asset('/images/event.png') }}"
+                                                            class="time-img">
+                                                        <span>{{ $event->created_at }}</span>
+                                                    </p>
+                                                </div>
+                                                {{-- {{route('caseStudyDetail')}} --}}
+                                                <a href="{{ $event->avaDocs->path }}">
+                                                    <div class="knowmore uppercase" download>Download Event Brochure
+                                                        <div class="sprite knwmorearw"></div>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </a>
-                                    </div>
                                 </div>
-                                <div class="case-study-item">
+                                @endforeach
+                                @endif
+                                {{-- <div class="case-study-item">
                                     <img class="cs-image" src="{{ asset('/images/event/event2.jpg') }}" />
                                     <div class="cs-content">
                                         <h2 class="cs-title">
@@ -118,7 +137,7 @@
                                         <div class="cl-location-box">
                                             <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
                                                     class="location-img">
-                                                <span>Mumbai</span>
+                                                <span>Mumbais</span>
                                             </p>
                                             <p class="work"><img src="{{ asset('/images/event.png') }}" class="time-img">
                                                 <span>25 MAR 2020</span>
@@ -130,7 +149,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="case-study-item">
 
                                 </div>
