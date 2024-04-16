@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
@@ -54,6 +55,7 @@ Route::get('tariffs-calculators', [HomeController::class, 'tariffsCalculators'])
 Route::get('news-and-event', [HomeController::class, 'newsEvent'])->name('newsEvent');
 //applicant-submit
 Route::post('/post-applicants', [AdminController::class, 'postApplicants'])->name('post-applicants');
+Route::get('/download-file/{filepath}', [Controller::class, 'downloadFile'])->name('download-file');
 
 
 //Admin panel Routes

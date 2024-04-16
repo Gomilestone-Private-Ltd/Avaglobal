@@ -97,10 +97,10 @@
                                     {{ $message }}
                                 @enderror
                             </span>
-                            <div id="imagePreview">
-                                @if (isset($brochure))
-                                    <img src="{{ asset(isset($image) ? $image : '') }}" height="50" width="50"
-                                        alt="">
+                            <div id="imagePreview" class="mt-3">
+                                @if (isset($brochure->avaDocsPopUpImage->path))
+                                    <img src="{{ asset(isset($brochure->avaDocsPopUpImage->path) ? $brochure->avaDocsPopUpImage->path : '') }}"
+                                        height="50" width="50" alt="">
                                 @endif
                             </div>
                         </div>
@@ -118,9 +118,18 @@
                                     {{ $message }}
                                 @enderror
                             </span>
-                            <div id="filename" style="height:20px;width:200px;color:#422c37 ">
-                                {{ $name }}
-                            </div>
+                            @if (isset($brochure->avaDocsBrochureFiles->filetype) && strtoupper($brochure->avaDocsBrochureFiles->filetype) == 'PDF')
+                                <div id="filename" style="height:20px;width:200px;color:#422c37 ">
+                                    {{ $brochure->avaDocsBrochureFiles->filename }}
+                                </div>
+                            @else
+                                <div id="imagePreview" class="mt-3">
+                                    @if (isset($brochure->avaDocsBrochureFiles->path))
+                                        <img src="{{ asset(isset($brochure->avaDocsBrochureFiles->path) ? $brochure->avaDocsBrochureFiles->path : '') }}"
+                                            height="50" width="50" alt="">
+                                    @endif
+                                </div>
+                            @endif
                         </div>
 
                         <div class="form-group col-md-12 ">
