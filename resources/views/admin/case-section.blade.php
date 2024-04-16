@@ -41,6 +41,7 @@
         width: 28%;
         height: 90px;
         margin-top: 5px;
+        padding: 6px;
 
     }
 </style>
