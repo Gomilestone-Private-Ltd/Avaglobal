@@ -22,6 +22,23 @@
     .toast-error {
         background-color: red !important;
     }
+
+    .badge-primary {
+        background: #f0f0f0;
+        color: #fff;
+        font-family: 'Roboto Condensed';
+        font-weight: 400;
+        font-size: 13px;
+        color: #000000;
+        border-radius: 10px;
+        padding: 5px 15px;
+        margin-bottom: 5px;
+        /* margin-right: 5px; */
+        border: 1px solid #e0e0e0;
+        width: 22%;
+        margin: 1% 1%;
+
+}
 </style>
 <section class="content">
     <div class="body_scroll">

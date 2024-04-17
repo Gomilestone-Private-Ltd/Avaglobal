@@ -75,7 +75,8 @@
                                                     <td>
                                                         <div class="d-flex">
                                                             <button onclick="deleteModal('{{ $data->id }}')"
-                                                                class="btn btn-danger">Delete</button>
+                                                                class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
+                                                                alt="Back" class="delete-icon"></button>
 
                                                         </div>
                                                     </td>

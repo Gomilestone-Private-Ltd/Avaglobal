@@ -33,6 +33,7 @@
         var baseUrl = "{{ url('') }}";
         var token = "{{ csrf_token() }}";
     </script>
+    
 </head>
 <div class="header-container">
     <div class="left-header">

@@ -30,7 +30,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Applicants Records</h2>
+                    <h2>Contact Us Records</h2>
                 </div>
                 <div class="col-md-6">
 
@@ -80,7 +80,8 @@
                                                     <td>
                                                         <div class="d-flex">
                                                             <button onclick="deleteModal('{{ $data->id }}')"
-                                                                class="btn btn-danger">Delete</button>
+                                                                class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
+                                                                alt="Back" class="delete-icon"></button>
 
                                                         </div>
                                                     </td>

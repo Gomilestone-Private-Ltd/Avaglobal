@@ -2,6 +2,11 @@
     <link rel="stylesheet" href="{{ asset('/css/event.css') }}" />
 @endpush
 @extends('layout.main')
+<style>
+    .cl-location-box {
+    justify-content: flex-start !important;
+}
+</style>
 @section('content')
     <div id="page">
         <!---headerwrapper end-->
@@ -29,7 +34,7 @@
                     <div class="wrapper">
                         <div class="eva-container">
                             <div class="cr-title-box">
-                                <h1 class="csd-title">Recent News</h1>
+                                <h1 class="csd-title">Online Coverage</h1>
                             </div>
                             <div class="case-study-box">
                                 @if (count($newsData) > 0)
@@ -51,7 +56,7 @@
                                                         <span>{{ $data->created_at }}</span>
                                                     </p>
                                                 </div>
-                                                <a href="{{ $data->media_url }}">
+                                                <a href="{{ $data->media_url }}" target="_blank">
                                                     <div class="knowmore uppercase">Read more
                                                         <div class="sprite knwmorearw"></div>
                                                     </div>
@@ -60,28 +65,6 @@
                                         </div>
                                     @endforeach
                                 @endif
-                                {{-- <div class="case-study-item">
-                                    <img class="cs-image" src="{{ asset('/images/event/media2.jpg') }}" />
-                                    <div class="cs-content">
-                                        <h2 class="cs-title">
-                                            The standard Lorem Ipsum passage, used since the 1500s
-                                        </h2>
-                                        <div class="cl-location-box">
-                                            <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
-                                                    class="location-img">
-                                                <span>Mumbai</span>
-                                            </p>
-                                            <p class="work"><img src="{{ asset('/images/event.png') }}" class="time-img">
-                                                <span>25 MAR 2020</span>
-                                            </p>
-                                        </div>
-                                        <a href="#">
-                                            <div class="knowmore uppercase">Read more
-                                                <div class="sprite knwmorearw"></div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div> --}}
                                 <div class="case-study-item">
 
                                 </div>
@@ -95,7 +78,7 @@
                         @endphp
                         <div class="eva-container event">
                             <div class="cr-title-box">
-                                <h1 class="csd-title">Latest Events</h1>
+                                <h1 class="csd-title">Print Coverage</h1>
                             </div>
                             <div class="case-study-box">
                                 <div class="case-study-item">
@@ -119,7 +102,7 @@
                                                     </p>
                                                 </div>
                                                 {{-- {{route('caseStudyDetail')}} --}}
-                                                <a href="{{ $event->avaDocs->path }}">
+                                                <a href="{{ $event->avaDocs->path }}" target="_blank">
                                                     <div class="knowmore uppercase" download>Download Event Brochure
                                                         <div class="sprite knwmorearw"></div>
                                                     </div>

@@ -391,7 +391,7 @@
                                 <div class="newsheading font-bebas">
                                     In The Media
                                 </div>
-                                <a href="{{ route('newsEvent') }}">
+                                <a href="{{ route('media') }}">
                                     <div class="knowmore uppercase">
                                         all news & events
                                         <div class="sprite knwmorearw"></div>

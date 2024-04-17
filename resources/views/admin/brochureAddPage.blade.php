@@ -46,61 +46,68 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#24181e">
-        Add Brochure
-    </h3>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Add Brochure</h2>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form enctype="multipart/form-data" id="downloadBrochureCreate">
-                @csrf
-                <div class="container mt-4 card p-3 bg-white">
+            <div class="form-box">
+                <form enctype="multipart/form-data" id="downloadBrochureCreate">
+                    @csrf
+                    <div class="container card p-3 bg-white">
+                        <div class="row">
+                            <div class="form-group col-md-6 required">
+                                <label for="">Brochure Title:</label>
+                                <input type="text" name="brochuretitle" id="" class="form-control"
+                                    value="" placeholder="Add File Title">
 
-                    <div class="row">
 
-                        <div class="form-group col-md-12 required">
-                            <label for="">Brochure Title:</label>
-                            <input type="text" name="brochuretitle" id="" class="form-control"
-                                value="" placeholder="Add File Title">
-
-
-                            <span class="text-danger">
-                                @error('brochuretitle')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-                        <div class="form-group col-md-12 required">
-                            <label for="">Upload image/pdf:</label>
-                            <div class="file-box">
-                                <input type="file" name="downloadbrochure" id="caseimageinput" class="form-control"
-                                    value="" placeholder="" />
-                                <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                <span class="text-danger">
+                                    @error('brochuretitle')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
 
-                            <span class="text-danger">
-                                @error('downloadbrochure')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                            <div id="imagePreview">
+                            <div class="form-group col-md-6 required">
+                                <label for="">Upload image/pdf:</label>
+                                <div class="file-box">
+                                    <input type="file" name="downloadbrochure" id="caseimageinput" class="form-control"
+                                        value="" placeholder="" />
+                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                </div>
+
+                                <span class="text-danger">
+                                    @error('downloadbrochure')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                                <div id="imagePreview">
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group col-md-12 ">
+                                <button type="submit" id="submit"
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
 
                             </div>
-                        </div>
 
-
-                        <div class="form-group col-md-12 ">
-                            <button type="submit" id="submit"
-                                class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
 
                         </div>
-
 
                     </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 

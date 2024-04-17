@@ -11277,7 +11277,7 @@ section.content {
 }
 .m-b-30,
 .card {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 .m-l-35 {
     margin-left: 35px;
@@ -12747,6 +12747,7 @@ section.content {
     padding: 20px;
     border-bottom: 4px solid #4e7ac7;
     box-shadow: 0px 5px 15px 0px #4e7ac730;
+    margin-bottom: 15px;
 }
 @media only screen and (max-width: 767px) {
     .card .body {
@@ -13808,8 +13809,19 @@ section.content {
     color: #fff;
 }
 .badge-primary {
-    background: #0c7ce6;
-    color: #fff;
+        background: #f0f0f0;
+        color: #fff;
+        font-family: 'Roboto Condensed';
+        font-weight: 400;
+        font-size: 12px;
+        color: #000000;
+        border-radius: 10px;
+        padding: 5px 15px;
+        margin-bottom: 5px;
+        /* margin-right: 5px; */
+        border: 1px solid #e0e0e0;
+        width: 100%;
+        margin: 1% 1%;
 }
 .badge-info {
     background: #1cbfd0;
@@ -18161,6 +18173,7 @@ img.add-icon {
     /* box-shadow: 0px 5px 15px 0px #4e7ac730; */
     margin: 0px 15px;
     margin-bottom: 15px;
+    width: 100%;
 }
 
 
@@ -18210,7 +18223,7 @@ img.side-icon {
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
+    background: #6977cc; 
   }
 
   button.logout-btn.dropdown-toggle {
@@ -18223,7 +18236,7 @@ img.side-icon {
     cursor: pointer;
 }
 
-.dropdown-menu.show {
+.user-info .dropdown-menu.show {
     display: block;
     transform: translate3d(-76px, 72px, 13px)!important;
 }
@@ -18238,7 +18251,7 @@ img.logout-icon {
     margin-right: 10px;
 }
 
-.dropdown-menu > li > a:hover {
+.user-info .dropdown-menu > li > a:hover {
     background-color: transparent;
     color: #222;
     text-decoration: none;
@@ -18246,7 +18259,7 @@ img.logout-icon {
     border-radius: 6px;
 }
 
-.dropdown-menu > li > a {
+.user-info .dropdown-menu > li > a {
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
     -webkit-transition: all 0.5s;
@@ -18257,4 +18270,129 @@ img.logout-icon {
     line-height: 25px;
     border: 2px solid #ffffff;
     border-radius: 6px;
+}
+
+.back-btn-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+img.back-icon {
+    width: 32px;
+    margin-right: 15px;
+}
+
+button.delete-btn {
+    background-color: #ee255812;
+    border: 1px solid #ee255842;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    padding: 8px;
+    cursor: pointer;
+    display: block;
+}
+
+img.edit-icon {
+    width: 30px;
+    height: auto;
+}
+
+img.delete-icon {
+    width: 30px;
+    height: auto;
+}
+
+a.edit-btn {
+    background-color: #0062cc1c;
+    border: 1px solid #0062cc38;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    padding: 8px;
+    margin: 0px 5px;
+    cursor: pointer;
+    display: block;
+}
+
+a.view-btn {
+    background-color: #21252914;
+    border: 1px solid #21252933;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    padding: 8px;
+    margin: 0px 5px;
+    cursor: pointer;
+    display: block;
+}
+
+img.eye-icon {
+    width: 30px;
+    height: auto;
+}
+
+table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+    border-bottom-width: 0;
+    vertical-align: middle!important;
+}
+
+.modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    text-align: center;
+}
+
+div#deleteModal .modal-header {
+    display: block;
+}
+
+div#deleteModal .modal-content .modal-body {
+    padding-top: 2px;
+    padding-right: 24px;
+    padding-bottom: 16px;
+    padding-left: 24px;
+    line-height: 1.9;
+    text-align: center;
+}
+
+div#deleteModal .modal-content .modal-footer {
+    border-top: none;
+    padding-right: 24px;
+    padding-bottom: 16px;
+    padding-left: 24px;
+    justify-content: center;
+}
+
+a#modalToastr {
+    background-color: #4e7ac7!important;
+    border-color: #4e7ac7!important;
+    width: 100px;
+}
+
+.btn-danger:not(:disabled):not(.disabled).active:focus, .btn-danger:not(:disabled):not(.disabled):active:focus, .show>.btn-danger.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem #4e7ac7!important;
+}
+
+a.btn.btn-info {
+    background-color: #ffffff!important;
+    color: #4e7ac7!important;
+    border: 2px solid #4e7ac7!important;
+    width: 100px;
+}
+
+.btn-info:not(:disabled):not(.disabled).active:focus, .btn-info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem #4e7ac7!important;
+}
+
+div#deleteModal .modal-content .modal-header button {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    outline: 0;
+}
+
+.close {
+    opacity: 1!important;
 }

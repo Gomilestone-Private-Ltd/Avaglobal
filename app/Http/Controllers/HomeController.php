@@ -100,12 +100,12 @@ class HomeController extends Controller
     {
         return view('tariffs-calculators');
     }
-    public function newsEvent()
+    public function media()
     {
         $newsData = Media::with('onlineDocsImage')
             ->whereHas('onlineDocsImage')
             ->get();
         // dd($newsData);
-        return view('news-and-event')->with('newsData', $newsData);
+        return view('media')->with('newsData', $newsData);
     }
 }

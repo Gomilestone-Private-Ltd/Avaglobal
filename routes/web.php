@@ -52,7 +52,7 @@ Route::get('services/freight-shipping', [HomeController::class, 'freightShipping
 Route::get('services/cargo-insurance', [HomeController::class, 'cargoInsurance'])->name('cargoInsurancet');
 Route::get('container-sizes', [HomeController::class, 'containerSizes'])->name('containerSizes');
 Route::get('tariffs-calculators', [HomeController::class, 'tariffsCalculators'])->name('tariffsCalculators');
-Route::get('news-and-event', [HomeController::class, 'newsEvent'])->name('newsEvent');
+Route::get('media', [HomeController::class, 'media'])->name('media');
 //applicant-submit
 Route::post('/post-applicants', [AdminController::class, 'postApplicants'])->name('post-applicants');
 Route::get('/download-file/{filepath}', [Controller::class, 'downloadFile'])->name('download-file');

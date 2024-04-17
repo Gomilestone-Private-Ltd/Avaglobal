@@ -83,12 +83,14 @@
                                                             <div class="d-flex">
                                                                 @can('edit-footer-marque')
                                                                     <a href="{{ route('marque.edit', ['id' => $Mdata->id]) }}"
-                                                                        class="btn btn-primary">Edit</a>
+                                                                        class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
+                                                                        alt="Back" class="edit-icon"></a>
                                                                 @endcan
                                                                 @can('delete-footer-marque')
                                                                     <button id="deleteButton"
                                                                         onclick="deleteModal('{{ $Mdata->id }}')"
-                                                                        class="btn btn-danger">Delete</button>
+                                                                        class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
+                                                                        alt="Back" class="delete-icon"></button>
                                                                 @endcan
                                                             </div>
                                                         </td>

@@ -46,103 +46,114 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#1f161a">
-        Edit Popup
-    </h3>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="back-btn-box">
+                        <h2>Edit Popup</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form enctype="multipart/form-data" id="brochureCreate">
-                @csrf
-                <div class="container mt-4 card p-3 bg-white">
+            <div class="form-box">
+                <form enctype="multipart/form-data" id="brochureCreate">
+                    @csrf
+                    <div class="container card p-3 bg-white">
 
-                    <div class="row">
-                        <div class="form-group col-md-6 required">
-                            <label for="">PopUp Title:</label>
-                            <input type="text" name="title" id="" class="form-control"
-                                value="{{ isset($brochure->title) ? $brochure->title : '' }}"
-                                placeholder="Brochure Title">
-                            <span class="text-danger">
-                                @error('title')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                        <div class="row">
+                            <div class="form-group col-md-6 required">
+                                <label for="">PopUp Title:</label>
+                                <input type="text" name="title" id="" class="form-control"
+                                    value="{{ isset($brochure->title) ? $brochure->title : '' }}"
+                                    placeholder="Brochure Title">
+                                <span class="text-danger">
+                                    @error('title')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
 
-                        </div>
-
-                        <div class="form-group col-md-6 required">
-                            <label for="">Location:</label>
-                            <input type="text" name="location" id="" class="form-control"
-                                value="{{ isset($brochure->location) ? $brochure->location : '' }}"
-                                placeholder="Location">
-
-                            <span class="text-danger">
-                                @error('location')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                        <input type="hidden" name="brochureID" value="{{ isset($brochure->id) ? $brochure->id : '' }}">
-
-                        <div class="form-group col-md-6 required">
-                            <label for="">PopUp Image:</label>
-                            <div class="file-box">
-                                <input type="file" name="brochureimage" id="caseimageinput" class="form-control"
-                                    value="" placeholder="" />
-                                <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
 
-                            <span class="text-danger">
-                                @error('brochureimage')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                            <div id="imagePreview" class="mt-3">
-                                @if (isset($brochure->avaDocsPopUpImage->path))
-                                    <img src="{{ asset(isset($brochure->avaDocsPopUpImage->path) ? $brochure->avaDocsPopUpImage->path : '') }}"
-                                        height="50" width="50" alt="">
-                                @endif
-                            </div>
-                        </div>
+                            <div class="form-group col-md-6 required">
+                                <label for="">Location:</label>
+                                <input type="text" name="location" id="" class="form-control"
+                                    value="{{ isset($brochure->location) ? $brochure->location : '' }}"
+                                    placeholder="Location">
 
-                        <div class="form-group col-md-6 required">
-                            <label for="">Brochure Image/Pdf:</label>
-                            <div class="file-box">
-                                <input type="file" name="brochurepdf" id="brochurepdffile" class="form-control"
-                                    value="" placeholder="" />
-                                {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
+                                <span class="text-danger">
+                                    @error('location')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
+                            <input type="hidden" name="brochureID" value="{{ isset($brochure->id) ? $brochure->id : '' }}">
 
-                            <span class="text-danger">
-                                @error('brochurepdf')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                            @if (isset($brochure->avaDocsBrochureFiles->filetype) && strtoupper($brochure->avaDocsBrochureFiles->filetype) == 'PDF')
-                                <div id="filename" style="height:20px;width:200px;color:#422c37 ">
-                                    {{ $brochure->avaDocsBrochureFiles->filename }}
+                            <div class="form-group col-md-6 required">
+                                <label for="">PopUp Image:</label>
+                                <div class="file-box">
+                                    <input type="file" name="brochureimage" id="caseimageinput" class="form-control"
+                                        value="" placeholder="" />
+                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
                                 </div>
-                            @else
+
+                                <span class="text-danger">
+                                    @error('brochureimage')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                                 <div id="imagePreview" class="mt-3">
-                                    @if (isset($brochure->avaDocsBrochureFiles->path))
-                                        <img src="{{ asset(isset($brochure->avaDocsBrochureFiles->path) ? $brochure->avaDocsBrochureFiles->path : '') }}"
+                                    @if (isset($brochure->avaDocsPopUpImage->path))
+                                        <img src="{{ asset(isset($brochure->avaDocsPopUpImage->path) ? $brochure->avaDocsPopUpImage->path : '') }}"
                                             height="50" width="50" alt="">
                                     @endif
                                 </div>
-                            @endif
+                            </div>
+
+                            <div class="form-group col-md-6 required">
+                                <label for="">Brochure Image/Pdf:</label>
+                                <div class="file-box">
+                                    <input type="file" name="brochurepdf" id="brochurepdffile" class="form-control"
+                                        value="" placeholder="" />
+                                    {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
+                                </div>
+
+                                <span class="text-danger">
+                                    @error('brochurepdf')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                                @if (isset($brochure->avaDocsBrochureFiles->filetype) && strtoupper($brochure->avaDocsBrochureFiles->filetype) == 'PDF')
+                                    <div id="filename" style="height:20px;width:200px;color:#422c37 ">
+                                        {{ $brochure->avaDocsBrochureFiles->filename }}
+                                    </div>
+                                @else
+                                    <div id="imagePreview" class="mt-3">
+                                        @if (isset($brochure->avaDocsBrochureFiles->path))
+                                            <img src="{{ asset(isset($brochure->avaDocsBrochureFiles->path) ? $brochure->avaDocsBrochureFiles->path : '') }}"
+                                                height="50" width="50" alt="">
+                                        @endif
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="form-group col-md-12 ">
+                                <button type="submit" id="submit"
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+
+                            </div>
+
+
                         </div>
-
-                        <div class="form-group col-md-12 ">
-                            <button type="submit" id="submit"
-                                class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
-                        </div>
-
 
                     </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 

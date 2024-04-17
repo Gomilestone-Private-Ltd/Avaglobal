@@ -24,15 +24,16 @@
     }
 </style>
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        CREATE ROLES
-    </h3>
-
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
-                <div class="form-group col-md-12">
-                    <a href="{{ route('roles.index') }}" class="btn btn-primary float-left ">BACK</a>
+                <div class="col-md-6 col-sm-12">
+                    <div class="back-btn-box">
+                        <a href="{{ route('roles.index') }}" class="back-btn"><img src="{{ asset('assets/images/back.png') }}"
+                        alt="Back" class="back-icon"></a><h2>Create Roles</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
                 </div>
             </div>
         </div>
@@ -40,11 +41,10 @@
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
-
                         <div class="body">
                             <form action="{{ url('/admin/roles') }}" method="POST">
                                 @csrf
-                                <div class="container mt-4 card p-3 bg-white">
+                                <div class="container card p-3 bg-white">
                                     <div class="row">
                                         <div class="form-group col-md-12 required">
                                             <label for="">Role Name:</label>

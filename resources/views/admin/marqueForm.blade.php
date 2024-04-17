@@ -46,43 +46,52 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add MARQUE TEXT
-    </h3>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Add Marque Text</h2>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form enctype="multipart/form-data" id="marqueCreate">
-                @csrf
-                <div class="container mt-4 card p-3 bg-white">
+            <div class="form-box">
+                <form enctype="multipart/form-data" id="marqueCreate">
+                    @csrf
+                    <div class="container card p-3 bg-white">
 
-                    <div class="row">
-                        <div class="form-group col-md-12 required">
-                            <label for="">Add Marque Text:(max 125 characters)</label>
-                            <textarea type="text" name="marquetext" id="" class="form-control" value=""
-                                placeholder="Add Marque Text Here"></textarea>
-                            <span class="text-danger">
-                                @error('marquetext')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                        <div class="row">
+                            <div class="form-group col-md-12 required">
+                                <label for="">Add Marque Text:(max 125 characters)</label>
+                                <textarea type="text" name="marquetext" id="" class="form-control" value=""
+                                    placeholder="Add Marque Text Here"></textarea>
+                                <span class="text-danger">
+                                    @error('marquetext')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+
+                            </div>
+
+
+                            <div class="form-group col-md-12 ">
+                                <button type="submit" id="submit"
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+
+                            </div>
+
 
                         </div>
-
-
-                        <div class="form-group col-md-12 ">
-                            <button type="submit" id="submit"
-                                class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
-                        </div>
-
 
                     </div>
-
-                </div>
-            </form>
+                </form>
         </div>
     </div>
+</div>
 
 </section>
 <script>
@@ -111,7 +120,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "admin/marque-records";
+                        window.location.href = response.route;
                     }, 1000);
                 },
                 error: function(response) {

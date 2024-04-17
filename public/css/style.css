@@ -1461,7 +1461,7 @@ video.logo-video {
     width: 100%;
     text-align: left;
     font-size: 12px;
-    padding: 5px 0;
+    padding: 20px 0;
     transition: all ease 0.2s;
     opacity: 0.6;
     text-transform: uppercase;
@@ -1492,7 +1492,7 @@ video.logo-video {
 }
 .form-cont {
     margin: 10px 0 0;
-    width: 75%;
+    width: 70%;
 }
 .choose-container {
     position: relative;
@@ -1509,7 +1509,7 @@ video.logo-video {
     top: 100px;
 }
 .hiringdatablk {
-    margin: 40px 0 0;
+    margin: 2px 0 0;
 }
 .submitbtn {
     text-align: center;
@@ -2662,7 +2662,7 @@ ul.navsubllink li:before {
     color: #fff;
     position: absolute;
     right: 12px;
-    bottom: 7px;
+    /* bottom: 21px; */
 }
 video {
     width: 100%;
@@ -3243,3 +3243,11 @@ a.db-btn {
 div#demo {
     margin-top: 80px;
 }
+
+span.text-danger.v-error {
+    display: block;
+    font-size: 12px;
+    margin-top: 0px;
+    color: red;
+}
+

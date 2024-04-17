@@ -77,26 +77,25 @@
                                                         <td> No Image</td>
                                                     @endif
                                                     @if (isset($record->avaDocs->path))
-                                                        <td><a href="{{ asset($record->avaDocs->path) }}" download><i
-                                                                    class="fa fa-eye"
-                                                                    style="font-size:24px;color:rgb(14, 12, 12)""></i></a>
+                                                        <td><a href="{{ asset($record->avaDocs->path) }}" class="view-btn" download><img src="{{ asset('assets/images/eye.png') }}"
+                                                            alt="Back" class="eye-icon"></a>
                                                         </td>
                                                     @else
-                                                        <td><i class="fa fa-eye"
-                                                                style="font-size:24px;color:rgb(14, 12, 12)""></i></a>
-                                                        </td>
+                                                        <td>No File</td>
                                                     @endif
                                                     @if (auth()->user()->can('edit-print-coverage') || auth()->user()->can('delete-print-coverage'))
                                                         <td>
                                                             <div class="d-flex">
                                                                 @can('edit-print-coverage')
                                                                     <a href="{{ url('admin/edit-print-coverage/' . $record->id) }}"
-                                                                        class="btn btn-primary mr-3">Edit</a>
+                                                                        class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
+                                                                        alt="Back" class="edit-icon"></a>
                                                                 @endcan
                                                                 @can('delete-print-coverage')
                                                                     <button id="deleteButton"
                                                                         onclick="deleteModal('{{ $record->id }}')"
-                                                                        class="btn btn-danger">Delete</button>
+                                                                        class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
+                                                                        alt="Back" class="delete-icon"></button>
                                                                 @endcan
                                                             </div>
                                                         </td>

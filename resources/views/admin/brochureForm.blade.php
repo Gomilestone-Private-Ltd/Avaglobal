@@ -46,88 +46,96 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#33242b">
-        Add Event PopUp
-    </h3>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Add Event PopUp</h2>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form enctype="multipart/form-data" id="brochureCreate">
-                @csrf
-                <div class="container mt-4 card p-3 bg-white">
+            <div class="form-box">
+                <form enctype="multipart/form-data" id="brochureCreate">
+                    @csrf
+                    <div class="container card p-3 bg-white">
 
-                    <div class="row">
-                        <div class="form-group col-md-6 required">
-                            <label for="">Popup Title:</label>
-                            <input type="text" name="title" id="" class="form-control" value=""
-                                placeholder="Popup Title">
-                            <span class="text-danger">
-                                @error('title')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-
-                        </div>
-
-                        <div class="form-group col-md-6 required">
-                            <label for="">Location:</label>
-                            <input type="text" name="location" id="" class="form-control" value=""
-                                placeholder="Location">
-
-                            <span class="text-danger">
-                                @error('location')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-                        <div class="form-group col-md-6 required">
-                            <label for="">Popup Image:</label>
-                            <div class="file-box">
-                                <input type="file" name="brochureimage" id="caseimageinput" class="form-control"
-                                    value="" placeholder="" />
-                                <i class="fa fa-close close-icon" id="closeIcon"></i>
-                            </div>
-
-                            <span class="text-danger">
-                                @error('brochureimage')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                            <div id="imagePreview">
+                        <div class="row">
+                            <div class="form-group col-md-6 required">
+                                <label for="">Popup Title:</label>
+                                <input type="text" name="title" id="" class="form-control" value=""
+                                    placeholder="Popup Title">
+                                <span class="text-danger">
+                                    @error('title')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
 
                             </div>
-                        </div>
 
-                        <div class="form-group col-md-6 required">
-                            <label for="">Brochure Pdf/Image:</label>
-                            <div class="file-box">
-                                <input type="file" name="brochurepdf" class="form-control" value=""
-                                    placeholder="" />
-                                {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
+                            <div class="form-group col-md-6 required">
+                                <label for="">Location:</label>
+                                <input type="text" name="location" id="" class="form-control" value=""
+                                    placeholder="Location">
+
+                                <span class="text-danger">
+                                    @error('location')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
 
-                            <span class="text-danger">
-                                @error('brochurepdf')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                            <div class="form-group col-md-6 required">
+                                <label for="">Popup Image:</label>
+                                <div class="file-box">
+                                    <input type="file" name="brochureimage" id="caseimageinput" class="form-control"
+                                        value="" placeholder="" />
+                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                </div>
+
+                                <span class="text-danger">
+                                    @error('brochureimage')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                                <div id="imagePreview">
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6 required">
+                                <label for="">Brochure Pdf/Image:</label>
+                                <div class="file-box">
+                                    <input type="file" name="brochurepdf" class="form-control" value=""
+                                        placeholder="" />
+                                    {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
+                                </div>
+
+                                <span class="text-danger">
+                                    @error('brochurepdf')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+
+                            <div class="form-group col-md-12 ">
+                                <button type="submit" id="submit"
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+
+                            </div>
+
+
                         </div>
-
-                        <div class="form-group col-md-12 ">
-                            <button type="submit" id="submit"
-                                class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
-                        </div>
-
 
                     </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-
 </section>
 
 

@@ -46,64 +46,72 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#181516">
-        Add Policy
-    </h3>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Add Policy</h2>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form enctype="multipart/form-data" id="policyCreate">
-                @csrf
-                <div class="container mt-4 card p-3 bg-white">
+            <div class="form-box">
+                <form enctype="multipart/form-data" id="policyCreate">
+                    @csrf
+                    <div class="container card p-3 bg-white">
 
-                    <div class="row">
+                        <div class="row">
 
-                        <div class="form-group col-md-12 required">
-                            <label for="">File Title:</label>
-                            <input type="text" name="policytitle" id="" class="form-control" value=""
-                                placeholder="Add File Title">
+                            <div class="form-group col-md-6 required">
+                                <label for="">File Title:</label>
+                                <input type="text" name="policytitle" id="" class="form-control" value=""
+                                    placeholder="Add File Title">
 
 
-                            <span class="text-danger">
-                                @error('policytitle')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-                        <div class="form-group col-md-12 required">
-                            <label for="">Upload file:(Pdf only)</label>
-                            <div class="file-box">
-                                <input type="file" name="policyfile" id="caseimageinput" class="form-control"
-                                    value="" placeholder="" />
-                                <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                <span class="text-danger">
+                                    @error('policytitle')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
 
-                            <span class="text-danger">
-                                @error('policyfile')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                            <div id="imagePreview">
+                            <div class="form-group col-md-6 required">
+                                <label for="">Upload file:(Pdf only)</label>
+                                <div class="file-box">
+                                    <input type="file" name="policyfile" id="caseimageinput" class="form-control"
+                                        value="" placeholder="" />
+                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                </div>
+
+                                <span class="text-danger">
+                                    @error('policyfile')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                                <div id="imagePreview">
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group col-md-12 ">
+                                <button type="submit" id="submit"
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
 
                             </div>
-                        </div>
 
-
-                        <div class="form-group col-md-12 ">
-                            <button type="submit" id="submit"
-                                class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
 
                         </div>
-
 
                     </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-
 </section>
 
 

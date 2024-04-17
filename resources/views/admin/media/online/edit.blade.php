@@ -24,15 +24,16 @@
     }
 </style>
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#36242c">
-        EDIT MEDIA
-    </h3>
-
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
-                <div class="form-group col-md-12">
-                    <a href="{{ route('online-coverage') }}" class="btn btn-primary float-left ">BACK</a>
+                <div class="col-md-6 col-sm-12">
+                    <div class="back-btn-box">
+                        <a href="{{ route('online-coverage') }}" class="back-btn"><img src="{{ asset('assets/images/back.png') }}"
+                        alt="Back" class="back-icon"></a><h2>Edit Online Coverage</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
                 </div>
             </div>
         </div>
@@ -46,7 +47,7 @@
                                 @csrf
                                 <div class="mt-4 card p-3">
                                     <div class="row">
-                                        <div class="col-md-3 required">
+                                        <div class="col-md-4 required">
                                             <label for="">Media Title</label>
                                             <input type="text" name="title" id="" class="form-control"
                                                 placeholder="Enter Title" value="{{ $records->title }}">
@@ -55,7 +56,7 @@
                                                 @enderror
                                             </span>
                                         </div>
-                                        <div class="col-md-3 required">
+                                        <div class="col-md-4 required">
                                             <label for="">Location</label>
                                             <input type="text" name="location" id="" class="form-control"
                                                 placeholder="Enter location" value="{{ $records->location }}">
@@ -64,7 +65,7 @@
                                                 @enderror
                                             </span>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label for="">Upload Image</label>
                                             <input type="file" name="onlineMediaImage" id=""
                                                 class="form-control">
@@ -79,7 +80,7 @@
                                                 @enderror
                                             </span>
                                         </div>
-                                        <div class="col-md-6 required">
+                                        <div class="col-md-12 required">
                                             <label for="">Media URL</label>
                                             <input type="text" name="mediaUrl" id="" class="form-control"
                                                 placeholder="Enter Url" value="{{ $records->media_url }}">

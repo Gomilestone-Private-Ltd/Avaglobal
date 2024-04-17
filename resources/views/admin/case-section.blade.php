@@ -47,98 +47,106 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Add Case
-    </h3>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Add Case</h2>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form enctype="multipart/form-data" id="caseCreate">
-                @csrf
-                <div class="container mt-4 card p-3 bg-white">
+            <div class="form-box">
+                <form enctype="multipart/form-data" id="caseCreate">
+                    @csrf
+                    <div class="container mt-4 card p-3 bg-white">
 
-                    <div class="row">
-                        <div class="form-group col-md-6 required">
-                            <label for="">Case Name:</label>
-                            <input type="text" name="case" id="case" class="form-control" value=""
-                                placeholder="Case Name">
-                            <span class="text-danger case-error"></span>
-
-                        </div>
-
-                        <div class="form-group col-md-6 required">
-                            <label for="">Case Title:</label>
-                            <input type="text" name="casetitle" id="casetitle" class="form-control" value=""
-                                placeholder="Case Title">
-
-
-                            <span class="text-danger">
-                                @error('casetitle')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-
-                        <div class="form-group col-md-6 required">
-                            <label for="">Posted By:</label>
-                            <input type="text" name="postedby" id="postedby" class="form-control" value=""
-                                placeholder="Posted By">
-                            <span class="text-danger">
-                                @error('dob')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-
-
-                        <div class="form-group col-md-6 required">
-
-                            <label for="">Case Image: (max 5 files allowed with extension
-                                jpg,jpeg,png)<br>
-                                (select images at once)</label>
-                            <div class="file-box">
-                                <input type="file" accept="image/png, image/jpg, image/jpeg" name="caseimage[]"
-                                    id="caseimage" class="form-control" value="" placeholder="Case Image"
-                                    multiple />
-                                <i class="fa fa-close close-icon" id="closeIcon"></i>
-                            </div>
-                            <span class="text-danger" id="imageError">
-
-                            </span>
-
-                            <div id="imagePreview" style="display:flex;">
+                        <div class="row">
+                            <div class="form-group col-md-6 required">
+                                <label for="">Case Name:</label>
+                                <input type="text" name="case" id="case" class="form-control" value=""
+                                    placeholder="Case Name">
+                                <span class="text-danger case-error"></span>
 
                             </div>
+
+                            <div class="form-group col-md-6 required">
+                                <label for="">Case Title:</label>
+                                <input type="text" name="casetitle" id="casetitle" class="form-control" value=""
+                                    placeholder="Case Title">
+
+
+                                <span class="text-danger">
+                                    @error('casetitle')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+
+
+                            <div class="form-group col-md-6 required">
+                                <label for="">Posted By:</label>
+                                <input type="text" name="postedby" id="postedby" class="form-control" value=""
+                                    placeholder="Posted By">
+                                <span class="text-danger">
+                                    @error('dob')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+
+
+
+                            <div class="form-group col-md-6 required">
+
+                                <label for="">Case Image: (max 5 files allowed with extension
+                                    jpg,jpeg,png)<br>
+                                    (select images at once)</label>
+                                <div class="file-box">
+                                    <input type="file" accept="image/png, image/jpg, image/jpeg" name="caseimage[]"
+                                        id="caseimage" class="form-control" value="" placeholder="Case Image"
+                                        multiple />
+                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                </div>
+                                <span class="text-danger" id="imageError">
+
+                                </span>
+
+                                <div id="imagePreview" style="display:flex;">
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12 required">
+                                <label for="">Description:</label>
+                                <textarea id="tinymce" name="tinymce" class="form-control" placeholder="Add Description Here"
+                                    OnClientClick="tinyMCE.triggerSave(false,true);"></textarea>
+                                <span class="text-danger">
+                                    @error('description')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+
+
+                            <div class="form-group col-md-12 ">
+                                <button type="submit" id="submit"
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+
+                            </div>
+
+
                         </div>
-
-                        <div class="form-group col-md-12 required">
-                            <label for="">Description:</label>
-                            <textarea id="tinymce" name="tinymce" class="form-control" placeholder="Add Description Here"
-                                OnClientClick="tinyMCE.triggerSave(false,true);"></textarea>
-                            <span class="text-danger">
-                                @error('description')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-
-                        <div class="form-group col-md-12 ">
-                            <button type="submit" id="submit"
-                                class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
-                        </div>
-
 
                     </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-
 </section>
 
 

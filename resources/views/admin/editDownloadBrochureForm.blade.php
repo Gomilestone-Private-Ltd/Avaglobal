@@ -46,72 +46,78 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#312129">
-        Update Brochure
-    </h3>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="back-btn-box">
+                        <h2>Update Brochure</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form enctype="multipart/form-data" id="downloadBrochureEdit">
-                @csrf
-                <div class="container mt-4 card p-3 bg-white">
+            <div class="form-box">
+                <form enctype="multipart/form-data" id="downloadBrochureEdit">
+                    @csrf
+                    <div class="container card p-3 bg-white">
 
-                    <div class="row">
+                        <div class="row">
 
-                        <input type="hidden" name="brochId" value={{ $data->downloadBrochureId }}>
+                            <input type="hidden" name="brochId" value={{ $data->downloadBrochureId }}>
 
-                        <div class="form-group col-md-12 required">
-                            <label for="">Brochure Title:</label>
-                            <input type="text" name="brochuretitle" id="" class="form-control"
-                                value="{{ $data->brochure_title }}" placeholder="Add File Title">
+                            <div class="form-group col-md-6 required">
+                                <label for="">Brochure Title:</label>
+                                <input type="text" name="brochuretitle" id="" class="form-control"
+                                    value="{{ $data->brochure_title }}" placeholder="Add File Title">
 
 
-                            <span class="text-danger">
-                                @error('brochuretitle')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-                        <div class="form-group col-md-12 required">
-                            <label for="">Upload file:(image/pdf)</label>
-                            <div class="file-box">
-                                <input type="file" name="downloadbrochure" id="caseimageinput" class="form-control"
-                                    value="" placeholder="" />
-                                <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                <span class="text-danger">
+                                    @error('brochuretitle')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
 
-                            <span class="text-danger">
-                                @error('downloadbrochure')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                            @if (isset($data->filetype) && strtoupper($data->filetype) == 'PDF')
-                                <div id="filename" style="height:20px;width:200px;color:#422c37 ">
-                                    {{ $data->filename }}
+                            <div class="form-group col-md-6 required">
+                                <label for="">Upload file:(image/pdf)</label>
+                                <div class="file-box">
+                                    <input type="file" name="downloadbrochure" id="caseimageinput" class="form-control"
+                                        value="" placeholder="" />
+                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
                                 </div>
-                            @else
-                                <div id="imagePreview" class="mt-3">
-                                    @if (isset($data->path))
-                                        <img src="{{ asset(isset($data->path) ? $data->path : '') }}" height="50"
-                                            width="50" alt="">
-                                    @endif
-                                </div>
-                            @endif
+
+                                <span class="text-danger">
+                                    @error('downloadbrochure')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                                @if (isset($data->filetype) && strtoupper($data->filetype) == 'PDF')
+                                    <div id="filename" style="height:20px;width:200px;color:#422c37 ">
+                                        {{ $data->filename }}
+                                    </div>
+                                @else
+                                    <div id="imagePreview" class="mt-3">
+                                        @if (isset($data->path))
+                                            <img src="{{ asset(isset($data->path) ? $data->path : '') }}" height="50"
+                                                width="50" alt="">
+                                        @endif
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="form-group col-md-12 ">
+                                <button type="submit" id="submit"
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+
+                            </div>
                         </div>
-
-
-                        <div class="form-group col-md-12 ">
-                            <button type="submit" id="submit"
-                                class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
-                        </div>
-
-
                     </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 

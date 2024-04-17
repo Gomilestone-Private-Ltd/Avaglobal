@@ -887,7 +887,7 @@ class AdminController extends Controller
         $marqueText = new Marque;
         $marqueText->marque_text = $request['marquetext'];
         $marqueText->save();
-        return response()->json(['success' => true, 'message' => 'Marque Added Successfully']);
+        return response()->json(['success' => true, 'message' => 'Marque Added Successfully','route'=>route('marque-records')]);
     }
     public function marqueStatus($id)
     {

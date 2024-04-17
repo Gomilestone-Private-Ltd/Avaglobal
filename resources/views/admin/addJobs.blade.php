@@ -20,11 +20,16 @@
     }
 </style>
 <section class="content">
-    <div class="row">
-        <div class="col-lg-7 col-md-6 col-sm-12">
-            <h2>Add Job Openings</h2>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Add Job Openings</h2>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
         </div>
-    </div>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
@@ -143,7 +148,6 @@
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>

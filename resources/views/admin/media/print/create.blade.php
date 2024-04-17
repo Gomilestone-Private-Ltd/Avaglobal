@@ -24,15 +24,16 @@
     }
 </style>
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#36242c">
-        ADD PRINT MEDIA
-    </h3>
-
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
-                <div class="form-group col-md-12">
-                    <a href="{{ route('print-coverage') }}" class="btn btn-primary float-left ">BACK</a>
+                <div class="col-md-6 col-sm-12">
+                    <div class="back-btn-box">
+                        <a href="{{ route('print-coverage') }}" class="back-btn"><img src="{{ asset('assets/images/back.png') }}"
+                        alt="Back" class="back-icon"></a><h2>Add Print Media</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
                 </div>
             </div>
         </div>
@@ -44,9 +45,9 @@
                             <form action="{{ route('save-print-coverage') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
-                                <div class="mt-4 card p-3">
+                                <div class="card p-3">
                                     <div class="row">
-                                        <div class="col-md-3 required">
+                                        <div class="form-group col-md-4 required">
                                             <label for="">Title</label>
                                             <input type="text" name="title" id="" class="form-control"
                                                 placeholder="Enter Title" value="{{ old('title') }}">
@@ -55,7 +56,7 @@
                                                 @enderror
                                             </span>
                                         </div>
-                                        <div class="col-md-3 required">
+                                        <div class="form-group col-md-4 required">
                                             <label for="">Location</label>
                                             <input type="text" name="location" id="" class="form-control"
                                                 placeholder="Enter location" value="{{ old('location') }}">
@@ -64,7 +65,7 @@
                                                 @enderror
                                             </span>
                                         </div>
-                                        <div class="col-md-6 required">
+                                        <div class="form-group col-md-4 required">
                                             <label for="">Upload Image</label>
                                             <input type="file" name="printMediaImage" id=""
                                                 class="form-control">
@@ -73,7 +74,7 @@
                                                 @enderror
                                             </span>
                                         </div>
-                                        <div class="col-md-6 required">
+                                        <div class="form-group col-md-12 required">
                                             <label for="">Upload PDF</label>
                                             <input type="file" name="printMediaFile" id=""
                                                 class="form-control">

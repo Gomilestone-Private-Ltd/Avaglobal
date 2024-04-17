@@ -105,28 +105,28 @@
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Your Name</div>
                                                 <input type="text" name="name" class="inputclick">
-                                                <span class="text-danger">
+                                                <span class="text-danger v-error">
 
                                                 </span>
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Your Email address</div>
                                                 <input type="email" name="email" class="inputclick">
-                                                <span class="text-danger">
+                                                <span class="text-danger v-error">
 
                                                 </span>
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">PHONE number</div>
                                                 <input type="text" name="phone" class="inputclick">
-                                                <span class="text-danger">
+                                                <span class="text-danger v-error">
 
                                                 </span>
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Position</div>
                                                 <input type="text" name="position" class="inputclick">
-                                                <span class="text-danger">
+                                                <span class="text-danger v-error">
 
                                                 </span>
                                             </div>
@@ -143,7 +143,7 @@
                                                                 <strong>Upload</strong>
                                                             </label>
                                                         </div>
-                                                        <span class="text-danger">
+                                                        <span class="text-danger v-error">
 
                                                         </span>
                                                     </div>
@@ -190,13 +190,9 @@
                     {{-- script to get form data Ajax --}}
                     <script>
                         $(document).ready(function() {
-
                             $('#contactform').submit(function(e) {
                                 e.preventDefault();
-
-                                // Serialize the form data
                                 const formData = new FormData($(this)[0]);
-
                                 // Send an AJAX request
                                 $.ajax({
                                     type: 'POST',
@@ -209,10 +205,6 @@
                                         $("#contactform")[0].reset();
                                         // $('.fileSeelct').val('');
                                         $('#file_7_id span').html('');
-
-
-
-
                                         console.log(response);
                                         toastr.options = {
                                             'closeButton': true,

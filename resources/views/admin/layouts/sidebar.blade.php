@@ -19,14 +19,6 @@
                     </ul>
                 </li>
             @endcan
-            {{-- <li>
-                <a href="{{ route('opened-job') }}">Job Openings</a>
-
-            </li>
-            <li class="{{ Request::is('applicants') ? 'active' : '' }}">
-                <a href="{{ route('applicants') }}"><span>Job Applicants </span></a>
-
-            </li> --}}
             @can('view-case-study')
                 <li>
                     <a href="{{ route('case-section') }}"><img src="{{ asset('assets/images/case-study1.png') }}"
@@ -49,13 +41,13 @@
             @endcan
             @can('view-circular')
                 <li>
-                    <a href="{{ route('circulars') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
+                    <a href="{{ route('circulars') }}"><img src="{{ asset('assets/images/circulars.png') }}"
                             alt="Dashboard" class="side-icon">Circulars</a>
                 </li>
             @endcan
             @can('view-policy')
                 <li>
-                    <a href="{{ route('data-policy') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
+                    <a href="{{ route('data-policy') }}"><img src="{{ asset('assets/images/policy.png') }}"
                             alt="Dashboard" class="side-icon">Policy</a>
                 </li>
             @endcan
@@ -67,14 +59,14 @@
             @endcan
             @can('view-brochure')
                 <li>
-                    <a href="{{ route('download.brochureData') }}"><img src="{{ asset('assets/images/dashboard.png') }}"
+                    <a href="{{ route('download.brochureData') }}"><img src="{{ asset('assets/images/brochure.png') }}"
                             alt="Dashboard" class="side-icon">Brochure</a>
                 </li>
             @endcan
 
             {{-- Media --}}
             @can('view-media-corner')
-                <li><a href="javascript:void(0);" class="menu-toggle"><img src="{{ asset('assets/images/suitcase.png') }}"
+                <li><a href="javascript:void(0);" class="menu-toggle"><img src="{{ asset('assets/images/newspaper.png') }}"
                             alt="Dashboard" class="side-icon">Media Corner</a>
                     <ul class="ml-menu">
                         @can('view-online-coverage')
