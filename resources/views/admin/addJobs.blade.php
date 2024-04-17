@@ -38,6 +38,7 @@
                     @csrf
                     <div class="container mt-4 card p-3 bg-white">
                         <div class="row">
+
                             <div class="form-group col-md-3 required">
                                 <label for="">Department:</label>
                                 <input type="text" name="department" class="form-control"
