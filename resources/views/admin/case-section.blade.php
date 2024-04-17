@@ -47,7 +47,7 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
+    <h3 class="text-center " style="font-weight: bold;color:#000000">
         Add Case
     </h3>
     <div class="container-fluid">
@@ -58,6 +58,7 @@
                 <div class="container mt-4 card p-3 bg-white">
 
                     <div class="row">
+
                         <div class="form-group col-md-6 required">
                             <label for="">Case Name:</label>
                             <input type="text" name="case" id="case" class="form-control" value=""
@@ -140,6 +141,8 @@
     </div>
 
 </section>
+
+
 
 
 <script>

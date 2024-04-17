@@ -21,11 +21,12 @@
 </style>
 <section class="content">
     <div class="row">
+
+    </div>
+    <div class="container-fluid">
         <div class="col-lg-7 col-md-6 col-sm-12">
             <h2>Add Job Openings</h2>
         </div>
-    </div>
-    <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
             <div class="form-box">
@@ -33,6 +34,7 @@
                     @csrf
                     <div class="container mt-4 card p-3 bg-white">
                         <div class="row">
+
                             <div class="form-group col-md-3 required">
                                 <label for="">Department:</label>
                                 <input type="text" name="department" class="form-control"

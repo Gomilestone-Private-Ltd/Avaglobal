@@ -111,7 +111,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "admin/marque-records";
+                        window.location.href = response.route;
                     }, 1000);
                 },
                 error: function(response) {
