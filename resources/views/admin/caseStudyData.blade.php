@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Case Study Details')
+@section('title', 'Case Study Records')
 <style>
     label {
         color: black;
@@ -82,8 +82,8 @@
                                                     <a type="button" class="view-btn" data-id="{{ $data->id }}"
                                                         data-toggle="modal" data-target="#exampleModalLong"
                                                         onclick="updateModalBody('{{ $data->id }}')">
-                                                        <img src="{{ asset('assets/images/eye.png') }}"
-                                                                        alt="Back" class="eye-icon">
+                                                        <img src="{{ asset('assets/images/eye.png') }}" alt="Back"
+                                                            class="eye-icon">
                                                     </a>
 
                                                 </td>
@@ -92,14 +92,16 @@
                                                         <div class="d-flex">
                                                             @can('edit-case-study')
                                                                 <a href="{{ route('casestudy.edit', ['id' => $data->id]) }}"
-                                                                    class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
-                                                                    alt="Back" class="edit-icon"></a>
+                                                                    class="edit-btn"><img
+                                                                        src="{{ asset('assets/images/edit.png') }}"
+                                                                        alt="Back" class="edit-icon"></a>
                                                             @endcan
                                                             @can('delete-case-study')
                                                                 <button id="deleteButton"
                                                                     onclick="deleteModal('{{ $data->id }}')"
-                                                                    class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
-                                                                    alt="Back" class="delete-icon"></button>
+                                                                    class="delete-btn"><img
+                                                                        src="{{ asset('assets/images/trash.png') }}"
+                                                                        alt="Back" class="delete-icon"></button>
                                                             @endcan
                                                         </div>
                                                     </td>

@@ -355,7 +355,7 @@ class AdminController extends Controller
             'email' => 'required|email',
             'phone' => 'required|regex:/^[0-9]{10}$/',
             'position' => 'required',
-            'applicantPdf' => 'required|mimes:pdf|max:10000'
+            'applicantPdf' => 'required|mimes:pdf|max:2048'
         ];
         $message = [
             'name.required' => "Please fill your name",
@@ -363,7 +363,8 @@ class AdminController extends Controller
             'phone.required' => 'Please give your phone number',
             'position.required' => 'Please fill the position applying for:',
             'applicantPdf.mimes' => 'file extension must be of type .pdf',
-            'applicantPdf.required' => 'Please put your CV here'
+            'applicantPdf.required' => 'Please put your CV here',
+            'applicantPdf.max' => 'pdf size should be less than 2 MB'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {

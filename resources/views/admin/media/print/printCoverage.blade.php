@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'view permissions')
+@section('title', 'Media Records')
 <style>
     label {
         color: black;
@@ -77,8 +77,10 @@
                                                         <td> No Image</td>
                                                     @endif
                                                     @if (isset($record->avaDocs->path))
-                                                        <td><a href="{{ asset($record->avaDocs->path) }}" class="view-btn" download><img src="{{ asset('assets/images/eye.png') }}"
-                                                            alt="Back" class="eye-icon"></a>
+                                                        <td><a href="{{ asset($record->avaDocs->path) }}"
+                                                                class="view-btn" download><img
+                                                                    src="{{ asset('assets/images/eye.png') }}"
+                                                                    alt="Back" class="eye-icon"></a>
                                                         </td>
                                                     @else
                                                         <td>No File</td>
@@ -88,14 +90,16 @@
                                                             <div class="d-flex">
                                                                 @can('edit-print-coverage')
                                                                     <a href="{{ url('admin/edit-print-coverage/' . $record->id) }}"
-                                                                        class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
-                                                                        alt="Back" class="edit-icon"></a>
+                                                                        class="edit-btn"><img
+                                                                            src="{{ asset('assets/images/edit.png') }}"
+                                                                            alt="Back" class="edit-icon"></a>
                                                                 @endcan
                                                                 @can('delete-print-coverage')
                                                                     <button id="deleteButton"
                                                                         onclick="deleteModal('{{ $record->id }}')"
-                                                                        class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
-                                                                        alt="Back" class="delete-icon"></button>
+                                                                        class="delete-btn"><img
+                                                                            src="{{ asset('assets/images/trash.png') }}"
+                                                                            alt="Back" class="delete-icon"></button>
                                                                 @endcan
                                                             </div>
                                                         </td>
