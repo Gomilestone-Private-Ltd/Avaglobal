@@ -565,7 +565,7 @@ class AdminController extends Controller
         $brochureRecords->title = $request['title'];
         $brochureRecords->location = $request['location'];
         $brochureRecords->save();
-        return response()->json(['success' => true, 'message' => 'Brochure Updated Successfully', 'route' => route('event-popup')]);
+        return response()->json(['success' => true, 'message' => 'PopUp Updated Successfully', 'route' => route('event-popup')]);
     }
 
     public function changeBrochureStatus($id)
