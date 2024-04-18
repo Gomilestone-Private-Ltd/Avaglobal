@@ -658,7 +658,7 @@ class AdminController extends Controller
         $avaDocsFile->circular_id = $avaDocsFile->id;
         $avaDocsFile->save();
 
-        return response()->json(['success' => true, 'message' => 'Circular file uploaded successfully']);
+        return response()->json(['success' => true, 'message' => 'Circular file uploaded successfully', 'route' => route('circulars')]);
     }
     public function deleteCircular($id)
     {

@@ -56,62 +56,62 @@
                 </div>
             </div>
         </div>
-    <div class="container-fluid">
-        <!-- Input -->
-        <div class="row clearfix">
-            <div class="form-box">
-                <form enctype="multipart/form-data" id="circularCreate">
-                    @csrf
-                    <div class="container card p-3 bg-white">
+        <div class="container-fluid">
+            <!-- Input -->
+            <div class="row clearfix">
+                <div class="form-box">
+                    <form enctype="multipart/form-data" id="circularCreate">
+                        @csrf
+                        <div class="container card p-3 bg-white">
 
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="form-group col-md-6 required">
-                                <label for="">File Title:</label>
-                                <input type="text" name="circulartitle" id="" class="form-control"
-                                    value="" placeholder="Add File Title">
+                                <div class="form-group col-md-6 required">
+                                    <label for="">File Title:</label>
+                                    <input type="text" name="circulartitle" id="" class="form-control"
+                                        value="" placeholder="Add File Title">
 
 
-                                <span class="text-danger">
-                                    @error('circulartitle')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Upload file:(Pdf only)</label>
-                                <div class="file-box">
-                                    <input type="file" name="circularfile" id="caseimageinput" class="form-control"
-                                        value="" placeholder="" />
-                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                    <span class="text-danger">
+                                        @error('circulartitle')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
 
-                                <span class="text-danger">
-                                    @error('circularfile')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                                <div id="imagePreview">
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Upload file:(Pdf only)</label>
+                                    <div class="file-box">
+                                        <input type="file" name="circularfile" id="caseimageinput"
+                                            class="form-control" value="" placeholder="" />
+                                        <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                    </div>
+
+                                    <span class="text-danger">
+                                        @error('circularfile')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                    <div id="imagePreview">
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-md-12 ">
+                                    <button type="submit" id="submit"
+                                        class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
 
                                 </div>
-                            </div>
 
-
-                            <div class="form-group col-md-12 ">
-                                <button type="submit" id="submit"
-                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
 
                             </div>
-
 
                         </div>
-
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
 </section>
 
@@ -177,7 +177,7 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "circular";
+                        window.location.href = response.route;
                     }, 1000);
                 },
 
@@ -223,7 +223,7 @@
                         'progressBar': true
                     }
                     toastr.success(response.message);
-                    window.location.href = "circular";
+                    window.location.href = response.route;
                 },
                 error: function(response) {
                     if (response.responseJSON && response.responseJSON.errors) {
