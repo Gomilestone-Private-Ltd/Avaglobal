@@ -79,11 +79,12 @@
                                                 </td>
                                                 <td>{{ $data->posted_by }}</td>
                                                 <td>
-                                                    <i class="fa fa-eye" type="button" data-id="{{ $data->id }}"
+                                                    <a type="button" class="view-btn" data-id="{{ $data->id }}"
                                                         data-toggle="modal" data-target="#exampleModalLong"
-                                                        style="font-size:24px;cursor: pointer;"
                                                         onclick="updateModalBody('{{ $data->id }}')">
-                                                    </i>
+                                                        <img src="{{ asset('assets/images/eye.png') }}"
+                                                                        alt="Back" class="eye-icon">
+                                                    </a>
 
                                                 </td>
                                                 @if (auth()->user()->can('edit-case-study') || auth()->user()->can('delete-case-study'))
@@ -91,12 +92,14 @@
                                                         <div class="d-flex">
                                                             @can('edit-case-study')
                                                                 <a href="{{ route('casestudy.edit', ['id' => $data->id]) }}"
-                                                                    class="btn btn-primary">Edit</a>
+                                                                    class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
+                                                                    alt="Back" class="edit-icon"></a>
                                                             @endcan
                                                             @can('delete-case-study')
                                                                 <button id="deleteButton"
                                                                     onclick="deleteModal('{{ $data->id }}')"
-                                                                    class="btn btn-danger">Delete</button>
+                                                                    class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
+                                                                    alt="Back" class="delete-icon"></button>
                                                             @endcan
                                                         </div>
                                                     </td>

@@ -28,7 +28,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>USERS LIST</h2>
+                    <h2>User List</h2>
                 </div>
                 @can('add-users')
                     <div class="col-md-6">
@@ -81,12 +81,14 @@
                                                             <div class="d-flex">
                                                                 @can('edit-users')
                                                                     <a href="{{ url('/admin/users/' . $user->id . '/edit') }}"
-                                                                        class="btn btn-primary mr-3">Edit</a>
+                                                                        class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
+                                                                        alt="Back" class="edit-icon"></a>
                                                                 @endcan
                                                                 @can('delete-users')
                                                                     <button id="deleteButton"
                                                                         onclick="deleteModal('{{ $user->id }}')"
-                                                                        class="btn btn-danger">Delete</button>
+                                                                        class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
+                                                                        alt="Back" class="delete-icon"></button>
                                                                 @endcan
                                                             </div>
                                                         </td>

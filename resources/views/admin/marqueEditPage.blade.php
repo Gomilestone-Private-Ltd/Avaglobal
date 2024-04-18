@@ -46,35 +46,44 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#110c0e">
-        Edit Marque Text
-    </h3>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Edit Marque Text </h2>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <div class="row clearfix">
+            <div class="form-box">
+                <form enctype="multipart/form-data" id="marqueEdit">
+                    @csrf
+                    <div class="card p-3 bg-white">
+                        <div class="row">
+                            <div class="form-group col-md-12 required">
+                                <label for="">Add Marque Text:(max 125 characters)</label>
+                                <input type="hidden" name="marqueId" value="{{ $data->id }}">
+                                <textarea type="text" name="marquetext" id="" class="form-control" value=""
+                                    placeholder="Add Marque Text Here">{{ $data->marque_text }}</textarea>
+                                <span class="text-danger">
+                                    @error('marquetext')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
 
-            <form enctype="multipart/form-data" id="marqueEdit">
-                @csrf
-                <div class="mt-4 card p-3 bg-white">
-                    <div class="row">
-                        <div class="form-group col-md-12 required">
-                            <label for="">Add Marque Text:(max 125 characters)</label>
-                            <input type="hidden" name="marqueId" value="{{ $data->id }}">
-                            <textarea type="text" name="marquetext" id="" class="form-control" value=""
-                                placeholder="Add Marque Text Here">{{ $data->marque_text }}</textarea>
-                            <span class="text-danger">
-                                @error('marquetext')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-
-                        </div>
-                        <div class="form-group col-md-12 ">
-                            <button type="submit" id="submit"
-                                class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+                            </div>
+                            <div class="form-group col-md-12 ">
+                                <button type="submit" id="submit"
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 
