@@ -393,7 +393,7 @@
                                 </div>
                                 <a href="{{ route('media') }}">
                                     <div class="knowmore uppercase">
-                                        all news & events
+                                        all Media
                                         <div class="sprite knwmorearw"></div>
                                     </div>
                                 </a>

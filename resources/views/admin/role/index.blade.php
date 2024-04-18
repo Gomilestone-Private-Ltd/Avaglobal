@@ -95,15 +95,16 @@
                                                             <div class="d-flex">
                                                                 @can('edit-role-permissions')
                                                                     <a href="{{ url('/admin/roles/' . $role->id . '/give-permissions') }}"
-                                                                        class="btn btn-warning mr-3">Add / Edit Role
-                                                                        Permission</a>
+                                                                        class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
+                                                                        alt="Back" class="edit-icon"></a>
                                                                 @endcan
                                                                 {{-- <a href="{{ url('roles/' . $role->id . '/edit') }}"
                                                                 class="btn btn-primary mr-3">Edit</a> --}}
                                                                 @can('delete-roles')
                                                                     <button id="deleteButton"
                                                                         onclick="deleteModal('{{ $role->id }}')"
-                                                                        class="btn btn-danger">Delete</button>
+                                                                        class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
+                                                                        alt="Back" class="delete-icon"></button>
                                                                 @endcan
                                                             </div>
                                                         </td>

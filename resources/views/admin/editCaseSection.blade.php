@@ -75,114 +75,123 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#e83e8c">
-        Edit Case Section
-    </h3>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Edit Case Section</h2>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form action="" enctype="multipart/form-data" id="caseEdit" method="POST">
-                @csrf
-                <div class="container mt-4 card p-3 bg-white">
+            <div class="form-box">
+                <form action="" enctype="multipart/form-data" id="caseEdit" method="POST">
+                    @csrf
+                    <div class="container card p-3 bg-white">
 
-                    <div class="row">
-                        <div class="form-group col-md-6 required">
-                            <label for="">Case Name:</label>
-                            <input type="text" name="case" id="case" class="form-control"
-                                value="{{ $data->case }}" placeholder="Case Name">
-                            <span class="text-danger">
-                                @error('case')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                        <div class="row">
+                            <div class="form-group col-md-6 required">
+                                <label for="">Case Name:</label>
+                                <input type="text" name="case" id="case" class="form-control"
+                                    value="{{ $data->case }}" placeholder="Case Name">
+                                <span class="text-danger">
+                                    @error('case')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
 
-                        </div>
-
-                        <div class="form-group col-md-6 required">
-                            <label for="">Case Title:</label>
-                            <input type="text" name="casetitle" id="casetitle" class="form-control"
-                                value="{{ $data->case_title }}" placeholder="Case Title">
-
-
-                            <span class="text-danger">
-                                @error('casetitle')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-
-                        <div class="form-group col-md-6 required">
-                            <label for="">Posted By:</label>
-                            <input type="text" name="postedby" id="postedby" class="form-control"
-                                value="{{ $data->posted_by }}" placeholder="Posted By">
-                            <span class="text-danger">
-                                @error('dob')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-
-
-                        <div class="form-group col-md-6">
-                            <label for="">Case Image: (max 5 files allowed with extension jpg,jpeg,png)<br>
-                                (select images at once)
-                            </label>
-
-                            <div class="file-box">
-                                <input type="file" name="caseimage[]" accept="image/png, image/jpg, image/jpeg"
-                                    id="caseimage" class="form-control" value="" placeholder="Case Image"
-                                    multiple />
-                                <i class="fa fa-close close-icon" id="closeIcon"></i>
                             </div>
-                            <div class="main-image-select-box">
-                                @foreach ($data->avaDocs as $images)
-                                    <div class="ml-3 select-image-box">
-                                        <img src="{{ asset($images->path) }}"
-                                            style="width:70px;height:60px;border-radius:20%" />
-                                        <i class="fa fa-close crossIcon"
-                                            onclick="deleteImage('{{ $images->filename }}')"></i>
-                                    </div>
-                                @endforeach
-                                <div id="imagePreview">
 
-                                    {{-- <img src="{{ asset($data->avaDocs->path) }}" height="50" width="50"
-                                        alt=""> --}}
+                            <div class="form-group col-md-6 required">
+                                <label for="">Case Title:</label>
+                                <input type="text" name="casetitle" id="casetitle" class="form-control"
+                                    value="{{ $data->case_title }}" placeholder="Case Title">
+
+
+                                <span class="text-danger">
+                                    @error('casetitle')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+
+
+                            <div class="form-group col-md-6 required">
+                                <label for="">Posted By:</label>
+                                <input type="text" name="postedby" id="postedby" class="form-control"
+                                    value="{{ $data->posted_by }}" placeholder="Posted By">
+                                <span class="text-danger">
+                                    @error('dob')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+
+
+
+                            <div class="form-group col-md-6">
+                                <label for="">Case Image: (max 5 files allowed with extension jpg,jpeg,png)<br>
+                                    (select images at once)
+                                </label>
+
+                                <div class="file-box">
+                                    <input type="file" name="caseimage[]" accept="image/png, image/jpg, image/jpeg"
+                                        id="caseimage" class="form-control" value="" placeholder="Case Image"
+                                        multiple />
+                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
                                 </div>
+                                <div class="main-image-select-box">
+                                    @foreach ($data->avaDocs as $images)
+                                        <div class="ml-3 select-image-box">
+                                            <img src="{{ asset($images->path) }}"
+                                                style="width:70px;height:60px;border-radius:20%" />
+                                            <i class="fa fa-close crossIcon"
+                                                onclick="deleteImage('{{ $images->filename }}')"></i>
+                                        </div>
+                                    @endforeach
+                                    <div id="imagePreview">
+
+                                        {{-- <img src="{{ asset($data->avaDocs->path) }}" height="50" width="50"
+                                            alt=""> --}}
+                                    </div>
+                                </div>
+
+                                <span class="text-danger">
+                                    @error('caseimage')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="form-group col-md-12 required">
+                                <label for="">Description:</label>
+                                <textarea id="tinymce" name="tinymce" class="form-control" placeholder="Add Description Here"
+                                    OnClientClick="tinyMCE.triggerSave(false,true);">{!! $data->description !!}</textarea>
+                                <span class="text-danger">
+                                    @error('description')
+                                        {{ $message }}
+                                    @enderror
+
+                                </span>
+                            </div>
+                            <input type="hidden" name="id" value="{{ $data->id }}">
+
+
+                            <div class="form-group col-md-12 ">
+                                <button type="submit" id="submit"
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+
                             </div>
 
-                            <span class="text-danger">
-                                @error('caseimage')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                        <div class="form-group col-md-12 required">
-                            <label for="">Description:</label>
-                            <textarea id="tinymce" name="tinymce" class="form-control" placeholder="Add Description Here"
-                                OnClientClick="tinyMCE.triggerSave(false,true);">{!! $data->description !!}</textarea>
-                            <span class="text-danger">
-                                @error('description')
-                                    {{ $message }}
-                                @enderror
-
-                            </span>
-                        </div>
-                        <input type="hidden" name="id" value="{{ $data->id }}">
-
-
-                        <div class="form-group col-md-12 ">
-                            <button type="submit" id="submit"
-                                class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
 
                         </div>
-
 
                     </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 

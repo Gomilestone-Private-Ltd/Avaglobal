@@ -3225,12 +3225,17 @@ a.db-btn {
 
 .marquee-container {
     position: fixed;
-    height: 40px;
+    height: 48px;
     background-color: #e9e9e9;
     bottom: 0px;
     width: 100%;
     padding-top: 11px;
     z-index: 9;
+}
+
+.marquee-container marquee {
+    font-size: 20px;
+    font-weight: 600;
 }
 
 #owl-demo .item img {

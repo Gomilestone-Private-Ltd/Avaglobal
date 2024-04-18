@@ -46,70 +46,80 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#181516">
-        Edit Circulars Record
-    </h3>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Edit Circulars Record </h2>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
-            <form enctype="multipart/form-data" id="circularEdit">
-                @csrf
-                <div class="container mt-4 card p-3 bg-white">
+            <div class="form-box">
+                <form enctype="multipart/form-data" id="circularEdit">
+                    @csrf
+                    <div class="container card p-3 bg-white">
 
-                    <div class="row">
-                        <input type="hidden" name="circularId" value="{{ $data->id }}">
+                        <div class="row">
+                            <input type="hidden" name="circularId" value="{{ $data->id }}">
 
-                        <div class="form-group col-md-12 required">
-                            <label for="">File Title:</label>
-                            <input type="text" name="circulartitle" id="" class="form-control"
-                                value="{{ $data->circular_title }}" placeholder="Add File Title">
+                            <div class="form-group col-md-6 required">
+                                <label for="">File Title:</label>
+                                <input type="text" name="circulartitle" id="" class="form-control"
+                                    value="{{ $data->circular_title }}" placeholder="Add File Title">
 
 
-                            <span class="text-danger">
-                                @error('circulartitle')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-                        <div class="form-group col-md-12 required">
-                            <label for="">Upload file:(Pdf only)</label>
-                            <div class="file-box">
-                                <input type="file" name="circularfile" id="caseimageinput" class="form-control"
-                                    value="" placeholder="" />
-                                <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                <span class="text-danger">
+                                    @error('circulartitle')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
 
-                            <span class="text-danger">
-                                @error('circularfile')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                            @if ($data->filetype == 'pdf')
-                                <div id="filename" style="height:20px;width:250px;color:#422c37 ">
-                                    {{ $data->filename }}
+                            <div class="form-group col-md-6 required">
+                                <label for="">Upload file:(Pdf only)</label>
+                                <div class="file-box">
+                                    <input type="file" name="circularfile" id="caseimageinput" class="form-control"
+                                        value="" placeholder="" />
+                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
                                 </div>
-                            @endif
-                            <div id="imagePreview">
-                                @if (isset($data) && $data->filetype != 'pdf')
-                                    <img src="{{ asset(isset($data->path) ? $data->path : '') }}" height="50"
-                                        width="50" alt="">
+
+                                <span class="text-danger">
+                                    @error('circularfile')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                                @if ($data->filetype == 'pdf')
+                                    <div id="filename" style="height:20px;width:250px;color:#422c37 ">
+                                        {{ $data->filename }}
+                                    </div>
                                 @endif
+                                <div id="imagePreview">
+                                    @if (isset($data) && $data->filetype != 'pdf')
+                                        <img src="{{ asset(isset($data->path) ? $data->path : '') }}" height="50"
+                                            width="50" alt="">
+                                    @endif
+                                </div>
                             </div>
+
+
+                            <div class="form-group col-md-12 ">
+                                <button type="submit" id="submit"
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+
+                            </div>
+
+
                         </div>
-
-
-                        <div class="form-group col-md-12 ">
-                            <button type="submit" id="submit"
-                                class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
-                        </div>
-
 
                     </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 

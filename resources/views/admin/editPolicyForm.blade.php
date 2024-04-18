@@ -46,20 +46,29 @@
 </style>
 
 <section class="content">
-    <h3 class="text-center " style="font-weight: bold;color:#1f171b">
-        Edit Policy
-    </h3>
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>Edit Policy </h2>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+        </div>
     <div class="container-fluid">
         <!-- Input -->
         <div class="row clearfix">
+            <div class="form-box">
             <form enctype="multipart/form-data" id="policyEdit">
                 @csrf
-                <div class="container mt-4 card p-3 bg-white">
+                <div class="container card p-3 bg-white">
 
                     <div class="row">
                         <input type="hidden" name="policyId" value="{{ $data->id }}">
 
-                        <div class="form-group col-md-12 required">
+                        <div class="form-group col-md-6 required">
                             <label for="">File Title:</label>
                             <input type="text" name="policytitle" id="" class="form-control"
                                 value="{{ $data->policy_title }}" placeholder="Add File Title">
@@ -72,7 +81,7 @@
                             </span>
                         </div>
 
-                        <div class="form-group col-md-12 required">
+                        <div class="form-group col-md-6 required">
                             <label for="">Upload file:(Pdf only)</label>
                             <div class="file-box">
                                 <input type="file" name="policyfile" id="caseimageinput" class="form-control"
@@ -110,6 +119,7 @@
 
                 </div>
             </form>
+        </div>
         </div>
     </div>
 

@@ -83,12 +83,14 @@
                                                             <div class="d-flex">
                                                                 @can('edit-online-coverage')
                                                                     <a href="{{ url('admin/edit-online-coverage/' . $record->id) }}"
-                                                                        class="btn btn-primary mr-3">Edit</a>
+                                                                        class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
+                                                                        alt="Back" class="edit-icon"></a>
                                                                 @endcan
                                                                 @can('delete-online-coverage')
                                                                     <button id="deleteButton"
                                                                         onclick="deleteModal('{{ $record->id }}')"
-                                                                        class="btn btn-danger">Delete</button>
+                                                                        class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
+                                                                        alt="Back" class="delete-icon"></button>
                                                                 @endcan
                                                             </div>
                                                         </td>
