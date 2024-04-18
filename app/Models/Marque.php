@@ -12,4 +12,10 @@ class Marque extends Model
     use SoftDeletes;
     protected $table = 'marques';
     protected $fillable = ['marque_text', 'status'];
+
+    public function marqueStatus()
+    {
+        $status = self::where('status', 1)->count();
+        return $status;
+    }
 }

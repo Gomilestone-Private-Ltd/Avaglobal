@@ -83,14 +83,16 @@
                                                             <div class="d-flex">
                                                                 @can('edit-footer-marque')
                                                                     <a href="{{ route('marque.edit', ['id' => $Mdata->id]) }}"
-                                                                        class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
-                                                                        alt="Back" class="edit-icon"></a>
+                                                                        class="edit-btn"><img
+                                                                            src="{{ asset('assets/images/edit.png') }}"
+                                                                            alt="Back" class="edit-icon"></a>
                                                                 @endcan
                                                                 @can('delete-footer-marque')
                                                                     <button id="deleteButton"
                                                                         onclick="deleteModal('{{ $Mdata->id }}')"
-                                                                        class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
-                                                                        alt="Back" class="delete-icon"></button>
+                                                                        class="delete-btn"><img
+                                                                            src="{{ asset('assets/images/trash.png') }}"
+                                                                            alt="Back" class="delete-icon"></button>
                                                                 @endcan
                                                             </div>
                                                         </td>
@@ -165,6 +167,12 @@
     </div>
 </section>
 <script>
+    toastr.options = {
+        'progressBar': true,
+        'closeButton': true,
+        // 'timeOut': 5000
+    }
+
     function changeStatus(id) {
         $.ajax({
             type: 'GET',
@@ -173,13 +181,24 @@
             processData: false,
             contentType: false,
             success: function(response) {
-                console.log(response);
-                window.location.href = "";
+                if (response.success == true) {
+                    toastr.success(response.message);
+                    setTimeout(function() {
+                        window.location.href = response.route
+                    }, 1000);
+                    // location.reload();
+                } else {
+                    toastr.error(response.message);
+                    setTimeout(function() {
+                        window.location.href = response.route
+                    }, 1000);
+                }
 
             },
             error: function(response) {
                 console.log("something went wrong");
             }
+
         });
     }
 </script>

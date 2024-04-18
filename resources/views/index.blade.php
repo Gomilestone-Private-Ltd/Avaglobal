@@ -402,19 +402,28 @@
                     </div>
                     <div class="newsslidercontent">
                         <ul class="bxslidernews">
-                            <li>
-                                <img src="{{ asset('/images/1.png') }}" alt="" />
-                                <div class="banner-caption">
-                                    <div class="banner-container">
-                                        <p class="slidetxt"><b>Ava Global Logistics wins 'Emerging Agri Business
-                                                Logistics Co. of the year 2017' award at Globoil India 2017.</b></p>
-                                        <div class="media-link">
-                                            <a href="#" class="home-media-link">Read More</a>
+                            @if (count($newsData) > 0)
+                                @foreach ($newsData as $data)
+                                    <li>
+                                        {{-- <img src="{{ asset('/images/1.png') }}" alt="" /> --}}
+                                        <img
+                                            src="{{ isset($data->onlineDocsImage->path) ? asset($data->onlineDocsImage->path) : asset('/images/event/media1.jpg') }}"alt="" />
+                                        <div class="banner-caption">
+                                            <div class="banner-container">
+                                                {{-- <p class="slidetxt"><b>Ava Global Logistics wins 'Emerging Agri Business
+                                                        Logistics Co. of the year 2017' award at Globoil India 2017.</b></p> --}}
+                                                <p class="slidetxt"><b>{{ $data->title }}</b></p>
+
+                                                <div class="media-link">
+                                                    <a href="{{ $data->media_url }}" target="_blank"
+                                                        class="home-media-link">Read More</a>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
+                                    </li>
+                                @endforeach
+                            @endif
+                            {{-- <li>
                                 <img src="{{ asset('/images/2.png') }}" alt="" />
                                 <div class="banner-caption">
                                     <div class="banner-container">
@@ -424,7 +433,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>
@@ -444,7 +453,7 @@
 
 
                                     <!-- 405, 4th Floor, Windfall, Sahar Plaza Complex, J.B Nagar, Andheri - Kurla
-                                                                                                                Road, Andheri (East), <br /> Mumbai - 400059. -->
+                                                                                                                                                Road, Andheri (East), <br /> Mumbai - 400059. -->
                                 </div>
                             </div>
                             <div class="contactblk">

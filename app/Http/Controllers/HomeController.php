@@ -20,7 +20,10 @@ class HomeController extends Controller
 
     public function homePage()
     {
-        return view('index');
+        $newsData = Media::with('onlineDocsImage')
+            ->whereHas('onlineDocsImage')
+            ->get();
+        return view('index')->with('newsData', $newsData);
     }
     public function about()
     {

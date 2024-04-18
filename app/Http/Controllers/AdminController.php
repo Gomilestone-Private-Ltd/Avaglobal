@@ -460,6 +460,7 @@ class AdminController extends Controller
 
     public function postBrochure(Request $request)
     {
+
         $requestData = $request->only('title', 'location', 'brochureimage', 'brochurepdf');
         $rule = [
             'title' => 'required',
@@ -468,10 +469,11 @@ class AdminController extends Controller
             'brochurepdf' => 'required|mimes:pdf,jpeg,png,jpg',
         ];
         $message = [
-            'title.required' => "please fill the brochure title!!",
+            'title.required' => "please fill the popUp title!!",
             'location.required' => 'please fill the location',
-            'brochureimage.required' => 'please select a brochure image',
+            'brochureimage.required' => 'please select a popUp image',
             'brochureimage.mimes' => 'image extension must be of jpeg,png',
+            'brochurepdf.required' => 'please select a file'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -521,9 +523,10 @@ class AdminController extends Controller
             'brochurepdf' => 'nullable|mimes:pdf,jpg,png,jpeg',
         ];
         $message = [
-            'title.required' => "please fill the brochure title!!",
+            'title.required' => "please fill the popUp title!!",
             'location.required' => 'please fill the location',
             'brochureimage.mimes' => 'image extension must be of jpg,png',
+            'brochurepdf.required' => 'please select a file'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -583,15 +586,6 @@ class AdminController extends Controller
         } else {
             return response()->json(['success' => false, 'message' => 'Please inactive another active status first', 'route' => route('event-popup')]);
         }
-        $BrochureData = Brochure::find($id);
-        if ($BrochureData->status == 1) {
-            $BrochureData->status = 0;
-        } elseif ($BrochureData->status == 0) {
-            $BrochureData->status = 1;
-        }
-        $BrochureData->save();
-
-        return response()->json(['success' => true, 'message' => 'Brochure Updated Successfully', 'route' => route('event-popup')]);
     }
 
     public function deletePopup($id)
@@ -891,16 +885,23 @@ class AdminController extends Controller
     }
     public function marqueStatus($id)
     {
-        // dd($id);
+
         $marqueData = Marque::find($id);
         if ($marqueData->status == 1) {
             $marqueData->status = 0;
-        } elseif ($marqueData->status == 0) {
-            $marqueData->status = 1;
+            $marqueData->save();
+            return response()->json(['success' => true, 'message' => 'Marque status changed Successfully', 'route' => route('marque-records')]);
         }
-        $marqueData->save();
 
-        return response()->json(['success' => true, 'message' => 'Marque status changed Successfully']);
+        if ($marqueData->marqueStatus() == 0) {
+            if ($marqueData->status == 0) {
+                $marqueData->status = 1;
+                $marqueData->save();
+                return response()->json(['success' => true, 'message' => 'Marque status changed Successfully', 'route' => route('marque-records')]);
+            }
+        } else {
+            return response()->json(['success' => false, 'message' => 'Please inactive another active status first', 'route' => route('marque-records')]);
+        }
     }
 
     public function deleteMarque($id)
