@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'create role')
+@section('title', 'Create Role')
 <style>
     label {
         color: black;
@@ -31,7 +31,7 @@
                     <div class="back-btn-box">
                         <a href="{{ route('roles.index') }}" class="back-btn"><img
                                 src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
-                        <h2>Create Roles</h2>
+                        <h2>Create Role</h2>
                     </div>
                 </div>
                 <div class="col-md-6">

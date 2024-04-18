@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Case Store')
+@section('title', ' Add Case')
 {{-- TinyMce --}}
 <style>
     label {
@@ -51,7 +51,12 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Add Case</h2>
+
+                    <div class="back-btn-box">
+                        <a href="{{ route('case-section') }}" class="back-btn"><img
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
+                        <h2>Add Case</h2>
+                    </div>
                 </div>
                 <div class="col-md-6">
                 </div>
@@ -255,6 +260,8 @@
 
     $('#caseCreate').submit(function(e) {
         e.preventDefault();
+        $(".from-prevent-multiple-submits").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
         tinymce.triggerSave(false, true)
         if (selectedFile) {
             var formData = new FormData($("#caseCreate")[0]);
@@ -273,7 +280,9 @@
                 type: 'POST',
                 cache: false,
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
+                    $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     $('#caseCreate').trigger("reset");
 
                     $('#imagePreview').html('');
@@ -290,6 +299,8 @@
                 },
 
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
 
                         $('.text-danger').html('');
@@ -330,7 +341,9 @@
 
 
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
+                    $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     $('#caseCreate').trigger("reset");
 
                     $('#imagePreview').html('');
@@ -345,6 +358,8 @@
                     window.location.href = "/admin/case-study";
                 },
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
                         // $('#imageError').html('');
                         console.log(response.responseJSON.errors);

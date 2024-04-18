@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Circular Details')
+@section('title', 'Circular Records')
 <style>
     label {
         color: black;
@@ -80,14 +80,16 @@
                                                             <div class="d-flex">
                                                                 @can('edit-circular')
                                                                     <a href="{{ route('circular.edit', ['id' => $data->id]) }}"
-                                                                        class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
-                                                                        alt="Back" class="edit-icon"></a>
+                                                                        class="edit-btn"><img
+                                                                            src="{{ asset('assets/images/edit.png') }}"
+                                                                            alt="Back" class="edit-icon"></a>
                                                                 @endcan
                                                                 @can('delete-circular')
                                                                     <button id="deleteButton"
                                                                         onclick="deleteModal('{{ $data->id }}')"
-                                                                        class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
-                                                                        alt="Back" class="delete-icon"></button>
+                                                                        class="delete-btn"><img
+                                                                            src="{{ asset('assets/images/trash.png') }}"
+                                                                            alt="Back" class="delete-icon"></button>
                                                                 @endcan
                                                             </div>
                                                         </td>

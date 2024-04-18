@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Create Media')
+@section('title', 'Add Print Media')
 <style>
     label {
         color: black;

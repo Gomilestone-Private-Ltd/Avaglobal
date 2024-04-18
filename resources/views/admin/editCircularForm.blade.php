@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Circular Edit')
+@section('title', 'Edit Circular')
 {{-- TinyMce --}}
 <style>
     label {
@@ -50,7 +50,11 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Edit Circulars Record </h2>
+                    <div class="back-btn-box">
+                        <a href="{{ route('circulars') }}" class="back-btn"><img
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
+                        <h2>Edit Circular </h2>
+                    </div>
                 </div>
                 <div class="col-md-6">
 
@@ -167,6 +171,8 @@
     });
     $('#circularEdit').submit(function(e) {
         e.preventDefault();
+        $(".from-prevent-multiple-submits").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
         if (selectedFile) {
             var formData = new FormData($("#circularEdit")[0]);
             console.log(formData);
@@ -179,7 +185,9 @@
                 contentType: false,
 
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
+                    $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     $('#circularEdit').trigger("reset");
 
                     $('#imagePreview').html('');
@@ -194,6 +202,8 @@
                 },
 
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field, errorMessage) {

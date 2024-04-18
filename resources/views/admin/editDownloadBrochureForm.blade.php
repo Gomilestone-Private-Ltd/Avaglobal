@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Event Brochure')
+@section('title', 'Edit Brochure')
 {{-- TinyMce --}}
 <style>
     label {
@@ -51,75 +51,79 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
-                        <h2>Update Brochure</h2>
+                        <div class="back-btn-box">
+                            <a href="{{ route('download.brochureData') }}" class="back-btn"><img
+                                    src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
+                            <h2>Edit Brochure</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                 </div>
             </div>
         </div>
-    <div class="container-fluid">
-        <!-- Input -->
-        <div class="row clearfix">
-            <div class="form-box">
-                <form enctype="multipart/form-data" id="downloadBrochureEdit">
-                    @csrf
-                    <div class="container card p-3 bg-white">
+        <div class="container-fluid">
+            <!-- Input -->
+            <div class="row clearfix">
+                <div class="form-box">
+                    <form enctype="multipart/form-data" id="downloadBrochureEdit">
+                        @csrf
+                        <div class="container card p-3 bg-white">
 
-                        <div class="row">
+                            <div class="row">
 
-                            <input type="hidden" name="brochId" value={{ $data->downloadBrochureId }}>
+                                <input type="hidden" name="brochId" value={{ $data->downloadBrochureId }}>
 
-                            <div class="form-group col-md-6 required">
-                                <label for="">Brochure Title:</label>
-                                <input type="text" name="brochuretitle" id="" class="form-control"
-                                    value="{{ $data->brochure_title }}" placeholder="Add File Title">
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Brochure Title:</label>
+                                    <input type="text" name="brochuretitle" id="" class="form-control"
+                                        value="{{ $data->brochure_title }}" placeholder="Add File Title">
 
 
-                                <span class="text-danger">
-                                    @error('brochuretitle')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Upload file:(image/pdf)</label>
-                                <div class="file-box">
-                                    <input type="file" name="downloadbrochure" id="caseimageinput" class="form-control"
-                                        value="" placeholder="" />
-                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                    <span class="text-danger">
+                                        @error('brochuretitle')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
 
-                                <span class="text-danger">
-                                    @error('downloadbrochure')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                                @if (isset($data->filetype) && strtoupper($data->filetype) == 'PDF')
-                                    <div id="filename" style="height:20px;width:200px;color:#422c37 ">
-                                        {{ $data->filename }}
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Upload file:(image/pdf)</label>
+                                    <div class="file-box">
+                                        <input type="file" name="downloadbrochure" id="caseimageinput"
+                                            class="form-control" value="" placeholder="" />
+                                        <i class="fa fa-close close-icon" id="closeIcon"></i>
                                     </div>
-                                @else
-                                    <div id="imagePreview" class="mt-3">
-                                        @if (isset($data->path))
-                                            <img src="{{ asset(isset($data->path) ? $data->path : '') }}" height="50"
-                                                width="50" alt="">
-                                        @endif
-                                    </div>
-                                @endif
-                            </div>
-                            <div class="form-group col-md-12 ">
-                                <button type="submit" id="submit"
-                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
 
+                                    <span class="text-danger">
+                                        @error('downloadbrochure')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                    @if (isset($data->filetype) && strtoupper($data->filetype) == 'PDF')
+                                        <div id="filename" style="height:20px;width:200px;color:#422c37 ">
+                                            {{ $data->filename }}
+                                        </div>
+                                    @else
+                                        <div id="imagePreview" class="mt-3">
+                                            @if (isset($data->path))
+                                                <img src="{{ asset(isset($data->path) ? $data->path : '') }}"
+                                                    height="50" width="50" alt="">
+                                            @endif
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="form-group col-md-12 ">
+                                    <button type="submit" id="submit"
+                                        class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
 </section>
 
@@ -168,6 +172,8 @@
     });
     $('#downloadBrochureEdit').submit(function(e) {
         e.preventDefault();
+        $(".from-prevent-multiple-submits").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
         if (selectedFile) {
             var formData = new FormData($("#downloadBrochureEdit")[0]);
             console.log(formData);
@@ -180,7 +186,9 @@
                 contentType: false,
 
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
+                    $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     $('#downloadBrochureEdit').trigger("reset");
 
                     $('#imagePreview').html('');
@@ -197,6 +205,8 @@
                 },
 
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field, errorMessage) {
@@ -225,7 +235,9 @@
 
 
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
+                    $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     $('#downloadBrochureEdit').trigger("reset");
 
                     $('#imagePreview').html('');
@@ -239,6 +251,8 @@
                     window.location.href = "/admin/brochure";
                 },
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field,

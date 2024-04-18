@@ -302,7 +302,7 @@ class AdminController extends Controller
         $message = [
             'name.required' => "Please fill your name",
             'email.required' => 'Please give your email',
-            'phone.required' => 'Please give your phone number in numbers',
+            'phone.required' => 'Please give your phone number',
             'position.required' => 'Please fill the position applying for:',
             'applicantPdf.mimes' => 'file extension must be of type .pdf',
             'applicantPdf.required' => 'Please put your CV here'

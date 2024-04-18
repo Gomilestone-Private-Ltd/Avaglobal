@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Edit Media')
+@section('title', 'Edit Print Coverage')
 <style>
     label {
         color: black;
@@ -31,7 +31,7 @@
                     <div class="back-btn-box">
                         <a href="{{ route('print-coverage') }}" class="back-btn"><img
                                 src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
-                        <h2>Add Print Coverage</h2>
+                        <h2>Edit Print Coverage</h2>
                     </div>
                 </div>
                 <div class="col-md-6">

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Media Records')
+@section('title', 'Coverage Records')
 <style>
     label {
         color: black;
@@ -167,7 +167,7 @@
                         toastr.error(response.message);
                         setTimeout(() => {
                             window.location.href = response.route;
-                        }, 1500);
+                        }, 1000);
 
                     }
 
