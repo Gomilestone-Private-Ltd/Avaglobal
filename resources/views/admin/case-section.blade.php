@@ -28,7 +28,7 @@
         color: red;
         font-size: 18px;
         display: none;
-        margin-top: 19px;
+        margin-top: 2px;
         cursor: pointer;
     }
 
