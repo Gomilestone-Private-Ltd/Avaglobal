@@ -408,7 +408,11 @@ class AdminController extends Controller
             return response()->json(['message' => 'There is no Applicant found in record', 404]);
         }
         $data->delete();
-        AvaDocs::where('applicant_id', $id)->delete();
+        $dataDocs = AvaDocs::where('applicant_id', $id)->first();
+        if (!empty($dataDocs->path)) {
+            $this->deleteFile($dataDocs->filename);
+        }
+        $dataDocs->delete();
         return response()->json(['success' => true, 'message' => 'Applicant Data got deleted successfully']);
     }
     public function contactUsApplicantsDelete($id)
@@ -417,9 +421,12 @@ class AdminController extends Controller
         if (!$data) {
             return response()->json(['message' => 'There is no Applicant found in record', 404]);
         }
-
         $data->delete();
-        AvaDocs::where('contact_id', $id)->delete();
+        $dataDocs = AvaDocs::where('contact_id', $id)->first();
+        if (!empty($dataDocs->path)) {
+            $this->deleteFile($dataDocs->filename);
+        }
+        $dataDocs->delete();
         return response()->json(['success' => true, 'message' => 'Applicant Data got deleted successfully']);
     }
     public function editDescription($id)
@@ -661,7 +668,11 @@ class AdminController extends Controller
     }
     public function deleteCircular($id)
     {
-        AvaDocs::where('id', $id)->delete();
+        $data = AvaDocs::where('id', $id)->first();
+        if (!empty($data->path)) {
+            $this->deleteFile($data->filename);
+        }
+        $data->delete();
         return response()->json(['success' => true, 'message' => 'Circular file got deleted Successfully']);
     }
     public function getEditCircular($id)
@@ -742,7 +753,11 @@ class AdminController extends Controller
     }
     public function deletePolicy($id)
     {
-        AvaDocs::where('id', $id)->delete();
+        $data = AvaDocs::where('id', $id)->first();
+        if (!empty($data->path)) {
+            $this->deleteFile($data->filename);
+        }
+        $data->delete();
         return response()->json(['success' => true, 'message' => 'Records Deleted Successfully']);
     }
     public function storePolicy(Request $request)

@@ -201,7 +201,7 @@
                                     </span>
                                 </div>
 
-                                <div class="form-group col-md-6 required">
+                                <div class="form-group col-md-6 ">
                                     <label for="">Case Image: (max 5 files allowed with extension
                                         jpg,jpeg,png)<br>
                                         (Image Dimension should be 1366*550)
