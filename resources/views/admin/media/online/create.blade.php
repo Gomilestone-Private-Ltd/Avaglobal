@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="mt-3">
                                         <button type="submit" id="submit"
-                                            class="btn btn-primary btn-lg float-right">Submit</button>
+                                            class="btn btn-primary btn-lg float-right ">Submit</button>
                                     </div>
                                 </div>
                             </form>

@@ -202,7 +202,6 @@ class AdminController extends Controller
         ];
         $validate = Validator::make($requestData, $rule, $message);
         // dd($validate);
-
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);
         }
@@ -237,7 +236,7 @@ class AdminController extends Controller
                 $avaDocs->save();
             }
         }
-        return response()->json(['success' => true, 'message' => 'Case Added Successfully']);
+        return response()->json(['success' => true, 'message' => 'Case Added Successfully', 'route' => route('case-section')]);
     }
     public function getCaseDescription($id)
     {
@@ -1110,7 +1109,7 @@ class AdminController extends Controller
         $caseStudy->description = $request['tinymce'];
         $caseStudy->posted_by = $request['postedby'];
         $caseStudy->save();
-        return response()->json(['success' => true, 'message' => 'Case Updated Successfully']);
+        return response()->json(['success' => true, 'message' => 'Case Updated Successfully', 'route' => route('case-section')]);
     }
 
     public function onlineCoverage()

@@ -44,6 +44,72 @@
         padding: 6px;
 
     }
+
+    .fa-minus {
+        color: black;
+    }
+
+    .plus {
+        color: #010b48 !important;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 9;
+    }
+
+    .minus {
+        color: #010b48 !important;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 9;
+    }
+
+    #caseimage {
+        position: relative;
+        padding-right: 20px;
+    }
+
+    /* //added */
+    #files-area {
+        /* width: 30%;
+        margin: 0 auto; */
+        overflow: hidden;
+    }
+
+    .file-block {
+        border-radius: 10px;
+        background-color: rgba(144, 163, 203, 0.2);
+        margin: 5px;
+        color: initial;
+        display: inline-flex;
+
+        &>span.name {
+            padding-right: 10px;
+            width: max-content;
+            display: inline-flex;
+        }
+    }
+
+    .file-delete {
+        display: flex;
+        width: 24px;
+        color: initial;
+        background-color: #6eb4ff00;
+        font-size: large;
+        justify-content: center;
+        margin-right: 3px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(144, 163, 203, 0.2);
+            border-radius: 10px;
+        }
+
+        &>span {
+            transform: rotate(45deg);
+        }
+    }
 </style>
 
 <section class="content">
@@ -78,7 +144,6 @@
                                     <span class="text-danger case-error"></span>
 
                                 </div>
-
                                 <div class="form-group col-md-6 required">
                                     <label for="">Case Title:</label>
                                     <input type="text" name="casetitle" id="casetitle" class="form-control"
@@ -91,8 +156,6 @@
                                         @enderror
                                     </span>
                                 </div>
-
-
                                 <div class="form-group col-md-6 required">
                                     <label for="">Posted By:</label>
                                     <input type="text" name="postedby" id="postedby" class="form-control"
@@ -104,26 +167,21 @@
                                     </span>
                                 </div>
 
-
-
                                 <div class="form-group col-md-6 required">
-
                                     <label for="">Case Image: (max 5 files allowed with extension
                                         jpg,jpeg,png)<br>
                                         (Image Dimension should be 1366*550)
                                     </label>
-                                    <div class="file-box">
-                                        <input type="file" accept="image/png, image/jpg, image/jpeg"
-                                            name="caseimage[]" id="caseimage" class="form-control" value=""
-                                            placeholder="Case Image" multiple />
-                                        <i class="fa fa-close close-icon" id="closeIcon"></i>
-                                    </div>
-                                    <span class="text-danger" id="imageError">
-
+                                    <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control"
+                                        name="caseimage[]" id="caseimage" multiple />
+                                    <span class="text-danger">
                                     </span>
-
-                                    <div id="imagePreview" style="display:flex;">
-
+                                    <div>
+                                        <p id="files-area">
+                                            <span id="filesList">
+                                                <span id="files-names"></span>
+                                            </span>
+                                        </p>
                                     </div>
                                 </div>
 
@@ -137,26 +195,67 @@
                                         @enderror
                                     </span>
                                 </div>
-
-
                                 <div class="form-group col-md-12 ">
                                     <button type="submit" id="submit"
                                         class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
                                 </div>
 
 
                             </div>
 
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
 </section>
+<script>
+    const dt = new DataTransfer(); // Permet de manipuler les fichiers de l'input file
 
+    $("#caseimage").on('change', function(e) {
+        for (var i = 0; i < this.files.length; i++) {
+            let fileBloc = $('<span/>', {
+                    class: 'file-block'
+                }),
+                fileName = $('<span/>', {
+                    class: 'name',
+                    text: this.files.item(i).name
+                });
+            fileBloc.append('<span class="file-delete"><span>+</span></span>')
+                .append(fileName);
+            $("#filesList > #files-names").append(fileBloc);
+            // $('input').val('');
 
+        };
+        // Ajout des fichiers dans l'objet DataTransfer
+        for (let file of this.files) {
+            dt.items.add(file);
+        }
+        // Mise à jour des fichiers de l'input file après ajout
+        this.files = dt.files;
+        // if (this.files == 1) {
+        //     $('input').val('');
+        // }
 
+        // EventListener pour le bouton de suppression créé
+        $('span.file-delete').click(function() {
+            let name = $(this).next('span.name').text();
+            // Supprimer l'affichage du nom de fichier
+            $(this).parent().remove();
+            for (let i = 0; i < dt.items.length; i++) {
+                // Correspondance du fichier et du nom
+                if (name === dt.items[i].getAsFile().name) {
+                    // Suppression du fichier dans l'objet DataTransfer
+                    dt.items.remove(i);
+                    continue;
+                }
+            }
+            // Mise à jour des fichiers de l'input file après suppression
+            document.getElementById('caseimage').files = dt.files;
+        });
+    });
+</script>
 
 <script>
     var selectedFile;
@@ -211,54 +310,7 @@
         });
     });
 
-    $(document).ready(function() {
 
-        $('#closeIcon').on('click', function() {
-            $('#imagePreview').empty();
-            $('#caseimage').val('');
-            $('.close-icon').hide();
-        });
-        // $('#caseimageinput').on('change', function(e) {
-        //     var file = this.files[0];
-        //     if (file) {
-        //         selectedFile = file;
-
-        //         var reader = new FileReader();
-        //         $('.close-icon').show();
-        //         reader.onload = function(e) {
-        //             $('#imagePreview').html('<img src="' + e.target.result + '" alt="Preview">');
-        //         };
-        //         reader.readAsDataURL(selectedFile);
-        //     } else {
-        //         $('#imagePreview').html('');
-        //         $('.close-icon').hide();
-        //     }
-        // });
-        $('#caseimage').on('change', function(e) {
-            var files = this.files; // Get the array of files
-
-            if (files.length > 0) {
-                $('.close-icon').show();
-                $('#imagePreview').html('');
-                for (var i = 0; i < files.length; i++) {
-                    var reader = new FileReader();
-                    reader.onload = (function(file) {
-                        return function(e) {
-                            $('#imagePreview').append('<div><img src="' + e.target.result +
-                                '" alt="Preview" style="width:70px;height:60px;border-radius:20%"></div>'
-                            );
-                        };
-                    })(files[i]);
-                    reader.readAsDataURL(files[i]); // Read the file as a data URL
-                }
-            } else {
-                $('#imagePreview').html(''); // Clear preview if no file selected
-                $('.close-icon').hide();
-            }
-        });
-
-
-    });
 
     $('#caseCreate').submit(function(e) {
         e.preventDefault();
@@ -267,12 +319,6 @@
         tinymce.triggerSave(false, true)
         if (selectedFile) {
             var formData = new FormData($("#caseCreate")[0]);
-            console.log(formData);
-
-            // var descriptionValue = $('textarea#tinymce').val();
-            // console.log(descriptionValue);
-            // formData.append('description', descriptionValue);
-
             $.ajax({
                 url: "{{ url('admin/create-case') }}",
                 method: 'POST',
@@ -296,10 +342,9 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "/admin/case-study";
-                    }, 2000);
+                        window.location.href = response.route;
+                    }, 1000);
                 },
-
                 error: function(response) {
                     $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
                     $(".from-prevent-multiple-submits").removeAttr("disabled");
@@ -309,18 +354,9 @@
                         $.each(response.responseJSON.errors, function(field, errorMessage) {
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
-                            // $('[name="' + field + '"]').closest(
-                            //         '.form-group')
-                            //     .find('.text-danger').html(errorHtml);
-
-                            // $('[name="' + field + '"]').on('input',
-                            //     function() {
-                            //         $('.text-danger').html('');
-                            //     });
                             $('#' + field).closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
-
 
                             $('#' + field).on('input',
                                 function() {
