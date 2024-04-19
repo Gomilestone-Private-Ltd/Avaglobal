@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'create permissions')
+@section('title', 'Edit Users')
 <style>
     label {
         color: black;
@@ -29,8 +29,9 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
-                        <a href="{{ route('roles.index') }}" class="back-btn"><img src="{{ asset('assets/images/back.png') }}"
-                        alt="Back" class="back-icon"></a><h2>Edit Users</h2>
+                        <a href="{{ route('roles.index') }}" class="back-btn"><img
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
+                        <h2>Edit Users</h2>
                     </div>
                 </div>
                 <div class="col-md-6">

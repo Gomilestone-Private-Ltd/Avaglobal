@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'create permissions')
+@section('title', 'Edit Print Coverage')
 <style>
     label {
         color: black;
@@ -29,8 +29,9 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
-                        <a href="{{ route('print-coverage') }}" class="back-btn"><img src="{{ asset('assets/images/back.png') }}"
-                        alt="Back" class="back-icon"></a><h2>Add Print Coverage</h2>
+                        <a href="{{ route('print-coverage') }}" class="back-btn"><img
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
+                        <h2>Edit Print Coverage</h2>
                     </div>
                 </div>
                 <div class="col-md-6">

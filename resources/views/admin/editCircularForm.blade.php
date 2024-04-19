@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Circular Edit')
+@section('title', 'Edit Circular')
 {{-- TinyMce --}}
 <style>
     label {
@@ -50,78 +50,82 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Edit Circulars Record </h2>
+                    <div class="back-btn-box">
+                        <a href="{{ route('circulars') }}" class="back-btn"><img
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
+                        <h2>Edit Circular </h2>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    
+
                 </div>
             </div>
         </div>
-    <div class="container-fluid">
-        <!-- Input -->
-        <div class="row clearfix">
-            <div class="form-box">
-                <form enctype="multipart/form-data" id="circularEdit">
-                    @csrf
-                    <div class="container card p-3 bg-white">
+        <div class="container-fluid">
+            <!-- Input -->
+            <div class="row clearfix">
+                <div class="form-box">
+                    <form enctype="multipart/form-data" id="circularEdit">
+                        @csrf
+                        <div class="container card p-3 bg-white">
 
-                        <div class="row">
-                            <input type="hidden" name="circularId" value="{{ $data->id }}">
+                            <div class="row">
+                                <input type="hidden" name="circularId" value="{{ $data->id }}">
 
-                            <div class="form-group col-md-6 required">
-                                <label for="">File Title:</label>
-                                <input type="text" name="circulartitle" id="" class="form-control"
-                                    value="{{ $data->circular_title }}" placeholder="Add File Title">
+                                <div class="form-group col-md-6 required">
+                                    <label for="">File Title:</label>
+                                    <input type="text" name="circulartitle" id="" class="form-control"
+                                        value="{{ $data->circular_title }}" placeholder="Add File Title">
 
 
-                                <span class="text-danger">
-                                    @error('circulartitle')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Upload file:(Pdf only)</label>
-                                <div class="file-box">
-                                    <input type="file" name="circularfile" id="caseimageinput" class="form-control"
-                                        value="" placeholder="" />
-                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                    <span class="text-danger">
+                                        @error('circulartitle')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
 
-                                <span class="text-danger">
-                                    @error('circularfile')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                                @if ($data->filetype == 'pdf')
-                                    <div id="filename" style="height:20px;width:250px;color:#422c37 ">
-                                        {{ $data->filename }}
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Upload file:(Pdf only)</label>
+                                    <div class="file-box">
+                                        <input type="file" name="circularfile" id="caseimageinput"
+                                            class="form-control" value="" placeholder="" />
+                                        <i class="fa fa-close close-icon" id="closeIcon"></i>
                                     </div>
-                                @endif
-                                <div id="imagePreview">
-                                    @if (isset($data) && $data->filetype != 'pdf')
-                                        <img src="{{ asset(isset($data->path) ? $data->path : '') }}" height="50"
-                                            width="50" alt="">
+
+                                    <span class="text-danger">
+                                        @error('circularfile')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                    @if ($data->filetype == 'pdf')
+                                        <div id="filename" style="height:20px;width:250px;color:#422c37 ">
+                                            {{ $data->filename }}
+                                        </div>
                                     @endif
+                                    <div id="imagePreview">
+                                        @if (isset($data) && $data->filetype != 'pdf')
+                                            <img src="{{ asset(isset($data->path) ? $data->path : '') }}" height="50"
+                                                width="50" alt="">
+                                        @endif
+                                    </div>
                                 </div>
+
+
+                                <div class="form-group col-md-12 ">
+                                    <button type="submit" id="submit"
+                                        class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+
+                                </div>
+
+
                             </div>
-
-
-                            <div class="form-group col-md-12 ">
-                                <button type="submit" id="submit"
-                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
-                            </div>
-
 
                         </div>
-
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
 </section>
 
@@ -167,6 +171,8 @@
     });
     $('#circularEdit').submit(function(e) {
         e.preventDefault();
+        $(".from-prevent-multiple-submits").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
         if (selectedFile) {
             var formData = new FormData($("#circularEdit")[0]);
             console.log(formData);
@@ -179,7 +185,9 @@
                 contentType: false,
 
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
+                    $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     $('#circularEdit').trigger("reset");
 
                     $('#imagePreview').html('');
@@ -194,6 +202,8 @@
                 },
 
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field, errorMessage) {

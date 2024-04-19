@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'ContactUs')
+@section('title', 'ContactUs Records')
 
 <style>
     label {
@@ -80,8 +80,9 @@
                                                     <td>
                                                         <div class="d-flex">
                                                             <button onclick="deleteModal('{{ $data->id }}')"
-                                                                class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
-                                                                alt="Back" class="delete-icon"></button>
+                                                                class="delete-btn"><img
+                                                                    src="{{ asset('assets/images/trash.png') }}"
+                                                                    alt="Back" class="delete-icon"></button>
 
                                                         </div>
                                                     </td>

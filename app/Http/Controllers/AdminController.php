@@ -302,7 +302,7 @@ class AdminController extends Controller
         $message = [
             'name.required' => "Please fill your name",
             'email.required' => 'Please give your email',
-            'phone.required' => 'Please give your phone number in numbers',
+            'phone.required' => 'Please give your phone number',
             'position.required' => 'Please fill the position applying for:',
             'applicantPdf.mimes' => 'file extension must be of type .pdf',
             'applicantPdf.required' => 'Please put your CV here'
@@ -355,7 +355,7 @@ class AdminController extends Controller
             'email' => 'required|email',
             'phone' => 'required|regex:/^[0-9]{10}$/',
             'position' => 'required',
-            'applicantPdf' => 'required|mimes:pdf|max:10000'
+            'applicantPdf' => 'required|mimes:pdf|max:2048'
         ];
         $message = [
             'name.required' => "Please fill your name",
@@ -363,7 +363,8 @@ class AdminController extends Controller
             'phone.required' => 'Please give your phone number',
             'position.required' => 'Please fill the position applying for:',
             'applicantPdf.mimes' => 'file extension must be of type .pdf',
-            'applicantPdf.required' => 'Please put your CV here'
+            'applicantPdf.required' => 'Please put your CV here',
+            'applicantPdf.max' => 'pdf size should be less than 2 MB'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -657,7 +658,7 @@ class AdminController extends Controller
         $avaDocsFile->circular_id = $avaDocsFile->id;
         $avaDocsFile->save();
 
-        return response()->json(['success' => true, 'message' => 'Circular file uploaded successfully']);
+        return response()->json(['success' => true, 'message' => 'Circular file uploaded successfully', 'route' => route('circulars')]);
     }
     public function deleteCircular($id)
     {

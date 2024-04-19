@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Circular')
+@section('title', 'Add Circular')
 {{-- TinyMce --}}
 <style>
     label {
@@ -50,68 +50,72 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Add Circulars</h2>
+                    <div class="back-btn-box">
+                        <a href="{{ route('circulars') }}" class="back-btn"><img
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
+                        <h2>Add Circular</h2>
+                    </div>
                 </div>
                 <div class="col-md-6">
                 </div>
             </div>
         </div>
-    <div class="container-fluid">
-        <!-- Input -->
-        <div class="row clearfix">
-            <div class="form-box">
-                <form enctype="multipart/form-data" id="circularCreate">
-                    @csrf
-                    <div class="container card p-3 bg-white">
+        <div class="container-fluid">
+            <!-- Input -->
+            <div class="row clearfix">
+                <div class="form-box">
+                    <form enctype="multipart/form-data" id="circularCreate">
+                        @csrf
+                        <div class="container card p-3 bg-white">
 
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="form-group col-md-6 required">
-                                <label for="">File Title:</label>
-                                <input type="text" name="circulartitle" id="" class="form-control"
-                                    value="" placeholder="Add File Title">
+                                <div class="form-group col-md-6 required">
+                                    <label for="">File Title:</label>
+                                    <input type="text" name="circulartitle" id="" class="form-control"
+                                        value="" placeholder="Add File Title">
 
 
-                                <span class="text-danger">
-                                    @error('circulartitle')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Upload file:(Pdf only)</label>
-                                <div class="file-box">
-                                    <input type="file" name="circularfile" id="caseimageinput" class="form-control"
-                                        value="" placeholder="" />
-                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                    <span class="text-danger">
+                                        @error('circulartitle')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
 
-                                <span class="text-danger">
-                                    @error('circularfile')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                                <div id="imagePreview">
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Upload file:(Pdf only)</label>
+                                    <div class="file-box">
+                                        <input type="file" name="circularfile" id="caseimageinput"
+                                            class="form-control" value="" placeholder="" />
+                                        <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                    </div>
+
+                                    <span class="text-danger">
+                                        @error('circularfile')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                    <div id="imagePreview">
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-md-12 ">
+                                    <button type="submit" id="submit"
+                                        class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
 
                                 </div>
-                            </div>
 
-
-                            <div class="form-group col-md-12 ">
-                                <button type="submit" id="submit"
-                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
 
                             </div>
-
 
                         </div>
-
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
 </section>
 
@@ -153,6 +157,8 @@
     });
     $('#circularCreate').submit(function(e) {
         e.preventDefault();
+        $(".from-prevent-multiple-submits").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
         if (selectedFile) {
             var formData = new FormData($("#circularCreate")[0]);
             console.log(formData);
@@ -167,6 +173,8 @@
                 success: function(response) {
                     $("#submit").attr("disabled", true)
                     $('#circularCreate').trigger("reset");
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
 
                     $('#imagePreview').html('');
                     $('.close-icon').hide();
@@ -177,11 +185,13 @@
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "circular";
+                        window.location.href = response.route;
                     }, 1000);
                 },
 
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field, errorMessage) {
@@ -212,7 +222,9 @@
 
 
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
+                    $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     $('#circularCreate').trigger("reset");
 
                     $('#imagePreview').html('');
@@ -223,9 +235,11 @@
                         'progressBar': true
                     }
                     toastr.success(response.message);
-                    window.location.href = "circular";
+                    window.location.href = response.route;
                 },
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field,

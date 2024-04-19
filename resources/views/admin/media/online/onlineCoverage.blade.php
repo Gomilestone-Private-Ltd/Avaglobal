@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'view permissions')
+@section('title', 'Coverage Records')
 <style>
     label {
         color: black;
@@ -83,14 +83,16 @@
                                                             <div class="d-flex">
                                                                 @can('edit-online-coverage')
                                                                     <a href="{{ url('admin/edit-online-coverage/' . $record->id) }}"
-                                                                        class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
-                                                                        alt="Back" class="edit-icon"></a>
+                                                                        class="edit-btn"><img
+                                                                            src="{{ asset('assets/images/edit.png') }}"
+                                                                            alt="Back" class="edit-icon"></a>
                                                                 @endcan
                                                                 @can('delete-online-coverage')
                                                                     <button id="deleteButton"
                                                                         onclick="deleteModal('{{ $record->id }}')"
-                                                                        class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
-                                                                        alt="Back" class="delete-icon"></button>
+                                                                        class="delete-btn"><img
+                                                                            src="{{ asset('assets/images/trash.png') }}"
+                                                                            alt="Back" class="delete-icon"></button>
                                                                 @endcan
                                                             </div>
                                                         </td>
@@ -165,7 +167,7 @@
                         toastr.error(response.message);
                         setTimeout(() => {
                             window.location.href = response.route;
-                        }, 1500);
+                        }, 1000);
 
                     }
 

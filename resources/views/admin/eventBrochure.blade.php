@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Event Brochure')
+@section('title', 'Brochure Records')
 <style>
     label {
         color: black;
@@ -102,14 +102,16 @@
                                                             <div class="d-flex">
                                                                 @can('edit-brochure')
                                                                     <a href="{{ route('downloadBrochure.edit', ['id' => $data->id]) }}"
-                                                                        class="edit-btn"><img src="{{ asset('assets/images/edit.png') }}"
-                                                                        alt="Back" class="edit-icon"></a>
+                                                                        class="edit-btn"><img
+                                                                            src="{{ asset('assets/images/edit.png') }}"
+                                                                            alt="Back" class="edit-icon"></a>
                                                                 @endcan
                                                                 @can('delete-brochure')
                                                                     <button id="deleteButton"
                                                                         onclick="deleteModal('{{ $data->id }}')"
-                                                                        class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
-                                                                        alt="Back" class="delete-icon"></button>
+                                                                        class="delete-btn"><img
+                                                                            src="{{ asset('assets/images/trash.png') }}"
+                                                                            alt="Back" class="delete-icon"></button>
                                                                 @endcan
                                                             </div>
                                                         </td>

@@ -9,13 +9,25 @@ img.cs-image {
     object-fit: cover;
 }
 
-.case-study-box {
+/* .case-study-box {
     display: flex;
     justify-content: space-between;
     gap: 30px;
     margin-top: 30px;
     margin-bottom: 50px;
+} */
+.case-study-box {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    flex-wrap: wrap; 
 }
+
+.case-study-item {
+    width: 31.6%;
+} 
 
 h2.cs-title {
     font-size: 22px;
@@ -73,9 +85,9 @@ p.cs-date {
     position: relative;
 }
 
-.case-study-item {
+/* .case-study-item {
     width: 33.33%;
-}
+} */
 
 .cr-title-box {
     margin-top: 40px;

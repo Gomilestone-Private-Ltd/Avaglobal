@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'PopUp')
+@section('title', 'Add Event PopUp')
 {{-- TinyMce --}}
 <style>
     label {
@@ -50,92 +50,96 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Add Event PopUp</h2>
+                    <div class="back-btn-box">
+                        <a href="{{ route('event-popup') }}" class="back-btn"><img
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
+                        <h2>Add Event PopUp</h2>
+                    </div>
                 </div>
                 <div class="col-md-6">
                 </div>
             </div>
         </div>
-    <div class="container-fluid">
-        <!-- Input -->
-        <div class="row clearfix">
-            <div class="form-box">
-                <form enctype="multipart/form-data" id="brochureCreate">
-                    @csrf
-                    <div class="container card p-3 bg-white">
+        <div class="container-fluid">
+            <!-- Input -->
+            <div class="row clearfix">
+                <div class="form-box">
+                    <form enctype="multipart/form-data" id="brochureCreate">
+                        @csrf
+                        <div class="container card p-3 bg-white">
 
-                        <div class="row">
-                            <div class="form-group col-md-6 required">
-                                <label for="">Popup Title:</label>
-                                <input type="text" name="title" id="" class="form-control" value=""
-                                    placeholder="Popup Title">
-                                <span class="text-danger">
-                                    @error('title')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-
-                            </div>
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Location:</label>
-                                <input type="text" name="location" id="" class="form-control" value=""
-                                    placeholder="Location">
-
-                                <span class="text-danger">
-                                    @error('location')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Popup Image:</label>
-                                <div class="file-box">
-                                    <input type="file" name="brochureimage" id="caseimageinput" class="form-control"
-                                        value="" placeholder="" />
-                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
-                                </div>
-
-                                <span class="text-danger">
-                                    @error('brochureimage')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                                <div id="imagePreview">
+                            <div class="row">
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Popup Title:</label>
+                                    <input type="text" name="title" id="" class="form-control"
+                                        value="" placeholder="Popup Title">
+                                    <span class="text-danger">
+                                        @error('title')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
 
                                 </div>
-                            </div>
 
-                            <div class="form-group col-md-6 required">
-                                <label for="">Banner Pdf/Image:</label>
-                                <div class="file-box">
-                                    <input type="file" name="brochurepdf" class="form-control" value=""
-                                        placeholder="" />
-                                    {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Location:</label>
+                                    <input type="text" name="location" id="" class="form-control"
+                                        value="" placeholder="Location">
+
+                                    <span class="text-danger">
+                                        @error('location')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
 
-                                <span class="text-danger">
-                                    @error('brochurepdf')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Popup Image:</label>
+                                    <div class="file-box">
+                                        <input type="file" name="brochureimage" id="caseimageinput"
+                                            class="form-control" value="" placeholder="" />
+                                        <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                    </div>
+
+                                    <span class="text-danger">
+                                        @error('brochureimage')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                    <div id="imagePreview">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Banner Pdf/Image:</label>
+                                    <div class="file-box">
+                                        <input type="file" name="brochurepdf" class="form-control" value=""
+                                            placeholder="" />
+                                        {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
+                                    </div>
+
+                                    <span class="text-danger">
+                                        @error('brochurepdf')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+
+                                <div class="form-group col-md-12 ">
+                                    <button type="submit" id="submit"
+                                        class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+
+                                </div>
+
+
                             </div>
-
-                            <div class="form-group col-md-12 ">
-                                <button type="submit" id="submit"
-                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
-                            </div>
-
 
                         </div>
-
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 </section>
 
 
@@ -144,6 +148,8 @@
 
     $('#brochureCreate').submit(function(e) {
         e.preventDefault();
+        $(".from-prevent-multiple-submits").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
 
         if (selectedFile) {
             var formData = new FormData($("#brochureCreate")[0]);
@@ -156,12 +162,15 @@
                 type: 'POST',
                 cache: false,
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
+                    $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     $('#brochureCreate').trigger("reset");
 
                     $('#imagePreview').html('');
                     $('.close-icon').hide();
-                    console.log(response.message);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     toastr.options = {
                         'closeButton': true,
                         'progressBar': true
@@ -173,6 +182,8 @@
                 },
 
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field, errorMessage) {
@@ -201,7 +212,9 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
+                    $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     $('#brochureCreate').trigger("reset");
                     $('#imagePreview').html('');
                     $('.close-icon').hide();
@@ -215,6 +228,8 @@
                     window.location.href = response.route;
                 },
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field,

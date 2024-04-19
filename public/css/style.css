@@ -3196,10 +3196,15 @@ img.language-icon {
     width: 28px;
     margin-bottom: -43px;
     margin-left: 12px;
+    position: absolute;
+    top: 10px;
+    left: -2px;
 }
+
 
 div#google_translate_element {
     margin-top: -17px;
+    position: relative;
 }
 
 .skiptranslate iframe {

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Case Store')
+@section('title', ' Add Case')
 {{-- TinyMce --}}
 <style>
     label {
@@ -28,7 +28,7 @@
         color: red;
         font-size: 18px;
         display: none;
-        margin-top: 19px;
+        margin-top: 2px;
         cursor: pointer;
     }
 
@@ -51,102 +51,106 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Add Case</h2>
+
+                    <div class="back-btn-box">
+                        <a href="{{ route('case-section') }}" class="back-btn"><img
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
+                        <h2>Add Case</h2>
+                    </div>
                 </div>
                 <div class="col-md-6">
                 </div>
             </div>
         </div>
-    <div class="container-fluid">
-        <!-- Input -->
-        <div class="row clearfix">
-            <div class="form-box">
-                <form enctype="multipart/form-data" id="caseCreate">
-                    @csrf
-                    <div class="container mt-4 card p-3 bg-white">
+        <div class="container-fluid">
+            <!-- Input -->
+            <div class="row clearfix">
+                <div class="form-box">
+                    <form enctype="multipart/form-data" id="caseCreate">
+                        @csrf
+                        <div class="container mt-4 card p-3 bg-white">
 
-                        <div class="row">
-                            <div class="form-group col-md-6 required">
-                                <label for="">Case Name:</label>
-                                <input type="text" name="case" id="case" class="form-control" value=""
-                                    placeholder="Case Name">
-                                <span class="text-danger case-error"></span>
-
-                            </div>
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Case Title:</label>
-                                <input type="text" name="casetitle" id="casetitle" class="form-control" value=""
-                                    placeholder="Case Title">
-
-
-                                <span class="text-danger">
-                                    @error('casetitle')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Posted By:</label>
-                                <input type="text" name="postedby" id="postedby" class="form-control" value=""
-                                    placeholder="Posted By">
-                                <span class="text-danger">
-                                    @error('dob')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-
-
-                            <div class="form-group col-md-6 required">
-
-                                <label for="">Case Image: (max 5 files allowed with extension
-                                    jpg,jpeg,png)<br>
-                                    (select images at once)</label>
-                                <div class="file-box">
-                                    <input type="file" accept="image/png, image/jpg, image/jpeg" name="caseimage[]"
-                                        id="caseimage" class="form-control" value="" placeholder="Case Image"
-                                        multiple />
-                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
-                                </div>
-                                <span class="text-danger" id="imageError">
-
-                                </span>
-
-                                <div id="imagePreview" style="display:flex;">
+                            <div class="row">
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Case Name:</label>
+                                    <input type="text" name="case" id="case" class="form-control"
+                                        value="" placeholder="Case Name">
+                                    <span class="text-danger case-error"></span>
 
                                 </div>
+
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Case Title:</label>
+                                    <input type="text" name="casetitle" id="casetitle" class="form-control"
+                                        value="" placeholder="Case Title">
+
+
+                                    <span class="text-danger">
+                                        @error('casetitle')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+
+
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Posted By:</label>
+                                    <input type="text" name="postedby" id="postedby" class="form-control"
+                                        value="" placeholder="Posted By">
+                                    <span class="text-danger">
+                                        @error('dob')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+
+
+
+                                <div class="form-group col-md-6 required">
+
+                                    <label for="">Case Image: (max 5 files allowed with extension
+                                        jpg,jpeg,png)</label>
+                                    <div class="file-box">
+                                        <input type="file" accept="image/png, image/jpg, image/jpeg"
+                                            name="caseimage[]" id="caseimage" class="form-control" value=""
+                                            placeholder="Case Image" multiple />
+                                        <i class="fa fa-close close-icon" id="closeIcon"></i>
+                                    </div>
+                                    <span class="text-danger" id="imageError">
+
+                                    </span>
+
+                                    <div id="imagePreview" style="display:flex;">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12 required">
+                                    <label for="">Description:</label>
+                                    <textarea id="tinymce" name="tinymce" class="form-control" placeholder="Add Description Here"
+                                        OnClientClick="tinyMCE.triggerSave(false,true);"></textarea>
+                                    <span class="text-danger">
+                                        @error('description')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+
+
+                                <div class="form-group col-md-12 ">
+                                    <button type="submit" id="submit"
+                                        class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+
+                                </div>
+
+
                             </div>
-
-                            <div class="form-group col-md-12 required">
-                                <label for="">Description:</label>
-                                <textarea id="tinymce" name="tinymce" class="form-control" placeholder="Add Description Here"
-                                    OnClientClick="tinyMCE.triggerSave(false,true);"></textarea>
-                                <span class="text-danger">
-                                    @error('description')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-
-                            <div class="form-group col-md-12 ">
-                                <button type="submit" id="submit"
-                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
-                            </div>
-
 
                         </div>
-
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 </section>
 
 
@@ -256,6 +260,8 @@
 
     $('#caseCreate').submit(function(e) {
         e.preventDefault();
+        $(".from-prevent-multiple-submits").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
         tinymce.triggerSave(false, true)
         if (selectedFile) {
             var formData = new FormData($("#caseCreate")[0]);
@@ -274,7 +280,9 @@
                 type: 'POST',
                 cache: false,
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
+                    $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     $('#caseCreate').trigger("reset");
 
                     $('#imagePreview').html('');
@@ -291,6 +299,8 @@
                 },
 
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
 
                         $('.text-danger').html('');
@@ -331,7 +341,9 @@
 
 
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
+                    $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     $('#caseCreate').trigger("reset");
 
                     $('#imagePreview').html('');
@@ -346,6 +358,8 @@
                     window.location.href = "/admin/case-study";
                 },
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
                         // $('#imageError').html('');
                         console.log(response.responseJSON.errors);

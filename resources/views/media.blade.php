@@ -2,11 +2,7 @@
     <link rel="stylesheet" href="{{ asset('/css/event.css') }}" />
 @endpush
 @extends('layout.main')
-<style>
-    .cl-location-box {
-    justify-content: flex-start !important;
-}
-</style>
+
 @section('content')
     <div id="page">
         <!---headerwrapper end-->
@@ -80,10 +76,11 @@
                             <div class="cr-title-box">
                                 <h1 class="csd-title">Print Coverage</h1>
                             </div>
+
                             <div class="case-study-box">
-                                <div class="case-study-item">
-                                    @if (count($latestEventData) > 0)
-                                        @foreach ($latestEventData as $event)
+                                @if (count($latestEventData) > 0)
+                                    @foreach ($latestEventData as $event)
+                                        <div class="case-study-item">
                                             <img src="{{ isset($event->printDocsImage->path) ? asset($event->printDocsImage->path) : asset('/images/event/event1.jpg') }}"
                                                 class="cs-image" />
                                             <div class="cs-content">
@@ -108,8 +105,8 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                </div>
-                                @endforeach
+                                        </div>
+                                    @endforeach
                                 @endif
                                 {{-- <div class="case-study-item">
                                     <img class="cs-image" src="{{ asset('/images/event/event2.jpg') }}" />
