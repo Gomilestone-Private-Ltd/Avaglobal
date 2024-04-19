@@ -135,7 +135,7 @@
 
                             <div class="form-group col-md-6">
                                 <label for="">Case Image: (max 5 files allowed with extension jpg,jpeg,png)<br>
-                                    (select images at once)
+                                    (Image Dimension should be 1366*550)
                                 </label>
 
                                 <div class="file-box">

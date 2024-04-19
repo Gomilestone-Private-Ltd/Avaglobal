@@ -39,17 +39,17 @@
 
                                 <div class="job-right" id="apply">
                                     <h3 class="csdt-title">Job Details</h3>
-                                    <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">
+                                    <p class="jr-box"><img src="{{ asset('/images/editing.png') }}" class="time-img">
                                         Category :<span>
                                             {{ isset($careerData->job_role) ? $careerData->job_role : '' }}</span>
                                     </p>
                                     <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Workday :
                                         <span>{{ isset($careerData->time_period) ? $careerData->time_period : '' }}</span>
                                     </p>
-                                    <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Location :
+                                    <p class="jr-box"><img src="{{ asset('/images/location.png') }}" class="time-img">Location :
                                         <span> {{ isset($careerData->location) ? $careerData->location : '' }}</span>
                                     </p>
-                                    <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Experience
+                                    <p class="jr-box"><img src="{{ asset('/images/event.png') }}" class="time-img">Experience
                                         :
                                         <span> {{ isset($careerData->experience) ? $careerData->experience : '' }}</span>
                                     </p>

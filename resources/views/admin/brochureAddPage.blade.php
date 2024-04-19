@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'PopUp')
+@section('title', 'Brochure')
 {{-- TinyMce --}}
 <style>
     label {

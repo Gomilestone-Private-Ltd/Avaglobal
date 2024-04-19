@@ -65,7 +65,7 @@
                     <div class="card p-3 bg-white">
                         <div class="row">
                             <div class="form-group col-md-12 required">
-                                <label for="">Add Marque Text:(max 125 characters)</label>
+                                <label for="">Add Marque Text :(max 125 characters)</label>
                                 <input type="hidden" name="marqueId" value="{{ $data->id }}">
                                 <textarea type="text" name="marquetext" id="" class="form-control" value=""
                                     placeholder="Add Marque Text Here">{{ $data->marque_text }}</textarea>

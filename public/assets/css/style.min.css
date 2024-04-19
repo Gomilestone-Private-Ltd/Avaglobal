@@ -18079,12 +18079,12 @@ video.logo-video {
 }
 
 .sidebar .menu .list li {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     background-color: transparent;
 }
 
 .sidebar .menu .list li:hover {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     background-color: transparent;
     
 }
@@ -18200,7 +18200,7 @@ img.add-icon {
 }
 
 img.side-icon {
-    width: 28px;
+    width: 18px;
     margin-right: 12px;
     margin-top: -5px;
 }

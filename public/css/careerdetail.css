@@ -119,8 +119,11 @@ h3.csdt-title2 {
     letter-spacing: 0;
     line-height: 40px;
     text-transform: uppercase;
-    padding-top: 30px;
+    padding-top: 25px;
+    padding-bottom: 10px;
 }
+
+
 
 
 
@@ -202,7 +205,7 @@ p.jr-box span {
 .input-container {
     position: relative;
     width: 100%;
-    margin: 0 0% 15px 0;
+    margin: 0 0% 25px 0;
 }
 
 .footerwrapper {
@@ -267,12 +270,13 @@ p.jr-box span {
     
     
         .csdt-title h2 {
-            font-size: 24px;
+            font-size: 20px;
             color: #2c2c2c;
             font-weight: bold;
             letter-spacing: 0;
-            line-height: 40px;
+            line-height: 24px;
             text-transform: uppercase;
+            padding-top: 26px;
         }
 
         /* me added */
@@ -283,4 +287,12 @@ p.jr-box span {
         .text-danger{
             color:red;
             font-size: 14px;
+        }
+
+        .form-cont input[type="text"], .form-cont input[type="email"] {
+            color: #000000;
+        }
+
+        .input-container:nth-child(2n + 2) {
+            margin: 0 0 25px 0;
         }
