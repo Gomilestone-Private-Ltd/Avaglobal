@@ -108,45 +108,6 @@
                                         @enderror
                                     </span>
 
-                            </div>
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Case Title:</label>
-                                <input type="text" name="casetitle" id="casetitle" class="form-control"
-                                    value="{{ $data->case_title }}" placeholder="Case Title">
-
-
-                                <span class="text-danger">
-                                    @error('casetitle')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Posted By:</label>
-                                <input type="text" name="postedby" id="postedby" class="form-control"
-                                    value="{{ $data->posted_by }}" placeholder="Posted By">
-                                <span class="text-danger">
-                                    @error('dob')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-
-
-                            <div class="form-group col-md-6">
-                                <label for="">Case Image: (max 5 files allowed with extension jpg,jpeg,png)<br>
-                                    (Image Dimension should be 1366*550)
-                                </label>
-
-                                <div class="file-box">
-                                    <input type="file" name="caseimage[]" accept="image/png, image/jpg, image/jpeg"
-                                        id="caseimage" class="form-control" value="" placeholder="Case Image"
-                                        multiple />
-                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
                                 </div>
 
                                 <div class="form-group col-md-6 required">
@@ -179,7 +140,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="">Case Image: (max 5 files allowed with extension
                                         jpg,jpeg,png)<br>
-                                        (select images at once)
+                                        (Image Dimension should be 1366*550)
                                     </label>
 
                                     <div class="file-box">

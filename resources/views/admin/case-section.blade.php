@@ -109,7 +109,9 @@
                                 <div class="form-group col-md-6 required">
 
                                     <label for="">Case Image: (max 5 files allowed with extension
-                                        jpg,jpeg,png)</label>
+                                        jpg,jpeg,png)<br>
+                                        (Image Dimension should be 1366*550)
+                                    </label>
                                     <div class="file-box">
                                         <input type="file" accept="image/png, image/jpg, image/jpeg"
                                             name="caseimage[]" id="caseimage" class="form-control" value=""
