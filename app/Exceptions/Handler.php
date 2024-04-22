@@ -50,11 +50,8 @@ class Handler extends ExceptionHandler
     // }
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
 
-        $this->renderable(function (Exception $e) {
+        $this->renderable(function (Throwable $e) {
             return response()->view('errors.404', ['exception' => $e], 500);
         });
     }
