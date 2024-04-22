@@ -131,8 +131,10 @@
         @include('layout.menu')
         @yield('content')
         @include('layout.footer')
-        @if (isset($brochure->status) && $brochure->status == 1)
-            @include('layout.event-popup')
+        @if (Route::is('home'))
+            @if (isset($brochure->status) && $brochure->status == 1)
+                @include('layout.event-popup')
+            @endif
         @endif
 
     </body>
