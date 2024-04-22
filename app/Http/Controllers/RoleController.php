@@ -95,9 +95,10 @@ class RoleController extends Controller
     public function addPermissionToRole($roleId)
     {
         $allPermissions = Permission::pluck('name', 'id')->toArray();
+        $groupedPermissionRecords = Permission::orderBy('id', 'desc')->get()->groupBy('group_name');
         $role = Role::findOrFail($roleId);
         $roleHasPermissions = ModelsRole::roleHasPermissions($role, $allPermissions);
-        return view('admin.role.add-permissions', ['role' => $role, 'permissions' => $allPermissions, 'roleHasPermissions' => $roleHasPermissions]);
+        return view('admin.role.add-permissions', ['role' => $role, 'permissions' => $allPermissions, 'roleHasPermissions' => $roleHasPermissions, 'groupedPermissionRecords' => $groupedPermissionRecords]);
     }
 
     public function givePermissionToRole(Request $request, $roleId)
