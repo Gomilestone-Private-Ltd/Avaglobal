@@ -438,7 +438,14 @@
                     </div>
                 </div>
             </div>
-            <div class="section" id="section5">
+            <div class="section servdet3sld" id="section5">
+                <div class="fp-tableCell fv-display">
+                    <div class="testimonial-container">
+                        <h2 class="main-headings">Testimonial</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="section6">
                 <div class="contactinfobg pageblock">
                     <div class="contactinforightblk">
                         <h2 class="tagline uppercase">Contact info.</h2>
