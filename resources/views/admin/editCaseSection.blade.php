@@ -72,6 +72,72 @@
         box-shadow: 0px 0px 5px #ff1212;
         cursor: pointer;
     }
+
+    .fa-minus {
+        color: black;
+    }
+
+    .plus {
+        color: #010b48 !important;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 9;
+    }
+
+    .minus {
+        color: #010b48 !important;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 9;
+    }
+
+    #caseimage {
+        position: relative;
+        padding-right: 20px;
+    }
+
+    /* added */
+    #files-area {
+        /* width: 30%;
+        margin: 0 auto; */
+        overflow: hidden;
+    }
+
+    .file-block {
+        border-radius: 10px;
+        background-color: rgba(144, 163, 203, 0.2);
+        margin: 5px;
+        color: initial;
+        display: inline-flex;
+
+        &>span.name {
+            padding-right: 10px;
+            width: max-content;
+            display: inline-flex;
+        }
+    }
+
+    .file-delete {
+        display: flex;
+        width: 24px;
+        color: initial;
+        background-color: #6eb4ff00;
+        font-size: large;
+        justify-content: center;
+        margin-right: 3px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(144, 163, 203, 0.2);
+            border-radius: 10px;
+        }
+
+        &>span {
+            transform: rotate(45deg);
+        }
+    }
 </style>
 
 <section class="content">
@@ -108,45 +174,6 @@
                                         @enderror
                                     </span>
 
-                            </div>
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Case Title:</label>
-                                <input type="text" name="casetitle" id="casetitle" class="form-control"
-                                    value="{{ $data->case_title }}" placeholder="Case Title">
-
-
-                                <span class="text-danger">
-                                    @error('casetitle')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-
-                            <div class="form-group col-md-6 required">
-                                <label for="">Posted By:</label>
-                                <input type="text" name="postedby" id="postedby" class="form-control"
-                                    value="{{ $data->posted_by }}" placeholder="Posted By">
-                                <span class="text-danger">
-                                    @error('dob')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-
-
-                            <div class="form-group col-md-6">
-                                <label for="">Case Image: (max 5 files allowed with extension jpg,jpeg,png)<br>
-                                    (Image Dimension should be 1366*550)
-                                </label>
-
-                                <div class="file-box">
-                                    <input type="file" name="caseimage[]" accept="image/png, image/jpg, image/jpeg"
-                                        id="caseimage" class="form-control" value="" placeholder="Case Image"
-                                        multiple />
-                                    <i class="fa fa-close close-icon" id="closeIcon"></i>
                                 </div>
 
                                 <div class="form-group col-md-6 required">
@@ -174,20 +201,15 @@
                                     </span>
                                 </div>
 
-
-
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-6 ">
                                     <label for="">Case Image: (max 5 files allowed with extension
                                         jpg,jpeg,png)<br>
-                                        (select images at once)
+                                        (Image Dimension should be 1366*550)
                                     </label>
-
-                                    <div class="file-box">
-                                        <input type="file" name="caseimage[]"
-                                            accept="image/png, image/jpg, image/jpeg" id="caseimage"
-                                            class="form-control" value="" placeholder="Case Image" multiple />
-                                        <i class="fa fa-close close-icon" id="closeIcon"></i>
-                                    </div>
+                                    <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control"
+                                        name="caseimage[]" id="caseimage" multiple />
+                                    <span class="text-danger">
+                                    </span>
                                     <div class="main-image-select-box">
                                         @foreach ($data->avaDocs as $images)
                                             <div class="ml-3 select-image-box">
@@ -197,19 +219,18 @@
                                                     onclick="deleteImage('{{ $images->filename }}')"></i>
                                             </div>
                                         @endforeach
-                                        <div id="imagePreview">
-
-                                            {{-- <img src="{{ asset($data->avaDocs->path) }}" height="50" width="50"
-                                            alt=""> --}}
-                                        </div>
                                     </div>
-
-                                    <span class="text-danger">
-                                        @error('caseimage')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
+                                    <div id="imagePreview" style="display:flex;">
+                                    </div>
+                                    <div>
+                                        <p id="files-area">
+                                            <span id="filesList">
+                                                <span id="files-names"></span>
+                                            </span>
+                                        </p>
+                                    </div>
                                 </div>
+
                                 <div class="form-group col-md-12 required">
                                     <label for="">Description:</label>
                                     <textarea id="tinymce" name="tinymce" class="form-control" placeholder="Add Description Here"
@@ -227,19 +248,56 @@
                                 <div class="form-group col-md-12 ">
                                     <button type="submit" id="submit"
                                         class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
-
                                 </div>
-
-
                             </div>
-
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
 </section>
+
+<script>
+    const dt = new DataTransfer(); // Permet de manipuler les fichiers de l'input file
+
+    $("#caseimage").on('change', function(e) {
+        for (var i = 0; i < this.files.length; i++) {
+            let fileBloc = $('<span/>', {
+                    class: 'file-block'
+                }),
+                fileName = $('<span/>', {
+                    class: 'name',
+                    text: this.files.item(i).name
+                });
+            fileBloc.append('<span class="file-delete"><span>+</span></span>')
+                .append(fileName);
+            $("#filesList > #files-names").append(fileBloc);
+        };
+        // Ajout des fichiers dans l'objet DataTransfer
+        for (let file of this.files) {
+            dt.items.add(file);
+        }
+        // Mise à jour des fichiers de l'input file après ajout
+        this.files = dt.files;
+
+        // EventListener pour le bouton de suppression créé
+        $('span.file-delete').click(function() {
+            let name = $(this).next('span.name').text();
+            // Supprimer l'affichage du nom de fichier
+            $(this).parent().remove();
+            for (let i = 0; i < dt.items.length; i++) {
+                // Correspondance du fichier et du nom
+                if (name === dt.items[i].getAsFile().name) {
+                    // Suppression du fichier dans l'objet DataTransfer
+                    dt.items.remove(i);
+                    continue;
+                }
+            }
+            // Mise à jour des fichiers de l'input file après suppression
+            document.getElementById('caseimage').files = dt.files;
+        });
+    });
+</script>
 
 <script>
     function deleteImage(name) {
@@ -317,38 +375,38 @@
         });
     });
 
-    $(document).ready(function() {
+    // $(document).ready(function() {
 
-        $('#closeIcon').on('click', function() {
-            $('#imagePreview').empty();
-            $('#caseimage').val('');
-            $('.close-icon').hide();
-        });
-        $('#caseimage').on('change', function(e) {
-            var files = this.files; // Get the array of files
-            if (files.length > 0) {
-                $('.close-icon').show();
-                // $('#imagePreview').html(''); // Clear previous previews
-                // Loop through each file
-                for (var i = 0; i < files.length; i++) {
-                    var reader = new FileReader();
-                    reader.onload = (function(file) {
-                        return function(e) {
+    //     $('#closeIcon').on('click', function() {
+    //         $('#imagePreview').empty();
+    //         $('#caseimage').val('');
+    //         $('.close-icon').hide();
+    //     });
+    //     $('#caseimage').on('change', function(e) {
+    //         var files = this.files; // Get the array of files
+    //         if (files.length > 0) {
+    //             $('.close-icon').show();
+    //             // $('#imagePreview').html(''); // Clear previous previews
+    //             // Loop through each file
+    //             for (var i = 0; i < files.length; i++) {
+    //                 var reader = new FileReader();
+    //                 reader.onload = (function(file) {
+    //                     return function(e) {
 
-                            $('#imagePreview').append('<div class="ml-3"><img src="' + e
-                                .target.result +
-                                '" alt="Preview" style="width:70px;height:60px;border-radius:20%"></div>'
-                            );
-                        };
-                    })(files[i]);
-                    reader.readAsDataURL(files[i]); // Read the file as a data URL
-                }
-            } else {
-                $('#imagePreview').html(''); // Clear preview if no file selected
-                $('.close-icon').hide();
-            }
-        });
-    });
+    //                         $('#imagePreview').append('<div class="ml-3"><img src="' + e
+    //                             .target.result +
+    //                             '" alt="Preview" style="width:70px;height:60px;border-radius:20%"></div>'
+    //                         );
+    //                     };
+    //                 })(files[i]);
+    //                 reader.readAsDataURL(files[i]); // Read the file as a data URL
+    //             }
+    //         } else {
+    //             $('#imagePreview').html(''); // Clear preview if no file selected
+    //             $('.close-icon').hide();
+    //         }
+    //     });
+    // });
 
     $('#caseEdit').submit(function(e) {
         e.preventDefault();
@@ -381,7 +439,7 @@
                         'progressBar': true
                     }
                     toastr.success(response.message);
-                    window.location.href = "/admin/case-study";
+                    window.location.href = response.route;
                 },
                 error: function(response) {
                     $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
@@ -442,7 +500,7 @@
                     }
                     toastr.success(response.message);
 
-                    window.location.href = "/admin/case-study";
+                    window.location.href = response.route;
                 },
                 error: function(response) {
                     $(".from-prevent-multiple-submits").find(".fa-spinner").remove();

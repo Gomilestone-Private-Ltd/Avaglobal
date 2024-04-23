@@ -34,7 +34,7 @@
     }
 
     .pr-box {
-        width: 25%;
+        /* width: 25%; */
         display: flex;
         align-items: center;
         margin-bottom: 10px
@@ -45,12 +45,21 @@
         flex-wrap: wrap;
     }
 
-    input[type=checkbox], input[type=radio] {
+    input[type=checkbox],
+    input[type=radio] {
         box-sizing: border-box;
         padding: 0;
         width: 20px;
         height: 20px;
         margin-right: 10px;
+    }
+
+    .grouped-section {
+        width: 25%;
+    }
+
+    .heading {
+        padding-bottom: 10px;
     }
 </style>
 <section class="content">
@@ -59,8 +68,9 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
-                        <a href="{{ route('roles.index') }}" class="back-btn"><img src="{{ asset('assets/images/back.png') }}"
-                        alt="Back" class="back-icon"></a><h2>Role : {{ $role->name }}</h2>
+                        <a href="{{ route('roles.index') }}" class="back-btn"><img
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
+                        <h2>Role : {{ $role->name }}</h2>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -82,17 +92,24 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="card p-3">
-                                        <label for="">Permissions:</label>
-                                        <div class="pr-container">
+                                    <label for="">Permissions:</label>
+                                    <div class="pr-container">
+
+                                        @foreach ($groupedPermissionRecords as $groupName => $permissions)
+                                            <div class="grouped-section">
+                                                <h3 class="heading">{{ $groupName }}</h3>
                                                 @foreach ($permissions as $key => $permission)
-                                                <diV class="pr-box">
-                                                    <input type="checkbox" name="permissions[]" id="{{ $key }}"
-                                                        value="{{ $permission }}"
-                                                        {{ in_array($key, $roleHasPermissions) ? 'checked' : '' }} />
-                                                    {{ $permission }}
-                                                </diV>
+                                                    <diV class="pr-box">
+                                                        <input type="checkbox" name="permissions[]"
+                                                            id="{{ $permission->id }}" value="{{ $permission->name }}"
+                                                            {{ in_array($permission->id, $roleHasPermissions) ? 'checked' : '' }} />
+                                                        {{ $permission->name }}
+                                                    </diV>
                                                 @endforeach
                                             </div>
+                                        @endforeach
+
+                                    </div>
                                     <button type="submit" id="submit"
                                         class="btn btn-primary btn-lg float-right from-prevent-multiple-submits">UPDATE</button>
                                 </div>

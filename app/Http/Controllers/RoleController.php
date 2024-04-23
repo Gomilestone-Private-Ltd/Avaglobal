@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Role as ModelsRole;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -40,9 +41,30 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+
+        $requestData = $request->only('name');
+
+        $rule = [
+
             'name' => 'required|string|unique:roles,name',
-        ]);
+
+        ];
+
+        $message = [
+            'name.required' => 'please add role name',
+            'name.unique' => 'This role name already exists',
+        ];
+
+        $validate = Validator::make($requestData, $rule, $message);
+        if ($validate->fails()) {
+            return redirect('/admin/roles/create')
+                ->withErrors($validate)
+                ->withInput();
+        }
+
+        // $validated = $request->validate([
+        //     'name' => 'required|string|unique:roles,name',
+        // ]);
         //create permission
         Role::create([
             'name' => $request->name
@@ -95,9 +117,10 @@ class RoleController extends Controller
     public function addPermissionToRole($roleId)
     {
         $allPermissions = Permission::pluck('name', 'id')->toArray();
+        $groupedPermissionRecords = Permission::orderBy('id', 'desc')->get()->groupBy('group_name');
         $role = Role::findOrFail($roleId);
         $roleHasPermissions = ModelsRole::roleHasPermissions($role, $allPermissions);
-        return view('admin.role.add-permissions', ['role' => $role, 'permissions' => $allPermissions, 'roleHasPermissions' => $roleHasPermissions]);
+        return view('admin.role.add-permissions', ['role' => $role, 'permissions' => $allPermissions, 'roleHasPermissions' => $roleHasPermissions, 'groupedPermissionRecords' => $groupedPermissionRecords]);
     }
 
     public function givePermissionToRole(Request $request, $roleId)
