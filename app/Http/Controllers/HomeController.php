@@ -59,6 +59,11 @@ class HomeController extends Controller
         $caseStudyData = CaseStudy::where('slug', $slug)->first();
         return view('case-study-detail')->with('caseStudyData', $caseStudyData);
     }
+
+    public function testimonials()
+    {
+        return view('testimonials');
+    }
     public function services()
     {
         return view('services');

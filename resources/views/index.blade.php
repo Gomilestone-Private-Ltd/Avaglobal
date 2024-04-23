@@ -438,7 +438,97 @@
                     </div>
                 </div>
             </div>
-            <div class="section" id="section5">
+            <div class="section servdet3sld" id="section5">
+                <div class="fp-tableCell fv-display">
+                    <div class="testimonial-container">
+                        <h2 class="main-headings">Testimonial</h2>
+                        <section class="regular slider tm-slide">
+                            <div>
+                              <div class="tm-inner">
+                                 <img src="{{ asset('/images/tm-user.jpg') }}" class="tm-user">
+                                 <div class="tm-content">
+                                    <img src="{{ asset('/images/top-quote.png') }}" class="tml-icon">
+                                    <p>Great partner for us and give us great guidance. They are a very forward looking company and we wish our collaboration grows further.</p>
+                                    <img src="{{ asset('/images/bottom-quote.png') }}" class="tmr-icon">
+                                 </div>
+                                 <h3 class="name">Darshan Ghodawat</h3>
+                                 <p class="designation">Ava global Logistics LLP</p>
+                              </div>
+                            </div>
+                            <div>
+                                <div class="tm-inner">
+                                    <img src="{{ asset('/images/tm-user.jpg') }}" class="tm-user">
+                                    <div class="tm-content">
+                                       <img src="{{ asset('/images/top-quote.png') }}" class="tml-icon">
+                                       <p>Great partner for us and give us great guidance. They are a very forward looking company and we wish our collaboration grows further.</p>
+                                       <img src="{{ asset('/images/bottom-quote.png') }}" class="tmr-icon">
+                                    </div>
+                                    <h3 class="name">Darshan Ghodawat</h3>
+                                    <p class="designation">Ava global Logistics LLP</p>
+                                 </div>
+                            </div>
+                            <div>
+                                <div class="tm-inner">
+                                    <img src="{{ asset('/images/tm-user.jpg') }}" class="tm-user">
+                                    <div class="tm-content">
+                                       <img src="{{ asset('/images/top-quote.png') }}" class="tml-icon">
+                                       <p>Great partner for us and give us great guidance. They are a very forward looking company and we wish our collaboration grows further.</p>
+                                       <img src="{{ asset('/images/bottom-quote.png') }}" class="tmr-icon">
+                                    </div>
+                                    <h3 class="name">Darshan Ghodawat</h3>
+                                    <p class="designation">Ava global Logistics LLP</p>
+                                 </div>
+                            </div>
+                            <div>
+                                <div class="tm-inner">
+                                    <img src="{{ asset('/images/tm-user.jpg') }}" class="tm-user">
+                                    <div class="tm-content">
+                                       <img src="{{ asset('/images/top-quote.png') }}" class="tml-icon">
+                                       <p>Great partner for us and give us great guidance. They are a very forward looking company and we wish our collaboration grows further.</p>
+                                       <img src="{{ asset('/images/bottom-quote.png') }}" class="tmr-icon">
+                                    </div>
+                                    <h3 class="name">Darshan Ghodawat</h3>
+                                    <p class="designation">Ava global Logistics LLP</p>
+                                 </div>
+                            </div>
+                            <div>
+                                <div class="tm-inner">
+                                    <img src="{{ asset('/images/tm-user.jpg') }}" class="tm-user">
+                                    <div class="tm-content">
+                                       <img src="{{ asset('/images/top-quote.png') }}" class="tml-icon">
+                                       <p>Great partner for us and give us great guidance. They are a very forward looking company and we wish our collaboration grows further.</p>
+                                       <img src="{{ asset('/images/bottom-quote.png') }}" class="tmr-icon">
+                                    </div>
+                                    <h3 class="name">Darshan Ghodawat</h3>
+                                    <p class="designation">Ava global Logistics LLP</p>
+                                 </div>
+                            </div>
+                            <div>
+                                <div class="tm-inner">
+                                    <img src="{{ asset('/images/tm-user.jpg') }}" class="tm-user">
+                                    <div class="tm-content">
+                                       <img src="{{ asset('/images/top-quote.png') }}" class="tml-icon">
+                                       <p>Great partner for us and give us great guidance. They are a very forward looking company and we wish our collaboration grows further.</p>
+                                       <img src="{{ asset('/images/bottom-quote.png') }}" class="tmr-icon">
+                                    </div>
+                                    <h3 class="name">Darshan Ghodawat</h3>
+                                    <p class="designation">Ava global Logistics LLP</p>
+                                 </div>
+                            </div>
+                          </section>
+                          <div class="tm-btn">
+                          <a href="{{ route('testimonials') }}">
+                            <div class="knowmore uppercase">
+                                View All Testimonial
+                                <div class="sprite knwmorearw"></div>
+                            </div>
+
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" id="section6">
                 <div class="contactinfobg pageblock">
                     <div class="contactinforightblk">
                         <h2 class="tagline uppercase">Contact info.</h2>
@@ -560,6 +650,18 @@
                 </script>
                 {{-- <script src="{{ asset('/js/scrollIt.min.js') }}"></script>
     <script src="{{ asset('/js/jquery.fullPage.js') }}"></script> --}}
+                <script type="text/javascript">
+                    $(document).on('ready', function() {
+                        $(".regular").slick({
+                            dots: false,
+                            infinite: true,
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            autoplay: false,
+                            autoplaySpeed: 2000,
+                        });
+                    });
+                </script>
                 <script>
                     $(document).ready(function() {
                         if ($(window).width() >= 1024) {

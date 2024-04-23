@@ -39,6 +39,7 @@ Route::get('/', [HomeController::class, 'homePage'])->name('home');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('career', [HomeController::class, 'career'])->name('career');
+Route::get('testimonials', [HomeController::class, 'testimonials'])->name('testimonials');
 Route::get('case-study', [HomeController::class, 'caseStudy'])->name('caseStudy');
 Route::get('career-detail/{slug}', [HomeController::class, 'careerDetails'])->name('careerDetails');
 Route::get('case-study-detail/{slug}', [HomeController::class, 'caseStudyDetail'])->name('caseStudyDetail');
