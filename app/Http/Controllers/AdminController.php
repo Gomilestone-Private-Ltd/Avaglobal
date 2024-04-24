@@ -7,6 +7,7 @@ use App\Models\AvaDocs;
 use App\Models\Brochure;
 use App\Models\CaseStudy;
 use App\Models\Description;
+use App\Models\Testimonial;
 use App\Models\Job;
 use App\Models\Marque;
 use DB;
@@ -1129,7 +1130,7 @@ class AdminController extends Controller
 
     public function onlineCoverage()
     {
-        $records = Media::select('id', 'title', 'online_image_id', 'location', 'media_url', 'created_at')->whereNotNull('media_url')->with('onlineDocsImage')->get();
+        $records = Media::select('id', 'status', 'description', 'title', 'online_image_id', 'location', 'media_url', 'created_at')->whereNotNull('media_url')->orderBy('id', 'DESC')->with('onlineDocsImage')->get();
         return view('admin.media.online.onlineCoverage', ['mediaRecord' => $records]);
     }
 
@@ -1145,6 +1146,7 @@ class AdminController extends Controller
             'location' => 'required',
             'mediaUrl' => 'required|url',
             'onlineMediaImage' => 'required|mimes:jpeg,jpg,png',
+            'description' => 'required',
         ]);
         if ($validate->fails()) {
             return redirect()->back()
@@ -1165,6 +1167,7 @@ class AdminController extends Controller
                 'location' => $request->location,
                 'online_image_id' => $fileSaveResponse['id'],
                 'media_url' => $request->mediaUrl,
+                'description' => $request->description
             ];
             Media::create($saveRecords);
             return redirect()->route('online-coverage')->with('success', 'Records added sucessfully');
@@ -1211,6 +1214,7 @@ class AdminController extends Controller
         $mediaPrintRecords->title = $request->title;
         $mediaPrintRecords->location = $request->location;
         $mediaPrintRecords->media_url = $request->mediaUrl;
+        $mediaPrintRecords->description = $request->description;
         $mediaPrintRecords->save();
         return redirect()->route('online-coverage')->with('success', 'Records updated sucessfully');
     }
@@ -1228,7 +1232,7 @@ class AdminController extends Controller
     //print Coverage
     public function printCoverage()
     {
-        $records = Media::select('id', 'title', 'location', 'print_image_id', 'pdf_file_id', 'created_at')->whereNotNull('pdf_file_id')->with(['avaDocs', 'printDocsImage'])->get();
+        $records = Media::select('id', 'title', 'location', 'print_image_id', 'pdf_file_id', 'status', 'created_at')->whereNotNull('pdf_file_id')->with(['avaDocs', 'printDocsImage'])->orderBy('id', 'DESC')->get();
         return view('admin.media.print.printCoverage', ['mediaRecord' => $records]);
     }
 
@@ -1348,5 +1352,178 @@ class AdminController extends Controller
         }
         $mediaRecord->delete();
         return response()->json(['success' => true, 'route' => route('print-coverage'), 'message' => 'Records deleted successfully']);
+    }
+
+    // testimonial
+    public function indexTestimonial()
+    {
+        $testimonialData = Testimonial::orderBy('id', 'DESC')->with('testimonialImage')->get();
+        return view('admin.testimonial.index')->with('testimonialData', $testimonialData);
+    }
+    public function createTestimonial()
+    {
+        return view('admin.testimonial.create');
+    }
+    public function storeTestimonial(Request $request)
+    {
+        $requestData = $request->only('monialname', 'monialtext', 'monialimage');
+
+        $rule = [
+            'monialname' => 'required',
+            'monialtext' => 'required',
+            'monialimage' => 'mimes:jpeg,jpg,png',
+        ];
+        $message = [
+            'monialname.required' => "Please fill the testimonial name ",
+            'monialtext.required' => 'Please add some text here',
+            'monialimage.mimes' => 'image extension must be of jpeg,jpg,png',
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        // dd($validate);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+
+        if ($request->hasFile('monialimage')) {
+            $files = $request->file('monialimage');
+            $data = $this->customFileUpload($files);
+            $avaDocs = new AvaDocs;
+            $avaDocs->filename = $data['filename'];
+            $avaDocs->filetype = $data['fileType'];
+            $avaDocs->filesize = $data['fileSize'];
+            $avaDocs->path = $data['actualImagePath'];
+            $avaDocs->save();
+        }
+        $file_id = isset($avaDocs->id) ? $avaDocs->id : null;
+        $testimonial = new Testimonial;
+        $testimonial->file_id = $file_id;
+        $testimonial->name = $request['monialname'];
+        $testimonial->text = $request['monialtext'];
+        $testimonial->save();
+        return response()->json(['success' => true, 'message' => 'Record Added Successfully', 'route' => route('testimonial.index')]);
+    }
+    public function editTestimonial($id)
+    {
+        $testimonialRecords = Testimonial::where('id', $id)->with('testimonialImage')->first();
+        return view('admin.testimonial.edit')->with('testimonialRecords', $testimonialRecords);
+    }
+
+    public function updateTestimonial(Request $request)
+    {
+        // dd($request->all());
+        $monialId = $request->monialId;
+        $requestData = $request->only('monialname', 'monialtext', 'monialimage');
+
+        $rule = [
+            'monialname' => 'required',
+            'monialtext' => 'required',
+            'monialimage' => 'mimes:jpeg,jpg,png',
+        ];
+        $message = [
+            'monialname.required' => "Please fill the testimonial name ",
+            'monialtext.required' => 'Please add some text here',
+            'monialimage.mimes' => 'image extension must be of jpeg,jpg,png',
+        ];
+        $validate = Validator::make($requestData, $rule, $message);
+        // dd($validate);
+        if ($validate->fails()) {
+            return response()->json(['errors' => $validate->errors()], 400);
+        }
+        $testimonialRecords = Testimonial::where('id', $monialId)->with('testimonialImage')->first();
+
+        if ($request->hasFile('monialimage')) {
+            if (!empty($testimonialRecords->testimonialImage->path)) {
+                $fileUnlink = $this->unlinkFile($testimonialRecords->testimonialImage->path);
+                if ($fileUnlink == true) {
+                    $avaDocsImageData = $this->customFileUpload($request->file('monialimage'));
+                    $avaDOcsImage = AvaDocs::where('id', $testimonialRecords->file_id)->first();
+                    $avaDOcsImage->filename = $avaDocsImageData['filename'];
+                    $avaDOcsImage->filetype = $avaDocsImageData['fileType'];
+                    $avaDOcsImage->filesize = $avaDocsImageData['fileSize'];
+                    $avaDOcsImage->path = $avaDocsImageData['actualImagePath'];
+                    $avaDOcsImage->save();
+                }
+            } else {
+                $files = $request->file('monialimage');
+                $data = $this->customFileUpload($files);
+                $avaDocs = new AvaDocs;
+                $avaDocs->filename = $data['filename'];
+                $avaDocs->filetype = $data['fileType'];
+                $avaDocs->filesize = $data['fileSize'];
+                $avaDocs->path = $data['actualImagePath'];
+                $avaDocs->save();
+            }
+        }
+
+        $testimonialRecords->file_id = isset($avaDocs->id) ? $avaDocs->id : $testimonialRecords->file_id;
+        $testimonialRecords->name = $request['monialname'];
+        $testimonialRecords->text = $request['monialtext'];
+        $testimonialRecords->save();
+
+        return response()->json(['success' => true, 'message' => 'Record Added Successfully', 'route' => route('testimonial.index')]);
+    }
+
+    public function testimonialStatus($id)
+    {
+        // dd($id);
+        $Data = Testimonial::find($id);
+        if ($Data->status == 1) {
+            $Data->status = 0;
+        } elseif ($Data->status == 0) {
+            $Data->status = 1;
+        }
+        $Data->save();
+        return response()->json(['success' => true, 'message' => 'Testimonial status changed Successfully']);
+    }
+
+    public function deleteTestimonial($id)
+    {
+
+        $testimonialRecord = Testimonial::where('id', $id)->with('testimonialImage')->first();
+        if (!empty($testimonialRecord->testimonialImage)) {
+            $this->deleteFile($testimonialRecord->testimonialImage->filename);
+        }
+        $testimonialRecord->delete();
+        return response()->json(['success' => true, 'route' => route('testimonial.index'), 'message' => 'Records deleted successfully']);
+    }
+
+    //caseStudy status
+    public function changeCaseStatus($id)
+    {
+        $Data = CaseStudy::find($id);
+        if ($Data->status == 1) {
+            $Data->status = 0;
+        } elseif ($Data->status == 0) {
+            $Data->status = 1;
+        }
+        $Data->save();
+        return response()->json(['success' => true, 'message' => 'Case status changed Successfully']);
+    }
+    //onlineMedia Status
+    public function changeOnlineMediaStatus($id)
+    {
+        $Data = Media::where('id', $id)->with('onlineDocsImage')->whereHas('onlineDocsImage')->first();
+        if ($Data->status == 1) {
+            $Data->status = 0;
+        } elseif ($Data->status == 0) {
+            $Data->status = 1;
+        }
+        $Data->save();
+        return response()->json(['success' => true, 'message' => 'Case status changed Successfully']);
+    }
+
+    public function printMediaStatus($id)
+    {
+        $Data = Media::where('id', $id)->with('avaDocs', 'printDocsImage')
+            ->whereHas('printDocsImage')
+            ->whereHas('avaDocs')
+            ->first();
+        if ($Data->status == 1) {
+            $Data->status = 0;
+        } elseif ($Data->status == 0) {
+            $Data->status = 1;
+        }
+        $Data->save();
+        return response()->json(['success' => true, 'message' => 'Case status changed Successfully']);
     }
 }

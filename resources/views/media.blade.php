@@ -68,6 +68,7 @@
                         </div>
                         @php
                             $latestEventData = App\Models\Media::with('avaDocs', 'printDocsImage')
+                                ->where('status', 1)
                                 ->whereHas('avaDocs')
                                 ->whereHas('printDocsImage')
                                 ->get();

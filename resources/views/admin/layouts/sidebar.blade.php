@@ -63,6 +63,13 @@
                             alt="Dashboard" class="side-icon">Brochure</a>
                 </li>
             @endcan
+            {{-- testimonial --}}
+            @can('view-testimonial')
+                <li>
+                    <a href="{{ route('testimonial.index') }}"><img src="{{ asset('assets/images/brochure.png') }}"
+                            alt="Dashboard" class="side-icon">Testimonial</a>
+                </li>
+            @endcan
 
             {{-- Media --}}
             @can('view-media-corner')

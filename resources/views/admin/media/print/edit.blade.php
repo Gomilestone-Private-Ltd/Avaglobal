@@ -68,7 +68,8 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label for="">Upload Image</label>
-                                            <input type="file" name="printMediaImage" id=""
+                                            <input type="file" name="printMediaImage"
+                                                accept="image/png, image/jpg, image/jpeg" id=""
                                                 class="form-control">
                                             <div class="mt-3">
                                                 @if (isset($records->printDocsImage->path))

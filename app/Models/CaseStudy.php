@@ -20,4 +20,9 @@ class CaseStudy extends Model
     {
         return date("d F Y", strtotime($value));
     }
+    public function checkCaseStatus()
+    {
+        $status = self::where('status', 1)->count();
+        return $status;
+    }
 }

@@ -77,6 +77,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+
         return view('admin.role.edit', ['role' => $role]);
     }
 

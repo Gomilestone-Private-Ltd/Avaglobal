@@ -68,14 +68,24 @@
                                         </div>
                                         <div class="form-group col-md-4 required">
                                             <label for="">Upload Image</label>
-                                            <input type="file" name="onlineMediaImage" id=""
+                                            <input type="file" name="onlineMediaImage"
+                                                accept="image/png, image/jpg, image/jpeg" id=""
                                                 class="form-control">
                                             <span class="text-danger"> @error('onlineMediaImage')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
                                         </div>
-                                        <div class="form-group col-md-12 required">
+
+                                        <div class="form-group col-md-6 required">
+                                            <label for="">Description</label>
+                                            <textarea name="description" id="" class="form-control" placeholder="Add Description"></textarea>
+                                            <span class="text-danger"> @error('description')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                        </div>
+                                        <div class="form-group col-md-6 required">
                                             <label for="">Media URL</label>
                                             <input type="text" name="mediaUrl" id="" class="form-control"
                                                 placeholder="Enter Url" value="{{ old('mediaUrl') }}">

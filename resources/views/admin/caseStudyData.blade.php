@@ -58,6 +58,9 @@
                                             <th>Posted By</th>
                                             {{-- <th>Posted Date</th> --}}
                                             <th>Description</th>
+                                            @can('edit-status-casestudy')
+                                                <th>Status</th>
+                                            @endcan
                                             @if (auth()->user()->can('edit-case-study') || auth()->user()->can('delete-case-study'))
                                                 <th>Action</th>
                                             @endif
@@ -87,6 +90,13 @@
                                                     </a>
 
                                                 </td>
+                                                @can('edit-status-casestudy')
+                                                    <td>
+                                                        {!! $data->status == 1
+                                                            ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
+                                                            : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
+                                                    </td>
+                                                @endcan
                                                 @if (auth()->user()->can('edit-case-study') || auth()->user()->can('delete-case-study'))
                                                     <td>
                                                         <div class="d-flex">
@@ -173,6 +183,35 @@
         </div>
     </div>
 </section>
+
+<script>
+    function changeStatus(id) {
+        toastr.options = {
+            'progressBar': true,
+            'closeButton': true,
+            'timeOut': 5000
+        }
+        $.ajax({
+            type: 'GET',
+            url: baseUrl + '/admin/casestudy-status/' + id,
+            data: id,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                if (response.success == true) {
+                    toastr.success(response.message);
+                    window.location.href = "";
+                } else {
+                    toastr.error(response.message);
+                    window.location.href = "";
+                }
+            },
+            error: function(response) {
+                console.log("something went wrong");
+            }
+        });
+    }
+</script>
 <script>
     function updateModalBody(id) {
         // Send an AJAX request

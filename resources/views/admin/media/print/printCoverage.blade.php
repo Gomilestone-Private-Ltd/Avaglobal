@@ -57,6 +57,9 @@
                                             <th>LOCATION</th>
                                             <th>IMAGE</th>
                                             <th>PDF FILE</th>
+                                            @can('edit-status-printcoverage')
+                                                <th>STATUS</th>
+                                            @endcan
                                             @if (auth()->user()->can('edit-print-coverage') || auth()->user()->can('delete-print-coverage'))
                                                 <th>ACTION</th>
                                             @endif
@@ -85,6 +88,13 @@
                                                     @else
                                                         <td>No File</td>
                                                     @endif
+                                                    @can('edit-status-printcoverage')
+                                                        <td>
+                                                            {!! $record->status == 1
+                                                                ? '<button class="btn btn-success" onclick="changeStatus(' . $record->id . ')">Active</button>'
+                                                                : '<button class="btn btn-danger" onclick="changeStatus(' . $record->id . ')">Inactive</button>' !!}
+                                                        </td>
+                                                    @endcan
                                                     @if (auth()->user()->can('edit-print-coverage') || auth()->user()->can('delete-print-coverage'))
                                                         <td>
                                                             <div class="d-flex">
@@ -144,6 +154,38 @@
         </div>
     </div>
 </section>
+
+<script>
+    function changeStatus(id) {
+        toastr.options = {
+            'progressBar': true,
+            'closeButton': true,
+            'timeOut': 5000
+        }
+        $.ajax({
+            type: 'GET',
+            url: baseUrl + '/admin/printmedia-status/' + id,
+            data: id,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                if (response.success == true) {
+                    toastr.success(response.message);
+                    window.location.href = "";
+                } else {
+                    toastr.error(response.message);
+                    window.location.href = "";
+                }
+            },
+            error: function(response) {
+                console.log("something went wrong");
+            }
+        });
+    }
+</script>
+
+
+
 
 <script>
     // Delete function 

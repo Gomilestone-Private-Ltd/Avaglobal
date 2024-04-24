@@ -85,6 +85,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/case/update', [AdminController::class, 'updateCaseStudy'])->name('update-casestudy');
     Route::get('case-study/delete/{id}', [AdminController::class, 'deleteCaseStudy'])->name('delete-caseStudy');
     Route::get('case-study/delete-image/{filename}', [AdminController::class, 'deleteFile'])->name('delete-caseStudy-file');
+    Route::get('casestudy-status/{id}', [AdminController::class, 'changeCaseStatus'])->name('case.status');
     //contactuslead
     Route::get('contact-us-leads', [AdminController::class, 'contactApplicants'])->name('contact-applicants');
     Route::post('post-contacts', [AdminController::class, 'postContactApplicants'])->name('post-contacts');
@@ -128,11 +129,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/delete-brochure/{id}', [AdminController::class, 'deleteDownloadBrochure'])->name('delete.downloadBrochure');
     Route::post('/store-brochure-records', [AdminController::class, 'editStoreDownloadBrochure'])->name('edit.storeDownloadBrochure');
 
-
-
-
-
-
+    // testimonial
+    Route::get('/testimonial', [AdminController::class, 'indexTestimonial'])->name('testimonial.index');
+    Route::get('/create-testimonial', [AdminController::class, 'createTestimonial'])->name('create-testimonial');
+    Route::post('/store/testimonial', [AdminController::class, 'storeTestimonial'])->name('store-testimonial');
+    Route::get('edit/testimonial/{id}', [AdminController::class, 'editTestimonial'])->name('testimonial.edit');
+    Route::post('/update/testimonial', [AdminController::class, 'updateTestimonial'])->name('update.testimonial');
+    Route::get('/testimonial-status/{id}', [AdminController::class, 'testimonialStatus'])->name('status.testimonial');
+    Route::get('/delete-testimonial/{id}', [AdminController::class, 'deleteTestimonial'])->name('delete.testimonial');
 
 
 
@@ -151,6 +155,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/edit-online-coverage/{id}', [AdminController::class, 'editOnlineCoverage'])->name('edit-online-coverage');
     Route::post('/update-online-coverage/{id}', [AdminController::class, 'updateOnlineCoverage'])->name('update-online-coverage');
     Route::delete('/delete-online-coverage/{id}', [AdminController::class, 'deleteOnlineCoverageRecords'])->name('delete-online-coverage');
+    Route::get('/online-status/{id}', [AdminController::class, 'changeOnlineMediaStatus'])->name('onlinemedia.status');
 
     //pdf-media
     Route::get('/print-coverage', [AdminController::class, 'printCoverage'])->name('print-coverage');
@@ -159,6 +164,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/edit-print-coverage/{id}', [AdminController::class, 'editPrintCoverage'])->name('edit-print-coverage');
     Route::post('/update-print-coverage/{id}', [AdminController::class, 'updatePrintCoverage'])->name('update-print-coverage');
     Route::delete('/delete-print-coverage/{id}', [AdminController::class, 'deletePrintCoverageRecords'])->name('delete-print-coverage');
+    Route::get('printmedia-status/{id}', [AdminController::class, 'printMediaStatus'])->name('print.status');
+
+
 
     // Route::get('/career-description/{id}/{slug}', [AdminController::class, 'careerDescription'])->name('career-description');
     // Route::post('/text-editor', [AdminController::class, 'textEditor'])->name('text-editor');

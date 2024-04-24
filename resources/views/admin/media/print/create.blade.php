@@ -69,7 +69,7 @@
                                         <div class="form-group col-md-4 required">
                                             <label for="">Upload Image</label>
                                             <input type="file" name="printMediaImage" id=""
-                                                class="form-control">
+                                                accept="image/png, image/jpg, image/jpeg" class="form-control">
                                             <span class="text-danger"> @error('printMediaImage')
                                                     {{ $message }}
                                                 @enderror

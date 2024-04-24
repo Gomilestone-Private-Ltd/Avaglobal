@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Coverage Records')
+@section('title', 'Testimonial Records')
 <style>
     label {
         color: black;
@@ -23,16 +23,17 @@
         background-color: red !important;
     }
 </style>
+
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Online Coverage Records</h2>
+                    <h2>Testimonial Records</h2>
                 </div>
-                @can('add-online-coverage')
+                @can('add-testimonial')
                     <div class="col-md-6">
-                        <a href="{{ route('add-online-coverage') }}" class="btn btn-primary float-right"><span><img
+                        <a href="{{ url('admin/create-testimonial') }}" class="btn btn-primary float-right"><span><img
                                     src="{{ asset('assets/images/plus.png') }}" alt="All" class="add-icon"></span>Add</a>
                     </div>
                 @endcan
@@ -44,64 +45,62 @@
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
-
                         <div class="body">
                             <div class="table-responsive">
-                                <table
-                                    class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable"
+                                    id="job-posted">
                                     <thead>
+
                                         <tr>
                                             <th>S.No</th>
-                                            <th>TITLE</th>
-                                            <th>DATE</th>
-                                            <th>LOCATION</th>
-                                            <th>DESCRIPTION</th>
-                                            <th>IMAGE</th>
-                                            <th>MEDIA URL</th>
-                                            @can('edit-status-onlinecoverage')
-                                                <th>STATUS</th>
+                                            <th>Name</th>
+                                            <th>Text</th>
+                                            <th>Testimonial Image</th>
+                                            @can('edit-status-testimonial')
+                                                <th>Status</th>
                                             @endcan
-                                            @if (auth()->user()->can('edit-online-coverage') || auth()->user()->can('delete-online-coverage'))
-                                                <th>ACTION</th>
+                                            @if (auth()->user()->can('edit-testimonial') || auth()->user()->can('delete-testimonial'))
+                                                <th>Action</th>
                                             @endif
                                         </tr>
+
                                     </thead>
                                     <tbody>
-                                        @if (count($mediaRecord) > 0)
-                                            @foreach ($mediaRecord as $record)
+                                        @if (count($testimonialData) > 0)
+                                            @foreach ($testimonialData as $data)
                                                 <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $record->title }}</td>
-                                                    <td>{{ $record->created_at }}</td>
-                                                    <td>{{ $record->location }}</td>
-                                                    <td>{{ $record->description }}</td>
-                                                    @if (isset($record->onlineDocsImage->path))
-                                                        <td> <img src="{{ asset($record->onlineDocsImage->path) }}"
-                                                                alt="profile Pic" height="50" width="50"></td>
-                                                    @else
+                                                    <td>
+                                                        {{ $loop->iteration }}
+                                                    </td>
+                                                    <td>{{ $data->name }}</td>
+                                                    <td>{{ $data->text }}</td>
+                                                    @if (isset($data->testimonialImage->path))
+                                                        <td> <img src="{{ asset($data->testimonialImage->path) }}"
+                                                                alt="profile Pic" height="50" width="50">
+                                                        @else
                                                         <td> No Image</td>
                                                     @endif
-
-                                                    <td>{{ $record->media_url }}</td>
-                                                    @can('edit-status-onlinecoverage')
+                                                    </td>
+                                                    @can('edit-status-testimonial')
                                                         <td>
-                                                            {!! $record->status == 1
-                                                                ? '<button class="btn btn-success" onclick="changeStatus(' . $record->id . ')">Active</button>'
-                                                                : '<button class="btn btn-danger" onclick="changeStatus(' . $record->id . ')">Inactive</button>' !!}
+                                                            {!! $data->status == 1
+                                                                ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
+                                                                : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
                                                         </td>
                                                     @endcan
-                                                    @if (auth()->user()->can('edit-online-coverage') || auth()->user()->can('delete-online-coverage'))
+                                                    @if (auth()->user()->can('edit-testimonial') || auth()->user()->can('delete-testimonial'))
                                                         <td>
+
                                                             <div class="d-flex">
-                                                                @can('edit-online-coverage')
-                                                                    <a href="{{ url('admin/edit-online-coverage/' . $record->id) }}"
+                                                                @can('edit-testimonial')
+                                                                    <a href="{{ route('testimonial.edit', ['id' => $data->id]) }}"
                                                                         class="edit-btn"><img
                                                                             src="{{ asset('assets/images/edit.png') }}"
                                                                             alt="Back" class="edit-icon"></a>
                                                                 @endcan
-                                                                @can('delete-online-coverage')
+                                                                @can('delete-testimonial')
                                                                     <button id="deleteButton"
-                                                                        onclick="deleteModal('{{ $record->id }}')"
+                                                                        onclick="deleteModal('{{ $data->id }}')"
                                                                         class="delete-btn"><img
                                                                             src="{{ asset('assets/images/trash.png') }}"
                                                                             alt="Back" class="delete-icon"></button>
@@ -121,7 +120,9 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Delete Record</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Delete Testimonial's
+                                                    Record
+                                                </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -158,7 +159,7 @@
         }
         $.ajax({
             type: 'GET',
-            url: baseUrl + '/admin/online-status/' + id,
+            url: baseUrl + '/admin/testimonial-status/' + id,
             data: id,
             processData: false,
             contentType: false,
@@ -177,40 +178,33 @@
         });
     }
 </script>
-
 <script>
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-        }
-    });
     // Delete function 
     function deleteModal(id) {
+
+        console.log(id);
         var modalToastrButton = $('#modalToastr');
+
+        console.log(modalToastrButton);
+        modalToastrButton.attr('href', "{{ url('admin/delete-testimonial') }}/" + id);
         $('#deleteModal').modal('show');
-        var url = baseUrl + "/admin/delete-online-coverage/" + id;
+
         $('#modalToastr').on('click', function(event) {
             event.preventDefault();
             $.ajax({
-                type: 'DELETE',
-                url: url,
-                data: {
-                    "_token": token,
-                },
+                type: 'GET',
+                url: modalToastrButton.attr('href'),
                 success: function(response) {
-                    if (response.success == true) {
-                        toastr.options = {
-                            'progressBar': true,
-                            'closeButton': true,
-                            'timeOut': 5000
-                        }
-                        toastr.error(response.message);
-                        setTimeout(() => {
-                            window.location.href = response.route;
-                        }, 1000);
-
+                    // $("#deleteButton").attr("disabled", true)
+                    $("#deleteButton").removeAttr("disabled");
+                    $('#deleteModal').modal('hide');
+                    toastr.options = {
+                        'progressBar': true,
+                        'closeButton': true,
+                        // 'timeOut': 5000
                     }
-
+                    toastr.success(response.message);
+                    window.location.href = "";
                 },
                 error: function(response) {
                     toastr.error(response.message);

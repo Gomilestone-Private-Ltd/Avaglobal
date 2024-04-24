@@ -45,7 +45,7 @@ class HomeController extends Controller
     }
     public function caseStudy()
     {
-        $combinedData = CaseStudy::with('avaDocs')->get();
+        $combinedData = CaseStudy::where('status', 1)->with('avaDocs')->get();
         // dd($combinedData);
         return view('case-study')->with('combinedData', $combinedData);
     }
@@ -105,7 +105,7 @@ class HomeController extends Controller
     }
     public function media()
     {
-        $newsData = Media::with('onlineDocsImage')
+        $newsData = Media::where('status', 1)->with('onlineDocsImage')
             ->whereHas('onlineDocsImage')
             ->get();
         // dd($newsData);
