@@ -1,6 +1,7 @@
 ﻿    @extends('admin.layouts.app')
     @section('content')
     @section('title', 'Job Openings')
+    @section('header-title', 'Job Openings Records')
     <style>
         label {
             color: black;
@@ -25,7 +26,7 @@
             <div class="block-header">
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
-                        <h2>Job Openings Records</h2>
+                        {{-- <h2>Job Openings Records</h2> --}}
                     </div>
                     <div class="col-md-6">
                         @can('add-job-opening')

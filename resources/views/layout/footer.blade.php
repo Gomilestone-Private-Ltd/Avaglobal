@@ -1,15 +1,16 @@
 <div class="footerwrapper homefooterwrapper pageblock">
     <div class="wrapper">
         <div class="footerblk">
-            <div class="footerrightblk fr">
-                <div class="developblk ibvm">
-                    <div class="ibvm footertext">Design &amp; Developed :</div>
-                    <div class="ibvm ddlogo">
-                        <a href="#" target="_blank" class="sprite"></a>
-                    </div>
+            <div class="footermenu">
+                <div class="fm-box">
+                    <a href="#" class="footer-links">Knowledge Centre</a>
+                    <a href="{{ route('caseStudy') }}" class="footer-links">Case Studies</a>
+                    <a href="{{ route('career') }}" class="footer-links">Career</a>
+                    <a href="{{ route('media') }}" class="footer-links">In The Media</a>
+                    <a href="{{ route('contact') }}" class="footer-links">Contact us</a>
                 </div>
             </div>
-            <div class="footerleftblk fl">
+            <div class="footer-copy">
                 <p class="copyrighttxt footertext">&copy; Copyright {{ date('Y') }} AVA GLOBAL - All
                     Rights Reserved</p>
             </div>

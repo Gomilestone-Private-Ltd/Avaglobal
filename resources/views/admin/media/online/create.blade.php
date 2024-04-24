@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Add Media')
+@section('header-title', 'Add Media')
 <style>
     label {
         color: black;
@@ -30,8 +31,8 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
                         <a href="{{ route('online-coverage') }}" class="back-btn"><img
-                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
-                        <h2>Add Media</h2>
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"><h3>Back</h3></a>
+                        
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -40,9 +41,7 @@
         </div>
         <div class="container-fluid">
             <div class="row clearfix">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="body">
+                <div class="form-box">
                             <form action="{{ route('save-online-coverage') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
@@ -101,8 +100,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                    </div>
+                       
                 </div>
             </div>
         </div>

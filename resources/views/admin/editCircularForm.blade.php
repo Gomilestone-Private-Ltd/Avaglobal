@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Edit Circular')
+@section('header-title', 'Edit Circular')
 {{-- TinyMce --}}
 <style>
     label {
@@ -11,11 +12,6 @@
         content: " *";
         color: red;
     }
-
-    /* .error {
-                color: red;
-
-            } */
 
     h3 {
         margin-bottom: -9px;
@@ -52,8 +48,8 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
                         <a href="{{ route('circulars') }}" class="back-btn"><img
-                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
-                        <h2>Edit Circular </h2>
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"><h3>Back</h3></a>
+                        
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -99,9 +95,9 @@
                                         @enderror
                                     </span>
                                     @if ($data->filetype == 'pdf')
-                                        <div id="filename" style="height:20px;width:250px;color:#422c37 ">
+                                        <p id="filename" class="filename">
                                             {{ $data->filename }}
-                                        </div>
+                                        </p>
                                     @endif
                                     <div id="imagePreview">
                                         @if (isset($data) && $data->filetype != 'pdf')

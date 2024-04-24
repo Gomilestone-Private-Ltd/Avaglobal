@@ -12,10 +12,32 @@
 
         </div>
         <div class="headerrightblk">
+            <div class="header-menu">
+                <div class="topnav" id="myTopnav">
+                    <a class="th-link" href="{{ url('/') }}">Home</a>
+                    <a class="th-link" href="{{ route('about') }}">About Us</a>
+                    <a class="th-link" href="{{ route('caseStudy') }}">Case Studies</a>
+                    <div class="dropdown">
+                      <button class="dropbtn">Services 
+                        <img src="{{ asset('/images/down-menu.png') }}" class="menu-icon">
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="{{ route('seaFreight') }}">Ocean Freight</a>
+                        <a href="{{ route('airFreight') }}">Air Freight</a>
+                        <a href="{{ route('customsClearance') }}">Custom Clearing</a>
+                        <a href="{{ route('warehousing') }}">Warehousing</a>
+                        <a href="{{ route('heavyHaulTrucking') }}">Trucking</a>
+                        <a href="{{ route('freightShipping') }}">Shipping</a>
+                        <a href="{{ route('cargoInsurancet') }}">Insurance</a>
+                      </div>
+                    </div> 
+                    <a class="th-link" href="{{ route('contact') }}">Contact us</a>
+                  </div>
+            </div>
             <div id="google_translate_element">
                 <img src="{{ asset('/images/language.png') }}" class="language-icon">
             </div>
-            <span class="welcm-ava">welcome to ava global</span>
+            {{-- <span class="welcm-ava">welcome to ava global</span> --}}
             <a href="{{ route('login') }}"><img src="{{ asset('/images/use.svg') }}" class="user-icon"></a>
             <a href="#menu"><span class="sprite hamburger" id="menublk"></span></a>
         </div>

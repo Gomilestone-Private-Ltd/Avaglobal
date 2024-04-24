@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Add User')
+@section('header-title', 'Add User')
 <style>
     label {
         color: black;
@@ -30,8 +31,9 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
                         <a href="{{ route('users.index') }}" class="back-btn"><img
-                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
-                        <h2>Add User</h2>
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
+                                <h3>Back</h3></a>
+                        
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -40,9 +42,7 @@
         </div>
         <div class="container-fluid">
             <div class="row clearfix">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="body">
+                <div class="form-box">
                             <form action="{{ url('/admin/users') }}" method="POST">
                                 @csrf
                                 <div class="card p-3">
@@ -95,8 +95,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                    </div>
+                       
                 </div>
             </div>
         </div>

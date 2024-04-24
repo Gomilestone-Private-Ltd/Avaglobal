@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Applicant Details')
+@section('header-title', 'Applicants Records')
 
 <style>
     label {
@@ -26,7 +27,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Applicants Records</h2>
+                    {{-- <h2>Applicants Records</h2> --}}
                 </div>
                 <div class="col-md-6">
 

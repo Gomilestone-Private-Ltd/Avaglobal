@@ -11,9 +11,9 @@
                 <div class="calculatorbannerblk">
                     <div class="wrapper pageblock">
                         <div class="bannertxtblk">
-                            <div class="avaglname font-bebas">Upcoming Events</div>
+                            <div class="avaglname font-bebas">In The Media</div>
                             <h2 class="tagline uppercase">
-                                News & Event of<br />
+                                Online & Print Coverage of<br />
                                 AVA Global
                             </h2>
                             <a href="#" data-scroll-nav="0">
@@ -52,6 +52,7 @@
                                                         <span>{{ $data->created_at }}</span>
                                                     </p>
                                                 </div>
+                                                <P class="oc-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam quia velit eveniet? Ipsum maxime expedita hic aliquam nemo minus, libero corrupti iure itaque ex. Eius sit iusto minus deleniti.</P>
                                                 <a href="{{ $data->media_url }}" target="_blank">
                                                     <div class="knowmore uppercase">Read more
                                                         <div class="sprite knwmorearw"></div>
@@ -101,7 +102,7 @@
                                                 </div>
                                                 {{-- {{route('caseStudyDetail')}} --}}
                                                 <a href="{{ $event->avaDocs->path }}" target="_blank">
-                                                    <div class="knowmore uppercase" download>Download Event Brochure
+                                                    <div class="knowmore uppercase" download>Download Print Coverage
                                                         <div class="sprite knwmorearw"></div>
                                                     </div>
                                                 </a>

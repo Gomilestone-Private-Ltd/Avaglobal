@@ -1,4 +1,7 @@
-<aside id="leftsidebar" class="sidebar" style="overflow: scroll">
+<aside id="leftsidebar" class="sidebar">
+    {{-- <div class="logo-container">
+        <img src="{{ asset('assets/images/wlogo.png') }}" alt="Dashboard" class="wlogo">
+    </div> --}}
     <div class="menu">
         <ul class="list">
             @can('view-dashboard')
@@ -7,7 +10,7 @@
                 </li>
             @endcan
             @can('view-career')
-                <li><a href="javascript:void(0);" class="menu-toggle"><img src="{{ asset('assets/images/suitcase.png') }}"
+                <li><a href="javascript:void(0);" class="menu-toggle"><img src="{{ asset('assets/images/career.png') }}"
                             alt="Dashboard" class="side-icon">Career</a>
                     <ul class="ml-menu">
                         @can('view-job-opening')

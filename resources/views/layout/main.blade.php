@@ -24,6 +24,8 @@
         <link href="{{ asset('/css/jquery.jscrollpane.css') }}" rel="stylesheet" type="text/css" />
         <link type="text/css" rel="stylesheet" href="{{ asset('/css/jquery.mmenu.all.css') }}" />
         <link rel="stylesheet" href="{{ asset('/css/event-popup.css') }}" />
+        <link type="text/css" rel="stylesheet" href="{{ asset('/css/owl.carousel.css') }}" />
+        <link type="text/css" rel="stylesheet" href="{{ asset('/css/owl.theme.css') }}" />
         {{-- include styles here --}}
         @stack('styles')
         {{-- ---------------------------------------------------------------- --}}
@@ -40,7 +42,7 @@
         </script>
 
         <script src="{{ asset('/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('/js/owl.carousel.js') }}"></script>
+        <script src="{{ asset('/js/owl.carousel.js') }}"></script> 
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107918162-1"></script>
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>

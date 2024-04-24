@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Circular Records')
+@section('header-title', 'Circular Records')
 <style>
     label {
         color: black;
@@ -28,7 +29,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Circular Records</h2>
+                    {{-- <h2>Circular Records</h2> --}}
                 </div>
                 @can('add-circular')
                     <div class="col-md-6">

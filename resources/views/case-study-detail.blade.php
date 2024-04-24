@@ -1,7 +1,5 @@
 @push('styles')
     <link type="text/css" rel="stylesheet" href="{{ asset('/css/casestudydetail.css') }}" />
-    <link type="text/css" rel="stylesheet" href="{{ asset('/css/owl.carousel.css') }}" />
-    <link type="text/css" rel="stylesheet" href="{{ asset('/css/owl.theme.css') }}" />
 @endpush
 @extends('layout.main')
 @section('content')
