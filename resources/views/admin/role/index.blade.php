@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Roles')
+@section('header-title', 'User Roles')
 <style>
     label {
         color: black;
@@ -46,7 +47,7 @@
             <div class="row">
 
                 <div class="col-md-6 col-sm-12">
-                    <h2>ROLES</h2>
+                    {{-- <h2>ROLES</h2> --}}
                 </div>
                 @can('add-roles')
                     <div class="col-md-6">

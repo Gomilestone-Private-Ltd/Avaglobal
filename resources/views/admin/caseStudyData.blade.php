@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Case Study Records')
+@section('header-title', 'Case Study Records')
 <style>
     label {
         color: black;
@@ -29,7 +30,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Case Study Records</h2>
+                    {{-- <h2>Case Study Records</h2> --}}
                 </div>
                 @can('add-case-study')
                     <div class="col-md-6">

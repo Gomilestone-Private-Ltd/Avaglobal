@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Print Coverage Records')
+@section('header-title', 'Print Coverage')
 <style>
     label {
         color: black;
@@ -28,7 +29,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Print Coverage Records</h2>
+                    {{-- <h2>Print Coverage Records</h2> --}}
                 </div>
                 @can('add-print-coverage')
                     <div class="col-md-6">

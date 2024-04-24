@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', ' Add Case')
+@section('header-title', 'Add Case')
 {{-- TinyMce --}}
 <style>
     label {
@@ -11,11 +12,6 @@
         content: " *";
         color: red;
     }
-
-    /* .error {
-                color: red;
-
-            } */
 
     h3 {
         margin-bottom: -9px;
@@ -120,8 +116,8 @@
 
                     <div class="back-btn-box">
                         <a href="{{ route('case-section') }}" class="back-btn"><img
-                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
-                        <h2>Add Case</h2>
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"><h3>Back</h3></a>
+                        
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -134,7 +130,7 @@
                 <div class="form-box">
                     <form enctype="multipart/form-data" id="caseCreate">
                         @csrf
-                        <div class="container mt-4 card p-3 bg-white">
+                        <div class="container card p-3 bg-white">
 
                             <div class="row">
                                 <div class="form-group col-md-6 required">
@@ -169,11 +165,12 @@
 
                                 <div class="form-group col-md-6 required">
                                     <label for="">Case Image: (max 5 files allowed with extension
-                                        jpg,jpeg,png)<br>
-                                        (Image Dimension should be 1366*550)
+                                        jpg,jpeg,png)
+                                        
                                     </label>
                                     <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control"
                                         name="caseimage[]" id="caseimage" multiple />
+                                        <p class="notice-text">(Image Dimension should be 1366*550)</p>
                                     <span class="text-danger">
                                     </span>
                                     <div>

@@ -119,6 +119,7 @@ h1.csd-title {
 .cl-location-box {
     display: flex;
     margin-top: 12px;
+    justify-content: flex-start;
 }
 
 p.cl-location {

@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Add Job')
+@section('header-title', 'Add Job Openings')
 <style>
     label {
         color: black;
@@ -26,8 +27,8 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
                         <a href="{{ route('opened-job') }}" class="back-btn"><img
-                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
-                        <h2>Add Job Openings</h2>
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
+                        <h3>Back</h3></a>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -40,7 +41,7 @@
                 <div class="form-box">
                     <form action="" id="postjob">
                         @csrf
-                        <div class="container mt-4 card p-3 bg-white">
+                        <div class="container card p-3 bg-white">
                             <div class="row">
 
                                 <div class="form-group col-md-3 required">

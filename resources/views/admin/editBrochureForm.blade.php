@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Edit Event PopUp')
+@section('header-title', 'Edit Event PopUp')
 {{-- TinyMce --}}
 <style>
     label {
@@ -53,8 +54,8 @@
                     <div class="back-btn-box">
                         <div class="back-btn-box">
                             <a href="{{ route('event-popup') }}" class="back-btn"><img
-                                    src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
-                            <h2>Edit Event PopUp</h2>
+                                    src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"><h3>Back</h3></a>
+                            
                         </div>
                     </div>
                 </div>
@@ -134,9 +135,9 @@
                                         @enderror
                                     </span>
                                     @if (isset($brochure->avaDocsBrochureFiles->filetype) && strtoupper($brochure->avaDocsBrochureFiles->filetype) == 'PDF')
-                                        <div id="filename" style="height:20px;width:200px;color:#422c37 ">
+                                        <p id="filename" class="filename">
                                             {{ $brochure->avaDocsBrochureFiles->filename }}
-                                        </div>
+                                        </p>
                                     @else
                                         <div id="imagePreview" class="mt-3">
                                             @if (isset($brochure->avaDocsBrochureFiles->path))

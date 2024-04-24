@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'User Lists')
+@section('header-title', 'User Lists')
 <style>
     label {
         color: black;
@@ -28,7 +29,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>User Lists</h2>
+                    {{-- <h2>User Lists</h2> --}}
                 </div>
                 @can('add-users')
                     <div class="col-md-6">

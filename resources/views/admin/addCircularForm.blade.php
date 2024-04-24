@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Add Circular')
+@section('header-title', 'Add Circular')
 {{-- TinyMce --}}
 <style>
     label {
@@ -52,8 +53,9 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
                         <a href="{{ route('circulars') }}" class="back-btn"><img
-                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
-                        <h2>Add Circular</h2>
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
+                                <h3>Back</h3></a>
+                        
                     </div>
                 </div>
                 <div class="col-md-6">

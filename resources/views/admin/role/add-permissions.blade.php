@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'update permissions')
+@section('header-title', "Role : $role->name")
 <style>
     label {
         color: black;
@@ -43,6 +44,7 @@
     .pr-container {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     input[type=checkbox],
@@ -55,11 +57,16 @@
     }
 
     .grouped-section {
-        width: 25%;
+        width: 23%;
+        border: 1px solid #eaeaea;
+        padding: 20px;
+        margin-bottom: 30px;
     }
 
-    .heading {
-        padding-bottom: 10px;
+    .grouped-section .heading {
+        font-size: 18px;
+        text-transform: capitalize;
+        margin-bottom: 10px;
     }
 </style>
 <section class="content">
@@ -69,20 +76,23 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
                         <a href="{{ route('roles.index') }}" class="back-btn"><img
-                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
-                        <h2>Role : {{ $role->name }}</h2>
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
+                                <h3>Back</h3>
+                            </a>
                     </div>
                 </div>
                 <div class="col-md-6">
+                    <div class="search-box">
+                    <input id="inputTxt" type="text" placeholder="Search ..." class="admin-search">
+                    <img src="{{ asset('assets/images/search.png') }}" alt="User" class="search-icon">
+                </div>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
             <!-- Basic Examples -->
             <div class="row clearfix">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="body">
+                <div class="form-box">
                             <span class="text-danger">
                                 @error('permissions')
                                     {{ $message }}
@@ -115,8 +125,6 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

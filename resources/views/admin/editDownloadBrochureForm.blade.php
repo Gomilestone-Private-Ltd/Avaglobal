@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Edit Brochure')
+@section('header-title', 'Edit Brochure')
 {{-- TinyMce --}}
 <style>
     label {
@@ -11,11 +12,6 @@
         content: " *";
         color: red;
     }
-
-    /* .error {
-                color: red;
-
-            } */
 
     h3 {
         margin-bottom: -9px;
@@ -53,8 +49,8 @@
                     <div class="back-btn-box">
                         <div class="back-btn-box">
                             <a href="{{ route('download.brochureData') }}" class="back-btn"><img
-                                    src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"></a>
-                            <h2>Edit Brochure</h2>
+                                    src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"><h3>Back</h3></a>
+                            
                         </div>
                     </div>
                 </div>
@@ -101,9 +97,9 @@
                                         @enderror
                                     </span>
                                     @if (isset($data->filetype) && strtoupper($data->filetype) == 'PDF')
-                                        <div id="filename" style="height:20px;width:200px;color:#422c37 ">
+                                        <p id="filename" class="filename">
                                             {{ $data->filename }}
-                                        </div>
+                                        </p>
                                     @else
                                         <div id="imagePreview" class="mt-3">
                                             @if (isset($data->path))

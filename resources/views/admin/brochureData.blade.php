@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 @section('title', 'Event PopUp')
+@section('header-title', 'Event Popup Records')
 <style>
     label {
         color: black;
@@ -29,7 +30,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2>Event Popup Records</h2>
+                    {{-- <h2>Event Popup Records</h2> --}}
                 </div>
                 @can('add-popup')
                     <div class="col-md-6">
