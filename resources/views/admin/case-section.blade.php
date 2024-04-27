@@ -116,8 +116,10 @@
 
                     <div class="back-btn-box">
                         <a href="{{ route('case-section') }}" class="back-btn"><img
-                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"><h3>Back</h3></a>
-                        
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
+                            <h3>Back</h3>
+                        </a>
+
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -166,11 +168,11 @@
                                 <div class="form-group col-md-6 required">
                                     <label for="">Case Image: (max 5 files allowed with extension
                                         jpg,jpeg,png)
-                                        
+
                                     </label>
                                     <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control"
                                         name="caseimage[]" id="caseimage" multiple />
-                                        <p class="notice-text">(Image Dimension should be 1366*550)</p>
+                                    <p class="notice-text">(Image Dimension should be 1366*550)</p>
                                     <span class="text-danger">
                                     </span>
                                     <div>
@@ -349,18 +351,22 @@
 
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field, errorMessage) {
+                            var fieldName = field.split('.');
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
-                            $('#' + field).closest(
+
+                            $('#' + fieldName).closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
 
-                            $('#' + field).on('input',
+                            $('#' + fieldName).on('input',
                                 function() {
                                     $('.text-danger').html('');
                                 });
                         });
                     }
+
+
                 }
             });
         } else {
@@ -396,20 +402,18 @@
                     $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
                     $(".from-prevent-multiple-submits").removeAttr("disabled");
                     if (response.responseJSON && response.responseJSON.errors) {
-                        // $('#imageError').html('');
-                        console.log(response.responseJSON.errors);
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field,
                             errorMessage) {
+                            var fieldName = field.split('.');
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
 
-                            $('#' + field).closest(
+                            $('#' + fieldName).closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
 
-
-                            $('#' + field).on('input',
+                            $('#' + fieldName).on('input',
                                 function() {
                                     $('.text-danger').html('');
                                 });

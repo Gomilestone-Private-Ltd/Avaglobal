@@ -77,56 +77,121 @@
                     <div class="back-btn-box">
                         <a href="{{ route('roles.index') }}" class="back-btn"><img
                                 src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
-                                <h3>Back</h3>
-                            </a>
+                            <h3>Back</h3>
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="search-box">
-                    <input id="inputTxt" type="text" placeholder="Search ..." class="admin-search">
-                    <img src="{{ asset('assets/images/search.png') }}" alt="User" class="search-icon">
+                    <form action="{{ url('admin/search') }}" method="get">
+                        @csrf
+                        <div class="search-box">
+                            <input id="inputTxt" type="text" name="search" placeholder="Search ..."
+                                class="admin-search">
+                            <input type="hidden" name="roleId" value="{{ $role->id }}">
+                            <button class="search-icon" type="submit"><img
+                                    src="{{ asset('assets/images/search.png') }}" alt="User" class=""
+                                    id="search-icon"></button>
+                        </div>
+                    </form>
+
+
                 </div>
-                </div>
+
             </div>
         </div>
         <div class="container-fluid">
             <!-- Basic Examples -->
             <div class="row clearfix">
                 <div class="form-box">
-                            <span class="text-danger">
-                                @error('permissions')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                            <form action="{{ url('/admin/roles/' . $role->id . '/give-permissions') }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="card p-3">
-                                    <label for="">Permissions:</label>
-                                    <div class="pr-container">
+                    <span class="text-danger">
+                        @error('permissions')
+                            {{ $message }}
+                        @enderror
+                    </span>
+                    {{-- <form action="{{ url('/admin/roles/' . $role->id . '/give-permissions') }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="card p-3">
+                            <label for="">Permissions:</label>
+                            <div class="pr-container">
 
-                                        @foreach ($groupedPermissionRecords as $groupName => $permissions)
-                                            <div class="grouped-section">
-                                                <h3 class="heading">{{ $groupName }}</h3>
-                                                @foreach ($permissions as $key => $permission)
-                                                    <diV class="pr-box">
-                                                        <input type="checkbox" name="permissions[]"
-                                                            id="{{ $permission->id }}" value="{{ $permission->name }}"
-                                                            {{ in_array($permission->id, $roleHasPermissions) ? 'checked' : '' }} />
-                                                        {{ $permission->name }}
-                                                    </diV>
-                                                @endforeach
-                                            </div>
+                                @foreach ($groupedPermissionRecords as $groupName => $permissions)
+                                    <div class="grouped-section">
+                                        <h3 class="heading">{{ $groupName }}</h3>
+                                        @foreach ($permissions as $key => $permission)
+                                            <diV class="pr-box">
+                                                <input type="checkbox" name="permissions[]" id="{{ $permission->id }}"
+                                                    value="{{ $permission->name }}"
+                                                    {{ in_array($permission->id, $roleHasPermissions) ? 'checked' : '' }} />
+                                                {{ $permission->name }}
+                                            </diV>
                                         @endforeach
-
                                     </div>
-                                    <button type="submit" id="submit"
-                                        class="btn btn-primary btn-lg float-right from-prevent-multiple-submits">UPDATE</button>
-                                </div>
-                            </form>
+                                @endforeach
+
+                            </div>
+                            <button type="submit" id="submit"
+                                class="btn btn-primary btn-lg float-right from-prevent-multiple-submits">UPDATE</button>
                         </div>
+                    </form> --}}
+                    <form action="{{ url('/admin/roles/' . $role->id . '/give-permissions') }}" id="add-permission"
+                        method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="card p-3">
+                            <label for="">Permissions:</label>
+                            <div class="pr-container">
+                                @foreach ($groupedPermissionRecords as $groupName => $permissions)
+                                    <div class="grouped-section">
+                                        <h3 class="heading">{{ $groupName }}</h3>
+                                        @foreach ($permissions as $key => $permission)
+                                            <diV class="pr-box">
+                                                <input type="checkbox" name="permissions[]" id="{{ $permission->id }}"
+                                                    value="{{ $permission->name }}"
+                                                    {{ in_array($permission->id, $roleHasPermissions) ? 'checked' : '' }} />
+                                                {{ $permission->name }}
+                                                <!-- Hidden input to send unchecked permissions -->
+                                                <input type="hidden" name="all_permissions[]"
+                                                    value="{{ $permission->name }}">
+                                            </diV>
+                                        @endforeach
+                                    </div>
+                                @endforeach
+                            </div>
+                            <button type="submit" id="submit"
+                                class="btn btn-primary btn-lg float-right from-prevent-multiple-submits">UPDATE</button>
+                        </div>
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+{{-- <script type="text/javascript">
+    $('#inputTxt').on('keyup', function() {
+
+        var value = $(this).val();
+        var roleId = "{{ $role->id }}"; // Assuming $role->id holds the role ID
+
+        $.ajax({
+            type: 'get',
+            url: "{{ url('roles') }}" + roleId + "/give-permissions",
+            data: {
+                'search': value,
+                'roleId': roleId,
+            },
+            success: function(data) {
+                // $('tbody').html(data);
+            }
+        });
+    });
+</script> --}}
+<script>
+    $('#add-permission').on('submit', function(e) {
+        $(".from-prevent-multiple-submits").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
+    })
+</script>
 @endsection
