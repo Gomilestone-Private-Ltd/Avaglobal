@@ -1463,11 +1463,12 @@ video.logo-video {
     width: 100%;
     text-align: left;
     font-size: 12px;
-    padding: 20px 0;
+    padding: 10px 0;
     transition: all ease 0.2s;
     opacity: 0.6;
     text-transform: uppercase;
     color: #999;
+    margin-bottom: 5px;
 }
 .placholder.up-place {
     bottom: 35px;
@@ -3396,4 +3397,18 @@ p.oc-text {
     margin: 15px 0 0;
     text-align: justify;
     font-weight: 300;
+}
+.heading-main {
+    color: #0050a4 !important;
+}
+table.dataTable {
+    border-collapse: collapse !important;
+}
+.main-table {
+background-color: #0050a4;
+color: #fff;
+
+}
+.main-table th {
+font-weight: 500;
 }

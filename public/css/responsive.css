@@ -125,7 +125,7 @@
         height: 440px;
     }
 }
-@media screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+@media screen and (min-width: 1370px) and (max-device-width: 1440px) {
     .praductbanwraper {
         right: -10%;
     }
@@ -203,12 +203,13 @@
         }
     }
 }
-@media screen and (max-device-width: 1365px) {
+@media screen and (max-width: 1366px) {
     .custombgblk .servicelefttxtblk {
         width: 41%;
     }
     .misson-blk-abt {
         padding: 5px 15px 5px 5px;
+        margin-top: 20px;
     }
     .commitment-wrapper-about .servicelefttxtblk {
         width: 51%;
@@ -217,7 +218,7 @@
         margin: 10px 0;
     }
     .philosophy-blk-abt {
-        padding: 35px 5px;
+        padding: 15px 5px;
     }
     .missn-line::before {
         left: -29px;
@@ -264,6 +265,61 @@
     .blue-div-team.blue-div-team3 {
         left: 70px;
     }
+    .overvwtagln {
+        font-size: 40px;
+    }
+    .overviewtab #bx-pager {
+        margin: 10px 0 0;
+    }
+    .overviewtxtblk {
+        top: 150px !important;
+    }
+    .overvwttl {
+        margin-bottom: 10px !important;
+    }
+    .overviewtxtblk .pagetxt {
+         margin-top: 10px !important;
+    }
+    .counter-box {
+        top: 400px !important;
+    }
+    .counter-b1 h3 {
+    font-size: 42px !important;
+    }
+    .icon-img {
+        height: 40px;
+    }
+    .misson-blk-abt-head {
+        font-size: 40px;
+    }
+    .tagline {
+        font-size: 40px;
+        line-height: 45px;
+    }
+    .commitsubtxt  {
+        font-size: 16px;
+    }
+    .newsheading {
+        font-size: 40px;
+    }
+    .pagetxt.teamsubtxt {
+        font-size: 18px;
+    }
+    .shipping-img {
+        height: 300px;
+    }
+    .servdet3sldcont .pagetxt {
+        font-size: 16px;
+    }  
+    .text-width {
+        width: 85%;
+    }
+   .heading-main {
+    font-size: 16px ;
+   }
+   .job-right {
+    padding: 15px !important;
+   }
 }
 @media screen and (max-width: 1280px) {
     .overviewimgrightblk {
@@ -360,6 +416,7 @@
     .blue-div-team.blue-div-team1 {
         display: none;
     }
+    
 }
 @media screen and (max-width: 1200px) {
     .twentytxt .experiencetxt {
@@ -2066,3 +2123,4 @@
     }
 
 }
+

@@ -53,8 +53,10 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
                         <a href="{{ route('event-popup') }}" class="back-btn"><img
-                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"><h3>Back</h3></a>
-                        
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
+                            <h3>Back</h3>
+                        </a>
+
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -97,7 +99,8 @@
                                 <div class="form-group col-md-6 required">
                                     <label for="">Popup Image:</label>
                                     <div class="file-box">
-                                        <input type="file" name="brochureimage" id="caseimageinput"
+                                        <input type="file" name="brochureimage"
+                                            accept="image/jpeg,image/jpg,image/png" id="caseimageinput"
                                             class="form-control" value="" placeholder="" />
                                         <i class="fa fa-close close-icon" id="closeIcon"></i>
                                     </div>
@@ -115,8 +118,9 @@
                                 <div class="form-group col-md-6 required">
                                     <label for="">Banner Pdf/Image:</label>
                                     <div class="file-box">
-                                        <input type="file" name="brochurepdf" class="form-control" value=""
-                                            placeholder="" />
+                                        <input type="file" name="brochurepdf"
+                                            accept="image/jpeg,image/jpg,image/png,application/pdf" class="form-control"
+                                            value="" placeholder="" />
                                         {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
                                     </div>
 

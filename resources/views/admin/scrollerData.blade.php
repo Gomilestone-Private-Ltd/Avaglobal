@@ -51,7 +51,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable"
                                     id="job-posted">
-                                    <thead>
+                                    <thead class="main-table">
 
                                         <tr>
                                             <th>S.No</th>
@@ -190,9 +190,9 @@
                     // location.reload();
                 } else {
                     toastr.error(response.message);
-                    setTimeout(function() {
-                        window.location.href = response.route
-                    }, 1000);
+                    // setTimeout(function() {
+                    //     window.location.href = response.route
+                    // }, 1000);
                 }
 
             },

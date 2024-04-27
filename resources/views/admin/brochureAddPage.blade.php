@@ -54,7 +54,8 @@
                     <div class="back-btn-box">
                         <a href="{{ route('download.brochureData') }}" class="back-btn"><img
                                 src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
-                                <h3>Back</h3></a>
+                            <h3>Back</h3>
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -85,8 +86,9 @@
                                 <div class="form-group col-md-6 required">
                                     <label for="">Upload image/pdf:</label>
                                     <div class="file-box">
-                                        <input type="file" name="downloadbrochure" id="caseimageinput"
-                                            class="form-control" value="" placeholder="" />
+                                        <input type="file" accept="image/jpeg,image/jpg,image/png,application/pdf"
+                                            name="downloadbrochure" id="caseimageinput" class="form-control"
+                                            value="" placeholder="" />
                                         <i class="fa fa-close close-icon" id="closeIcon"></i>
                                     </div>
 

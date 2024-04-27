@@ -46,10 +46,12 @@
                                     <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Workday :
                                         <span>{{ isset($careerData->time_period) ? $careerData->time_period : '' }}</span>
                                     </p>
-                                    <p class="jr-box"><img src="{{ asset('/images/location.png') }}" class="time-img">Location :
+                                    <p class="jr-box"><img src="{{ asset('/images/location.png') }}"
+                                            class="time-img">Location :
                                         <span> {{ isset($careerData->location) ? $careerData->location : '' }}</span>
                                     </p>
-                                    <p class="jr-box"><img src="{{ asset('/images/event.png') }}" class="time-img">Experience
+                                    <p class="jr-box"><img src="{{ asset('/images/event.png') }}"
+                                            class="time-img">Experience
                                         :
                                         <span> {{ isset($careerData->experience) ? $careerData->experience : '' }}</span>
                                     </p>
@@ -82,7 +84,7 @@
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Position</div>
-                                                <input type="text" name="position"
+                                                <input type="text" name="position" 
                                                     value="{{ isset($careerData->job_role) ? $careerData->job_role : '' }}"
                                                     class="inputclick">
                                                 <span class="text-danger">
@@ -94,6 +96,7 @@
                                                     <div class="upload-career fl">
                                                         <div class="browse-btn"><input name="applicantPdf" id="file-7"
                                                                 class="inputfile inputfile-6 fileSeelct"
+                                                                accept=" application/pdf"
                                                                 data-multiple-caption="{count} files selected"
                                                                 multiple="" type="file">
                                                             <label for="file-7" id="file_7_id">

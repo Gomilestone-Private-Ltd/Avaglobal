@@ -50,7 +50,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable"
                                     id="job-posted">
-                                    <thead>
+                                    <thead class="main-table">
 
                                         <tr>
                                             <th>S.No</th>
@@ -85,7 +85,7 @@
                                                         </td>
                                                     @elseif (isset($data->path) && strtoupper($data->filetype) != 'PDF')
                                                         <td><img src="{{ asset(isset($data->path) ? $data->path : 'assets/img/1711805669avaglobal.png') }}"
-                                                                style="width:70px;height:60px;border-radius:20%" />
+                                                                style="width:45px;height:45px;border-radius:50%;margin-bottom:5px" />
                                                         </td>
                                                     @else
                                                         <td>No FIle</td>
@@ -179,7 +179,7 @@
                     window.location.href = "";
                 } else {
                     toastr.error(response.message);
-                    window.location.href = "";
+                    // window.location.href = "";
                 }
             },
             error: function(response) {

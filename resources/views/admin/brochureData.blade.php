@@ -53,7 +53,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable"
                                     id="job-posted">
-                                    <thead>
+                                    <thead class="main-table">
 
                                         <tr>
                                             <th>S.No</th>
@@ -79,7 +79,8 @@
                                                     <td>{{ $data->location }}</td>
                                                     @if (isset($data->avaDocsPopUpImage->path))
                                                         <td><img src="{{ asset(isset($data->avaDocsPopUpImage->path) ? $data->avaDocsPopUpImage->path : 'assets/img/1711805669avaglobal.png') }}"
-                                                                style="width:70px;height:60px;border-radius:20%" /></td>
+                                                                style="width:45px;height:45px;border-radius:50%;margin-bottom:5px" />
+                                                        </td>
                                                     @endif
 
                                                     @if (isset($data->avaDocsBrochureFiles->path) && strtoupper($data->avaDocsBrochureFiles->filetype) == 'PDF')
@@ -89,7 +90,7 @@
                                                         </td>
                                                     @elseif (isset($data->avaDocsBrochureFiles->path) && strtoupper($data->avaDocsPopUpImage->filetype) != 'PDF')
                                                         <td><img src="{{ asset(isset($data->avaDocsBrochureFiles->path) ? $data->avaDocsBrochureFiles->path : 'assets/img/1711805669avaglobal.png') }}"
-                                                                style="width:70px;height:60px;border-radius:20%" />
+                                                                style="width:45px;height:45px;border-radius:50%;margin-bottom:5px" />
                                                         </td>
                                                     @else
                                                         <td>No FIle</td>
@@ -100,13 +101,14 @@
                                                                 ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
                                                                 : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
                                                         </td>
-
                                                         {{-- <td>
                                                             <div class="custom-control custom-switch">
-                                                                <input type="checkbox" dataId="'.$data->id.'"
-                                                                    class="custom-control-input" id="customSwitch1">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="statusToggle{{ $data->id }}"
+                                                                    {!! $data->status == 1 ? 'checked' : '' !!}
+                                                                    onchange="changeStatus({{ $data->id }})">
                                                                 <label class="custom-control-label"
-                                                                    for="customSwitch1"></label>
+                                                                    for="statusToggle{{ $data->id }}"></label>
                                                             </div>
                                                         </td> --}}
                                                     @endcan
@@ -196,12 +198,11 @@
                         // 'timeOut': 5000
                     }
                     toastr.success(response.message);
+
                     setTimeout(function() {
                         window.location.href = response.route
                     }, 1000);
-                    // location.reload();
-                    // $("#job-posted").reload();
-                    // $("#job-posted").load(window.location.href + " #job-posted");
+
                 } else {
                     toastr.options = {
                         'progressBar': true,
@@ -209,10 +210,10 @@
                         // 'timeOut': 5000
                     }
                     toastr.error(response.message);
-                    setTimeout(function() {
-                        window.location.href = response.route
-                    }, 1000);
-                    // $("#job-posted").load(window.location.href + " #job-posted");
+                    // setTimeout(function() {
+                    //     window.location.href = response.route
+                    // }, 1000);
+
                 }
             },
             error: function(response) {

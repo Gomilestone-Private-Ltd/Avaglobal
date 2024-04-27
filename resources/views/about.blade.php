@@ -85,7 +85,7 @@
                 <div class="servicerighttxtblk">
                     <div class="misson-blk-abt">
                         <div>
-                            <img src="{{ asset('images/about/our-mission.png') }}" alt="" />
+                            <img class="icon-img" src="{{ asset('images/about/our-mission.png') }}" alt="" />
                         </div>
                         <div class="misson-blk-abt-head">
                             our Mission
@@ -98,7 +98,7 @@
                     </div>
                     <div class="misson-blk-abt">
                         <div>
-                            <img src="{{ asset('images/about/our-vision.png') }}" alt="">
+                            <img class="icon-img" src="{{ asset('images/about/our-vision.png') }}" alt="">
                         </div>
                         <div class="misson-blk-abt-head">
                             our vision
@@ -112,7 +112,7 @@
 
                     <div class="philosophy-blk-abt">
                         <div>
-                            <img src="{{ asset('images/about/our-philosophy.png') }}" alt="">
+                            <img class="icon-img" src="{{ asset('images/about/our-philosophy.png') }}" alt="">
                         </div>
                         <div class="misson-blk-abt-head">
                             our philosophy

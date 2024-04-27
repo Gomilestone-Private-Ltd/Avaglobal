@@ -135,7 +135,7 @@
                                                     <div class="upload-career fl">
                                                         <!--<input class="input-text-car" id="uploadFile" placeholder="choose file (file format pdf)" type="text">-->
                                                         <div class="browse-btn"><input name="applicantPdf" id="file-7"
-                                                                class="inputfile inputfile-6"
+                                                                class="inputfile inputfile-6" accept=" application/pdf"
                                                                 data-multiple-caption="{count} files selected"
                                                                 multiple="" type="file">
                                                             <label for="file-7" id="file_7_id">
@@ -148,11 +148,11 @@
                                                         </span>
                                                     </div>
                                                     <!--
-                                                                                                                                    <div class="browse-btn fl">
-                                                                                                                                        <span>Upload</span>
-                                                                                                                                        <input name="upfile" class="upload" id="uploadBtn" type="file">
-                                                                                                                                    </div>
-                                                                                    -->
+                                                                                                                                        <div class="browse-btn fl">
+                                                                                                                                            <span>Upload</span>
+                                                                                                                                            <input name="upfile" class="upload" id="uploadBtn" type="file">
+                                                                                                                                        </div>
+                                                                                        -->
                                                     <div class="clear"></div>
                                                 </div>
                                             </div>
@@ -166,13 +166,13 @@
                             </div>
 
                             <!--
-                                                                                                                <div class="innertabdataitem press">
+                                                                                                                    <div class="innertabdataitem press">
 
-                                                                                                                </div>
-                                                                                                                <div class="innertabdataitem vendor">
+                                                                                                                    </div>
+                                                                                                                    <div class="innertabdataitem vendor">
 
-                                                                                                                </div>
-                                                                                    -->
+                                                                                                                    </div>
+                                                                                        -->
                             <div class="innertabdataitem investor">
                                 <p class="pagetxt">
                                     AVA Global aim to provide accurate and relevant information to all our investors to
