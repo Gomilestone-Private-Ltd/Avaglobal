@@ -179,7 +179,7 @@
                     window.location.href = "";
                 } else {
                     toastr.error(response.message);
-                    window.location.href = "";
+                    // window.location.href = "";
                 }
             },
             error: function(response) {

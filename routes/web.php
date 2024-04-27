@@ -32,7 +32,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     //users have multiple roles
     Route::resource('users', UserController::class);
     Route::get('users/{userId}/delete', [UserController::class, 'destroy']);
-    Route::get('/search', [RoleController::class, 'getSearch']);
+    // Route::get('/search', [RoleController::class, 'getSearch']);
 });
 
 //ava global public routes

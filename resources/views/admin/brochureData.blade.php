@@ -95,12 +95,12 @@
                                                         <td>No FIle</td>
                                                     @endif
                                                     @can('edit-status-popup')
-                                                        {{-- <td>
+                                                        <td>
                                                             {!! $data->status == 1
                                                                 ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
                                                                 : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
-                                                        </td> --}}
-                                                        <td>
+                                                        </td>
+                                                        {{-- <td>
                                                             <div class="custom-control custom-switch">
                                                                 <input type="checkbox" class="custom-control-input"
                                                                     id="statusToggle{{ $data->id }}"
@@ -109,7 +109,7 @@
                                                                 <label class="custom-control-label"
                                                                     for="statusToggle{{ $data->id }}"></label>
                                                             </div>
-                                                        </td>
+                                                        </td> --}}
                                                     @endcan
                                                     @if (auth()->user()->can('edit-popup') || auth()->user()->can('delete-popup'))
                                                         <td>
@@ -197,6 +197,7 @@
                         // 'timeOut': 5000
                     }
                     toastr.success(response.message);
+
                     setTimeout(function() {
                         window.location.href = response.route
                     }, 1000);
@@ -208,9 +209,9 @@
                         // 'timeOut': 5000
                     }
                     toastr.error(response.message);
-                    setTimeout(function() {
-                        window.location.href = response.route
-                    }, 1000);
+                    // setTimeout(function() {
+                    //     window.location.href = response.route
+                    // }, 1000);
 
                 }
             },

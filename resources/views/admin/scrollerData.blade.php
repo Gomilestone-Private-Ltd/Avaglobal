@@ -190,9 +190,9 @@
                     // location.reload();
                 } else {
                     toastr.error(response.message);
-                    setTimeout(function() {
-                        window.location.href = response.route
-                    }, 1000);
+                    // setTimeout(function() {
+                    //     window.location.href = response.route
+                    // }, 1000);
                 }
 
             },
