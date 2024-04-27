@@ -50,7 +50,7 @@
                             <div class="table-responsive">
                                 <table
                                     class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                    <thead>
+                                    <thead class="main-table">
                                         <tr>
                                             <th>S.No</th>
                                             <th>TITLE</th>

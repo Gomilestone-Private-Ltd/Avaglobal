@@ -32,7 +32,7 @@
             <div class="section freightcontentparent" id="section1">
                 <div class="freightcontentblk custcontblk">
                     <div class="servicelefttxtblk custumclerblk">
-                        <div class="">
+                        <div class="text-width">
                             <p class="pagetxt">
                                 At AVA, we understand the challenges of global business and the need for smooth custom clearance. We leverage on our industry expertise to offer you quality custom clearance services, helping you avoid demurrages and penalties and reducing your lead time.
                             </p>
