@@ -20,7 +20,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="card widget_2">
                                 <div class="body">
-                                    <h6>Job Openings</h6>
+                                    <h6 class="heading-main">Job Openings</h6>
                                     <div class="dash-box">
                                         <div class="left-db">
                                             <h2>{{ isset($jobCount) ? $jobCount : 0 }}</h2>
@@ -58,7 +58,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-12">
                             <div class="card widget_2 ">
                                 <div class="body">
-                                    <h6>Job Applicant Leads</h6>
+                                    <h6 class="heading-main">Job Applicant Leads</h6>
                                     <div class="dash-box">
                                         <div class="left-db">
                                             <h2>{{ isset($Applicant) ? $Applicant : 0 }}</h2>

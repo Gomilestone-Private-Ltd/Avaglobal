@@ -35,7 +35,7 @@
         <div class="section freightcontentparent" id="section1">
             <div class="freightcontentblk wearhousecontblk">
                 <div class="servicelefttxtblk">
-                    <div class="">
+                    <div class="text-width">
                         <p class="pagetxt">
                             We offer top-class warehousing facilities to our clients, fulfilling their need for safe storage of goods that are in transit. Our wide range of logistic and packaging services are designed to meet different business needs. We possess a wide network of well-equipped warehouses throughout the country for quick and easy handling of our clients’ imported and exported goods.
                         </p>
