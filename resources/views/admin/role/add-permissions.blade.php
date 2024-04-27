@@ -68,6 +68,14 @@
         text-transform: capitalize;
         margin-bottom: 10px;
     }
+
+    .search-icon {
+        border: none;
+        position: absolute;
+        left: 14px;
+        top: 8px;
+        padding: 0px;
+    }
 </style>
 <section class="content">
     <div class="body_scroll">
@@ -86,12 +94,14 @@
                         @csrf
                         <div class="search-box">
                             <input id="inputTxt" type="text" name="search" placeholder="Search ..."
-                                class="admin-search">
+                                class="admin-search ">
+
                             <input type="hidden" name="roleId" value="{{ $role->id }}">
                             <button class="search-icon" type="submit">
-                                {{-- <img
-                                    src="{{ asset('assets/images/search.png') }}" alt="User" class=""
+                                {{-- <img src="{{ asset('assets/images/search.png') }}" alt="User" class=""
                                     id="search-icon"> --}}
+                                <i class="fa fa-search"></i>
+
                             </button>
                         </div>
                     </form>
