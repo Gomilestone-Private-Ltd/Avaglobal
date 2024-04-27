@@ -63,7 +63,7 @@
                                 </p>
                             </div>
                             <div class="shippingproimg ibvm">
-                                <img src="https://www.avaglobal.in/images/services/bulk-chartering.jpg" alt="" />
+                                <img class="shipping-img" src="https://www.avaglobal.in/images/services/bulk-chartering.jpg" alt="" />
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                                 </p>
                             </div>
                             <div class="shippingproimg ibvm">
-                                <img src="https://www.avaglobal.in/images/services/cargo.jpg" alt="" />
+                                <img class="shipping-img" src="https://www.avaglobal.in/images/services/cargo.jpg" alt="" />
                             </div>
                         </div>
                     </div>

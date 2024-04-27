@@ -23,6 +23,17 @@
     .toast-error {
         background-color: red !important;
     }
+    table.dataTable {
+        border-collapse: collapse !important;
+    }
+    .main-table {
+    background-color: #0050a4;
+    color: #fff;
+
+}
+.main-table th {
+    font-weight: 500;
+}
 </style>
 
 <section class="content">
@@ -49,14 +60,14 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable"
                                     id="job-posted">
-                                    <thead>
+                                    <thead class="main-table">
 
                                         <tr>
                                             <th>S.No</th>
-                                            <th>Case</th>
-                                            <th>Case Title</th>
-                                            <th>Case Image</th>
-                                            <th>Posted By</th>
+                                            <th class="width-css">Case</th>
+                                            <th class="width-css">Case Title</th>
+                                            <th class="width-css">Case Image</th>
+                                            <th class="width-css">Posted By</th>
                                             {{-- <th>Posted Date</th> --}}
                                             <th>Description</th>
                                             @can('edit-status-casestudy')
@@ -78,7 +89,7 @@
                                                 <td>
                                                     @foreach ($data->avaDocs as $images)
                                                         <img src="{{ asset($images->path) }}"
-                                                            style="width:70px;height:60px;border-radius:20%" />
+                                                            style="width:45px;height:45px;border-radius:50%;margin-bottom:5px" />
                                                     @endforeach
                                                 </td>
                                                 <td>{{ $data->posted_by }}</td>

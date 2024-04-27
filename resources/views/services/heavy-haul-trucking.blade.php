@@ -35,7 +35,7 @@
         <div class="section freightcontentparent" id="section1">
             <div class="freightcontentblk wearhoscontblk">
                 <div class="servicelefttxtblk">
-                    <div class="">
+                    <div class="text-width">
                         <p class="pagetxt">
                             As a full-service logistics and transportation company, we help our clients maintain their day-to-day operations with our reliable trucking services. Our wide range of trucking services are designed to accommodate varied needs of our clients. From lowboy trailers and flatbed trucks to refrigerated trucks, heavy haulers and step deck trailers, we have different types of trucks to deliver your freight on time.
                         </p>
