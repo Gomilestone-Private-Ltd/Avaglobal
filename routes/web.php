@@ -57,6 +57,8 @@ Route::get('media', [HomeController::class, 'media'])->name('media');
 //applicant-submit
 Route::post('/post-applicants', [AdminController::class, 'postApplicants'])->name('post-applicants');
 Route::get('/download-file/{filepath}', [Controller::class, 'downloadFile'])->name('download-file');
+// contact us applicants
+Route::post('admin/post-contacts', [AdminController::class, 'postContactApplicants'])->name('post-contacts');
 
 
 //Admin panel Routes
@@ -87,9 +89,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('case-study/delete/{id}', [AdminController::class, 'deleteCaseStudy'])->name('delete-caseStudy');
     Route::get('case-study/delete-image/{filename}', [AdminController::class, 'deleteFile'])->name('delete-caseStudy-file');
     Route::get('casestudy-status/{id}', [AdminController::class, 'changeCaseStatus'])->name('case.status');
-    //contactuslead
+    // //contactuslead
     Route::get('contact-us-leads', [AdminController::class, 'contactApplicants'])->name('contact-applicants');
-    Route::post('post-contacts', [AdminController::class, 'postContactApplicants'])->name('post-contacts');
+    // Route::post('post-contacts', [AdminController::class, 'postContactApplicants'])->name('post-contacts');
     Route::get('/delete/contact-us-leads/{id}', [AdminController::class, 'contactUsApplicantsDelete'])->name('delete-contact-us');
     //footerscroller
     Route::get('marque-records', [AdminController::class, 'ScrollerData'])->name('marque-records');

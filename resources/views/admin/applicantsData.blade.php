@@ -61,31 +61,37 @@
                                     </thead>
 
                                     <tbody>
-                                        @foreach ($applicantData as $data)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $data->name }}</td>
-                                                <td>{{ $data->email }}</td>
-                                                <td>{{ $data->phone }}</td>
-                                                <td>{{ $data->position }}</td>
-                                                <td>
-                                                    <a href="{{ asset($data->avaDocs->path) }}" download>Download
-                                                        PDF</a>
-                                                </td>
-                                                @can('delete-job-applicants')
+                                        @if (count($applicantData) > 0)
+                                            @foreach ($applicantData as $data)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $data->name }}</td>
+                                                    <td>{{ $data->email }}</td>
+                                                    <td>{{ $data->phone }}</td>
+                                                    <td>{{ $data->position }}</td>
                                                     <td>
-                                                        <div class="d-flex">
-                                                            <button onclick="deleteModal('{{ $data->id }}')"
-                                                                class="delete-btn"><img src="{{ asset('assets/images/trash.png') }}"
-                                                                alt="Back" class="delete-icon"></button>
-
-                                                        </div>
+                                                        @if (isset($data->avaDocs->path))
+                                                            <a href="{{ asset($data->avaDocs->path) }}"
+                                                                download>Download
+                                                                PDF</a>
+                                                        @else
+                                                            NO FILE
+                                                        @endif
                                                     </td>
-                                                @endcan
-                                            </tr>
-                                        @endforeach
+                                                    @can('delete-job-applicants')
+                                                        <td>
+                                                            <div class="d-flex">
+                                                                <button onclick="deleteModal('{{ $data->id }}')"
+                                                                    class="delete-btn"><img
+                                                                        src="{{ asset('assets/images/trash.png') }}"
+                                                                        alt="Back" class="delete-icon"></button>
 
-
+                                                            </div>
+                                                        </td>
+                                                    @endcan
+                                                </tr>
+                                            @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                                 {{-- Delete Model --}}
