@@ -475,15 +475,17 @@ class AdminController extends Controller
         $rule = [
             'title' => 'required',
             'location' => 'required',
-            'brochureimage' => 'required|mimes:jpeg,png',
-            'brochurepdf' => 'required|mimes:pdf,jpeg,png,jpg',
+            'brochureimage' => 'required|mimes:jpeg,png|max:2000',
+            'brochurepdf' => 'required|mimes:pdf,jpeg,png,jpg|max:5000',
         ];
         $message = [
-            'title.required' => "please fill the popUp title!!",
-            'location.required' => 'please fill the location',
-            'brochureimage.required' => 'please select a popUp image',
-            'brochureimage.mimes' => 'image extension must be of jpeg,png',
-            'brochurepdf.required' => 'please select a file'
+            'title.required' => "Please fill the popUp title!!",
+            'location.required' => 'Please fill the location',
+            'brochureimage.required' => 'Please select a popUp image',
+            'brochureimage.max' => 'PopUp image size must be less than 2mb',
+            'brochurepdf.max' => 'Banner image/pdf size must be less than 5mb',
+            'brochureimage.mimes' => 'Image extension must be of jpeg,png',
+            'brochurepdf.required' => 'Please select a file'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -529,14 +531,16 @@ class AdminController extends Controller
         $rule = [
             'title' => 'required',
             'location' => 'required',
-            'brochureimage' => 'nullable|mimes:jpg,png',
-            'brochurepdf' => 'nullable|mimes:pdf,jpg,png,jpeg',
+            'brochureimage' => 'nullable|mimes:jpg,png|max:2000',
+            'brochurepdf' => 'nullable|mimes:pdf,jpg,png,jpeg|max:5000',
         ];
         $message = [
-            'title.required' => "please fill the popUp title!!",
-            'location.required' => 'please fill the location',
-            'brochureimage.mimes' => 'image extension must be of jpg,png',
-            'brochurepdf.required' => 'please select a file'
+            'title.required' => "Please fill the popUp title!!",
+            'location.required' => 'Please fill the location',
+            'brochureimage.mimes' => 'Image extension must be of jpg,png',
+            'brochurepdf.required' => 'Please select a file',
+            'brochureimage.max' => 'PopUp image size must be less than 2mb',
+            'brochurepdf.max' => 'Banner image/pdf size must be less than 5mb',
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -630,13 +634,14 @@ class AdminController extends Controller
     {
         $requestData = $request->only('circularfile', 'circulartitle');
         $rule = [
-            'circularfile' => 'required|mimes:pdf',
+            'circularfile' => 'required|mimes:pdf|max:5000',
             'circulartitle' => 'required|max:125',
         ];
         $message = [
             'circularfile.required' => "please upload file",
             'circularfile.mimes' => 'file extension must be of pdf',
             'circulartitle.required' => 'please add file title here',
+            'circularfile.max' => 'pdf size should be less than 5 MB'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -692,12 +697,13 @@ class AdminController extends Controller
         // dd($olderPath);
         $requestData = $request->only('circularfile', 'circulartitle');
         $rule = [
-            'circularfile' => 'mimes:pdf',
+            'circularfile' => 'mimes:pdf|max:5000',
             'circulartitle' => 'required|max:125',
         ];
         $message = [
-            'circularfile.mimes' => 'file extension must be of pdf',
-            'circulartitle.required' => "Please write the title here"
+            'circularfile.mimes' => 'File extension must be of pdf',
+            'circulartitle.required' => "Please write the title here",
+            'circularfile.max' => 'Pdf size must be less than 5 mb'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -768,13 +774,14 @@ class AdminController extends Controller
 
         $requestData = $request->only('policyfile', 'policytitle');
         $rule = [
-            'policyfile' => 'required|mimes:pdf',
+            'policyfile' => 'required|mimes:pdf|max:5000',
             'policytitle' => 'required',
         ];
         $message = [
-            'policyfile.required' => "please upload file",
-            'policyfile.mimes' => 'file extension must be of pdf',
-            'policytitle.required' => 'please add file title here',
+            'policyfile.required' => "Please upload file",
+            'policyfile.mimes' => 'File extension must be of pdf',
+            'policytitle.required' => 'Please add file title here',
+            'policyfile.max' => 'Pdf size must be less than 5mb',
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -820,12 +827,13 @@ class AdminController extends Controller
         // dd($olderPath);
         $requestData = $request->only('policyfile', 'policytitle');
         $rule = [
-            'policyfile' => 'mimes:pdf',
+            'policyfile' => 'mimes:pdf|max:5000',
             'policytitle' => 'required',
         ];
         $message = [
-            'policyfile.mimes' => 'file extension must be of pdf',
-            'policytitle.required' => 'please add some file title here',
+            'policyfile.mimes' => 'File extension must be of pdf',
+            'policytitle.required' => 'Please add some file title here',
+            'policyfile.max' => 'Pdf size must be less than 5mb'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -969,13 +977,15 @@ class AdminController extends Controller
         // dd($request->all());
         $requestData = $request->only('downloadbrochure', 'brochuretitle');
         $rule = [
-            'downloadbrochure' => 'required|mimes:pdf,jpeg,jpg,png',
-            'brochuretitle' => 'required',
+            'downloadbrochure' => 'required|mimes:pdf,jpeg,jpg,png|max:5000',
+            'brochuretitle' => 'required|string|max:50',
         ];
         $message = [
-            'downloadbrochure.required' => "please upload file",
-            'downloadbrochure.mimes' => 'file extension must be of pdf,jpeg,jpg',
-            'brochuretitle.required' => 'please add a title here',
+            'downloadbrochure.required' => "Please upload file",
+            'downloadbrochure.mimes' => 'File extension must be of pdf,jpeg,jpg',
+            'brochuretitle.required' => 'Please add a title here',
+            'downloadbrochure.max' => 'Brochure image/pdf size must be less than 5mb',
+            'brochuretitle.max' => 'Title allowed upto 50 characters'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -1038,12 +1048,14 @@ class AdminController extends Controller
         $eventBrochure = AvaDocs::where('downloadBrochureId', $brochId)->first();
         $requestData = $request->only('downloadbrochure', 'brochuretitle');
         $rule = [
-            'downloadbrochure' => 'nullable|mimes:pdf,jpeg,jpg,png',
-            'brochuretitle' => 'required',
+            'downloadbrochure' => 'nullable|mimes:pdf,jpeg,jpg,png|max:5000',
+            'brochuretitle' => 'required|string|max:50',
         ];
         $message = [
-            'downloadbrochure.mimes' => 'file extension must be of pdf,jpeg,jpg',
-            'brochuretitle.required' => 'please add title here',
+            'downloadbrochure.mimes' => 'File extension must be of pdf,jpeg,jpg',
+            'downloadbrochure.max' => 'Brochure image/pdf size must be less than 5mb',
+            'brochuretitle.max' => 'Title allowed upto 50 characters',
+            'brochuretitle.required' => 'Please add title here',
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -1150,11 +1162,11 @@ class AdminController extends Controller
     public function saveOnlineCoverage(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'title' => 'required',
-            'location' => 'required',
+            'title' => 'required|string|max:100',
+            'location' => 'required|string|max:50',
             'mediaUrl' => 'required|url',
-            'onlineMediaImage' => 'required|mimes:jpeg,jpg,png',
-            'description' => 'required',
+            'onlineMediaImage' => 'required|mimes:jpeg,jpg,png|max:2000',
+            'description' => 'required|string|max:150',
         ]);
         if ($validate->fails()) {
             return redirect()->back()
@@ -1193,10 +1205,11 @@ class AdminController extends Controller
     public function updateOnlineCoverage(Request $request, $id)
     {
         $validate = Validator::make($request->all(), [
-            'title' => 'required',
-            'location' => 'required',
-            'onlineMediaImage' => 'mimes:png,jpg,jpeg',
+            'title' => 'required|string|max:100',
+            'location' => 'required|string|max:50',
+            'onlineMediaImage' => 'mimes:png,jpg,jpeg|max:2000',
             'mediaUrl' => 'required|url',
+            'description' => 'required|string|max:150',
         ]);
         if ($validate->fails()) {
             return redirect()->back()
@@ -1252,10 +1265,10 @@ class AdminController extends Controller
     public function savePrintCoverage(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'title' => 'required',
-            'location' => 'required',
-            'printMediaImage' => 'required|mimes:png,jpg,jpeg',
-            'printMediaFile' => 'required|mimes:pdf',
+            'title' => 'required|string|max:100',
+            'location' => 'required|string|max:50',
+            'printMediaImage' => 'required|mimes:png,jpg,jpeg|max:2000',
+            'printMediaFile' => 'required|mimes:pdf|max:5000',
         ]);
         if ($validate->fails()) {
             return redirect()->back()
@@ -1307,9 +1320,10 @@ class AdminController extends Controller
     public function updatePrintCoverage(Request $request, $id)
     {
         $validate = Validator::make($request->all(), [
-            'title' => 'nullable',
-            'location' => 'nullable',
-            'printMediaFile' => 'nullable|mimes:pdf',
+            'title' => 'nullable|string|max:100',
+            'location' => 'nullable|string|max:50',
+            'printMediaImage' => 'nullable|mimes:png,jpg,jpeg|max:2000',
+            'printMediaFile' => 'nullable|mimes:pdf|max:5000',
         ]);
         if ($validate->fails()) {
             return redirect()->back()
@@ -1377,14 +1391,17 @@ class AdminController extends Controller
         $requestData = $request->only('monialname', 'monialtext', 'monialimage');
 
         $rule = [
-            'monialname' => 'required',
-            'monialtext' => 'required',
-            'monialimage' => 'mimes:jpeg,jpg,png',
+            'monialname' => 'required|string|max:30',
+            'monialtext' => 'required|max:150',
+            'monialimage' => 'mimes:jpeg,jpg,png|max:2000',
         ];
         $message = [
             'monialname.required' => "Please fill the testimonial name ",
+            'monialname.max' => 'Name is allowed upto 30 characters',
+            'monialtext.max' => 'Text allowed upto 150 characters',
             'monialtext.required' => 'Please add some text here',
             'monialimage.mimes' => 'image extension must be of jpeg,jpg,png',
+            'monialimage.max' => 'Image size must be less than 2mb'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         // dd($validate);
@@ -1423,12 +1440,15 @@ class AdminController extends Controller
         $requestData = $request->only('monialname', 'monialtext', 'monialimage');
 
         $rule = [
-            'monialname' => 'required',
-            'monialtext' => 'required',
-            'monialimage' => 'mimes:jpeg,jpg,png',
+            'monialname' => 'required|string|max:30',
+            'monialtext' => 'required|string|max:150',
+            'monialimage' => 'mimes:jpeg,jpg,png|max:2000',
         ];
         $message = [
             'monialname.required' => "Please fill the testimonial name ",
+            'monialname.max' => 'Name must be less than 30 characters',
+            'monialtext.max' => 'Text must be less than 150 characters',
+            'monialimage.max' => 'Image size must be less than 2mb',
             'monialtext.required' => 'Please add some text here',
             'monialimage.mimes' => 'image extension must be of jpeg,jpg,png',
         ];

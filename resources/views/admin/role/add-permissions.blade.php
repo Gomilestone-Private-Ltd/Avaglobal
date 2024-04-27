@@ -88,9 +88,11 @@
                             <input id="inputTxt" type="text" name="search" placeholder="Search ..."
                                 class="admin-search">
                             <input type="hidden" name="roleId" value="{{ $role->id }}">
-                            <button class="search-icon" type="submit"><img
+                            <button class="search-icon" type="submit">
+                                {{-- <img
                                     src="{{ asset('assets/images/search.png') }}" alt="User" class=""
-                                    id="search-icon"></button>
+                                    id="search-icon"> --}}
+                            </button>
                         </div>
                     </form>
 

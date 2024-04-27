@@ -48,8 +48,10 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
                         <a href="{{ route('circulars') }}" class="back-btn"><img
-                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"><h3>Back</h3></a>
-                        
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
+                            <h3>Back</h3>
+                        </a>
+
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -85,7 +87,8 @@
                                     <label for="">Upload file:(Pdf only)</label>
                                     <div class="file-box">
                                         <input type="file" name="circularfile" id="caseimageinput"
-                                            class="form-control" value="" placeholder="" />
+                                            accept=" application/pdf" class="form-control" value=""
+                                            placeholder="" />
                                         <i class="fa fa-close close-icon" id="closeIcon"></i>
                                     </div>
 

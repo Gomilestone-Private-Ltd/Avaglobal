@@ -95,20 +95,21 @@
                                                         <td>No FIle</td>
                                                     @endif
                                                     @can('edit-status-popup')
-                                                        <td>
+                                                        {{-- <td>
                                                             {!! $data->status == 1
                                                                 ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
                                                                 : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
-                                                        </td>
-
-                                                        {{-- <td>
-                                                            <div class="custom-control custom-switch">
-                                                                <input type="checkbox" dataId="'.$data->id.'"
-                                                                    class="custom-control-input" id="customSwitch1">
-                                                                <label class="custom-control-label"
-                                                                    for="customSwitch1"></label>
-                                                            </div>
                                                         </td> --}}
+                                                        <td>
+                                                            <div class="custom-control custom-switch">
+                                                                <input type="checkbox" class="custom-control-input"
+                                                                    id="statusToggle{{ $data->id }}"
+                                                                    {!! $data->status == 1 ? 'checked' : '' !!}
+                                                                    onchange="changeStatus({{ $data->id }})">
+                                                                <label class="custom-control-label"
+                                                                    for="statusToggle{{ $data->id }}"></label>
+                                                            </div>
+                                                        </td>
                                                     @endcan
                                                     @if (auth()->user()->can('edit-popup') || auth()->user()->can('delete-popup'))
                                                         <td>
@@ -199,9 +200,7 @@
                     setTimeout(function() {
                         window.location.href = response.route
                     }, 1000);
-                    // location.reload();
-                    // $("#job-posted").reload();
-                    // $("#job-posted").load(window.location.href + " #job-posted");
+
                 } else {
                     toastr.options = {
                         'progressBar': true,
@@ -212,7 +211,7 @@
                     setTimeout(function() {
                         window.location.href = response.route
                     }, 1000);
-                    // $("#job-posted").load(window.location.href + " #job-posted");
+
                 }
             },
             error: function(response) {

@@ -48,13 +48,14 @@ class RoleController extends Controller
 
         $rule = [
 
-            'name' => 'required|string|unique:roles,name',
+            'name' => 'required|string|max:30|unique:roles,name',
 
         ];
 
         $message = [
-            'name.required' => 'please add role name',
+            'name.required' => 'Please add role name',
             'name.unique' => 'This role name already exists',
+            'name.max' => 'Role name must be less than 30 characters'
         ];
 
         $validate = Validator::make($requestData, $rule, $message);
@@ -182,7 +183,19 @@ class RoleController extends Controller
             $requestEarlierPermissions = FacadesDB::table('role_has_permissions')->where('role_id', $roleId)->pluck('permission_id')->toArray();
             $requestEarlierPermissionsName = Permission::whereIn('id', $requestEarlierPermissions)->pluck('name')->toArray();
             $combinedPermissionsToSync = array_unique(array_merge($requestEarlierPermissionsName, $keysDifferenceIdsToRevokePermissionsName));
-            dd($keysDifferenceIdsToRevokePermissionsName);
+            // dd($keysDifferenceIdsToRevokePermissionsName, $allPermission);
+            $role = Role::findOrFail($roleId);
+            foreach ($allPermission as $permission) {
+                if (in_array($permission, $requestEarlierPermissions)) {
+                    foreach ($keysDifferenceIdsToRevokePermissionsName as $revokePermission) {
+                        $role->revokePermissionTo($revokePermission);
+                    }
+                    $requestEarlierPermissions = FacadesDB::table('role_has_permissions')->where('role_id', $roleId)->pluck('permission_id')->toArray();
+                    $requestEarlierPermissionsName = Permission::whereIn('id', $requestEarlierPermissions)->pluck('name')->toArray();
+                    $role->syncPermissions($requestEarlierPermissionsName);
+                    return redirect()->back()->with('success', 'Permission added to the role');
+                }
+            }
         }
 
 
@@ -193,13 +206,15 @@ class RoleController extends Controller
 
     }
 
+
+
     public function getSearch(Request $request)
     {
         $roleId = $request->roleId;
         $search = $request->search;
         if (!empty($search)) {
             $groupedPermissionRecords = Permission::where('group_name', 'like', '%' . $search . '%')
-                // ->orWhere('name', 'like', '%' . $search . '%')
+                ->orWhere('name', 'like', '%' . $search . '%')
                 ->orderBy('id', 'desc')
                 ->get()
                 ->groupBy('group_name');
