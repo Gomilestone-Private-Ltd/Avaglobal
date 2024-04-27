@@ -12750,12 +12750,13 @@ section.content {
     /* box-shadow: 0px 5px 15px 0px #4e7ac730; */
     /* margin-bottom: 15px; */
     border: 1px solid #dddddd;
+    border-radius: 5px;
 }
 
 .card .body h6 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
-    color: #878787;
+    color: #004fa1;
 }
 
 .left-db h2 {
@@ -18068,7 +18069,7 @@ small.userrole {
 }
 
 .rm-left {
-    width: 25%;
+    width: 50%;
 }
 
 .rm-right {
@@ -18470,4 +18471,19 @@ p.notice-text {
     font-size: 13px;
     margin: 0px;
     padding-top: 5px;
+}
+thead.table.dataTable {
+    border-collapse: collapse !important;
+}
+
+table.dataTable {
+    border-collapse: collapse !important;
+}
+.main-table {
+background-color: #0050a4;
+color: #fff;
+
+}
+.main-table th {
+font-weight: 500;
 }

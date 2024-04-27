@@ -44,7 +44,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable"
                                     id="job-posted">
-                                    <thead>
+                                    <thead class="main-table">
 
                                         <tr>
                                             <th>S.No</th>
