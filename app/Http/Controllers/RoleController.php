@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use DB;
+use Illuminate\Support\Facades\DB as FacadesDB;
 
 class RoleController extends Controller
 {
@@ -117,21 +119,106 @@ class RoleController extends Controller
 
     public function addPermissionToRole($roleId)
     {
-        $allPermissions = Permission::pluck('name', 'id')->toArray();
         $groupedPermissionRecords = Permission::orderBy('id', 'desc')->get()->groupBy('group_name');
+        $allPermissions = Permission::pluck('name', 'id')->toArray();
         $role = Role::findOrFail($roleId);
         $roleHasPermissions = ModelsRole::roleHasPermissions($role, $allPermissions);
         return view('admin.role.add-permissions', ['role' => $role, 'permissions' => $allPermissions, 'roleHasPermissions' => $roleHasPermissions, 'groupedPermissionRecords' => $groupedPermissionRecords]);
     }
 
+    // public function givePermissionToRole(Request $request, $roleId)
+    // {
+    //     $request->validate([
+    //         'permissions' => 'required'
+    //     ]);
+    //     $permissions = $request->permissions;
+    //     $role = Role::findOrFail($roleId);
+    //     $role->syncPermissions($permissions);
+    //     return redirect()->back()->with('success', 'Permission added to the role');
+    // }
     public function givePermissionToRole(Request $request, $roleId)
     {
-        $request->validate([
-            'permissions' => 'required'
-        ]);
-        $permissions = $request->permissions;
+        if (!empty($request->permissions)) {
+            $requestPermissions = Permission::whereIn('name', $request->permissions)->pluck('name', 'id')->toArray();
+            $allPermission = Permission::whereIn('name', $request->all_permissions)->pluck('name', 'id')->toArray();
+            $keysDifferenceIdsToRevoke = array_keys(array_diff_key($allPermission, $requestPermissions));
+            $keysDifferenceIdsToRevokePermissionsName = Permission::whereIn('id', $keysDifferenceIdsToRevoke)->pluck('name')->toArray();
+
+
+            $requestPermissionsKeys = array_keys($requestPermissions);
+            $requestPermissionsKeysName = Permission::whereIn('id', $requestPermissionsKeys)->pluck('name')->toArray();
+
+
+
+            $requestEarlierPermissions = FacadesDB::table('role_has_permissions')->where('role_id', $roleId)->pluck('permission_id')->toArray();
+            $requestEarlierPermissionsName = Permission::whereIn('id', $requestEarlierPermissions)->pluck('name')->toArray();
+            // dd($requestEarlierPermissionsName);
+
+            $combinedPermissionsToSync = array_unique(array_merge($requestEarlierPermissionsName, $requestPermissionsKeysName));
+            // dd($combinedPermissionsToSync);
+
+            $role = Role::findOrFail($roleId);
+            foreach ($requestPermissionsKeys as $permissions) {
+                if (in_array($permissions, $requestEarlierPermissions)) {
+                    foreach ($keysDifferenceIdsToRevokePermissionsName as $revokePermission) {
+                        $role->revokePermissionTo($revokePermission);
+                    }
+                    $requestEarlierPermissions = FacadesDB::table('role_has_permissions')->where('role_id', $roleId)->pluck('permission_id')->toArray();
+                    $requestEarlierPermissionsName = Permission::whereIn('id', $requestEarlierPermissions)->pluck('name')->toArray();
+                    $combinedPermissionsToSync = array_unique(array_merge($requestEarlierPermissionsName, $requestPermissionsKeysName));
+                    $role->syncPermissions($combinedPermissionsToSync);
+                } else {
+                    $combinedPermissionsToSync = array_unique(array_merge($requestEarlierPermissionsName, $requestPermissionsKeysName));
+                    $role->syncPermissions($combinedPermissionsToSync);
+                }
+            }
+            return redirect()->back()->with('success', 'Permission added to the role');
+        } else {
+            $allPermission = array_keys(Permission::whereIn('name', $request->all_permissions)->pluck('name', 'id')->toArray());
+
+            $keysDifferenceIdsToRevokePermissionsName = Permission::whereIn('id', $allPermission)->pluck('name')->toArray();
+
+
+            $requestEarlierPermissions = FacadesDB::table('role_has_permissions')->where('role_id', $roleId)->pluck('permission_id')->toArray();
+            $requestEarlierPermissionsName = Permission::whereIn('id', $requestEarlierPermissions)->pluck('name')->toArray();
+            $combinedPermissionsToSync = array_unique(array_merge($requestEarlierPermissionsName, $keysDifferenceIdsToRevokePermissionsName));
+            dd($keysDifferenceIdsToRevokePermissionsName);
+        }
+
+
+
+        // dd($combinedPermissionsToSync, $keysDifferenceIdsToRevoke);
+        //need to revoke keysDifferenceIdsToRevoke from requestEarlierPermissions if keysDifferenceIdsToRevoke found revoke them
+        //and again get requestEarlierPermissions now merge it with requestPermissions and get unique and sync them
+
+    }
+
+    public function getSearch(Request $request)
+    {
+        $roleId = $request->roleId;
+        $search = $request->search;
+        if (!empty($search)) {
+            $groupedPermissionRecords = Permission::where('group_name', 'like', '%' . $search . '%')
+                // ->orWhere('name', 'like', '%' . $search . '%')
+                ->orderBy('id', 'desc')
+                ->get()
+                ->groupBy('group_name');
+        } else {
+            $groupedPermissionRecords = Permission::orderBy('id', 'desc')->get()->groupBy('group_name');
+        }
+
+        $allPermissions = Permission::pluck('name', 'id')->toArray();
         $role = Role::findOrFail($roleId);
-        $role->syncPermissions($permissions);
-        return redirect()->back()->with('success', 'Permission added to the role');
+        $roleHasPermissions = ModelsRole::roleHasPermissions($role, $allPermissions);
+
+        // return redirect('admin/roles/' . $roleId . '/give-permissions')->with([
+        //     'role' => $role,
+        //     'permissions' => $allPermissions,
+        //     'roleHasPermissions' => $roleHasPermissions,
+        //     'groupedPermissionRecords' => $groupedPermissionRecords
+        // ]);
+
+
+        return view('admin.role.add-permissions', ['role' => $role, 'permissions' => $allPermissions, 'roleHasPermissions' => $roleHasPermissions, 'groupedPermissionRecords' => $groupedPermissionRecords]);
     }
 }

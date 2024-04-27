@@ -148,8 +148,10 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="back-btn-box">
                         <a href="{{ route('case-section') }}" class="back-btn"><img
-                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon"><h3>Back</h3></a>
-                        
+                                src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
+                            <h3>Back</h3>
+                        </a>
+
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -208,7 +210,7 @@
                                     </label>
                                     <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control"
                                         name="caseimage[]" id="caseimage" multiple />
-                                        <p class="notice-text">(Image Dimension should be 1366*550)</p>
+                                    <p class="notice-text">(Image Dimension should be 1366*550)</p>
                                     <span class="text-danger">
                                     </span>
                                     <div class="main-image-select-box">
@@ -376,38 +378,6 @@
         });
     });
 
-    // $(document).ready(function() {
-
-    //     $('#closeIcon').on('click', function() {
-    //         $('#imagePreview').empty();
-    //         $('#caseimage').val('');
-    //         $('.close-icon').hide();
-    //     });
-    //     $('#caseimage').on('change', function(e) {
-    //         var files = this.files; // Get the array of files
-    //         if (files.length > 0) {
-    //             $('.close-icon').show();
-    //             // $('#imagePreview').html(''); // Clear previous previews
-    //             // Loop through each file
-    //             for (var i = 0; i < files.length; i++) {
-    //                 var reader = new FileReader();
-    //                 reader.onload = (function(file) {
-    //                     return function(e) {
-
-    //                         $('#imagePreview').append('<div class="ml-3"><img src="' + e
-    //                             .target.result +
-    //                             '" alt="Preview" style="width:70px;height:60px;border-radius:20%"></div>'
-    //                         );
-    //                     };
-    //                 })(files[i]);
-    //                 reader.readAsDataURL(files[i]); // Read the file as a data URL
-    //             }
-    //         } else {
-    //             $('#imagePreview').html(''); // Clear preview if no file selected
-    //             $('.close-icon').hide();
-    //         }
-    //     });
-    // });
 
     $('#caseEdit').submit(function(e) {
         e.preventDefault();
@@ -445,26 +415,38 @@
                 error: function(response) {
                     $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
                     $(".from-prevent-multiple-submits").removeAttr("disabled");
+                    // if (response.responseJSON && response.responseJSON.errors) {
+                    //     $('.text-danger').html('');
+                    //     $.each(response.responseJSON.errors, function(field, errorMessage) {
+
+
+                    //         var errorHtml = '<span class="text-danger">' +
+                    //             errorMessage + '</span>';
+
+                    //         $('#' + field).closest(
+                    //                 '.form-group')
+                    //             .find('.text-danger').html(errorHtml);
+
+
+                    //         $('#' + field).on('input',
+                    //             function() {
+                    //                 $('.text-danger').html('');
+                    //             });
+                    //     });
+                    // }
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
-                        $.each(response.responseJSON.errors, function(field, errorMessage) {
-
-
+                        $.each(response.responseJSON.errors, function(field,
+                            errorMessage) {
+                            var fieldName = field.split('.');
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
-                            // $('[name="' + field + '"]').closest(
-                            //         '.form-group')
-                            //     .find('.text-danger').html(errorHtml);
-                            // $('[name="' + field + '"]').on('input',
-                            //     function() {
-                            //         $('.text-danger').html('');
-                            //     });
-                            $('#' + field).closest(
+
+                            $('#' + fieldName).closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
 
-
-                            $('#' + field).on('input',
+                            $('#' + fieldName).on('input',
                                 function() {
                                     $('.text-danger').html('');
                                 });
@@ -506,28 +488,39 @@
                 error: function(response) {
                     $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
                     $(".from-prevent-multiple-submits").removeAttr("disabled");
+                    // if (response.responseJSON && response.responseJSON.errors) {
+                    //     $('.text-danger').html('');
+
+                    //     $.each(response.responseJSON.errors, function(field,
+                    //         errorMessage) {
+
+                    //         var errorHtml = '<span class="text-danger">' +
+                    //             errorMessage + '</span>';
+
+                    //         $('#' + field).closest(
+                    //                 '.form-group')
+                    //             .find('.text-danger').html(errorHtml);
+
+
+                    //         $('#' + field).on('input',
+                    //             function() {
+                    //                 $('.text-danger').html('');
+                    //             });
+                    //     });
+                    // }
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
-
                         $.each(response.responseJSON.errors, function(field,
                             errorMessage) {
-
-
+                            var fieldName = field.split('.');
                             var errorHtml = '<span class="text-danger">' +
                                 errorMessage + '</span>';
-                            // $('[name="' + field + '"]').closest(
-                            //         '.form-group')
-                            //     .find('.text-danger').html(errorHtml);
-                            // $('[name="' + field + '"]').on('input',
-                            //     function() {
-                            //         $('.text-danger').html('');
-                            //     });
-                            $('#' + field).closest(
+
+                            $('#' + fieldName).closest(
                                     '.form-group')
                                 .find('.text-danger').html(errorHtml);
 
-
-                            $('#' + field).on('input',
+                            $('#' + fieldName).on('input',
                                 function() {
                                     $('.text-danger').html('');
                                 });

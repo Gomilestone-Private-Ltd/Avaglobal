@@ -80,12 +80,12 @@ class AdminController extends Controller
 
         $requestData = $request->only('department', 'jobStatus', 'timePeriod', 'location', 'jobRole', 'experience', 'description', 'slug');
         $rule = [
-            'department' => 'required',
+            'department' => 'required|string|max:50',
             'jobStatus' => 'required',
             'timePeriod' => 'required',
-            'location' => 'required',
-            'jobRole' => 'required',
-            'experience' => 'required',
+            'location' => 'required|string|max:150',
+            'jobRole' => 'required|string|max:50',
+            'experience' => 'required|string|max:30',
             'description' => 'required',
         ];
         $message = [
@@ -185,20 +185,21 @@ class AdminController extends Controller
         $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'tinymce');
 
         $rule = [
-            'case' => 'required',
-            'casetitle' => 'required',
-            'postedby' => 'required',
+            'case' => 'required|string|max:30',
+            'casetitle' => 'required|string|max:150',
+            'postedby' => 'required|string|max:150',
             'caseimage' => 'required|array|max:5',
-            'caseimage.*' => 'mimes:jpeg,jpg,png',
+            'caseimage.*' => ' mimes:jpeg,jpg,png|max:1024',
             'tinymce' => 'required',
         ];
         $message = [
             'case.required' => "please fill the case name !!",
-            'casetitle.required' => 'please fill the case title',
-            'postedby.required' => 'please fill the company name',
-            'caseimage.required' => 'please select case image',
+            'casetitle.required' => 'Please fill the case title',
+            'postedby.required' => 'Please fill the company name',
+            'caseimage.required' => 'Please select case image',
             'caseimage.max' => 'Maximum five images are allowed',
             'caseimage.*.mimes' => 'image extension must be of jpeg,jpg,png',
+            'caseimage.*.max' => 'CaseImage size must be less than 1MB',
             'tinymce.required' => 'Please add Case description here'
         ];
         $validate = Validator::make($requestData, $rule, $message);
@@ -297,7 +298,7 @@ class AdminController extends Controller
             'email' => 'required|email',
             'phone' => 'required|regex:/^[0-9]{10}$/',
             'position' => 'required',
-            'applicantPdf' => 'required|mimes:pdf|max:10000'
+            'applicantPdf' => 'required|mimes:pdf|max:5000'
         ];
         $message = [
             'name.required' => "Please fill your name",
@@ -305,7 +306,8 @@ class AdminController extends Controller
             'phone.required' => 'Please give your phone number',
             'position.required' => 'Please fill the position applying for:',
             'applicantPdf.mimes' => 'file extension must be of type .pdf',
-            'applicantPdf.required' => 'Please put your CV here'
+            'applicantPdf.required' => 'Please put your CV here',
+            'applicantPdf.max' => 'Pdf file must be less than 5mb',
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -1072,23 +1074,29 @@ class AdminController extends Controller
         $newCount = 0;
         $caseId = $request->id;
         $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'tinymce');
+
         $rule = [
-            'case' => 'required',
-            'casetitle' => 'required',
-            'postedby' => 'required',
+            'case' => 'required|string|max:30',
+            'casetitle' => 'required|string|max:150',
+            'postedby' => 'required|string|max:150',
             'caseimage' => 'array|max:5',
-            'caseimage.*' => 'mimes:jpeg,jpg,png',
-            'tinymce' => 'required'
+            'caseimage.*' => ' mimes:jpeg,jpg,png|max:1024',
+            'tinymce' => 'required',
         ];
         $message = [
             'case.required' => "please fill the case name !!",
-            'casetitle.required' => 'please fill the case title',
-            'postedby.required' => 'please fill the company name',
-            'caseimage.required' => 'please select a case image',
+            'casetitle.required' => 'Please fill the case title',
+            'postedby.required' => 'Please fill the company name',
+            'caseimage.required' => 'Please select case image',
             'caseimage.max' => 'Maximum five images are allowed',
             'caseimage.*.mimes' => 'image extension must be of jpeg,jpg,png',
-            'description.required' => 'Please add Case description here'
+            'caseimage.*.max' => 'CaseImage size must be less than 1MB',
+            'tinymce.required' => 'Please add Case description here'
         ];
+
+
+
+
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
             return response()->json(['errors' => $validate->errors()], 400);

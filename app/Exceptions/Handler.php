@@ -48,23 +48,23 @@ class Handler extends ExceptionHandler
     //         return response()->view('errors.404', ['exception' => $e], 500);
     //     });
     // }
-    public function register()
-    {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
+    // public function register()
+    // {
+    //     $this->reportable(function (Throwable $e) {
+    //         //
+    //     });
 
-        $this->renderable(function (Exception $e) {
-            return response()->view('errors.404', ['exception' => $e], 500);
-        });
-    }
+    //     $this->renderable(function (Exception $e) {
+    //         return response()->view('errors.404', ['exception' => $e], 500);
+    //     });
+    // }
 
 
-    protected function renderHttpException(HttpExceptionInterface $e)
-    {
-        if (!view()->exists("errors.{$e->getStatusCode()}")) {
-            return response()->view('errors.404', ['exception' => $e], 500, $e->getHeaders());
-        }
-        return parent::renderHttpException($e);
-    }
+    // protected function renderHttpException(HttpExceptionInterface $e)
+    // {
+    //     if (!view()->exists("errors.{$e->getStatusCode()}")) {
+    //         return response()->view('errors.404', ['exception' => $e], 500, $e->getHeaders());
+    //     }
+    //     return parent::renderHttpException($e);
+    // }
 }

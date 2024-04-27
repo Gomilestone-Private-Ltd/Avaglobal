@@ -32,6 +32,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     //users have multiple roles
     Route::resource('users', UserController::class);
     Route::get('users/{userId}/delete', [UserController::class, 'destroy']);
+    Route::get('/search', [RoleController::class, 'getSearch']);
 });
 
 //ava global public routes
@@ -171,5 +172,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     // Route::get('/career-description/{id}/{slug}', [AdminController::class, 'careerDescription'])->name('career-description');
     // Route::post('/text-editor', [AdminController::class, 'textEditor'])->name('text-editor');
     // Route::get('/edit-description/{id}', [AdminController::class, 'editDescription'])->name('edit-description');
+
 
 });

@@ -23,6 +23,9 @@
     .toast-error {
         background-color: red !important;
     }
+
+    /* added */
+    /* added */
 </style>
 <section class="content">
 
@@ -97,6 +100,15 @@
                                                                 ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
                                                                 : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
                                                         </td>
+
+                                                        {{-- <td>
+                                                            <div class="custom-control custom-switch">
+                                                                <input type="checkbox" dataId="'.$data->id.'"
+                                                                    class="custom-control-input" id="customSwitch1">
+                                                                <label class="custom-control-label"
+                                                                    for="customSwitch1"></label>
+                                                            </div>
+                                                        </td> --}}
                                                     @endcan
                                                     @if (auth()->user()->can('edit-popup') || auth()->user()->can('delete-popup'))
                                                         <td>
@@ -169,6 +181,7 @@
     }
 
     function changeStatus(id) {
+
         $.ajax({
             type: 'GET',
             url: baseUrl + '/admin/event-popup-status/' + id,
@@ -177,16 +190,29 @@
             contentType: false,
             success: function(response) {
                 if (response.success == true) {
+                    toastr.options = {
+                        'progressBar': true,
+                        'closeButton': true,
+                        // 'timeOut': 5000
+                    }
                     toastr.success(response.message);
                     setTimeout(function() {
                         window.location.href = response.route
                     }, 1000);
                     // location.reload();
+                    // $("#job-posted").reload();
+                    // $("#job-posted").load(window.location.href + " #job-posted");
                 } else {
+                    toastr.options = {
+                        'progressBar': true,
+                        'closeButton': true,
+                        // 'timeOut': 5000
+                    }
                     toastr.error(response.message);
                     setTimeout(function() {
                         window.location.href = response.route
                     }, 1000);
+                    // $("#job-posted").load(window.location.href + " #job-posted");
                 }
             },
             error: function(response) {
