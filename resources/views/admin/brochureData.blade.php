@@ -79,7 +79,8 @@
                                                     <td>{{ $data->location }}</td>
                                                     @if (isset($data->avaDocsPopUpImage->path))
                                                         <td><img src="{{ asset(isset($data->avaDocsPopUpImage->path) ? $data->avaDocsPopUpImage->path : 'assets/img/1711805669avaglobal.png') }}"
-                                                                style="width:70px;height:60px;border-radius:20%" /></td>
+                                                                style="width:45px;height:45px;border-radius:50%;margin-bottom:5px" />
+                                                        </td>
                                                     @endif
 
                                                     @if (isset($data->avaDocsBrochureFiles->path) && strtoupper($data->avaDocsBrochureFiles->filetype) == 'PDF')
@@ -89,7 +90,7 @@
                                                         </td>
                                                     @elseif (isset($data->avaDocsBrochureFiles->path) && strtoupper($data->avaDocsPopUpImage->filetype) != 'PDF')
                                                         <td><img src="{{ asset(isset($data->avaDocsBrochureFiles->path) ? $data->avaDocsBrochureFiles->path : 'assets/img/1711805669avaglobal.png') }}"
-                                                                style="width:70px;height:60px;border-radius:20%" />
+                                                                style="width:45px;height:45px;border-radius:50%;margin-bottom:5px" />
                                                         </td>
                                                     @else
                                                         <td>No FIle</td>
