@@ -641,10 +641,10 @@ class AdminController extends Controller
             'circulartitle' => 'required|max:125',
         ];
         $message = [
-            'circularfile.required' => "please upload file",
-            'circularfile.mimes' => 'file extension must be of pdf',
-            'circulartitle.required' => 'please add file title here',
-            'circularfile.max' => 'pdf size should be less than 5 MB'
+            'circularfile.required' => "Please upload file",
+            'circularfile.mimes' => 'File extension must be of pdf',
+            'circulartitle.required' => 'Please add file title here',
+            'circularfile.max' => 'Pdf size should be less than 5 MB'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -778,13 +778,14 @@ class AdminController extends Controller
         $requestData = $request->only('policyfile', 'policytitle');
         $rule = [
             'policyfile' => 'required|mimes:pdf|max:5000',
-            'policytitle' => 'required',
+            'policytitle' => 'required|max:125',
         ];
         $message = [
             'policyfile.required' => "Please upload file",
             'policyfile.mimes' => 'File extension must be of pdf',
             'policytitle.required' => 'Please add file title here',
             'policyfile.max' => 'Pdf size must be less than 5mb',
+            'policytitle.max'=>'Policy title allowed upto 125 characters'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -831,12 +832,13 @@ class AdminController extends Controller
         $requestData = $request->only('policyfile', 'policytitle');
         $rule = [
             'policyfile' => 'mimes:pdf|max:5000',
-            'policytitle' => 'required',
+            'policytitle' => 'required|max:125',
         ];
         $message = [
             'policyfile.mimes' => 'File extension must be of pdf',
             'policytitle.required' => 'Please add some file title here',
-            'policyfile.max' => 'Pdf size must be less than 5mb'
+            'policyfile.max' => 'Pdf size must be less than 5mb',
+            'policytitle.max'=>'Policy title allowed upto 125 characters'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
