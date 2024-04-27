@@ -473,8 +473,8 @@ class AdminController extends Controller
 
         $requestData = $request->only('title', 'location', 'brochureimage', 'brochurepdf');
         $rule = [
-            'title' => 'required',
-            'location' => 'required',
+            'title' => 'required|string|max:100',
+            'location' => 'required|string|max:30',
             'brochureimage' => 'required|mimes:jpeg,png|max:2000',
             'brochurepdf' => 'required|mimes:pdf,jpeg,png,jpg|max:5000',
         ];
@@ -527,15 +527,18 @@ class AdminController extends Controller
     }
     public function postEditBrochure(Request $request)
     {
+
         $requestData = $request->only('title', 'location', 'brochureimage', 'brochurepdf');
         $rule = [
-            'title' => 'required',
-            'location' => 'required',
+            'title' => 'required|string|max:100',
+            'location' => 'required|string|max:30',
             'brochureimage' => 'nullable|mimes:jpg,png|max:2000',
             'brochurepdf' => 'nullable|mimes:pdf,jpg,png,jpeg|max:5000',
         ];
         $message = [
             'title.required' => "Please fill the popUp title!!",
+            'title.max' => 'Title allowed upto 50 characters',
+            'location.max' => 'Location field allowed upto 30 characters',
             'location.required' => 'Please fill the location',
             'brochureimage.mimes' => 'Image extension must be of jpg,png',
             'brochurepdf.required' => 'Please select a file',

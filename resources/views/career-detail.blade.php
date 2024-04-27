@@ -84,7 +84,7 @@
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Position</div>
-                                                <input type="text" name="position"
+                                                <input type="text" name="position" disabled
                                                     value="{{ isset($careerData->job_role) ? $careerData->job_role : '' }}"
                                                     class="inputclick">
                                                 <span class="text-danger">
