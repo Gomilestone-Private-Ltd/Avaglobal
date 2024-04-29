@@ -52,7 +52,7 @@
                                                         <span>{{ $data->created_at }}</span>
                                                     </p>
                                                 </div>
-                                                <P class="oc-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam quia velit eveniet? Ipsum maxime expedita hic aliquam nemo minus, libero corrupti iure itaque ex. Eius sit iusto minus deleniti.</P>
+                                                <P class="oc-text">{{ $data->description }}</P>
                                                 <a href="{{ $data->media_url }}" target="_blank">
                                                     <div class="knowmore uppercase">Read more
                                                         <div class="sprite knwmorearw"></div>
