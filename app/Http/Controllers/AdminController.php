@@ -193,14 +193,14 @@ class AdminController extends Controller
             'tinymce' => 'required',
         ];
         $message = [
-            'case.required' => "please fill the case name !!",
+            'case.required' => "Please fill the case name",
             'casetitle.required' => 'Please fill the case title',
             'postedby.required' => 'Please fill the company name',
             'caseimage.required' => 'Please select case image',
             'caseimage.max' => 'Maximum five images are allowed',
             'caseimage.*.mimes' => 'Image extension must be of jpeg,jpg,png',
             'caseimage.*.max' => 'CaseImage size must be less than 1MB',
-            'tinymce.required' => 'Please add Case description here'
+            'tinymce.required' => 'Please add case description here'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         // dd($validate);
@@ -785,7 +785,7 @@ class AdminController extends Controller
             'policyfile.mimes' => 'File extension must be of pdf',
             'policytitle.required' => 'Please add file title here',
             'policyfile.max' => 'Pdf size must be less than 5mb',
-            'policytitle.max'=>'Policy title allowed upto 125 characters'
+            'policytitle.max' => 'Policy title allowed upto 125 characters'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -838,7 +838,7 @@ class AdminController extends Controller
             'policyfile.mimes' => 'File extension must be of pdf',
             'policytitle.required' => 'Please add some file title here',
             'policyfile.max' => 'Pdf size must be less than 5mb',
-            'policytitle.max'=>'Policy title allowed upto 125 characters'
+            'policytitle.max' => 'Policy title allowed upto 125 characters'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
