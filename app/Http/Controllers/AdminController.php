@@ -198,7 +198,7 @@ class AdminController extends Controller
             'postedby.required' => 'Please fill the company name',
             'caseimage.required' => 'Please select case image',
             'caseimage.max' => 'Maximum five images are allowed',
-            'caseimage.*.mimes' => 'image extension must be of jpeg,jpg,png',
+            'caseimage.*.mimes' => 'Image extension must be of jpeg,jpg,png',
             'caseimage.*.max' => 'CaseImage size must be less than 1MB',
             'tinymce.required' => 'Please add Case description here'
         ];

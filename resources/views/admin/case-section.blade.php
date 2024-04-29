@@ -166,13 +166,12 @@
                                 </div>
 
                                 <div class="form-group col-md-6 required">
-                                    <label for="">Case Image: (max 5 files allowed with extension
-                                        jpg,jpeg,png)
+                                    <label for="">Case Image: (Max 5 files allowed | Size less than 1 MB)
 
                                     </label>
                                     <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control"
                                         name="caseimage[]" id="caseimage" multiple />
-                                    <p class="notice-text">(Image Dimension should be 1366*550)</p>
+                                    {{-- <p class="notice-text">(Image Dimension should be 1366*550)</p> --}}
                                     <span class="text-danger">
                                     </span>
                                     <div>

@@ -141,8 +141,9 @@ p.work {
 }
 
 img.time-img {
-    width: 26px;
+    /* width: 26px; */
     margin-right: 10px;
+    height: 20px;
 }
 
 .eva-container.event {

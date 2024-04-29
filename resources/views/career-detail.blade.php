@@ -39,24 +39,30 @@
 
                                 <div class="job-right" id="apply">
                                     <h3 class="csdt-title">Job Details</h3>
-                                    <p class="jr-box"><img src="{{ asset('/images/editing.png') }}" class="time-img">
-                                        Category :<span>
-                                            {{ isset($careerData->job_role) ? $careerData->job_role : '' }}</span>
-                                    </p>
-                                    <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">Workday :
-                                        <span>{{ isset($careerData->time_period) ? $careerData->time_period : '' }}</span>
-                                    </p>
-                                    <p class="jr-box"><img src="{{ asset('/images/location.png') }}"
+                                    <div class="carrer-form-text">
+                                        <p class="jr-box"><img src="{{ asset('/images/editing.png') }}" class="time-img">
+                                            Category :
+                                        </p>
+                                        <span class="carrer-right-text"> {{ isset($careerData->job_role) ? $careerData->job_role : '' }}</span>
+                                    </div>
+                                    <div class="carrer-form-text">
+                                        <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">
+                                            Workday :
+                                        </p>
+                                          <span class="carrer-right-text">{{ isset($careerData->time_period) ? $careerData->time_period : '' }}</span>
+                                    </div> 
+                                    <div class="carrer-form-text">
+                                        <p class="jr-box"><img src="{{ asset('/images/location.png') }}"
                                             class="time-img">Location :
-                                        <span> {{ isset($careerData->location) ? $careerData->location : '' }}</span>
-                                    </p>
-                                    <p class="jr-box"><img src="{{ asset('/images/event.png') }}"
-                                            class="time-img">Experience
-                                        :
-                                        <span> {{ isset($careerData->experience) ? $careerData->experience : '' }}</span>
-                                    </p>
-
-
+                                        </p>
+                                        <span class="carrer-right-text"> {{ isset($careerData->location) ? $careerData->location : '' }}</span>
+                                    </div>
+                                    <div class="carrer-form-text">
+                                         <p class="jr-box"><img src="{{ asset('/images/event.png') }}"
+                                            class="time-img">Experience :   
+                                         </p>
+                                         <span class="carrer-right-text"> {{ isset($careerData->experience) ? $careerData->experience : '' }}</span>
+                                    </div>
 
                                     <h3 class="csdt-title2">WE ARE HIRING</h3>
                                     <form id="applicantForm" method="post" action="" enctype="multipart/form-data">
