@@ -1,8 +1,9 @@
 ﻿@extends('admin.layouts.app')
 @section('content')
 @section('title', 'Home')
+@can('view-dashboard')
 @section('header-title', 'Dashboard')
-
+@endcan
 <!-- Main Content -->
 @can('view-dashboard')
     <section class="content">

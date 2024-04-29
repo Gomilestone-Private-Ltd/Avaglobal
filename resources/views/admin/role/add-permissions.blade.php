@@ -89,7 +89,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                     <form action="{{ url('admin/search') }}" method="get">
                         @csrf
                         <div class="search-box">
@@ -98,8 +98,8 @@
 
                             <input type="hidden" name="roleId" value="{{ $role->id }}">
                             <button class="search-icon" type="submit">
-                                {{-- <img src="{{ asset('assets/images/search.png') }}" alt="User" class=""
-                                    id="search-icon"> --}}
+                                <img src="{{ asset('assets/images/search.png') }}" alt="User" class=""
+                                    id="search-icon">
                                 <i class="fa fa-search"></i>
 
                             </button>
@@ -107,7 +107,7 @@
                     </form>
 
 
-                </div>
+                </div> --}}
 
             </div>
         </div>
