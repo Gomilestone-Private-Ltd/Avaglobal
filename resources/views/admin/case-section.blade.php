@@ -261,12 +261,26 @@
 
     document.addEventListener("DOMContentLoaded", function() {
         // TinyMCE initialization code here
+        const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
+
+            // In case which the max file size is 1Mb
+            if (blobInfo.blob().size > 1024 * 1024) {
+                return reject({
+                    message: 'File size should be less than 1 MB !',
+                    remove: true
+                });
+            }
+
+            // Do the rest
+        });
         tinymce.init({
             selector: 'textarea#tinymce',
             plugins: "preview",
             theme_advanced_buttons3_add: "preview",
             plugin_preview_width: "500",
             plugin_preview_height: "600",
+            //added
+            images_upload_handler: example_image_upload_handler,
             promotion: false,
             plugins: ["image", "code"],
             branding: false,
