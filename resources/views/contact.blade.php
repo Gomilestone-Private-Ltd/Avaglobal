@@ -36,8 +36,11 @@
                                     <span class="sprite location"></span>
                                 </div>
                                 <div class="contacticon ibvt">
-                                    4th FLOOR, Sahar Plaza COMPLEX, Windfall,<br /> 405, Andheri - Kurla Rd, J B Nagar,
-                                    Andheri East,<br /> Mumbai, Maharashtra 400059
+                                    {{-- 4th FLOOR, Sahar Plaza COMPLEX, Windfall,<br /> 405, Andheri - Kurla Rd, J B Nagar,
+                                    Andheri East,<br /> Mumbai, Maharashtra 400059 --}}
+                                    405 Windfall 4th Floor, Sahar Plaza,<br>
+                                    Andheri - Kurla Road, J B Nagar, Andheri East,<br>
+                                    Mumbai, Maharashtra 400059
                                 </div>
                             </div>
                             <div class="contactblk">
@@ -148,11 +151,11 @@
                                                         </span>
                                                     </div>
                                                     <!--
-                                                                                                                                        <div class="browse-btn fl">
-                                                                                                                                            <span>Upload</span>
-                                                                                                                                            <input name="upfile" class="upload" id="uploadBtn" type="file">
-                                                                                                                                        </div>
-                                                                                        -->
+                                                                                                                                                        <div class="browse-btn fl">
+                                                                                                                                                            <span>Upload</span>
+                                                                                                                                                            <input name="upfile" class="upload" id="uploadBtn" type="file">
+                                                                                                                                                        </div>
+                                                                                                        -->
                                                     <div class="clear"></div>
                                                 </div>
                                             </div>
@@ -166,13 +169,13 @@
                             </div>
 
                             <!--
-                                                                                                                    <div class="innertabdataitem press">
+                                                                                                                                    <div class="innertabdataitem press">
 
-                                                                                                                    </div>
-                                                                                                                    <div class="innertabdataitem vendor">
+                                                                                                                                    </div>
+                                                                                                                                    <div class="innertabdataitem vendor">
 
-                                                                                                                    </div>
-                                                                                        -->
+                                                                                                                                    </div>
+                                                                                                        -->
                             <div class="innertabdataitem investor">
                                 <p class="pagetxt">
                                     AVA Global aim to provide accurate and relevant information to all our investors to
