@@ -167,7 +167,8 @@ class AdminController extends Controller
     {
         $combinedData = CaseStudy::with('avaDocs')->orderBy('id', 'DESC')->get();
 
-        return view('admin.caseStudyData')->with('combinedData', $combinedData);
+        // return view('admin.caseStudyData')->with('combinedData', $combinedData);
+        return view('admin.caseStudyDataTable');
     }
     public function addCase()
     {
@@ -785,7 +786,7 @@ class AdminController extends Controller
             'policyfile.mimes' => 'File extension must be of pdf',
             'policytitle.required' => 'Please add file title here',
             'policyfile.max' => 'Pdf size must be less than 5mb',
-            'policytitle.max'=>'Policy title allowed upto 125 characters'
+            'policytitle.max' => 'Policy title allowed upto 125 characters'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -838,7 +839,7 @@ class AdminController extends Controller
             'policyfile.mimes' => 'File extension must be of pdf',
             'policytitle.required' => 'Please add some file title here',
             'policyfile.max' => 'Pdf size must be less than 5mb',
-            'policytitle.max'=>'Policy title allowed upto 125 characters'
+            'policytitle.max' => 'Policy title allowed upto 125 characters'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -1558,5 +1559,10 @@ class AdminController extends Controller
         }
         $Data->save();
         return response()->json(['success' => true, 'message' => 'Case status changed Successfully']);
+    }
+
+    public function getData(Request $request)
+    {
+        dd($request->all());
     }
 }

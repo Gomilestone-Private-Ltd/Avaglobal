@@ -89,6 +89,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('case-study/delete/{id}', [AdminController::class, 'deleteCaseStudy'])->name('delete-caseStudy');
     Route::get('case-study/delete-image/{filename}', [AdminController::class, 'deleteFile'])->name('delete-caseStudy-file');
     Route::get('casestudy-status/{id}', [AdminController::class, 'changeCaseStatus'])->name('case.status');
+    Route::get('casestudy/data', [AdminController::class, 'getData']);
     // //contactuslead
     Route::get('contact-us-leads', [AdminController::class, 'contactApplicants'])->name('contact-applicants');
     // Route::post('post-contacts', [AdminController::class, 'postContactApplicants'])->name('post-contacts');

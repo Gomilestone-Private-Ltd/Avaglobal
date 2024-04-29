@@ -221,6 +221,44 @@
 </section>
 
 <script>
+    var table = '';
+    $(document).ready(function() {
+        table = $('#datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            order: [
+                [0, "desc"]
+            ],
+            ajax: "{{ url('admin/casestudy/data') }}",
+            columns: [{
+                    data: 'id'
+                },
+                {
+                    data: 'case'
+                },
+                {
+                    data: "case_title"
+                },
+                {
+                    data: "posted_by"
+                },
+                {
+                    data: "description"
+                },
+                {
+                    data: "status"
+                },
+                {
+                    data: "action_button",
+
+                }
+            ]
+
+        });
+
+    });
+</script>
+<script>
     function changeStatus(id) {
         toastr.options = {
             'progressBar': true,
