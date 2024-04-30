@@ -233,7 +233,7 @@
                     <div class="productrightcontent">
                         <div id="product-bx-pager">
                             <div>
-                                <a data-slide-index="0" href="#" class="active">OCEAN FREIGHT</a>
+                                <a data-slide-index="0" href="#" class="active"></a>
 
                                 <a data-slide-index="1" href="#">AIR FREIGHT</a>
                                 <a data-slide-index="2" href="#">CUSTOM CLEARING</a>
@@ -257,7 +257,7 @@
                                         </div>
                                     </a>
                                     <div class="product-name"><span>01.</span> OCEAN FREIGHT
-                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
+                                        <a class="prod-morebuts" href="{{route('seaFreight')}}">KNOW MORE</a>
                                     </div>
                                 </div>
                             </li>

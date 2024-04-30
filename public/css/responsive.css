@@ -550,6 +550,9 @@
     .abt-banner-caption {
         bottom: 20px;
     }
+    .header-menu {
+        display: none;
+    }
 }
 @media screen and (max-width: 1120px) {
     .twentytxt .experiencetxt {
@@ -1681,6 +1684,7 @@
     .overviewblk a {
         font-size: 14px;
         padding: 10px;
+        line-height: 30px;
     }
     .overviewblk a:first-child {
         padding: 10px 10px 10px 0;
@@ -1797,6 +1801,76 @@
         left: -44px;
     }
 }
+@media screen and (max-width: 600px){
+
+    .goog-te-gadget .goog-te-combo {
+        padding: 5px 10px 5px 40px!important;
+        height: 30px!important;
+    }
+
+    .goog-te-combo {
+        font-family: arial;
+        font-size: 9pt !important;
+    }
+
+    img.user-icon {
+        display: none;
+    }
+
+    div#google_translate_element {
+        margin-right: 16px;
+    }
+
+    select {
+     
+        background-position-x: 95%;
+        background-position-y: 10px;
+        background-size: 11px;
+    }
+
+    div#page {
+        margin-top: 74px;
+    }
+
+    video.logo-video {
+        width: auto !important;
+        height: 62px !important;
+    }
+
+    .headerrightblk {
+        height: 65px;
+    }
+
+    img.language-icon {
+        width: 20px;
+        margin-bottom: -34px;
+        margin-left: 11px;
+    }
+
+    .sprite.hamburger {
+        margin-top: 5px;
+    }
+
+    h1.main-title {
+        font-size: 22px;
+    }
+
+    h2.sub-title {
+        font-size: 12px;
+        font-weight: 400;
+        padding-top: 10px;
+    }
+
+    .videoblk .avanameblk {
+        padding-top: 10px;
+    }
+
+    .vidbuttons {
+        margin-top: 44px;
+    }
+
+}
+
 @media screen and (max-width: 480px) {
     .banner-wrapper-about.responsiveabtsld {
         width: 50%;
@@ -1849,6 +1923,8 @@
     }
     .headerblk {
         margin: 0;
+        background-color: #fff;
+        z-index: 999999;
     }
     .logo {
         width: 90px;
@@ -1888,7 +1964,7 @@
         top: 30%;
     }
     .product-name {
-        top: 30px;
+        top: 90px;
     }
     .product-name span {
         font-size: 14px;
@@ -1987,6 +2063,13 @@
     .ourcommitblk {
         width: 100%;
     }
+    .counter-box {
+        position: unset !important;
+        width: 100% !important;
+    }
+    .overviewtxtblk {
+        top: 0 !important;
+    }
 }
 @media screen and (max-width: 360px) {
     .avaglname {
@@ -2054,73 +2137,4 @@
 }
 
 
-@media screen and (max-width: 600px){
-
-    .goog-te-gadget .goog-te-combo {
-        padding: 5px 10px 5px 40px!important;
-        height: 30px!important;
-    }
-
-    .goog-te-combo {
-        font-family: arial;
-        font-size: 9pt !important;
-    }
-
-    img.user-icon {
-        display: none;
-    }
-
-    div#google_translate_element {
-        margin-right: 16px;
-    }
-
-    select {
-     
-        background-position-x: 95%;
-        background-position-y: 10px;
-        background-size: 11px;
-    }
-
-    div#page {
-        margin-top: 74px;
-    }
-
-    video.logo-video {
-        width: auto !important;
-        height: 62px !important;
-    }
-
-    .headerrightblk {
-        height: 65px;
-    }
-
-    img.language-icon {
-        width: 20px;
-        margin-bottom: -34px;
-        margin-left: 11px;
-    }
-
-    .sprite.hamburger {
-        margin-top: 5px;
-    }
-
-    h1.main-title {
-        font-size: 22px;
-    }
-
-    h2.sub-title {
-        font-size: 12px;
-        font-weight: 400;
-        padding-top: 10px;
-    }
-
-    .videoblk .avanameblk {
-        padding-top: 10px;
-    }
-
-    .vidbuttons {
-        margin-top: 44px;
-    }
-
-}
 
