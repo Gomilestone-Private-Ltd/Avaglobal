@@ -350,7 +350,8 @@
                         // 'timeOut': 5000
                     }
                     toastr.success(response.message);
-                    window.location.href = response.route;
+                    table.draw();
+                    // window.location.href = response.route;
                 },
                 error: function(response) {
                     toastr.error(response.message);

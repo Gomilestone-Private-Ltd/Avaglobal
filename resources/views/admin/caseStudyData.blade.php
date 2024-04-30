@@ -23,17 +23,20 @@
     .toast-error {
         background-color: red !important;
     }
+
     table.dataTable {
         border-collapse: collapse !important;
     }
-    .main-table {
-    background-color: #0050a4;
-    color: #fff;
 
-}
-.main-table th {
-    font-weight: 500;
-}
+    .main-table {
+        background-color: #0050a4;
+        color: #fff;
+
+    }
+
+    .main-table th {
+        font-weight: 500;
+    }
 </style>
 
 <section class="content">
