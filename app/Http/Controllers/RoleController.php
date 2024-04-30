@@ -133,7 +133,7 @@ class RoleController extends Controller
         //     'permissions' => 'required'
         // ]);
         $validate = Validator::make($request->all(), [
-            'permissions' => 'required'
+            'permissions' => 'nullable'
 
         ]);
         if ($validate->fails()) {
