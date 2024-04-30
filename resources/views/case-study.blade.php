@@ -41,7 +41,7 @@
                                         @endif
                                         <div class="cs-content">
                                             {{-- <h3 class="cs-category">Freight Management</h3> --}}
-                                            <h3 class="cs-category">{{ $data->case }}</h3>
+                                            {{-- <h3 class="cs-category">{{ $data->case }}</h3> --}}
                                             <a href="{{ url('case-study-detail') }}/{{ $data->slug }}">
                                                 <h2 class="cs-title">
                                                     {{-- The standard Lorem Ipsum passage, used since the 1500s --}}

@@ -129,9 +129,19 @@ class RoleController extends Controller
 
     public function givePermissionToRole(Request $request, $roleId)
     {
-        $request->validate([
+        // $request->validate([
+        //     'permissions' => 'required'
+        // ]);
+        $validate = Validator::make($request->all(), [
             'permissions' => 'required'
+
         ]);
+        if ($validate->fails()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validate);
+        }
+
         $permissions = $request->permissions;
         $role = Role::findOrFail($roleId);
         $role->syncPermissions($permissions);

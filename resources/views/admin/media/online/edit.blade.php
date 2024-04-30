@@ -58,7 +58,7 @@
                                         @enderror
                                     </span>
                                 </div>
-                                <div class="col-md-4 required">
+                                {{-- <div class="col-md-4 required">
                                     <label for="">Location</label>
                                     <input type="text" name="location" id="" class="form-control"
                                         placeholder="Enter location" value="{{ $records->location }}">
@@ -66,7 +66,7 @@
                                             {{ $message }}
                                         @enderror
                                     </span>
-                                </div>
+                                </div> --}}
                                 <div class="form-group col-md-4 required">
                                     <label for="">Description</label>
                                     <textarea name="description" id="" class="form-control" placeholder="Add Description">{{ $records->description }}</textarea>

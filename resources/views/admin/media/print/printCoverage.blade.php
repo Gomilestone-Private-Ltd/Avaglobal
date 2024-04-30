@@ -54,8 +54,8 @@
                                         <tr>
                                             <th>S.No</th>
                                             <th>TITLE</th>
-                                            <th>DATE</th>
-                                            <th>LOCATION</th>
+                                            {{-- <th>DATE</th> --}}
+                                            {{-- <th>LOCATION</th> --}}
                                             <th>IMAGE</th>
                                             <th>PDF FILE</th>
                                             @can('edit-status-printcoverage')
@@ -72,8 +72,8 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $record->title }}</td>
-                                                    <td>{{ $record->created_at }}</td>
-                                                    <td>{{ $record->location }}</td>
+                                                    {{-- <td>{{ $record->created_at }}</td> --}}
+                                                    {{-- <td>{{ $record->location }}</td> --}}
                                                     @if (isset($record->printDocsImage->path))
                                                         <td> <img src="{{ asset($record->printDocsImage->path) }}"
                                                                 alt="profile Pic" height="50" width="50"></td>

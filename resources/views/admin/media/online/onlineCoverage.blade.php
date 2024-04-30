@@ -54,8 +54,8 @@
                                         <tr>
                                             <th>S.No</th>
                                             <th>TITLE</th>
-                                            <th>DATE</th>
-                                            <th>LOCATION</th>
+                                            {{-- <th>DATE</th> --}}
+                                            {{-- <th>LOCATION</th> --}}
                                             <th>DESCRIPTION</th>
                                             <th>IMAGE</th>
                                             <th>MEDIA URL</th>
@@ -73,8 +73,8 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $record->title }}</td>
-                                                    <td>{{ $record->created_at }}</td>
-                                                    <td>{{ $record->location }}</td>
+                                                    {{-- <td>{{ $record->created_at }}</td> --}}
+                                                    {{-- <td>{{ $record->location }}</td> --}}
                                                     <td>{{ $record->description }}</td>
                                                     @if (isset($record->onlineDocsImage->path))
                                                         <td> <img src="{{ asset($record->onlineDocsImage->path) }}"

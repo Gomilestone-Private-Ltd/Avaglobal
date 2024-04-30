@@ -18289,8 +18289,9 @@ img.logout-icon {
 
 .back-btn-box {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+ 
 }
 
 img.back-icon {

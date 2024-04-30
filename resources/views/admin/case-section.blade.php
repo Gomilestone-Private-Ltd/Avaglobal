@@ -135,14 +135,14 @@
                         <div class="container card p-3 bg-white">
 
                             <div class="row">
-                                <div class="form-group col-md-6 required">
+                                {{-- <div class="form-group col-md-6 required">
                                     <label for="">Case Name:</label>
                                     <input type="text" name="case" id="case" class="form-control"
                                         value="" placeholder="Case Name">
                                     <span class="text-danger case-error"></span>
 
-                                </div>
-                                <div class="form-group col-md-6 required">
+                                </div> --}}
+                                <div class="form-group col-md-4 required">
                                     <label for="">Case Title:</label>
                                     <input type="text" name="casetitle" id="casetitle" class="form-control"
                                         value="" placeholder="Case Title">
@@ -154,7 +154,7 @@
                                         @enderror
                                     </span>
                                 </div>
-                                <div class="form-group col-md-6 required">
+                                <div class="form-group col-md-4 required">
                                     <label for="">Posted By:</label>
                                     <input type="text" name="postedby" id="postedby" class="form-control"
                                         value="" placeholder="Posted By">
@@ -165,14 +165,14 @@
                                     </span>
                                 </div>
 
-                                <div class="form-group col-md-6 required">
-                                    <label for="">Case Image: (Max 5 files allowed | Size less than 1 MB)
-
+                                <div class="form-group col-md-4 required">
+                                    <label for="">Case Image:
+                                        {{-- (Image Dimension should be 1366*550) --}}
                                     </label>
                                     <input type="file" onchange="return fileValidation()"
                                         accept="image/png, image/jpg, image/jpeg" class="form-control"
                                         name="caseimage[]" id="caseimage" multiple />
-                                    {{-- <p class="notice-text">(Image Dimension should be 1366*550)</p> --}}
+                                    <p class="notice-text"> (Max 5 files allowed | Size less than 1 MB)</p>
                                     <span class="text-danger">
                                     </span>
                                     <div>

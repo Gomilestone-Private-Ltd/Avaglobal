@@ -58,7 +58,7 @@
                                         @enderror
                                     </span>
                                 </div>
-                                <div class="col-md-4 required">
+                                {{-- <div class="col-md-4 required">
                                     <label for="">Location</label>
                                     <input type="text" name="location" id="" class="form-control"
                                         placeholder="Enter location" value="{{ $records->location }}">
@@ -66,7 +66,7 @@
                                             {{ $message }}
                                         @enderror
                                     </span>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-4">
                                     <label for="">Upload Image</label>
                                     <input type="file" name="printMediaImage" onchange="return fileValidation()"
@@ -83,9 +83,10 @@
                                         @enderror
                                     </span>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-4">
                                     <label for="">Upload PDF</label>
-                                    <input type="file" name="printMediaFile" id="" class="form-control">
+                                    <input type="file" onchange="return fileValidationPdf()" name="printMediaFile"
+                                        id="printMediaFile" class="form-control">
                                     @if ($records->avaDocs->path)
                                         <p>{{ $records->avaDocs->filename }}
                                         </p>
@@ -130,6 +131,22 @@
         if (fileSize > 5) {
             // alert("File size must be less than 5 MB.");
             toastr.error("File size must be less than 2 MB.")
+            toastr.options = {
+                'closeButton': true,
+                'progressBar': true,
+            }
+            fileInput.value = '';
+            return false;
+        }
+    }
+</script>
+<script>
+    function fileValidationPdf() {
+        var fileInput = document.getElementById('printMediaFile');
+        var fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
+        if (fileSize > 5) {
+            // alert("File size must be less than 5 MB.");
+            toastr.error("File size must be less than 5 MB.")
             toastr.options = {
                 'closeButton': true,
                 'progressBar': true,

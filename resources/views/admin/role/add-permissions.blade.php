@@ -81,17 +81,20 @@
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="back-btn-box">
+                <div class="col-md-12 col-sm-12">
+                    <div class="back-btn-box ">
                         <a href="{{ route('roles.index') }}" class="back-btn"><img
                                 src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
                             <h3>Back</h3>
                         </a>
+                        <div class="d-flex">
+                            <button id="selectAllBtn" class="btn btn-primary">Select All</button>
+                            <button id="deselect" class="btn btn-danger ml-2">De-Select</button>
+                        </div>
+
                     </div>
                 </div>
-                {{-- <div>
-                    <button id="selectAllBtn" class="btn btn-primary">Select All</button>
-                </div> --}}
+
                 {{-- <div class="col-md-6">
                     <form action="{{ url('admin/search') }}" method="get">
                         @csrf
@@ -211,7 +214,7 @@
 </script>
 
 
-{{-- <script>
+<script>
     // JavaScript function to check all checkboxes
     function selectAll() {
         var checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -224,6 +227,16 @@
     document.getElementById('selectAllBtn').addEventListener('click', function() {
         selectAll();
     });
-</script> --}}
+
+    function deSelect() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = false;
+        })
+    }
+    document.getElementById('deselect').addEventListener('click', function() {
+        deSelect();
+    })
+</script>
 
 @endsection

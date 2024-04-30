@@ -167,7 +167,7 @@
                         <div class="container card p-3 bg-white">
 
                             <div class="row">
-                                <div class="form-group col-md-6 required">
+                                {{-- <div class="form-group col-md-6 required">
                                     <label for="">Case Name:</label>
                                     <input type="text" name="case" id="case" class="form-control"
                                         value="{{ $data->case }}" placeholder="Case Name">
@@ -177,9 +177,9 @@
                                         @enderror
                                     </span>
 
-                                </div>
+                                </div> --}}
 
-                                <div class="form-group col-md-6 required">
+                                <div class="form-group col-md-4 required">
                                     <label for="">Case Title:</label>
                                     <input type="text" name="casetitle" id="casetitle" class="form-control"
                                         value="{{ $data->case_title }}" placeholder="Case Title">
@@ -193,7 +193,7 @@
                                 </div>
 
 
-                                <div class="form-group col-md-6 required">
+                                <div class="form-group col-md-4 required">
                                     <label for="">Posted By:</label>
                                     <input type="text" name="postedby" id="postedby" class="form-control"
                                         value="{{ $data->posted_by }}" placeholder="Posted By">
@@ -204,13 +204,14 @@
                                     </span>
                                 </div>
 
-                                <div class="form-group col-md-6 ">
-                                    <label for="">Case Image: (max 5 files allowed | Less than 1 MB)
+                                <div class="form-group col-md-4 ">
+                                    <label for="">Case Image:
+                                        {{-- (Image Dimension should be 1366*550) --}}
                                     </label>
                                     <input type="file" onchange="return fileValidation()"
                                         accept="image/png, image/jpg, image/jpeg" class="form-control"
                                         name="caseimage[]" id="caseimage" multiple />
-                                    {{-- <p class="notice-text">(Image Dimension should be 1366*550)</p> --}}
+                                    <p class="notice-text">(max 5 files allowed | Less than 1 MB)</p>
                                     <span class="text-danger">
                                     </span>
                                     <div class="main-image-select-box">
@@ -343,12 +344,27 @@
 
 <script>
     var selectedFile;
+
+
     document.addEventListener("DOMContentLoaded", function() {
+        const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
+
+            // In case which the max file size is 1Mb
+            if (blobInfo.blob().size > 1024 * 1024) {
+                return reject({
+                    message: 'File size should be less than 1 MB !',
+                    remove: true
+                });
+            }
+
+            // Do the rest
+        });
         // TinyMCE initialization code here
         tinymce.init({
             selector: 'textarea#tinymce',
             plugins: "preview",
             theme_advanced_buttons3_add: "preview",
+            images_upload_handler: example_image_upload_handler,
             plugin_preview_width: "500",
             plugin_preview_height: "600",
             promotion: false,
@@ -374,7 +390,8 @@
 
                     reader.onload = function() {
                         var id = 'blobid' + (new Date()).getTime();
-                        var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                        var blobCache = tinymce.activeEditor.editorUpload
+                            .blobCache;
                         var base64 = reader.result.split(',')[1];
                         var blobInfo = blobCache.create(id, file, base64);
                         blobCache.add(blobInfo);

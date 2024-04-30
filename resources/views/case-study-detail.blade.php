@@ -36,7 +36,7 @@
                     <div class="wrapper">
                         <div class="eva-container">
                             <div class="case-study-box">
-                                <h3 class="csd-category">{{ isset($caseStudyData->case) ? $caseStudyData->case : '' }}</h3>
+                                {{-- <h3 class="csd-category">{{ isset($caseStudyData->case) ? $caseStudyData->case : '' }}</h3> --}}
                                 <h1 class="csd-title">
                                     {{ isset($caseStudyData->case_title) ? $caseStudyData->case_title : '' }}
                                 </h1>

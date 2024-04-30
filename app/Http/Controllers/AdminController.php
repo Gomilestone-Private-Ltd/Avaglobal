@@ -182,10 +182,10 @@ class AdminController extends Controller
     public function caseStore(Request $request)
     {
         //made description as tinymce because i made id and name in blade file same
-        $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'tinymce');
+        $requestData = $request->only('casetitle', 'postedby', 'caseimage', 'tinymce');
 
         $rule = [
-            'case' => 'required|string|max:30',
+            // 'case' => 'required|string|max:30',
             'casetitle' => 'required|string|max:150',
             'postedby' => 'required|string|max:150',
             'caseimage' => 'required|array|max:5',
@@ -193,7 +193,7 @@ class AdminController extends Controller
             'tinymce' => 'required',
         ];
         $message = [
-            'case.required' => "Please fill the case name",
+            // 'case.required' => "Please fill the case name",
             'casetitle.required' => 'Please fill the case title',
             'postedby.required' => 'Please fill the company name',
             'caseimage.required' => 'Please select case image',
@@ -209,14 +209,14 @@ class AdminController extends Controller
         }
         // dd("hii");
         //addSlug here
-        $slug = str_replace(" ", "-", strtolower($request['case']));
+        $slug = str_replace(" ", "-", strtolower($request['casetitle']));
         $caseSlug = CaseStudy::whereNotNull('slug')->pluck('slug')->toArray();
         $checkSlug = in_array($slug, $caseSlug);
         $slug = $checkSlug == true ? $slug . '-' . count($caseSlug) + 1 : $slug;
         //   -----------------------------------------------------------
 
         $caseStudy = new CaseStudy;
-        $caseStudy->case = $request['case'];
+        // $caseStudy->case = $request['case'] ? '';
         $caseStudy->slug = $slug;
         $caseStudy->case_title = $request['casetitle'];
         $caseStudy->description = $request['tinymce'];
@@ -1090,10 +1090,10 @@ class AdminController extends Controller
     {
         $newCount = 0;
         $caseId = $request->id;
-        $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'tinymce');
+        $requestData = $request->only('casetitle', 'postedby', 'caseimage', 'tinymce');
 
         $rule = [
-            'case' => 'required|string|max:30',
+            // 'case' => 'required|string|max:30',
             'casetitle' => 'required|string|max:150',
             'postedby' => 'required|string|max:150',
             'caseimage' => 'array|max:5',
@@ -1101,7 +1101,7 @@ class AdminController extends Controller
             'tinymce' => 'required',
         ];
         $message = [
-            'case.required' => "please fill the case name !!",
+            // 'case.required' => "please fill the case name !!",
             'casetitle.required' => 'Please fill the case title',
             'postedby.required' => 'Please fill the company name',
             'caseimage.required' => 'Please select case image',
@@ -1155,7 +1155,7 @@ class AdminController extends Controller
 
     public function onlineCoverage()
     {
-        $records = Media::select('id', 'status', 'description', 'title', 'online_image_id', 'location', 'media_url', 'created_at')->whereNotNull('media_url')->orderBy('id', 'DESC')->with('onlineDocsImage')->get();
+        $records = Media::select('id', 'status', 'description', 'title', 'online_image_id', 'media_url')->whereNotNull('media_url')->orderBy('id', 'DESC')->with('onlineDocsImage')->get();
         return view('admin.media.online.onlineCoverage', ['mediaRecord' => $records]);
     }
 
@@ -1168,7 +1168,7 @@ class AdminController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'title' => 'required|string|max:100',
-            'location' => 'required|string|max:50',
+            // 'location' => 'required|string|max:50',
             'mediaUrl' => 'required|url',
             'onlineMediaImage' => 'required|mimes:jpeg,jpg,png|max:2048',
             'description' => 'required|string|max:150',
@@ -1189,7 +1189,7 @@ class AdminController extends Controller
         if ($fileSaveResponse) {
             $saveRecords = [
                 'title' => $request->title,
-                'location' => $request->location,
+                // 'location' => $request->location,
                 'online_image_id' => $fileSaveResponse['id'],
                 'media_url' => $request->mediaUrl,
                 'description' => $request->description
@@ -1211,7 +1211,7 @@ class AdminController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'title' => 'required|string|max:100',
-            'location' => 'required|string|max:50',
+            // 'location' => 'required|string|max:50',
             'onlineMediaImage' => 'mimes:png,jpg,jpeg|max:2000',
             'mediaUrl' => 'required|url',
             'description' => 'required|string|max:150',
@@ -1238,7 +1238,7 @@ class AdminController extends Controller
             }
         }
         $mediaPrintRecords->title = $request->title;
-        $mediaPrintRecords->location = $request->location;
+        // $mediaPrintRecords->location = $request->location;
         $mediaPrintRecords->media_url = $request->mediaUrl;
         $mediaPrintRecords->description = $request->description;
         $mediaPrintRecords->save();
@@ -1258,7 +1258,7 @@ class AdminController extends Controller
     //print Coverage
     public function printCoverage()
     {
-        $records = Media::select('id', 'title', 'location', 'print_image_id', 'pdf_file_id', 'status', 'created_at')->whereNotNull('pdf_file_id')->with(['avaDocs', 'printDocsImage'])->orderBy('id', 'DESC')->get();
+        $records = Media::select('id', 'title', 'print_image_id', 'pdf_file_id', 'status')->whereNotNull('pdf_file_id')->with(['avaDocs', 'printDocsImage'])->orderBy('id', 'DESC')->get();
         return view('admin.media.print.printCoverage', ['mediaRecord' => $records]);
     }
 
@@ -1271,7 +1271,7 @@ class AdminController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'title' => 'required|string|max:100',
-            'location' => 'required|string|max:50',
+            // 'location' => 'required|string|max:50',
             'printMediaImage' => 'required|mimes:png,jpg,jpeg|max:2000',
             'printMediaFile' => 'required|mimes:pdf|max:5000',
         ]);
@@ -1305,7 +1305,7 @@ class AdminController extends Controller
         if ($fileSaveImageResponse && $fileSavePdfResponse) {
             $saveRecords = [
                 'title' => $request->title,
-                'location' => $request->location,
+                // 'location' => $request->location,
                 'print_image_id' => $fileSaveImageResponse->id,
                 'pdf_file_id' => $fileSavePdfResponse->id,
             ];
@@ -1326,7 +1326,7 @@ class AdminController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'title' => 'nullable|string|max:100',
-            'location' => 'nullable|string|max:50',
+            // 'location' => 'nullable|string|max:50',
             'printMediaImage' => 'nullable|mimes:png,jpg,jpeg|max:2000',
             'printMediaFile' => 'nullable|mimes:pdf|max:5000',
         ]);
@@ -1365,7 +1365,7 @@ class AdminController extends Controller
             }
         }
         $mediaPrintRecords->title = $request->title;
-        $mediaPrintRecords->location = $request->location;
+        // $mediaPrintRecords->location = $request->location;
         $mediaPrintRecords->save();
         return redirect()->route('print-coverage')->with('success', 'Records updated sucessfully');
     }

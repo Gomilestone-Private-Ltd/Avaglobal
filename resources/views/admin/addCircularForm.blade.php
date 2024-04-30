@@ -89,9 +89,9 @@
                                 <div class="form-group col-md-6 required">
                                     <label for="">Upload file:(Pdf only)</label>
                                     <div class="file-box">
-                                        <input type="file" name="circularfile" id="caseimageinput"
-                                            class="form-control" accept=" application/pdf" value=""
-                                            placeholder="" />
+                                        <input type="file" onchange="return fileValidationPdf()" name="circularfile"
+                                            id="caseimageinput" class="form-control" accept=" application/pdf"
+                                            value="" placeholder="" />
                                         <i class="fa fa-close close-icon" id="closeIcon"></i>
                                     </div>
 
@@ -122,7 +122,22 @@
         </div>
 
 </section>
-
+<script>
+    function fileValidationPdf() {
+        var fileInput = document.getElementById('caseimageinput');
+        var fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
+        if (fileSize > 5) {
+            // alert("File size must be less than 5 MB.");
+            toastr.error("File size must be less than 5 MB.")
+            toastr.options = {
+                'closeButton': true,
+                'progressBar': true,
+            }
+            fileInput.value = '';
+            return false;
+        }
+    }
+</script>
 
 <script>
     var selectedFile;

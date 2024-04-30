@@ -48,7 +48,7 @@
                         @csrf
                         <div class="card p-3">
                             <div class="row">
-                                <div class="form-group col-md-4 required">
+                                <div class="form-group col-md-6 required">
                                     <label for="">Media Title</label>
                                     <input type="text" name="title" id="" class="form-control"
                                         placeholder="Enter Title" value="{{ old('title') }}">
@@ -57,7 +57,7 @@
                                         @enderror
                                     </span>
                                 </div>
-                                <div class="form-group col-md-4 required">
+                                {{-- <div class="form-group col-md-4 required">
                                     <label for="">Location</label>
                                     <input type="text" name="location" id="" class="form-control"
                                         placeholder="Enter location" value="{{ old('location') }}">
@@ -65,22 +65,13 @@
                                             {{ $message }}
                                         @enderror
                                     </span>
-                                </div>
-                                <div class="form-group col-md-4 required">
+                                </div> --}}
+                                <div class="form-group col-md-6 required">
                                     <label for="">Upload Image</label>
                                     <input type="file" name="onlineMediaImage" onchange="return fileValidation()"
                                         accept="image/png, image/jpg, image/jpeg" id="onlineMediaImage"
                                         class="form-control">
                                     <span class="text-danger"> @error('onlineMediaImage')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
-
-                                <div class="form-group col-md-6 required">
-                                    <label for="">Description</label>
-                                    <textarea name="description" id="" class="form-control" placeholder="Add Description"></textarea>
-                                    <span class="text-danger"> @error('description')
                                             {{ $message }}
                                         @enderror
                                     </span>
@@ -94,6 +85,16 @@
                                         @enderror
                                     </span>
                                 </div>
+
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Description</label>
+                                    <textarea name="description" id="" class="form-control" placeholder="Add Description"></textarea>
+                                    <span class="text-danger"> @error('description')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+
                             </div>
                             <div class="mt-3">
                                 <button type="submit" id="submit"

@@ -23,17 +23,20 @@
     .toast-error {
         background-color: red !important;
     }
+
     table.dataTable {
         border-collapse: collapse !important;
     }
-    .main-table {
-    background-color: #0050a4;
-    color: #fff;
 
-}
-.main-table th {
-    font-weight: 500;
-}
+    .main-table {
+        background-color: #0050a4;
+        color: #fff;
+
+    }
+
+    .main-table th {
+        font-weight: 500;
+    }
 </style>
 
 <section class="content">
@@ -64,7 +67,7 @@
 
                                         <tr>
                                             <th>S.No</th>
-                                            <th class="width-css">Case</th>
+                                            {{-- <th class="width-css">Case</th> --}}
                                             <th class="width-css">Case Title</th>
                                             <th class="width-css">Case Image</th>
                                             <th class="width-css">Posted By</th>
@@ -83,7 +86,7 @@
                                         @foreach ($combinedData as $data)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $data->case }}</td>
+                                                {{-- <td>{{ $data->case }}</td> --}}
                                                 <td>{{ $data->case_title }}</td>
 
                                                 <td>
