@@ -240,13 +240,33 @@
                     data: "case_title"
                 },
                 {
+                    data: "caseImage",
+                    render: function(data) {
+                        console.log(data);
+
+                        if (!data || data.length === 0) {
+                            return 'No Image Found';
+                        }
+
+                        var imagesHtml = '';
+                        data.forEach(function(imageUrl) {
+                            imagesHtml += '<div><img src="' + imageUrl +
+                                '" width="50px"/></div> ';
+                        });
+
+                        return imagesHtml;
+                    }
+
+                },
+                {
                     data: "posted_by"
                 },
                 {
                     data: "description"
                 },
                 {
-                    data: "status"
+                    data: "status",
+
                 },
                 {
                     data: "action_button",

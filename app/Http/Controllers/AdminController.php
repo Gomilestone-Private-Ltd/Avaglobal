@@ -165,7 +165,7 @@ class AdminController extends Controller
     // Case Study functions
     public function caseSection()
     {
-        $combinedData = CaseStudy::with('avaDocs')->orderBy('id', 'DESC')->get();
+        // $combinedData = CaseStudy::with('avaDocs')->orderBy('id', 'DESC')->get();
 
         // return view('admin.caseStudyData')->with('combinedData', $combinedData);
         return view('admin.caseStudyDataTable');
@@ -1563,6 +1563,49 @@ class AdminController extends Controller
 
     public function getData(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
+        $draw = $request->get('draw');
+        $start = $request->get("start");
+        $rowPerPage = $request->get("length");
+
+        $orderArray = $request->get('order');
+        $columnNameArray = $request->get('columns');
+
+        $searchValue = $request->input('search.value');
+        $columnIndex = $orderArray[0]['column'];
+        $columnName = $columnNameArray[$columnIndex]['data'];
+        $columnSortOrder = $orderArray[0]['dir'];
+
+        $query = CaseStudy::query();
+        // dd($query);
+
+        if (!empty($searchValue)) {
+            $query->where(function ($q) use ($searchValue) {
+                $q->where('case', 'like', '%' . $searchValue . '%');
+                // ->orWhere('email', 'like', '%' . $searchValue . '%');
+            });
+        }
+        $query->orderBy($columnName, $columnSortOrder);
+
+        $totalRecords = $query->count();
+
+        // Paginate the result
+        $caseStudy = $query->skip($start)->take($rowPerPage)->with('avaDocs')->get();
+
+        foreach ($caseStudy as $caseData) {
+            $caseImage = data_get($caseData->avaDocs, '*.path');
+            $caseData['caseImage'] = $caseImage;
+        };
+
+        $response = [
+            "draw" => intval($draw),
+            "recordsTotal" => $totalRecords,
+            "recordsFiltered" => $totalRecords,
+            "data" => $caseStudy,
+            "caseImage" => $caseImage
+        ];
+        // dd($response);
+
+        return response()->json($response);
     }
 }
