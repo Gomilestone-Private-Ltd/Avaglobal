@@ -96,7 +96,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="">Testimonial Image:</label>
                                     <div class="file-box">
-                                        <input type="file" name="monialimage"
+                                        <input type="file" name="monialimage" onchange="return fileValidation()"
                                             accept="image/png, image/jpg, image/jpeg" id="testimonialimage"
                                             class="form-control" value="" />
                                         <i class="fa fa-close close-icon" id="closeIcon"></i>
@@ -128,7 +128,22 @@
             </div>
         </div>
 </section>
-
+<script>
+    function fileValidation() {
+        var fileInput = document.getElementById('testimonialimage');
+        var fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
+        if (fileSize > 2) {
+            // alert("File size must be less than 5 MB.");
+            toastr.error("File size must be less than 2 MB.")
+            toastr.options = {
+                'closeButton': true,
+                'progressBar': true,
+            }
+            fileInput.value = '';
+            return false;
+        }
+    }
+</script>
 
 <script>
     var selectedFile;

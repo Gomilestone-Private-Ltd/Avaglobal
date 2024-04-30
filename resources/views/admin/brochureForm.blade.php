@@ -100,7 +100,8 @@
                                     <label for="">Popup Image:</label>
                                     <div class="file-box">
                                         <input type="file" name="brochureimage"
-                                            accept="image/jpeg,image/jpg,image/png" id="caseimageinput"
+                                            onchange="return fileValidationImage()"
+                                            accept="image/jpeg,image/jpg,image/png" id="brochureimage"
                                             class="form-control" value="" placeholder="" />
                                         <i class="fa fa-close close-icon" id="closeIcon"></i>
                                     </div>
@@ -118,7 +119,8 @@
                                 <div class="form-group col-md-6 required">
                                     <label for="">Banner Pdf/Image:</label>
                                     <div class="file-box">
-                                        <input type="file" name="brochurepdf"
+                                        <input type="file" name="brochurepdf" id="brochurepdf"
+                                            onchange="return fileValidation()"
                                             accept="image/jpeg,image/jpg,image/png,application/pdf" class="form-control"
                                             value="" placeholder="" />
                                         {{-- <i class="fa fa-close close-icon" id="closeIcon"></i> --}}
@@ -146,7 +148,38 @@
             </div>
         </div>
 </section>
-
+<script>
+    function fileValidationImage() {
+        var fileInput = document.getElementById('brochureimage');
+        var fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
+        if (fileSize > 2) {
+            // alert("File size must be less than 5 MB.");
+            toastr.error("File size must be less than 2 MB.")
+            toastr.options = {
+                'closeButton': true,
+                'progressBar': true,
+            }
+            fileInput.value = '';
+            return false;
+        }
+    }
+</script>
+<script>
+    function fileValidation() {
+        var fileInput = document.getElementById('brochurepdf');
+        var fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
+        if (fileSize > 5) {
+            // alert("File size must be less than 5 MB.");
+            toastr.error("File size must be less than 5 MB.")
+            toastr.options = {
+                'closeButton': true,
+                'progressBar': true,
+            }
+            fileInput.value = '';
+            return false;
+        }
+    }
+</script>
 
 <script>
     var selectedFile;

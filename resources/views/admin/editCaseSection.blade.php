@@ -205,12 +205,12 @@
                                 </div>
 
                                 <div class="form-group col-md-6 ">
-                                    <label for="">Case Image: (max 5 files allowed with extension
-                                        jpg,jpeg,png)
+                                    <label for="">Case Image: (max 5 files allowed | Less than 1 MB)
                                     </label>
-                                    <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control"
+                                    <input type="file" onchange="return fileValidation()"
+                                        accept="image/png, image/jpg, image/jpeg" class="form-control"
                                         name="caseimage[]" id="caseimage" multiple />
-                                    <p class="notice-text">(Image Dimension should be 1366*550)</p>
+                                    {{-- <p class="notice-text">(Image Dimension should be 1366*550)</p> --}}
                                     <span class="text-danger">
                                     </span>
                                     <div class="main-image-select-box">
@@ -259,7 +259,22 @@
             </div>
         </div>
 </section>
-
+<script>
+    function fileValidation() {
+        var fileInput = document.getElementById('caseimage');
+        var fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
+        if (fileSize > 1) {
+            // alert("File size must be less than 5 MB.");
+            toastr.error("File size must be less than 1 MB.")
+            toastr.options = {
+                'closeButton': true,
+                'progressBar': true,
+            }
+            fileInput.value = '';
+            return false;
+        }
+    }
+</script>
 <script>
     const dt = new DataTransfer(); // Permet de manipuler les fichiers de l'input file
 
@@ -535,5 +550,6 @@
 
     });
 </script>
+
 
 @endsection

@@ -87,8 +87,8 @@
                                     <label for="">Upload image/pdf:</label>
                                     <div class="file-box">
                                         <input type="file" accept="image/jpeg,image/jpg,image/png,application/pdf"
-                                            name="downloadbrochure" id="caseimageinput" class="form-control"
-                                            value="" placeholder="" />
+                                            name="downloadbrochure" onchange="return fileValidation()"
+                                            id="caseimageinput" class="form-control" value="" placeholder="" />
                                         <i class="fa fa-close close-icon" id="closeIcon"></i>
                                     </div>
 
@@ -120,7 +120,22 @@
 
 </section>
 
-
+<script>
+    function fileValidation() {
+        var fileInput = document.getElementById('caseimageinput');
+        var fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
+        if (fileSize > 5) {
+            // alert("File size must be less than 5 MB.");
+            toastr.error("File size must be less than 5 MB.")
+            toastr.options = {
+                'closeButton': true,
+                'progressBar': true,
+            }
+            fileInput.value = '';
+            return false;
+        }
+    }
+</script>
 <script>
     var selectedFile;
     $(document).ready(function() {

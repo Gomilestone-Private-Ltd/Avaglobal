@@ -460,7 +460,7 @@ class AdminController extends Controller
     }
     public function getBrochure()
     {
-        $brochure = Brochure::with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])->get();
+        $brochure = Brochure::with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])->orderBy('id', 'DESC')->get();
         return view('admin.brochureData')->with('brochure', $brochure);
     }
     public function brochureForms()
@@ -1170,7 +1170,7 @@ class AdminController extends Controller
             'title' => 'required|string|max:100',
             'location' => 'required|string|max:50',
             'mediaUrl' => 'required|url',
-            'onlineMediaImage' => 'required|mimes:jpeg,jpg,png|max:2000',
+            'onlineMediaImage' => 'required|mimes:jpeg,jpg,png|max:2048',
             'description' => 'required|string|max:150',
         ]);
         if ($validate->fails()) {

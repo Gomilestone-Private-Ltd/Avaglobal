@@ -89,6 +89,9 @@
                         </a>
                     </div>
                 </div>
+                {{-- <div>
+                    <button id="selectAllBtn" class="btn btn-primary">Select All</button>
+                </div> --}}
                 {{-- <div class="col-md-6">
                     <form action="{{ url('admin/search') }}" method="get">
                         @csrf
@@ -206,4 +209,21 @@
         $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
     })
 </script>
+
+
+{{-- <script>
+    // JavaScript function to check all checkboxes
+    function selectAll() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = true;
+        });
+    }
+
+    // Add event listener to the select all button
+    document.getElementById('selectAllBtn').addEventListener('click', function() {
+        selectAll();
+    });
+</script> --}}
+
 @endsection
