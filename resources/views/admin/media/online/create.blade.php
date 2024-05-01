@@ -44,7 +44,8 @@
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="form-box">
-                    <form action="{{ route('save-online-coverage') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('save-online-coverage') }}" method="POST" id="onlineCreate"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="card p-3">
                             <div class="row">
@@ -96,9 +97,9 @@
                                 </div>
 
                             </div>
-                            <div class="mt-3">
+                            <div class="form-group col-md-12 ">
                                 <button type="submit" id="submit"
-                                    class="btn btn-primary btn-lg float-right ">Submit</button>
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -108,6 +109,12 @@
         </div>
     </div>
 </section>
+<script>
+    $('#onlineCreate').on('submit', function(e) {
+        $(".from-prevent-multiple-submits").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
+    })
+</script>
 <script>
     function startToastr() {
         toastr.options = {

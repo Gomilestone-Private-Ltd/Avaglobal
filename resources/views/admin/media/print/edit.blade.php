@@ -44,7 +44,7 @@
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="form-box">
-                    <form action="{{ route('update-print-coverage', $records->id) }}" method="POST"
+                    <form action="{{ route('update-print-coverage', $records->id) }}" method="POST" id="mediaCreate"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="mt-4 card p-3">
@@ -97,9 +97,9 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="mt-3">
+                            <div class="form-group col-md-12 ">
                                 <button type="submit" id="submit"
-                                    class="btn btn-primary btn-lg float-right">Update</button>
+                                    class="btn btn-primary float-right from-prevent-multiple-submits">Update</button>
                             </div>
                         </div>
                     </form>
@@ -108,6 +108,12 @@
         </div>
     </div>
 </section>
+<script>
+    $('#mediaCreate').on('submit', function(e) {
+        $(".from-prevent-multiple-submits").prepend('<i class="fa fa-spinner fa-spin"></i>');
+        $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
+    })
+</script>
 <script>
     function startToastr() {
         toastr.options = {

@@ -149,9 +149,10 @@
                                     </span>
                                 </div>
 
-                                <div class="form-group col-md-12">
-                                    <input type="submit" id="submit"
-                                        class="btn btn-primary float-right submitloader" value="Submit">
+
+                                <div class="form-group col-md-12 ">
+                                    <button type="submit" id="submit"
+                                        class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -224,6 +225,8 @@
 
         $('#postjob').submit(function(e) {
             e.preventDefault();
+            $(".from-prevent-multiple-submits").prepend('<i class="fa fa-spinner fa-spin"></i>');
+            $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
 
             // Serialize the form data
             const formData = new FormData($(this)[0]);
@@ -237,6 +240,9 @@
                 contentType: false,
                 success: function(response) {
                     $("#submit").attr("disabled", true);
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
+                    $('#postjob').trigger("reset");
 
                     toastr.options = {
                         'closeButton': true,
@@ -248,6 +254,8 @@
                     }, 1000);
                 },
                 error: function(response) {
+                    $(".from-prevent-multiple-submits").find(".fa-spinner").remove();
+                    $(".from-prevent-multiple-submits").removeAttr("disabled");
 
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');

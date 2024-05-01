@@ -155,7 +155,6 @@ class AdminController extends Controller
         if (!$data) {
             return response()->json(['message' => 'There is no Case found in record', 404]);
         }
-
         $data->delete();
 
         return response()->json(['success' => true, 'message' => 'Data got deleted successfully']);

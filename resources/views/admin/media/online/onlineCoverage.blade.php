@@ -23,6 +23,13 @@
     .toast-error {
         background-color: red !important;
     }
+
+    .image {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        margin-bottom: 5px;
+    }
 </style>
 <section class="content">
     <div class="body_scroll">
@@ -78,7 +85,7 @@
                                                     <td>{{ $record->description }}</td>
                                                     @if (isset($record->onlineDocsImage->path))
                                                         <td> <img src="{{ asset($record->onlineDocsImage->path) }}"
-                                                                alt="profile Pic" height="50" width="50"></td>
+                                                                alt="profile Pic" class="image"></td>
                                                     @else
                                                         <td> No Image</td>
                                                     @endif
