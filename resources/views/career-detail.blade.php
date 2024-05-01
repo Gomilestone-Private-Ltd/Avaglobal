@@ -107,6 +107,7 @@
                                                 <div class="form-row">
                                                     <div class="upload-career fl">
                                                         <div class="browse-btn"><input name="applicantPdf" id="file-7"
+                                                                onchange="return fileValidation()"
                                                                 class="inputfile inputfile-6 fileSeelct"
                                                                 accept=" application/pdf"
                                                                 data-multiple-caption="{count} files selected"
@@ -183,7 +184,22 @@
                         });
                     });
                 </script>
-
+                <script>
+                    function fileValidation() {
+                        var fileInput = document.getElementById('file-7');
+                        var fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
+                        if (fileSize > 2) {
+                            // alert("File size must be less than 5 MB.");
+                            toastr.error("File size must be less than 2 MB.")
+                            toastr.options = {
+                                'closeButton': true,
+                                'progressBar': true,
+                            }
+                            fileInput.value = '';
+                            return false;
+                        }
+                    }
+                </script>
 
                 <!-- DESKTOP MENU JS SATRT -->
                 <script>
