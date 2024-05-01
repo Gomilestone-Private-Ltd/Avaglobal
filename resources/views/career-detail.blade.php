@@ -43,25 +43,29 @@
                                         <p class="jr-box"><img src="{{ asset('/images/editing.png') }}" class="time-img">
                                             Category :
                                         </p>
-                                        <span class="carrer-right-text"> {{ isset($careerData->job_role) ? $careerData->job_role : '' }}</span>
+                                        <span class="carrer-right-text">
+                                            {{ isset($careerData->job_role) ? $careerData->job_role : '' }}</span>
                                     </div>
                                     <div class="carrer-form-text">
                                         <p class="jr-box"><img src="{{ asset('/images/time.png') }}" class="time-img">
                                             Workday :
                                         </p>
-                                          <span class="carrer-right-text">{{ isset($careerData->time_period) ? $careerData->time_period : '' }}</span>
-                                    </div> 
-                                    <div class="carrer-form-text">
-                                        <p class="jr-box"><img src="{{ asset('/images/location.png') }}"
-                                            class="time-img">Location :
-                                        </p>
-                                        <span class="carrer-right-text"> {{ isset($careerData->location) ? $careerData->location : '' }}</span>
+                                        <span
+                                            class="carrer-right-text">{{ isset($careerData->time_period) ? $careerData->time_period : '' }}</span>
                                     </div>
                                     <div class="carrer-form-text">
-                                         <p class="jr-box"><img src="{{ asset('/images/event.png') }}"
-                                            class="time-img">Experience :   
-                                         </p>
-                                         <span class="carrer-right-text"> {{ isset($careerData->experience) ? $careerData->experience : '' }}</span>
+                                        <p class="jr-box"><img src="{{ asset('/images/location.png') }}"
+                                                class="time-img">Location :
+                                        </p>
+                                        <span class="carrer-right-text">
+                                            {{ isset($careerData->location) ? $careerData->location : '' }}</span>
+                                    </div>
+                                    <div class="carrer-form-text">
+                                        <p class="jr-box"><img src="{{ asset('/images/event.png') }}"
+                                                class="time-img">Experience :
+                                        </p>
+                                        <span class="carrer-right-text">
+                                            {{ isset($careerData->experience) ? $careerData->experience : '' }}</span>
                                     </div>
 
                                     <h3 class="csdt-title2">WE ARE HIRING</h3>
@@ -90,13 +94,15 @@
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Position</div>
-                                                <input type="text" name="position" 
+                                                <input type="text" name="position" disabled
                                                     value="{{ isset($careerData->job_role) ? $careerData->job_role : '' }}"
                                                     class="inputclick">
                                                 <span class="text-danger">
 
                                                 </span>
                                             </div>
+                                            <input type="hidden" name="position"
+                                                value="{{ isset($careerData->job_role) ? $careerData->job_role : '' }}">
                                             <div class="input-container choose-container">
                                                 <div class="form-row">
                                                     <div class="upload-career fl">
@@ -151,20 +157,11 @@
                                     $("#applicantForm")[0].reset();
                                     // $('.fileSeelct').val('');
                                     $('#file_7_id span').html('');
-
-
-
-
-                                    console.log(response);
                                     toastr.options = {
                                         'closeButton': true,
                                         'progressBar': true
                                     }
                                     toastr.success(response.message);
-                                    // window.location.href = "";
-                                    // setTimeout(function() {
-                                    //     window.location.href = "/get-jobs";
-                                    // }, 2000);
                                 },
                                 error: function(response) {
                                     if (response.responseJSON && response.responseJSON.errors) {

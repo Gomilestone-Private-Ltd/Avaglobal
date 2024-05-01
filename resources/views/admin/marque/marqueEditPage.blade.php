@@ -54,9 +54,9 @@
                     <div class="back-btn-box">
                         <a href="{{ route('marque-records') }}" class="back-btn"><img
                                 src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
-                                <h3>Back</h3>
-                            </a>
-                       
+                            <h3>Back</h3>
+                        </a>
+
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="form-group col-md-12 ">
                                     <button type="submit" id="submit"
-                                        class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+                                        class="btn btn-primary float-right from-prevent-multiple-submits">Update</button>
                                 </div>
                             </div>
                         </div>

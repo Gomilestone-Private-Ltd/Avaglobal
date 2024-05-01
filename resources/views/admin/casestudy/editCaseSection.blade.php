@@ -251,7 +251,7 @@
 
                                 <div class="form-group col-md-12 ">
                                     <button type="submit" id="submit"
-                                        class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+                                        class="btn btn-primary float-right from-prevent-multiple-submits">Update</button>
                                 </div>
                             </div>
                         </div>
@@ -345,33 +345,19 @@
 <script>
     var selectedFile;
 
-
     document.addEventListener("DOMContentLoaded", function() {
-        const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
 
-            // In case which the max file size is 1Mb
-            if (blobInfo.blob().size > 1024 * 1024) {
-                return reject({
-                    message: 'File size should be less than 1 MB !',
-                    remove: true
-                });
-            }
-
-            // Do the rest
-        });
         // TinyMCE initialization code here
         tinymce.init({
             selector: 'textarea#tinymce',
             plugins: "preview",
             theme_advanced_buttons3_add: "preview",
-            images_upload_handler: example_image_upload_handler,
             plugin_preview_width: "500",
             plugin_preview_height: "600",
             promotion: false,
             plugins: ["image", "code"],
             branding: false,
             height: 400,
-
             toolbar: 'undo redo | link image | code ',
             // enable title field in the Image dialog
             image_title: true,
@@ -386,12 +372,18 @@
 
                 input.onchange = function() {
                     var file = this.files[0];
+
+                    // Validate the file size
+                    if (file.size > 1024 * 1024) {
+                        toastr.error('File size should be less than 1 MB!');
+                        return;
+                    }
+
                     var reader = new FileReader();
 
                     reader.onload = function() {
                         var id = 'blobid' + (new Date()).getTime();
-                        var blobCache = tinymce.activeEditor.editorUpload
-                            .blobCache;
+                        var blobCache = tinymce.activeEditor.editorUpload.blobCache;
                         var base64 = reader.result.split(',')[1];
                         var blobInfo = blobCache.create(id, file, base64);
                         blobCache.add(blobInfo);

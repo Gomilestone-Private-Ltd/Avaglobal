@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
-@section('title', 'Add Job')
-@section('header-title', 'Add Job Openings')
+@section('title', 'Edit Job')
+@section('header-title', 'Edit Job Openings')
 <style>
     label {
         color: black;
@@ -151,7 +151,7 @@
 
                                 <div class="form-group col-md-12">
                                     <input type="submit" id="submit"
-                                        class="btn btn-primary float-right submitloader" value="Submit">
+                                        class="btn btn-primary float-right submitloader" value="Update">
                                 </div>
                             </div>
                         </div>
@@ -192,6 +192,11 @@
 
                     // Validate the file size
                     if (file.size > 1024 * 1024) {
+                        // Swal.fire({
+                        //     icon: 'error',
+                        //     title: 'Oops...',
+                        //     text: 'File size should be less than 1 MB!'
+                        // });
                         toastr.error('File size should be less than 1 MB!');
                         return;
                     }
@@ -218,7 +223,6 @@
 
         });
     });
-
 
     $(document).ready(function() {
 

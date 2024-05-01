@@ -272,23 +272,25 @@
     });
 </script>
 
+
+
 <script>
     var selectedFile;
 
     document.addEventListener("DOMContentLoaded", function() {
         // TinyMCE initialization code here
-        const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
+        // const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
 
-            // In case which the max file size is 1Mb
-            if (blobInfo.blob().size > 1024 * 1024) {
-                return reject({
-                    message: 'File size should be less than 1 MB !',
-                    remove: true
-                });
-            }
+        //     // In case which the max file size is 1Mb
+        //     if (blobInfo.blob().size > 1024 * 1024) {
+        //         return reject({
+        //             message: 'File size should be less than 1 MB !',
+        //             remove: true
+        //         });
+        //     }
 
-            // Do the rest
-        });
+        //     // Do the rest
+        // });
         tinymce.init({
             selector: 'textarea#tinymce',
             plugins: "preview",
@@ -296,7 +298,7 @@
             plugin_preview_width: "500",
             plugin_preview_height: "600",
             //added
-            images_upload_handler: example_image_upload_handler,
+            // images_upload_handler: example_image_upload_handler,
             promotion: false,
             plugins: ["image", "code"],
             branding: false,
@@ -309,6 +311,32 @@
             automatic_uploads: true,
             // add custom filepicker only to Image dialog
             file_picker_types: 'image',
+            // file_picker_callback: function(cb, value, meta) {
+            //     var input = document.createElement('input');
+            //     input.setAttribute('type', 'file');
+            //     input.setAttribute('accept', 'image/*');
+
+            //     input.onchange = function() {
+            //         var file = this.files[0];
+            //         var reader = new FileReader();
+
+            //         reader.onload = function() {
+            //             var id = 'blobid' + (new Date()).getTime();
+            //             var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+            //             var base64 = reader.result.split(',')[1];
+            //             var blobInfo = blobCache.create(id, file, base64);
+            //             blobCache.add(blobInfo);
+
+            //             // call the callback and populate the Title field with the file name
+            //             cb(blobInfo.blobUri(), {
+            //                 title: file.name
+            //             });
+            //         };
+            //         reader.readAsDataURL(file);
+            //     };
+
+            //     input.click();
+            // }
             file_picker_callback: function(cb, value, meta) {
                 var input = document.createElement('input');
                 input.setAttribute('type', 'file');
@@ -316,6 +344,13 @@
 
                 input.onchange = function() {
                     var file = this.files[0];
+
+                    // Validate the file size
+                    if (file.size > 1024 * 1024) {
+                        toastr.error('File size should be less than 1 MB!');
+                        return;
+                    }
+
                     var reader = new FileReader();
 
                     reader.onload = function() {

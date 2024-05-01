@@ -113,7 +113,7 @@
 
                                 <div class="form-group col-md-12 ">
                                     <button type="submit" id="submit"
-                                        class="btn btn-primary float-right from-prevent-multiple-submits">Submit</button>
+                                        class="btn btn-primary float-right from-prevent-multiple-submits">Update</button>
 
                                 </div>
 

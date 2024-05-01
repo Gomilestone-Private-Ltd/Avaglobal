@@ -72,7 +72,7 @@ class AdminController extends Controller
         // dd($id);
         $jobData = Job::where('id', $jobId)->first();
         // dd($jobData);
-        return view('admin.career.addJobs')->with('jobData', $jobData);
+        return view('admin.career.editJobs')->with('jobData', $jobData);
     }
     public function postJob(Request $request)
     {
@@ -129,7 +129,7 @@ class AdminController extends Controller
         );
 
 
-        return response()->json(['success' => true, 'message' => 'Job Data posted Successfully', 'route' => route('opened-job')]);
+        return response()->json(['success' => true, 'message' => 'Data saved successfully', 'route' => route('opened-job')]);
     }
     public function getJobs()
     {
@@ -356,7 +356,7 @@ class AdminController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required|regex:/^[0-9]{10}$/',
-            'position' => 'required',
+            'position' => 'nullable',
             'applicantPdf' => 'required|mimes:pdf|max:2048'
         ];
         $message = [
