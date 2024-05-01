@@ -212,7 +212,7 @@
                         toastr.error(response.message);
                         setTimeout(() => {
                             window.location.href = response.route;
-                        }, 1500);
+                        }, 1000);
 
                     }
 

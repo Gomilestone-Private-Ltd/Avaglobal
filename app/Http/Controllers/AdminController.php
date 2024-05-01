@@ -53,17 +53,17 @@ class AdminController extends Controller
         $CaseStudy = CaseStudy::count();
         $Applicant = Applicant::count();
         $contactUsCounts = ContactUs::count();
-        return view('admin.index', ['jobCount' => $activeJobCounts, 'CaseStudy' => $CaseStudy, 'Applicant' => $Applicant, 'contactUsCounts' => $contactUsCounts]);
+        return view('admin.dashboard.index', ['jobCount' => $activeJobCounts, 'CaseStudy' => $CaseStudy, 'Applicant' => $Applicant, 'contactUsCounts' => $contactUsCounts]);
     }
     // job_openings functions
     public function openJob()
     {
         $jobPost = Job::orderBy('id', 'DESC')->get();
-        return view('admin.jobOpenings')->with('jobPost', $jobPost);
+        return view('admin.career.jobOpenings')->with('jobPost', $jobPost);
     }
     public function addJobs()
     {
-        return view('admin.addJobs');
+        return view('admin.career.addJobs');
     }
     public function editCareerJob($id)
     {
@@ -72,7 +72,7 @@ class AdminController extends Controller
         // dd($id);
         $jobData = Job::where('id', $jobId)->first();
         // dd($jobData);
-        return view('admin.addJobs')->with('jobData', $jobData);
+        return view('admin.career.addJobs')->with('jobData', $jobData);
     }
     public function postJob(Request $request)
     {
@@ -129,7 +129,7 @@ class AdminController extends Controller
         );
 
 
-        return response()->json(['success' => true, 'message' => 'Job Data posted Successfully']);
+        return response()->json(['success' => true, 'message' => 'Job Data posted Successfully', 'route' => route('opened-job')]);
     }
     public function getJobs()
     {
@@ -167,17 +167,17 @@ class AdminController extends Controller
     {
         $combinedData = CaseStudy::with('avaDocs')->orderBy('id', 'DESC')->get();
 
-        return view('admin.caseStudyData')->with('combinedData', $combinedData);
+        return view('admin.casestudy.caseStudyData')->with('combinedData', $combinedData);
     }
     public function addCase()
     {
-        return view('admin.case-section');
+        return view('admin.casestudy.case-section');
     }
     public function editCaseStudy($id)
     {
         $caseId = $id;
         $data = CaseStudy::with('avaDocs')->where('id', $caseId)->first();
-        return view('admin.editCaseSection')->with('data', $data);
+        return view('admin.casestudy.editCaseSection')->with('data', $data);
     }
     public function caseStore(Request $request)
     {
@@ -283,12 +283,12 @@ class AdminController extends Controller
     {
         $applicantData = Applicant::orderBy('id', 'DESC')->with('avaDocs')->get();
 
-        return view('admin.applicantsData')->with('applicantData', $applicantData);
+        return view('admin.applicant.applicantsData')->with('applicantData', $applicantData);
     }
     public function contactApplicants()
     {
         $contactUsData = ContactUs::orderBy('id', 'DESC')->with('avaDocs')->get();
-        return view('admin.contactUsData')->with('contactUsData', $contactUsData);
+        return view('admin.contactUs.contactUsData')->with('contactUsData', $contactUsData);
     }
     public function postContactApplicants(Request $request)
     {
@@ -461,11 +461,11 @@ class AdminController extends Controller
     public function getBrochure()
     {
         $brochure = Brochure::with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])->orderBy('id', 'DESC')->get();
-        return view('admin.brochureData')->with('brochure', $brochure);
+        return view('admin.popup.brochureData')->with('brochure', $brochure);
     }
     public function brochureForms()
     {
-        return view('admin.brochureForm');
+        return view('admin.popup.brochureForm');
     }
 
     public function postBrochure(Request $request)
@@ -523,7 +523,7 @@ class AdminController extends Controller
     public function getBrochureEdit($id)
     {
         $brochure = Brochure::with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])->where('id', $id)->first();
-        return view('admin.editBrochureForm')->with('brochure', $brochure);
+        return view('admin.popup.editBrochureForm')->with('brochure', $brochure);
     }
     public function postEditBrochure(Request $request)
     {
@@ -627,11 +627,11 @@ class AdminController extends Controller
     {
         $circularData = AvaDocs::orderBy('circular_id', 'DESC')->whereNotNull('circular_id')->get();
 
-        return view('admin.circularData')->with('circularData', $circularData);
+        return view('admin.circular.circularData')->with('circularData', $circularData);
     }
     public function getAddCircularForm()
     {
-        return view('admin.addCircularForm');
+        return view('admin.circular.addCircularForm');
     }
     public function storeCircular(Request $request)
     {
@@ -690,7 +690,7 @@ class AdminController extends Controller
     {
         $data =  AvaDocs::where('id', $id)->first();
 
-        return view('admin.editCircularForm')->with('data', $data);
+        return view('admin.circular.editCircularForm')->with('data', $data);
     }
     public function editStoreCircular(Request $request)
     {
@@ -757,11 +757,11 @@ class AdminController extends Controller
     public function policyData()
     {
         $policyData = AvaDocs::orderBy('policy_id', 'DESC')->whereNotNull('policy_id')->get();
-        return view('admin.getPolicyData')->with('policyData', $policyData);
+        return view('admin.policy.getPolicyData')->with('policyData', $policyData);
     }
     public function getAddPagePolicy()
     {
-        return view('admin.addPolicyPage');
+        return view('admin.policy.addPolicyPage');
     }
     public function deletePolicy($id)
     {
@@ -822,7 +822,7 @@ class AdminController extends Controller
     {
         $data =  AvaDocs::where('id', $id)->first();
 
-        return view('admin.editPolicyForm')->with('data', $data);
+        return view('admin.policy.editPolicyForm')->with('data', $data);
     }
     public function storePolicyEdit(Request $request)
     {
@@ -885,14 +885,14 @@ class AdminController extends Controller
 
     public function ScrollerData()
     {
-        $data = Marque::get();
-        return view('admin.scrollerData')->with('data', $data);
+        $data = Marque::orderBy('id', 'DESC')->get();
+        return view('admin.marque.scrollerData')->with('data', $data);
     }
 
     public function marqueAddForm()
     {
 
-        return view('admin.marqueForm');
+        return view('admin.marque.marqueForm');
     }
     public function postMarque(Request $request)
     {
@@ -943,7 +943,7 @@ class AdminController extends Controller
     public function editMarquePage($id)
     {
         $data = Marque::where('id', $id)->first();
-        return view('admin.marqueEditPage')->with('data', $data);
+        return view('admin.marque.marqueEditPage')->with('data', $data);
     }
     public function postEditMarque(Request $request)
     {
@@ -970,12 +970,12 @@ class AdminController extends Controller
     public function eventBrochureData()
     {
         $BrochureData = AvaDocs::orderBy('downloadBrochureId', 'DESC')->whereNotNull('downloadBrochureId')->get();
-        return view('admin.eventBrochure')->with('BrochureData', $BrochureData);
+        return view('admin.brochure.eventBrochure')->with('BrochureData', $BrochureData);
     }
 
     public function addDownloadBrochure()
     {
-        return view('admin.brochureAddPage');
+        return view('admin.brochure.brochureAddPage');
     }
     public function storeDownloadBrochure(Request $request)
     {
@@ -1044,7 +1044,7 @@ class AdminController extends Controller
     {
         $data =  AvaDocs::where('downloadBrochureId', $id)->first();
 
-        return view('admin.editDownloadBrochureForm')->with('data', $data);
+        return view('admin.brochure.editDownloadBrochureForm')->with('data', $data);
     }
     public function editStoreDownloadBrochure(Request $request)
     {

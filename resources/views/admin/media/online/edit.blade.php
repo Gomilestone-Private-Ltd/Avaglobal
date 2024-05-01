@@ -49,7 +49,7 @@
                         @csrf
                         <div class="mt-4 card p-3">
                             <div class="row">
-                                <div class="col-md-4 required">
+                                <div class="col-md-6 required">
                                     <label for="">Media Title</label>
                                     <input type="text" name="title" id="" class="form-control"
                                         placeholder="Enter Title" value="{{ $records->title }}">
@@ -58,19 +58,11 @@
                                         @enderror
                                     </span>
                                 </div>
-                                {{-- <div class="col-md-4 required">
-                                    <label for="">Location</label>
-                                    <input type="text" name="location" id="" class="form-control"
-                                        placeholder="Enter location" value="{{ $records->location }}">
-                                    <span class="text-danger"> @error('location')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div> --}}
-                                <div class="form-group col-md-4 required">
-                                    <label for="">Description</label>
-                                    <textarea name="description" id="" class="form-control" placeholder="Add Description">{{ $records->description }}</textarea>
-                                    <span class="text-danger"> @error('description')
+                                <div class="col-md-6 required">
+                                    <label for="">Media URL</label>
+                                    <input type="text" name="mediaUrl" id="" class="form-control"
+                                        placeholder="Enter Url" value="{{ $records->media_url }}">
+                                    <span class="text-danger"> @error('mediaUrl')
                                             {{ $message }}
                                         @enderror
                                     </span>
@@ -91,16 +83,27 @@
                                         @enderror
                                     </span>
                                 </div>
+                                {{-- <div class="col-md-4 required">
+                                    <label for="">Location</label>
+                                    <input type="text" name="location" id="" class="form-control"
+                                        placeholder="Enter location" value="{{ $records->location }}">
+                                    <span class="text-danger"> @error('location')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div> --}}
 
-                                <div class="col-md-6 required">
-                                    <label for="">Media URL</label>
-                                    <input type="text" name="mediaUrl" id="" class="form-control"
-                                        placeholder="Enter Url" value="{{ $records->media_url }}">
-                                    <span class="text-danger"> @error('mediaUrl')
+                                <div class="form-group col-md-6 required">
+                                    <label for="">Description</label>
+                                    <textarea name="description" id="" class="form-control" placeholder="Add Description">{{ $records->description }}</textarea>
+                                    <span class="text-danger"> @error('description')
                                             {{ $message }}
                                         @enderror
                                     </span>
                                 </div>
+
+
+
 
                             </div>
                             <div class="mt-3">

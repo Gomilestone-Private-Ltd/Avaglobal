@@ -28,7 +28,8 @@
                     <div class="back-btn-box">
                         <a href="{{ route('opened-job') }}" class="back-btn"><img
                                 src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
-                        <h3>Back</h3></a>
+                            <h3>Back</h3>
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -150,8 +151,7 @@
 
                                 <div class="form-group col-md-12">
                                     <input type="submit" id="submit"
-                                        class="btn btn-primary float-right from-prevent-multiple-submits"
-                                        value="Submit">
+                                        class="btn btn-primary float-right submitloader" value="Submit">
                                 </div>
                             </div>
                         </div>
@@ -164,11 +164,24 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
+
+            // In case which the max file size is 1Mb
+            if (blobInfo.blob().size > 1024 * 1024) {
+                return reject({
+                    message: 'File size should be less than 1 MB !',
+                    remove: true
+                });
+            }
+
+            // Do the rest
+        });
         // TinyMCE initialization code here
         tinymce.init({
             selector: 'textarea#tinymce',
             plugins: "preview",
             theme_advanced_buttons3_add: "preview",
+            images_upload_handler: example_image_upload_handler,
             plugin_preview_width: "500",
             plugin_preview_height: "600",
             promotion: false,
@@ -217,6 +230,7 @@
 
         $('#postjob').submit(function(e) {
             e.preventDefault();
+
             // Serialize the form data
             const formData = new FormData($(this)[0]);
 
@@ -228,18 +242,19 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
-                    $("#submit").attr("disabled", true)
-                    console.log(response);
+                    $("#submit").attr("disabled", true);
+
                     toastr.options = {
                         'closeButton': true,
                         'progressBar': true
                     }
                     toastr.success(response.message);
                     setTimeout(function() {
-                        window.location.href = "/admin/job-opening-details";
+                        window.location.href = response.route;
                     }, 1000);
                 },
                 error: function(response) {
+
                     if (response.responseJSON && response.responseJSON.errors) {
                         $('.text-danger').html('');
                         $.each(response.responseJSON.errors, function(field, errorMessage) {
