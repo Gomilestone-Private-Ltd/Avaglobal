@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="missn-line"></div>
+                <!-- <div class="missn-line"></div> -->
                 <div class="servicesmobimg">
                     <img src="{{ asset('images/about/img1-res.jpg') }}" alt="" />
                 </div>
