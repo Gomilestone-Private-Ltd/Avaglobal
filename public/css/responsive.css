@@ -41,7 +41,7 @@
         top: 200px;
     }
     .philosophy-blk-abt {
-        margin-top: 18%;
+        margin-top: 30px;
     }
     .mission-wrapper-about .servicerighttxtblk {
         top: 100px;
@@ -220,6 +220,7 @@
     }
     .philosophy-blk-abt {
         padding: 15px 5px;
+        margin-top: 30px;
     }
     .missn-line::before {
         left: -29px;
@@ -334,14 +335,32 @@
    }
    .slick-slider {
     margin-bottom: 30px;
-    height: 456px;
+    height: 320px;
 }
 .ecpertise-box img {
-    height: 400px;
-    width: 399px !important;
+    height: 300px;
+    width: 350px !important;
+}
+.itum-sub-heading {
+    font-size: 24px;
+    font-family: "BebasNeueRegular";
+    text-align: center;
+    width: 80%;
+    letter-spacing: 3px;
 }
 .missn-line {
     top: 54%;
+}
+.wrappers {
+    padding: 0px !important;
+}
+.main-text {
+    font-size: 45px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+}
+h1.itum-heading {
+    font-size: 35px;
 }
 }
 @media screen and (max-width: 1280px) {

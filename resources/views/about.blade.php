@@ -7,7 +7,7 @@
         }
         .wrappers{
         padding: 70px 0;
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
         }
 
 
@@ -140,17 +140,15 @@
                                 </div>
                             <div class="right-text-expertise">
                             <h1 class="itum-heading">AGRO</h1>
-                                <h1>Special filed rates for Agro Commodities worldwibe ex Nhava, Sheva, Mundra, Hazira and ICD's with confirmed bookings.</h1>
+                                <h1 class="itum-sub-heading">Special filed rates for Agro Commodities worldwibe ex Nhava, Sheva, Mundra, Hazira and ICD's with confirmed bookings.</h1>
                              </div>
                         </div>
                         </div>
-                        <div class="item">
-                            
-                            <div class="main-expertise-box">
-                               
+                        <div class="item"> 
+                            <div class="main-expertise-box">  
                              <div class="right-text-expertise">
                              <h1 class="itum-heading">CREAMIC</h1>
-                                <h1>Exclusive arrangements in Morbi with well established hinterland connectivity across ICD/CFS and sea-ports.</h1>
+                                <h1 class="itum-sub-heading">Exclusive arrangements in Morbi with well established hinterland connectivity across ICD/CFS and sea-ports.</h1>
                              </div>
                              <div class="ecpertise-box">
                                   <img class="" src="{{ asset('images/about/creamic.jpg') }}" alt="">
@@ -164,7 +162,7 @@
                                 </div>
                             <div class="right-text-expertise">
                                 <h1 class="itum-heading">PHARMA</h1>
-                                <h1>IOT based tracking for temperature controlled cargo.</h1>
+                                <h1 class="itum-sub-heading">IOT based tracking for temperature controlled cargo.</h1>
                              </div>
                         </div>
                         </div>
@@ -173,7 +171,7 @@
                                
                             <div class="right-text-expertise">
                             <h1 class="itum-heading">CHEMICALS</h1>
-                                <h1>Experience of shipping dangerous goods and hazerdous material across 200+ routes.</h1>
+                                <h1 class="itum-sub-heading">Experience of shipping dangerous goods and hazerdous material across 200+ routes.</h1>
                              </div>
                              <div class="ecpertise-box">
                                   <img class="" src="{{ asset('images/about/chamical.jpg') }}" alt="">
@@ -187,7 +185,7 @@
                                 </div>
                             <div class="right-text-expertise">
                             <h1 class="itum-heading">MACHINERY, OCD & HEAVY HAUL</h1>
-                                <h1>pecialized expertise, tailored solutions and reliable delivery for your oversized, overweight and challenging freight.</h1>
+                                <h1 class="itum-sub-heading">pecialized expertise, tailored solutions and reliable delivery for your oversized, overweight and challenging freight.</h1>
                              </div>
                         </div>
                         </div>
@@ -195,7 +193,7 @@
                             <div class="main-expertise-box">   
                             <div class="right-text-expertise">
                             <h1 class="itum-heading">MACHINERY, OCD & HEAVY HAUL</h1>
-                                <h1>Understanding the nuances in shipping over dimensional cargo.</h1>
+                                <h1 class="itum-sub-heading">Understanding the nuances in shipping over dimensional cargo.</h1>
                              </div>
                              <div class="ecpertise-box">
                                   <img class="" src="{{ asset('images/about/container.jpg') }}" alt="">
