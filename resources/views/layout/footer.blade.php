@@ -3,11 +3,28 @@
         <div class="footerblk">
             <div class="footermenu">
                 <div class="fm-box">
+                    <a href="#" class="footer-links">Clientele</a>
+                    <a href="#" class="footer-links">Enquiry form</a>
+                    @php
+                            $brochure = \App\Models\AvaDocs::whereNotNull('downloadBrochureId')
+                                ->where('downloadbrochurePdfStatus', 1)
+                                ->first();
+                            $file = $brochure ? $brochure->path : null;
+                        @endphp
+
+                        @if ($file)
+                            <a href="{{ asset($file) }}" class="footer-links" download>Download Brochure</a>
+                        @else
+                            <a href="javascript:void(0)" class="footer-links">Download Brochure</a>
+                        @endif
+                    <!-- <a href="#" class="footer-links">Download brochure</a> -->
                     <a href="#" class="footer-links">Knowledge Centre</a>
-                    <a href="{{ route('caseStudy') }}" class="footer-links">Case Studies</a>
-                    <a href="{{ route('career') }}" class="footer-links">Career</a>
-                    <a href="{{ route('media') }}" class="footer-links">In The Media</a>
-                    <a href="{{ route('contact') }}" class="footer-links">Contact us</a>
+                    <a href="#" class="footer-links">LinkedIn</a>
+                    <a href="#" class="footer-links">WhatsApp</a>
+                    <!-- <a href="{{ route('caseStudy') }}" class="footer-links">Case Studies</a>/\ -->
+                    <!-- <a href="{{ route('career') }}" class="footer-links">Career</a> -->
+                    <!-- <a href="{{ route('media') }}" class="footer-links">In The Media</a> -->
+                    <!-- <a href="{{ route('contact') }}" class="footer-links">Contact us</a> -->
                 </div>
             </div>
             <div class="footer-copy">

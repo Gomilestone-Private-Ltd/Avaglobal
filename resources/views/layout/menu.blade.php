@@ -16,7 +16,7 @@
                 <div class="topnav" id="myTopnav">
                     <a class="th-link" href="{{ url('/') }}">Home</a>
                     <a class="th-link" href="{{ route('about') }}">About Us</a>
-                    <a class="th-link" href="{{ route('caseStudy') }}">Case Studies</a>
+                    <!-- <a class="th-link" href="{{ route('caseStudy') }}">Case Studies</a> -->
                     <div class="dropdown">
                       <button class="dropbtn">Services 
                         <img src="{{ asset('/images/down-menu.png') }}" class="menu-icon">
@@ -61,16 +61,21 @@
             <div class="navigationdes">
                 <div class="navlinkblk">
                     <ul class="navmainlink">
-                        <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ route('about') }}">ABOUT US</a></li>
-                        <li><a href="{{ route('contact') }}">Contact us</a></li>
+                        <li><a href="{{ route('media') }}">Media centre</a></li>
+                        <li><a href="#">Knowledge centre</a></li>
+                        <li><a href="{{ route('caseStudy') }}">Case studies</a></li>
                         <li><a href="{{ route('career') }}">Career</a></li>
-                        <li><a href="{{ route('caseStudy') }}">Case Studies</a></li>
-                        <li><a href="{{ route('media') }}">In The Media</a></li>
-                        <li><a href="{{ route('login') }}">Employee Login</a></li>
                     </ul>
+                        <!-- <li><a href="{{ url('/') }}">Home</a></li> -->
+                        <!-- <li><a href="{{ route('about') }}">ABOUT US</a></li> -->
+                        <!-- <li><a href="{{ route('contact') }}">Contact us</a></li> -->
+                        <!-- <li><a href="{{ route('career') }}">Career</a></li> -->
+                        
+                        <!-- <li><a href="{{ route('media') }}">In The Media</a></li> -->
+                        <!-- <li><a href="{{ route('login') }}">Employee Login</a></li> -->
+                    
                 </div>
-                <div class="navlinkblk">
+                <!-- <div class="navlinkblk">
                     <ul class="navmainlink">
                         <li><a href="{{ route('services') }}">Services</a></li>
                     </ul>
@@ -101,7 +106,7 @@
                         <li><a href="{{ route('containerSizes') }}">CONTAINER SIZES</a></li>
 
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
