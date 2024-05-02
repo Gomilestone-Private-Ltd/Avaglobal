@@ -2906,7 +2906,7 @@ button.pause {
     /* top: 6px; */
     left: 40px;
     width: 100%;
-    bottom: 20px;
+    bottom: 30px;
 }
 .kushal .abt-banner-caption {
     bottom: 30px;
@@ -3307,7 +3307,8 @@ a.footer-links:last-child::after {
 a.footer-links {
     position: relative;
     padding: 0px 12px;
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .topnav {
@@ -3468,6 +3469,7 @@ font-weight: 500;
 .our-usp {
     position: relative;
     z-index: 99;
+    margin-right: 35px;
 }
 .our-icons {
     margin-bottom: 15px;
@@ -3491,15 +3493,14 @@ font-weight: 500;
     justify-content: center;
     align-items: center;
     padding: 10px 70px;
-    line-height: 40px;
     flex-direction: column;
 }
-.right-text-expertise h1 {
-    font-size: 30px;
+.itum-sub-heading {
+    font-size: 24px;
     font-family: "BebasNeueRegular";
     text-align: center;
     width: 80%;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
 }
 h1.itum-heading {
     text-align: center;

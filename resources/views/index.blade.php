@@ -448,12 +448,15 @@
                                     <span class="sprite locationwhite"></span>
                                 </div>
                                 <div class="contacttxt ibvt">
-                                    4th FLOOR, Sahar Plaza COMPLEX, Windfall,<br /> 405, Andheri - Kurla Rd, J B Nagar,
-                                    Andheri East,<br /> Mumbai, Maharashtra 400059
+                                    {{-- 4th FLOOR, Sahar Plaza COMPLEX, Windfall,<br /> 405, Andheri - Kurla Rd, J B Nagar,
+                                    Andheri East,<br /> Mumbai, Maharashtra 400059 --}}
+                                    405 Windfall 4th Floor, Sahar Plaza,<br>
+                                    Andheri - Kurla Road, J B Nagar, Andheri East,<br>
+                                    Mumbai, Maharashtra 400059
 
 
                                     <!-- 405, 4th Floor, Windfall, Sahar Plaza Complex, J.B Nagar, Andheri - Kurla
-                                                                                                                                                Road, Andheri (East), <br /> Mumbai - 400059. -->
+                                                                                                                                                    Road, Andheri (East), <br /> Mumbai - 400059. -->
                                 </div>
                             </div>
                             <div class="contactblk">
