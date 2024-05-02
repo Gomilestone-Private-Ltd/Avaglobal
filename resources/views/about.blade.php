@@ -1,5 +1,49 @@
 @extends('layout.main')
 @section('content')
+
+<style>
+        body{
+        background-color: #F5F5FF;
+        }
+        .wrappers{
+        padding: 70px 0;
+        overflow-x: hidden;
+        }
+
+
+        .my-slider{
+        padding: 0 70px;
+        }
+       
+        .slick-next:before, .slick-prev:before{
+        color: #000;
+        font-size: 26px;
+        }
+        button.prev-arrow.slick-arrow {
+            background-color: white;
+            font-size: 29px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            position: absolute;
+            top: 50%;
+            left: 6%;
+            z-index: 9999;
+        }
+        button.next-arrow.slick-arrow {
+            background-color: white;
+            font-size: 29px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            position: absolute;
+            right: 4%;
+            top: 50%;
+            z-index: 9999;
+        }
+</style>
     <div id="page" class="aboutpg">
 
         <div class="strik-left">
@@ -11,14 +55,169 @@
 
         <!-- RESPONSIVE MENU END --> <!---headerwrapper end-->
         <div id="fullpage">
+        <div class="section mission-wrapper-about" id="section2">
+                <div class="servicerighttxtblk">
+                    <div class="misson-blk-abt">
+                        <div>
+                            <img class="icon-img" src="{{ asset('images/about/our-mission.png') }}" alt="" />
+                        </div>
+                        <div class="misson-blk-abt-head">
+                            our Mission
+                        </div>
+                        <div class="misson-blk-abt-content">
+                            To serve our customers with flexible and innovative logistics solutions. To be a
+                            strategic supply chain partner and provide customized solutions of highest standard to
+                            our customers.
+                        </div>
+                    </div>
+                    <div class="misson-blk-abt">
+                        <div>
+                            <img class="icon-img" src="{{ asset('images/about/our-vision.png') }}" alt="">
+                        </div>
+                        <div class="misson-blk-abt-head">
+                            our vision
+                        </div>
+                        <div class="misson-blk-abt-content">
+                            To become a leading logistics service provider by ensuring highest ethical standards and
+                            delivering exceptional value to our clients, staff and community.
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+
+                    <div class="philosophy-blk-abt">
+                        <div>
+                            <img class="belief-icon" src="{{ asset('images/about/handshake.png') }}" alt="">
+                        </div>
+                        <div class="misson-blk-abt-head">
+                             Our Belief
+                        </div>
+                        <div class="misson-blk-abt-content">
+                            At AVA Global, we believe in keeping things simple and transparent.
+                            We endeavour in growing our customers reach and network and be a part of their growth story.
+                        </div>
+                    </div>
+                </div>
+                <div class="missn-line"></div>
+                <div class="servicesmobimg">
+                    <img src="{{ asset('images/about/img1-res.jpg') }}" alt="" />
+                </div>
+            </div>
+            <div class="section servdet3sld" id="section0">
+               <div class="our-usp">
+                <h1 class="main-text">Our USP</h1>
+                <div class="four-box">
+                    <div class="first-box">
+                    <img class="our-icons" src="{{ asset('images/solutions.png') }}" alt="" />
+                        <h1 class="color-black"> End to End – Intermodal Solutions</h1>
+                    </div>
+                    <div class="first-box">
+                    <img class="our-icons" src="{{ asset('images/logistic-1.png') }}" alt="" />
+                        <h1 class="color-black">Logistics Network Design to Suit Business Needs</h1>
+                    </div>
+                    <div class="first-box">
+                    <img class="our-icons" src="{{ asset('images/transportation.png') }}" alt="" />
+                        <h1 class="color-black">Complete Suite of Logistics Services</h1>
+                    </div>
+                   <div class="first-box">
+                   <img class="our-icons" src="{{ asset('images/cargo.png') }}" alt="" />
+                        <h1 class="color-black">Exclusive Arrangements for Unitization of Cargo</h1>
+                    </div>
+                </div>
+               </div>
+               <div class="greyoverlaybig"></div>
+               <div class="greyoverlaysml"></div>
+            </div>
+            <div class="section servdet3sld" id="section0">
+               <div class="our-usp">
+                
+               <div class="wrappers">
+               <h1 class="main-text">Our Expertise</h1>
+                    <div class="my-slider">
+                    <div class="item">
+                            <div class="main-expertise-box">
+                                <div class="ecpertise-box">
+                                  <img class="" src="{{ asset('images/about/agro.jpg') }}" alt="">
+                                </div>
+                            <div class="right-text-expertise">
+                            <h1 class="itum-heading">AGRO</h1>
+                                <h1>Special filed rates for Agro Commodities worldwibe ex Nhava, Sheva, Mundra, Hazira and ICD's with confirmed bookings.</h1>
+                             </div>
+                        </div>
+                        </div>
+                        <div class="item">
+                            
+                            <div class="main-expertise-box">
+                               
+                             <div class="right-text-expertise">
+                             <h1 class="itum-heading">CREAMIC</h1>
+                                <h1>Exclusive arrangements in Morbi with well established hinterland connectivity across ICD/CFS and sea-ports.</h1>
+                             </div>
+                             <div class="ecpertise-box">
+                                  <img class="" src="{{ asset('images/about/creamic.jpg') }}" alt="">
+                                </div>
+                        </div>
+                        </div>
+                        <div class="item">
+                            <div class="main-expertise-box">
+                                <div class="ecpertise-box">
+                                  <img class="" src="{{ asset('images/about/pharma.png') }}" alt="">
+                                </div>
+                            <div class="right-text-expertise">
+                                <h1 class="itum-heading">PHARMA</h1>
+                                <h1>IOT based tracking for temperature controlled cargo.</h1>
+                             </div>
+                        </div>
+                        </div>
+                        <div class="item">
+                            <div class="main-expertise-box">
+                               
+                            <div class="right-text-expertise">
+                            <h1 class="itum-heading">CHEMICALS</h1>
+                                <h1>Experience of shipping dangerous goods and hazerdous material across 200+ routes.</h1>
+                             </div>
+                             <div class="ecpertise-box">
+                                  <img class="" src="{{ asset('images/about/chamical.jpg') }}" alt="">
+                                </div>
+                        </div>
+                        </div>
+                        <div class="item">
+                            <div class="main-expertise-box">
+                                <div class="ecpertise-box">
+                                  <img class="" src="{{ asset('images/about/large-container.jpg') }}" alt="">
+                                </div>
+                            <div class="right-text-expertise">
+                            <h1 class="itum-heading">MACHINERY, OCD & HEAVY HAUL</h1>
+                                <h1>pecialized expertise, tailored solutions and reliable delivery for your oversized, overweight and challenging freight.</h1>
+                             </div>
+                        </div>
+                        </div>
+                        <div class="item">
+                            <div class="main-expertise-box">   
+                            <div class="right-text-expertise">
+                            <h1 class="itum-heading">MACHINERY, OCD & HEAVY HAUL</h1>
+                                <h1>Understanding the nuances in shipping over dimensional cargo.</h1>
+                             </div>
+                             <div class="ecpertise-box">
+                                  <img class="" src="{{ asset('images/about/container.jpg') }}" alt="">
+                                </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+
+               </div>
+               <div class="greyoverlaybig"></div>
+               <div class="greyoverlaysml"></div>
+            </div>
             <div class="section" id="section0">
                 <div class="aboutbannerblk">
                     <div class="wrapper pageblock">
                         <div class="bannertxtblk">
                             <div class="avaglname font-bebas">an overview</div>
                             <h1 class="tagline uppercase">About AVA Global, Logistics service provider</h1>
-                            <p>Ava global is a very young organization founded on the certain<br /> and inherent
-                                strength of its promoters/founders. </p>
+                            <p>At AVA Global, our team is committed to perform with highest standards of quality and service, <br /> with complete trust, transparency and ethics.</p>
+                            <!-- <p>Ava global is a very young organization founded on the certain<br /> and inherent
+                                strength of its promoters/founders. </p> -->
                             <a href="#secondPage">
                                 <div class="sprite dwnarw"></div>
                             </a>
@@ -81,57 +280,7 @@
                     </div>
                 </div>
             </div>
-            <div class="section mission-wrapper-about" id="section2">
-                <div class="servicerighttxtblk">
-                    <div class="misson-blk-abt">
-                        <div>
-                            <img class="icon-img" src="{{ asset('images/about/our-mission.png') }}" alt="" />
-                        </div>
-                        <div class="misson-blk-abt-head">
-                            our Mission
-                        </div>
-                        <div class="misson-blk-abt-content">
-                            To serve our customers with flexible and innovative logistics solutions. To be a
-                            strategic supply chain partner and provide customized solutions of highest standard to
-                            our customers.
-                        </div>
-                    </div>
-                    <div class="misson-blk-abt">
-                        <div>
-                            <img class="icon-img" src="{{ asset('images/about/our-vision.png') }}" alt="">
-                        </div>
-                        <div class="misson-blk-abt-head">
-                            our vision
-                        </div>
-                        <div class="misson-blk-abt-content">
-                            To become a leading logistics service provider by ensuring highest ethical standards and
-                            delivering exceptional value to our clients, staff and community.
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-
-                    <div class="philosophy-blk-abt">
-                        <div>
-                            <img class="icon-img" src="{{ asset('images/about/our-philosophy.png') }}" alt="">
-                        </div>
-                        <div class="misson-blk-abt-head">
-                            our philosophy
-                        </div>
-                        <div class="misson-blk-abt-content">
-                            We work on the philosophy of “keeping things simple”. Our team’s motto is to provide our
-                            clients a hassle free solution so that they can focus on their core business
-                            activities.We work in close co-ordination with our clients to produce timely and
-                            cost-effective solutions, bringing into use our resources, systems and commitment to
-                            quality. Understanding the business needs is critical to our philosophy and this enables
-                            us to develop new solutions and support the growth of our clients.
-                        </div>
-                    </div>
-                </div>
-                <div class="missn-line"></div>
-                <div class="servicesmobimg">
-                    <img src="{{ asset('images/about/img1-res.jpg') }}" alt="" />
-                </div>
-            </div>
+           
             <div class="section commitment-wrapper-about" id="section3">
                 <div class="servicelefttxtblk">
                     <div class="ourprinciblk">
@@ -177,7 +326,7 @@
                         <div class="blue-div-team blue-div-team2"></div>
                         <div class="blue-div-team blue-div-team3"></div>
                         <div class="ourteamnewblk">
-                            <div class="ourteammember ibvt"><img src="{{ asset('images/about/Darshan_Ghodawat.jpg') }}"
+                            <div class="ourteammember ibvt"><img src="{{ asset('images/about/darshan.png') }}"
                                     alt="" />
                                 <div class="abt-banner-caption">
                                     <div class="banner-container-abt">
@@ -186,21 +335,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="ourteammember kushal ibvt"><img src="{{ asset('images/about/kaushal_v.jpg') }}"
+                            <div class="ourteammember kushal ibvt"><img src="{{ asset('images/about/kaushal.png') }}"
                                     alt="" />
                                 <div class="abt-banner-caption">
                                     <div class="banner-container-abt">
                                         <div class="abt-team-name">Mr. Kaushal Vithlani</div>
                                         <div class="abt-team-desgntn">Director & COO</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ourteammember captashok ibvt"><img
-                                    src="{{ asset('images/about/capt_ashok.jpg') }}" alt="" />
-                                <div class="abt-banner-caption">
-                                    <div class="banner-container-abt">
-                                        <div class="abt-team-name">Capt. Ashok Shrivastava</div>
-                                        <div class="abt-team-desgntn">Head of Shipping</div>
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +407,7 @@
                         </div>
                     </div>
                     <!---footer start-->
-                    {{-- <div class="footerwrapper pageblock">
+                    <!-- <div class="footerwrapper pageblock">
                         <div class="wrapper">
                             <div class="footerblk">
 
@@ -285,7 +425,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div> -->
 
                     {{-- <script src="{{ asset('js/wow.js') }}"></script>
                     <script>
@@ -420,6 +560,11 @@
         </div> --}}
     </div>
     {{-- <script src="{{ asset('js/jquery.bxslider.min.js') }}"></script> --}}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
         $('.bxslider').bxSlider({
             auto: false,
@@ -453,4 +598,36 @@
             infiniteLoop: false
         });
     </script>
+    <script>
+        $(document).ready(function(){
+      $('.my-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        dots: true,
+        speed: 300,
+        // infinite: true,
+        autoplaySpeed: 5000,
+        prevArrow:'<button class="prev-arrow"><</button>',
+        nextArrow:'<button class="next-arrow">></button>', 
+        // autoplay: true,
+        responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
+      });
+    });
+    </script>
+   
+
 @endsection
