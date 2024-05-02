@@ -93,10 +93,10 @@
     .abt-slider-block-right.abt-slider-block-right-2 .abt-banner-caption {
         bottom: 60px;
     }
-    .ourteammember img {
+    /* .ourteammember img {
         left: -80px;
         height: auto;
-    }
+    } */
     .ourteammember {
         height: 410px;
     }
@@ -105,12 +105,13 @@
         top: 30px;
     }
     .ourteammember .abt-banner-caption {
-        top: 15px;
-        left: 90px;
+        /* top: 15px; */
+        bottom: 55px;
+        left: 40px;
     }
-    .ourteammember img {
+    /* .ourteammember img {
         top: -80px;
-    }
+    } */
     .ourteammember.parth img {
         top: -157px;
         left: -150px;
@@ -256,7 +257,11 @@
         top: 160px;
     }
     .ourteammember {
-        height: 260px;
+        height: 400px;
+        width: 40%;
+    }
+    .ourteammember img  {
+        left: -180px !important;
     }
     .blue-div-team.blue-div-team1 {
         right: 410px;
