@@ -2906,7 +2906,7 @@ button.pause {
     /* top: 6px; */
     left: 40px;
     width: 100%;
-    bottom: 20px;
+    bottom: 30px;
 }
 .kushal .abt-banner-caption {
     bottom: 30px;
@@ -3307,7 +3307,8 @@ a.footer-links:last-child::after {
 a.footer-links {
     position: relative;
     padding: 0px 12px;
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .topnav {
@@ -3468,6 +3469,7 @@ font-weight: 500;
 .our-usp {
     position: relative;
     z-index: 99;
+    margin-right: 35px;
 }
 .our-icons {
     margin-bottom: 15px;
