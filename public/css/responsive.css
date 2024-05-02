@@ -291,9 +291,9 @@
     .counter-b1 h3 {
     font-size: 42px !important;
     }
-    .icon-img {
+    /* .icon-img {
         height: 40px;
-    }
+    } */
     .misson-blk-abt-head {
         font-size: 40px;
     }
@@ -325,6 +325,24 @@
    .job-right {
     padding: 15px !important;
    }
+   .color-black {
+    font-size: 16px !important;
+    line-height: 28px;
+   } 
+   .first-box {
+    padding: 10px 20px;
+   }
+   .slick-slider {
+    margin-bottom: 30px;
+    height: 456px;
+}
+.ecpertise-box img {
+    height: 400px;
+    width: 399px !important;
+}
+.missn-line {
+    top: 54%;
+}
 }
 @media screen and (max-width: 1280px) {
     .overviewimgrightblk {
