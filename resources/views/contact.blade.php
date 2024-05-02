@@ -152,17 +152,19 @@
                                                         </span>
                                                     </div>
                                                     <!--
-                                                                                                                                                                <div class="browse-btn fl">
-                                                                                                                                                                    <span>Upload</span>
-                                                                                                                                                                    <input name="upfile" class="upload" id="uploadBtn" type="file">
-                                                                                                                                                                </div>
-                                                                                                                -->
+                                                                                                                                                                                                                                <div class="browse-btn fl">
+                                                                                                                                                                                                                                    <span>Upload</span>
+                                                                                                                                                                                                                                    <input name="upfile" class="upload" id="uploadBtn" type="file">
+                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                -->
                                                     <div class="clear"></div>
                                                 </div>
                                             </div>
                                             <div class="submitbtn">
                                                 <input type="submit" id="submit" name="contact"
                                                     value="Submit Now" />
+                                                {{-- <button class="sbm-btm from-prevent-multiple-submits" type="submit"
+                                                    id="submit">Submit Now</button> --}}
                                             </div>
                                         </div>
                                     </form>
@@ -170,13 +172,13 @@
                             </div>
 
                             <!--
-                                                                                                                                            <div class="innertabdataitem press">
+                                                                                                                                                                                                            <div class="innertabdataitem press">
 
-                                                                                                                                            </div>
-                                                                                                                                            <div class="innertabdataitem vendor">
+                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                            <div class="innertabdataitem vendor">
 
-                                                                                                                                            </div>
-                                                                                                                -->
+                                                                                                                                                                                                            </div>
+                                                                                                                                                                                -->
                             <div class="innertabdataitem investor">
                                 <p class="pagetxt">
                                     AVA Global aim to provide accurate and relevant information to all our investors to
