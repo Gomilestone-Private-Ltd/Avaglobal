@@ -63,79 +63,6 @@
                     <div class="card">
                         <div class="body">
                             <div class="table-responsive">
-                                {{-- <table class="table table-bordered table-striped table-hover js-basic-example dataTable"
-                                    id="job-posted">
-                                    <thead class="main-table">
-
-                                        <tr>
-                                            <th>S.No</th>
-                                            <th class="width-css">Case</th>
-                                            <th class="width-css">Case Title</th>
-                                            <th class="width-css">Case Image</th>
-                                            <th class="width-css">Posted By</th>
-                                            <th>Description</th>
-                                            @can('edit-status-casestudy')
-                                                <th>Status</th>
-                                            @endcan
-                                            @if (auth()->user()->can('edit-case-study') || auth()->user()->can('delete-case-study'))
-                                                <th>Action</th>
-                                            @endif
-                                        </tr>
-
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($combinedData as $data)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $data->case }}</td>
-                                                <td>{{ $data->case_title }}</td>
-
-                                                <td>
-                                                    @foreach ($data->avaDocs as $images)
-                                                        <img src="{{ asset($images->path) }}"
-                                                            style="width:45px;height:45px;border-radius:50%;margin-bottom:5px" />
-                                                    @endforeach
-                                                </td>
-                                                <td>{{ $data->posted_by }}</td>
-                                                <td>
-                                                    <a type="button" class="view-btn" data-id="{{ $data->id }}"
-                                                        data-toggle="modal" data-target="#exampleModalLong"
-                                                        onclick="updateModalBody('{{ $data->id }}')">
-                                                        <img src="{{ asset('assets/images/eye.png') }}" alt="Back"
-                                                            class="eye-icon">
-                                                    </a>
-
-                                                </td>
-                                                @can('edit-status-casestudy')
-                                                    <td>
-                                                        {!! $data->status == 1
-                                                            ? '<button class="btn btn-success" onclick="changeStatus(' . $data->id . ')">Active</button>'
-                                                            : '<button class="btn btn-danger" onclick="changeStatus(' . $data->id . ')">Inactive</button>' !!}
-                                                    </td>
-                                                @endcan
-                                                @if (auth()->user()->can('edit-case-study') || auth()->user()->can('delete-case-study'))
-                                                    <td>
-                                                        <div class="d-flex">
-                                                            @can('edit-case-study')
-                                                                <a href="{{ route('casestudy.edit', ['id' => $data->id]) }}"
-                                                                    class="edit-btn"><img
-                                                                        src="{{ asset('assets/images/edit.png') }}"
-                                                                        alt="Back" class="edit-icon"></a>
-                                                            @endcan
-                                                            @can('delete-case-study')
-                                                                <button id="deleteButton"
-                                                                    onclick="deleteModal('{{ $data->id }}')"
-                                                                    class="delete-btn"><img
-                                                                        src="{{ asset('assets/images/trash.png') }}"
-                                                                        alt="Back" class="delete-icon"></button>
-                                                            @endcan
-                                                        </div>
-                                                    </td>
-                                                @endif
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table> --}}
                                 <table id="datatable" class="display">
                                     <thead>
                                         <tr>
@@ -262,10 +189,11 @@
                     data: "posted_by"
                 },
                 {
-                    data: "description"
+                    data: "eye_description",
+
                 },
                 {
-                    data: "status",
+                    data: "status_button",
 
                 },
                 {
@@ -294,10 +222,12 @@
             success: function(response) {
                 if (response.success == true) {
                     toastr.success(response.message);
-                    window.location.href = "";
+                    // window.location.href = "";
+                    table.draw();
                 } else {
                     toastr.error(response.message);
-                    window.location.href = "";
+                    // window.location.href = "";
+                    table.draw();
                 }
             },
             error: function(response) {
@@ -355,7 +285,9 @@
                 },
                 error: function(response) {
                     toastr.error(response.message);
-                    window.location.href = response.route;
+                    // window.location.href = response.route;
+                    table.draw();
+
                 }
             });
         });

@@ -246,6 +246,7 @@ class AdminController extends Controller
         $caseId = $id;
         $Data = CaseStudy::where('id', $caseId)->first();
         $dataDescription = $Data->description;
+
         return response()->json(['success' => true, 'description' => $dataDescription]);
     }
     public function deleteCaseStudy($id)
@@ -1595,6 +1596,10 @@ class AdminController extends Controller
         foreach ($caseStudy as $caseData) {
             $caseImage = data_get($caseData->avaDocs, '*.path');
             $caseData['caseImage'] = $caseImage;
+            $caseData['status_button'] = $caseData->status == 1
+                ? '<button class="btn btn-success" onclick="changeStatus(' . $caseData->id . ')">Active</button>'
+                : '<button class="btn btn-danger" onclick="changeStatus(' . $caseData->id . ')">Inactive</button>';
+            $caseData['eye_description'] = '<a type="button" class="view-btn" data-id="' . $caseData->id . '" data-toggle="modal" data-target="#exampleModalLong" onclick="updateModalBody(' . $caseData->id . ')"><img src="' . asset('assets/images/eye.png') . '" alt="Back" class="eye-icon"></a>';
         };
 
         $response = [
@@ -1602,7 +1607,6 @@ class AdminController extends Controller
             "recordsTotal" => $totalRecords,
             "recordsFiltered" => $totalRecords,
             "data" => $caseStudy,
-            "caseImage" => $caseImage
         ];
         // dd($response);
 
