@@ -295,7 +295,7 @@ class AdminController extends Controller
         $rule = [
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|regex:/^[0-9]{10}$/',
+            'phone' => 'required|regex:/^[0-9]{10}$/|starts_with:7,8,9',
             'position' => 'required',
             'applicantPdf' => 'required|mimes:pdf|max:5000'
         ];
@@ -354,7 +354,7 @@ class AdminController extends Controller
         $rule = [
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|regex:/^[0-9]{10}$/',
+            'phone' => 'required|regex:/^[0-9]{10}$/|starts_with:7,8,9',
             'position' => 'nullable',
             'applicantPdf' => 'required|mimes:pdf|max:2048'
         ];
