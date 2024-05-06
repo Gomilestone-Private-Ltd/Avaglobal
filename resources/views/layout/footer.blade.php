@@ -30,7 +30,7 @@
             </div>
             @php
                 $data = App\Models\Marque::where('status', '1')->first();
-                $marqueText = isset($data->marque_text) ? $data->marque_text : 'Ava Global';
+                $marqueText = isset($data->marque_text) ? $data->marque_text : '';
             @endphp
 
             {{-- <marquee behavior="scroll" direction="left">
@@ -43,10 +43,12 @@
 </div>
 </div>
 </div>
+@if(!empty($data))
 <div class="marquee-container">
     <marquee behavior="scroll" direction="left">
         {{ $marqueText }}</marquee>
 </div>
+@endif
 <script src="{{ asset('js/wow.js') }}"></script>
 <script>
     new WOW().init();

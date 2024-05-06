@@ -154,6 +154,7 @@
                                             <div class="submitbtn">
                                                 <input type="submit" id="submit" name="contact"
                                                     value="Submit Now" />
+                                            
                                             </div>
                                         </div>
                                     </form>
@@ -164,7 +165,7 @@
                     
                   
                 </div>
-                {{-- script to get form data Ajax --}}
+              
 
 <script>
     $(document).ready(function() {
