@@ -94,15 +94,15 @@
                                             </div>
                                             <div class="input-container ibvm">
                                                 <div class="placholder">Position</div>
-                                                <input type="text" name="position" disabled
+                                                <input type="text" name="position" readonly
                                                     value="{{ isset($careerData->job_role) ? $careerData->job_role : '' }}"
                                                     class="inputclick">
                                                 <span class="text-danger">
 
                                                 </span>
                                             </div>
-                                            <input type="hidden" name="position"
-                                                value="{{ isset($careerData->job_role) ? $careerData->job_role : '' }}">
+                                            {{-- <input type="hidden" name="position"
+                                                value="{{ isset($careerData->job_role) ? $careerData->job_role : '' }}"> --}}
                                             <div class="input-container choose-container">
                                                 <div class="form-row">
                                                     <div class="upload-career fl">
