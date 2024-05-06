@@ -430,15 +430,15 @@ class AdminController extends Controller
     {
         $data = ContactUs::find($id);
         if (!$data) {
-            return response()->json(['message' => 'There is no Applicant found in record', 404]);
+            return response()->json(['message' => 'There is no Lead found in record', 404]);
         }
         $data->delete();
-        $dataDocs = AvaDocs::where('contact_id', $id)->first();
-        if (!empty($dataDocs->path)) {
-            $this->deleteFile($dataDocs->filename);
-        }
-        $dataDocs->delete();
-        return response()->json(['success' => true, 'message' => 'Applicant Data got deleted successfully']);
+        // $dataDocs = AvaDocs::where('contact_id', $id)->first();
+        // if (!empty($dataDocs->path)) {
+        //     $this->deleteFile($dataDocs->filename);
+        // }
+        // $dataDocs->delete();
+        return response()->json(['success' => true, 'message' => 'Lead get deleted successfully']);
     }
     public function editDescription($id)
     {
