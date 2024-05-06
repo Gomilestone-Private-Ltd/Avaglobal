@@ -301,6 +301,7 @@
                     });
                 </script>
 
+
                 <script>
                     /*SCRIPT FOR INPUT TYPE START*/
                     $(document).ready(function($) {
@@ -308,16 +309,17 @@
                             $(this).prev('.placholder').addClass('up-place');
                         });
 
-                        $('.inputclick').focusout(function() {
-                            $(this).prev('.placholder').removeClass('up-place');
-                        });
+                        // $('.inputclick').focusout(function() {
+                        //     $(this).prev('.placholder').removeClass('up-place');
+                        // });
 
                         $(".inputclick").blur(function() {
-                            if ($(this).val() >= '1') {
-                                $(this).prev('.placholder').hide();
-                            } else {
-                                $(this).prev('.placholder').show();
-                            }
+                            // if ($(this).val() >= '1') {
+                            //     $(this).prev('.placholder').hide();
+                            // } else {
+                            //     $(this).prev('.placholder').show();
+                            // }
+                            $(this).prev('.placholder').show();
                         });
                     });
                     /*SCRIPT FOR INPUT TYPE START*/
