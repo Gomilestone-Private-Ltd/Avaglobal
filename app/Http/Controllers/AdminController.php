@@ -304,6 +304,7 @@ class AdminController extends Controller
             'email.required' => 'Please give your email',
             'phone.required' => 'Please give your phone number',
             'position.required' => 'Please fill the position applying for:',
+            'reuirement.required' => 'Please fill the reuirment:',
             'applicantPdf.mimes' => 'file extension must be of type .pdf',
             'applicantPdf.required' => 'Please put your CV here',
             'applicantPdf.max' => 'Pdf file must be less than 5mb',

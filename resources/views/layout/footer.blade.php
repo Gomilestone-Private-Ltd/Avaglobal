@@ -17,19 +17,16 @@
                         @else
                             <a href="javascript:void(0)" class="footer-links">Download Brochure</a>
                         @endif
-                    <!-- <a href="#" class="footer-links">Download brochure</a> -->
-                    <a href="#" class="footer-links">Knowledge Centre</a>
-                    <a href="#" class="footer-links">LinkedIn</a>
-                    <a href="#" class="footer-links">WhatsApp</a>
-                    <!-- <a href="{{ route('caseStudy') }}" class="footer-links">Case Studies</a>/\ -->
-                    <!-- <a href="{{ route('career') }}" class="footer-links">Career</a> -->
-                    <!-- <a href="{{ route('media') }}" class="footer-links">In The Media</a> -->
-                    <!-- <a href="{{ route('contact') }}" class="footer-links">Contact us</a> -->
                 </div>
             </div>
             <div class="footer-copy">
                 <p class="copyrighttxt footertext">&copy; Copyright {{ date('Y') }} AVA GLOBAL - All
                     Rights Reserved</p>
+                   <div class="icon-box">
+                   <img class="footer-icons" src="{{ asset('images/linkedin.png') }}" alt="">
+                   <img class="footer-icons" src="{{ asset('images/whatsapp.png') }}" alt="">
+                   <img class="footer-icons" src="{{ asset('images/youtube.png') }}" alt="">
+                   </div>
             </div>
             @php
                 $data = App\Models\Marque::where('status', '1')->first();

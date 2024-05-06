@@ -26,6 +26,10 @@
         <link rel="stylesheet" href="{{ asset('/css/event-popup.css') }}" />
         <link type="text/css" rel="stylesheet" href="{{ asset('/css/owl.carousel.css') }}" />
         <link type="text/css" rel="stylesheet" href="{{ asset('/css/owl.theme.css') }}" />
+
+
+
+
         {{-- include styles here --}}
         @stack('styles')
         {{-- ---------------------------------------------------------------- --}}
