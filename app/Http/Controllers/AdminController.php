@@ -291,13 +291,16 @@ class AdminController extends Controller
     }
     public function postContactApplicants(Request $request)
     {
-        $requestData = $request->only('name', 'email', 'phone', 'position', 'applicantPdf');
+
+        $requestData = $request->only('name', 'email', 'phone', 'position', 'applicantPdf', 'allservice', 'requirement');
         $rule = [
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required|regex:/^[0-9]{10}$/|starts_with:6,7,8,9',
-            'position' => 'required',
-            'applicantPdf' => 'required|mimes:pdf|max:5000'
+            'position' => 'nullable',
+            'applicantPdf' => 'nullable|mimes:pdf|max:5000',
+            'allservice' => 'required',
+            'requirement' => 'required'
         ];
         $message = [
             'name.required' => "Please fill your name",
@@ -308,6 +311,8 @@ class AdminController extends Controller
             'applicantPdf.mimes' => 'file extension must be of type .pdf',
             'applicantPdf.required' => 'Please put your CV here',
             'applicantPdf.max' => 'Pdf file must be less than 5mb',
+            'allservice.required' => 'Please select one of the services',
+            'requirement.required' => 'Please give your requirement'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -317,37 +322,39 @@ class AdminController extends Controller
         $contactApplicants = new ContactUs;
         $contactApplicants->name = $request['name'];
         $contactApplicants->email = $request['email'];
-        $contactApplicants->position = $request['position'];
+        $contactApplicants->position = $request['position'] ?? null;
         $contactApplicants->phone = $request['phone'];
+        $contactApplicants->service = $request['allservice'];
+        $contactApplicants->requirement = $request['requirement'];
         $contactApplicants->save();
-        $contact_id = $contactApplicants->id;
+        // $contact_id = $contactApplicants->id;
 
-        if ($request->hasFile('applicantPdf')) {
-            $files = $request->file('applicantPdf');
-            if (is_array($files)) {
-                foreach ($files as $file) {
-                    $data = $this->customFileUpload($file);
-                    $avaDocs = new AvaDocs;
-                    $avaDocs->contact_id = $contact_id;
-                    $avaDocs->filename = $data['filename'];
-                    $avaDocs->filetype = $data['fileType'];
-                    $avaDocs->filesize = $data['fileSize'];
-                    $avaDocs->path = $data['actualImagePath'];
-                    $avaDocs->save();
-                }
-            } else {
-                $data = $this->customFileUpload($files);
-                $avaDocs = new AvaDocs;
-                $avaDocs->contact_id = $contact_id;
-                $avaDocs->filename = $data['filename'];
-                $avaDocs->filetype = $data['fileType'];
-                $avaDocs->filesize = $data['fileSize'];
-                $avaDocs->path = $data['actualImagePath'];
-                $avaDocs->save();
-            }
-        }
+        // if ($request->hasFile('applicantPdf')) {
+        //     $files = $request->file('applicantPdf');
+        //     if (is_array($files)) {
+        //         foreach ($files as $file) {
+        //             $data = $this->customFileUpload($file);
+        //             $avaDocs = new AvaDocs;
+        //             $avaDocs->contact_id = $contact_id;
+        //             $avaDocs->filename = $data['filename'];
+        //             $avaDocs->filetype = $data['fileType'];
+        //             $avaDocs->filesize = $data['fileSize'];
+        //             $avaDocs->path = $data['actualImagePath'];
+        //             $avaDocs->save();
+        //         }
+        //     } else {
+        //         $data = $this->customFileUpload($files);
+        //         $avaDocs = new AvaDocs;
+        //         $avaDocs->contact_id = $contact_id;
+        //         $avaDocs->filename = $data['filename'];
+        //         $avaDocs->filetype = $data['fileType'];
+        //         $avaDocs->filesize = $data['fileSize'];
+        //         $avaDocs->path = $data['actualImagePath'];
+        //         $avaDocs->save();
+        //     }
+        // }
 
-        return response()->json(['success' => true, 'message' => 'You have Successfully applied for this job']);
+        return response()->json(['success' => true, 'message' => 'Thanks for Contacting Us']);
     }
     public function postApplicants(Request $request)
     {
@@ -394,6 +401,7 @@ class AdminController extends Controller
         $jobApplicant->position = $request['position'];
         $jobApplicant->phone = $request['phone'];
         $jobApplicant->save();
+
         $appliacnt_id = $jobApplicant->id;
         $avaDocs = new AvaDocs;
         $avaDocs->applicant_id = $appliacnt_id;
