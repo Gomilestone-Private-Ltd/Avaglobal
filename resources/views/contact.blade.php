@@ -135,16 +135,16 @@
                                     </div>
                                     <div class="input-container ibvm">
 
-                                        <select name="allservice" id="allservice" class="drop-down">
+                                    <select name="allservice" id="allservice" class="drop-down">
                                             <option value="">Services</option>
                                             <option value="OceanFreight">Ocean Freight</option>
                                             <option value="AirFreight">Air Freight</option>
+                                            <option value="Trucking">Road Freight</option>
+                                            <option value="Rail">Rail Freight</option>
                                             <option value="CustomClearing">Custom Clearing</option>
-                                            <option value="WareHousing">Warehousing</option>
-                                            <option value="Trucking">Trucking</option>
-                                            <option value="Shipping">Shipping</option>
-                                            <option value="Insurance">Insurance</option>
                                             <option value="Forwading">Forwarding</option>
+                                            <option value="WareHousing">Warehousing</option>
+                                            <option value="Insurance">Insurance</option>
 
                                         </select>
                                         <span class="text-danger v-error">
