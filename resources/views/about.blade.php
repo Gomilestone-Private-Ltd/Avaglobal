@@ -536,11 +536,11 @@
         arrows: true,
         dots: true,
         speed: 300,
-        infinite: true,
+        // infinite: true,
         autoplaySpeed: 5000,
         prevArrow:'<button class="prev-arrow"><</button>',
         nextArrow:'<button class="next-arrow">></button>', 
-        autoplay: true,
+        // autoplay: true,
         responsive: [
       {
         breakpoint: 991,

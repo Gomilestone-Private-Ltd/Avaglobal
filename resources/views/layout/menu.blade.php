@@ -24,12 +24,12 @@
                       <div class="dropdown-content">
                         <a href="{{ route('seaFreight') }}">Ocean Freight</a>
                         <a href="{{ route('airFreight') }}">Air Freight</a>
-                        <a href="{{ route('customsClearance') }}">Custom Clearing</a>
-                        <a href="{{ route('warehousing') }}">Warehousing</a>
                         <a href="{{ route('heavyHaulTrucking') }}">Road Freight</a>
-                        <a href="{{ route('freightShipping') }}">Forwarding</a>
-                        <a href="{{ route('cargoInsurancet') }}">Insurance</a>
                         <a href="{{ route('railFreight') }}">Rail Freight</a>
+                        <a href="{{ route('customsClearance') }}">Custom Clearing</a>
+                        <a href="{{ route('freightShipping') }}">Forwarding</a>
+                        <a href="{{ route('warehousing') }}">Warehousing</a>
+                        <a href="{{ route('cargoInsurancet') }}">Insurance</a>
 
                       </div>
                     </div> 

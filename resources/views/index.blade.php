@@ -232,12 +232,12 @@
                                 <a data-slide-index="0" href="#" class="active">OCEAN FREIGHT</a>
 
                                 <a data-slide-index="1" href="#">AIR FREIGHT</a>
-                                <a data-slide-index="2" href="#">CUSTOM CLEARING</a>
-                                <a data-slide-index="3" href="#">WAREHOUSING</a>
-                                <a data-slide-index="4" href="#">ROAD FREIGHT</a>
+                                <a data-slide-index="2" href="#">ROAD FREIGHT</a>
+                                <a data-slide-index="3" href="#">RAIL FREIGHT</a>
+                                <a data-slide-index="4" href="#">CUSTOM CLEARING</a>
                                 <a data-slide-index="5" href="#">FORWARDING</a>
-                                <a data-slide-index="6" href="#">insurance</a>
-                                <a data-slide-index="7" href="#">RAIL FREIGHT</a>
+                                <a data-slide-index="6" href="#">WAREHOUSING</a>
+                                <a data-slide-index="7" href="#">insurance</a>
 
                             </div>
                         </div>
@@ -254,14 +254,14 @@
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
-                                    <div class="product-name"><span>01.</span> OCEAN FREIGHT
-                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
+                                    <div class="product-name"> OCEAN FREIGHT
+                                        <a class="prod-morebuts" href="{{route('seaFreight')}}">KNOW MORE</a>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/airnew.png') }}" alt=""
+                                    <img src="{{ asset('/images/services/air-image.png') }}" alt=""
                                         class="img-desktop" />
                                     <img src="{{ asset('/images/services/airbg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
@@ -272,45 +272,8 @@
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
-                                    <div class="product-name"><span>02.</span> AIR FREIGHT
-                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="praductbanwraper">
-                                    <img src="{{ asset('images/services/custom.png') }}" alt=""
-                                        class="img-desktop" />
-                                    <img src="{{ asset('images/services/custombg-resp.jpg') }}" alt=""
-                                        class="img-responsive" />
-
-                                    <a href="#">
-                                        <div class="knowmore coreproknwmore uppercase">
-                                            Know More
-                                            <div class="sprite knwmorearw knwmorewharw"></div>
-                                        </div>
-                                    </a>
-                                    <div class="product-name"><span>03.</span> CUSTOM CLEARING
-                                        <a class="prod-morebuts" href="#">KNOW
-                                            MORE</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/warehouse1.png') }}" alt=""
-                                        class="img-desktop" />
-                                    <img src="{{ asset('/images/services/warehousebg-resp.jpg') }}" alt=""
-                                        class="img-responsive" />
-
-                                    <a href="#">
-                                        <div class="knowmore coreproknwmore uppercase">
-                                            Know More
-                                            <div class="sprite knwmorearw knwmorewharw"></div>
-                                        </div>
-                                    </a>
-                                    <div class="product-name"><span>04.</span> WAREHOUSING
-                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
+                                    <div class="product-name"> AIR FREIGHT
+                                        <a class="prod-morebuts" href="{{route('airFreight')}}">KNOW MORE</a>
                                     </div>
                                 </div>
                             </li>
@@ -327,8 +290,45 @@
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
-                                    <div class="product-name"><span>05.</span> ROAD FREIGHT
-                                        <a class="prod-morebuts" href="#">KNOW
+                                    <div class="product-name"> ROAD FREIGHT
+                                        <a class="prod-morebuts" href="{{route('heavyHaulTrucking')}}">KNOW
+                                            MORE</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="praductbanwraper">
+                                    <img src="{{ asset('/images/services/rail.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/insurancebg-resp.jpg') }}" alt=""
+                                        class="img-responsive" />
+
+                                    <a href="#">
+                                        <div class="knowmore coreproknwmore uppercase">
+                                            Know More
+                                            <div class="sprite knwmorearw knwmorewharw"></div>
+                                        </div>
+                                    </a>
+                                    <div class="product-name"> RAIL FREIGHT
+                                        <a class="prod-morebuts" href="{{route('railFreight')}}">KNOW MORE</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="praductbanwraper">
+                                    <img src="{{ asset('images/services/custom.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('images/services/custombg-resp.jpg') }}" alt=""
+                                        class="img-responsive" />
+
+                                    <a href="#">
+                                        <div class="knowmore coreproknwmore uppercase">
+                                            Know More
+                                            <div class="sprite knwmorearw knwmorewharw"></div>
+                                        </div>
+                                    </a>
+                                    <div class="product-name"> CUSTOM CLEARING
+                                        <a class="prod-morebuts" href="{{route('customsClearance')}}">KNOW
                                             MORE</a>
                                     </div>
                                 </div>
@@ -346,12 +346,32 @@
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
-                                    <div class="product-name"><span>06.</span> shipping
-                                        <a class="prod-morebuts" href="#">KNOW
+                                    <div class="product-name"> forwarding
+                                        <a class="prod-morebuts" href="{{route('freightShipping')}}">KNOW
                                             MORE</a>
                                     </div>
                                 </div>
                             </li>
+                            <li>
+                                <div class="praductbanwraper">
+                                    <img src="{{ asset('/images/services/warehouse1.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/warehousebg-resp.jpg') }}" alt=""
+                                        class="img-responsive" />
+
+                                    <a href="#">
+                                        <div class="knowmore coreproknwmore uppercase">
+                                            Know More
+                                            <div class="sprite knwmorearw knwmorewharw"></div>
+                                        </div>
+                                    </a>
+                                    <div class="product-name"> WAREHOUSING
+                                        <a class="prod-morebuts" href="{{route('warehousing')}}">KNOW MORE</a>
+                                    </div>
+                                </div>
+                            </li>
+                           
+                           
                             <li>
                                 <div class="praductbanwraper">
                                     <img src="{{ asset('/images/services/insoureance1.png') }}" alt=""
@@ -365,29 +385,12 @@
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
-                                    <div class="product-name"><span>07.</span> insurance
-                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
+                                    <div class="product-name"> insurance
+                                        <a class="prod-morebuts" href="{{route('cargoInsurancet')}}">KNOW MORE</a>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/rail.png') }}" alt=""
-                                        class="img-desktop" />
-                                    <img src="{{ asset('/images/services/insurancebg-resp.jpg') }}" alt=""
-                                        class="img-responsive" />
-
-                                    <a href="#">
-                                        <div class="knowmore coreproknwmore uppercase">
-                                            Know More
-                                            <div class="sprite knwmorearw knwmorewharw"></div>
-                                        </div>
-                                    </a>
-                                    <div class="product-name"><span>08.</span> RAIL FREIGHT
-                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
-                                    </div>
-                                </div>
-                            </li>
+                          
                         </ul>
                     </div>
                 </div>

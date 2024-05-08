@@ -2065,7 +2065,7 @@ video.logo-video {
 .freightcontentblk.rail-freight {
     background: url("/images/service-detail/rail.png") no-repeat 54%
         center;
-    /* background-size: cover; */
+    background-size: cover;
 }
 .service-ocean.fp-viewing-secondPage .headerblk .logosection .logo {
     background: url(/images/logo.png) no-repeat left !important;
@@ -3574,7 +3574,7 @@ h1.itum-heading {
     left: 10%;
 }
 .expertise-text {
-    padding: 10px 0px 10px 200px;
+    padding-left: 26%;
 }
 .our-main-expertise {
     background-color: #fff;

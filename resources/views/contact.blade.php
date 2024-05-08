@@ -138,12 +138,12 @@
                                                <option>Services</option>
                                                <option value="">Ocean Freight</option>
                                                <option value="">Air Freight</option>
+                                               <option value="">Road Freight</option>
+                                               <option value="">Rail Freight</option>
                                                <option value="">Custom Clearing</option>
-                                               <option value="">Warehousing</option>
-                                               <option value="">Trucking</option>
-                                               <option value="">Shipping</option>
-                                               <option value="">Insurance</option>
                                                <option value="">Forwarding</option>
+                                               <option value="">Warehousing</option>
+                                               <option value="">Insurance</option>
                                                
 
                                                </select>
