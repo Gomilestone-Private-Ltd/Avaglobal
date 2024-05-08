@@ -51,6 +51,10 @@ Route::get('services/warehousing', [HomeController::class, 'warehousing'])->name
 Route::get('services/heavy-haul-trucking', [HomeController::class, 'heavyHaulTrucking'])->name('heavyHaulTrucking');
 Route::get('services/freight-shipping', [HomeController::class, 'freightShipping'])->name('freightShipping');
 Route::get('services/cargo-insurance', [HomeController::class, 'cargoInsurance'])->name('cargoInsurancet');
+Route::get('services/rail-freight', [HomeController::class, 'railFreight'])->name('railFreight');
+Route::get('knowledge-center', [HomeController::class, 'knowledgeCentre'])->name('knowledge');
+
+
 Route::get('container-sizes', [HomeController::class, 'containerSizes'])->name('containerSizes');
 Route::get('tariffs-calculators', [HomeController::class, 'tariffsCalculators'])->name('tariffsCalculators');
 Route::get('media', [HomeController::class, 'media'])->name('media');

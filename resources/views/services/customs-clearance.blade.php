@@ -33,12 +33,18 @@
                 <div class="freightcontentblk custcontblk">
                     <div class="servicelefttxtblk custumclerblk">
                         <div class="text-width">
-                            <p class="pagetxt">
-                                At AVA, we understand the challenges of global business and the need for smooth custom clearance. We leverage on our industry expertise to offer you quality custom clearance services, helping you avoid demurrages and penalties and reducing your lead time.
-                            </p>
-                            <p class="pagetxt">
-                                We offer import and export custom clearance for sea as well as air services. In order to ensure that your goods are delivered as expected, we manage the entire documentation procedure and get your goods through the customs efficiently. Our team is well-versed with the local rules and regulations. They make use of their industry knowledge to offer you tailor-made solutions, helping you save time and money.
-                            </p>
+                            <h1 class="freight-text">
+                                   We are equipped with a CHA license and a team of experts to liase with authorities for import clearance and exports clearance. 
+                            </h1>
+                            <h1 class="freight-text">
+                                    Our dedicated ground staff works round the clock in co-ordinating the documentation and operations for seamless flow of goods. 
+                                </h1>
+                                <h1 class="freight-text">
+                                     We undertake clearance of goods under various schemes notified under the Foreign Trade Policy.
+                                </h1>
+                                <h1 class="freight-text">
+                                      We assist in claiming export incentives and fulfillment of compliances. 
+                                </h1>
                         </div>
                     </div>
                     <div class="servicenos">
@@ -46,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div class="section servdet3sld" id="section2">
+            <!-- <div class="section servdet3sld" id="section2">
                 <div class="">
                     <div class="servicelefttxtblk servdet3sldcont">
                         <div class="wrapper">
@@ -85,6 +91,8 @@
                     <div class="servicesmobimg">
                         <img src="https://www.avaglobal.in/images/services/custombg-resp.jpg" alt="" />
                     </div>
+                    </div>
+            </div> -->
                     <!---footer start-->
                     <script>
                         $(document).ready(function() {
@@ -201,7 +209,7 @@
                             });
                         });
                     </script> <!---footer end-->
-                </div>
+                
     <script>
         //script for arrow scroll
         $("#previousPage").click(function(e) {

@@ -26,9 +26,11 @@
                         <a href="{{ route('airFreight') }}">Air Freight</a>
                         <a href="{{ route('customsClearance') }}">Custom Clearing</a>
                         <a href="{{ route('warehousing') }}">Warehousing</a>
-                        <a href="{{ route('heavyHaulTrucking') }}">Trucking</a>
-                        <a href="{{ route('freightShipping') }}">Shipping</a>
+                        <a href="{{ route('heavyHaulTrucking') }}">Road Freight</a>
+                        <a href="{{ route('freightShipping') }}">Forwarding</a>
                         <a href="{{ route('cargoInsurancet') }}">Insurance</a>
+                        <a href="{{ route('railFreight') }}">Rail Freight</a>
+
                       </div>
                     </div> 
                     <a class="th-link" href="{{ route('contact') }}">Contact us</a>
@@ -62,7 +64,7 @@
                 <div class="navlinkblk">
                     <ul class="navmainlink">
                         <li><a href="{{ route('media') }}">Media centre</a></li>
-                        <li><a href="#">Knowledge centre</a></li>
+                        <li><a href="{{ route('knowledge')}}">Knowledge centre</a></li>
                         <li><a href="{{ route('caseStudy') }}">Case studies</a></li>
                         <li><a href="{{ route('career') }}">Career</a></li>
                     </ul>

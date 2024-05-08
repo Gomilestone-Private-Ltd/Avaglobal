@@ -1023,11 +1023,12 @@ video.logo-video {
     transform: skew(-23deg);
 }
 .newsinfoblk .pagetxt {
-    color: #565656;
+    color: #fff;
+    width: 80%;
 }
 .newsheading {
     font-size: 60px;
-    color: #434343;
+    color: #fff;
     padding: 0 0 15px;
     font-weight: bold;
 }
@@ -1744,7 +1745,7 @@ video.logo-video {
     position: absolute;
     left: 30px;
     bottom: 33px;
-    transform: skew(20deg);
+    /* transform: skew(20deg); */
 }
 .abt-slider-block-right {
     position: relative;
@@ -1811,12 +1812,13 @@ video.logo-video {
     line-height: 44px;
 }
 .mission-wrapper-about {
-    background: url("/images/about/img1.jpg") no-repeat center;
+    /* background: url("/images/about/mission_img.jpg") no-repeat center; */
     margin: 0 auto;
     position: relative;
     width: 100%;
     height: 100vh;
     background-size: cover;
+    background-color: #4e7ac7;
 }
 .misson-blk-abt {
     float: left;
@@ -1908,7 +1910,7 @@ video.logo-video {
     margin: 10px 0;
 }
 .pagetxt.teamsubtxt {
-    font-size: 20px;
+    font-size: 22px;
     line-height: normal;
     font-weight: 400;
 }
@@ -1952,7 +1954,7 @@ video.logo-video {
 }
 .freightcontentparent .servicelefttxtblk {
     width: 32%;
-    top: 200px;
+    top: 230px;
 }
 .servicenos {
     font-size: 200px;
@@ -1996,7 +1998,7 @@ video.logo-video {
 .newsleftcontent.mediacontent {
     right: 4%;
     width: 33%;
-    top: 42%;
+    top: 35%;
 }
 .heading-abt-title {
     color: #434343;
@@ -2032,18 +2034,18 @@ video.logo-video {
     background: #4e7ac7;
 }
 .freightcontentblk.airfrightcontblk {
-    background: url("/images/service-detail/air-banner.jpg") no-repeat 54.5%
+    background: url("/images/service-detail/air-img.png") no-repeat 54.5%
         center;
-    background-size: cover;
+    /* background-size: cover; */
 }
 .freightcontentblk.custcontblk {
-    background: url("/images/service-detail/customclrdetail.jpg") no-repeat
+    background: url("/images/service-detail/customeimg.png") no-repeat
         54.5% center;
-    background-size: cover;
+    /* background-size: cover; */
 }
 .freightcontentblk.wearhousecontblk {
-    background: url("/images/service-detail/wh-banner.jpg") no-repeat 50% center;
-    background-size: cover;
+    background: url("/images/service-detail/warehouse.png") no-repeat 50% center;
+    /* background-size: cover; */
 }
 .freightcontentblk.wearhoscontblk {
     background: url("/images/service-detail/trucking-serdet.jpg") no-repeat 50%
@@ -2051,14 +2053,19 @@ video.logo-video {
     background-size: cover;
 }
 .freightcontentblk.insurancecontblk {
-    background: url("/images/service-detail/insurance-detail.jpg") no-repeat 54%
+    background: url("/images/service-detail/insurance.png") no-repeat 54%
         center;
-    background-size: cover;
+    /* background-size: cover; */
 }
 .freightcontentblk.shippingcontblk {
-    background: url("/images/service-detail/shipping-banner.jpg") no-repeat 54%
+    background: url("/images/service-detail/forwarding.png") no-repeat 54%
         center;
-    background-size: cover;
+    /* background-size: cover; */
+}
+.freightcontentblk.rail-freight {
+    background: url("/images/service-detail/rail.png") no-repeat 54%
+        center;
+    /* background-size: cover; */
 }
 .service-ocean.fp-viewing-secondPage .headerblk .logosection .logo {
     background: url(/images/logo.png) no-repeat left !important;
@@ -2875,27 +2882,29 @@ button.pause {
     width: 90%;
 }
 .ourteamnewblk {
-    width: 65%;
+    width: 100%;
     position: relative;
     left: 130px;
-    transform: skew(-20deg);
+    /* transform: skew(-20deg); */
     height: 100vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 .ourteammember {
-    width: 36%;
+    width: 40%;
     overflow: hidden;
     margin: 0 3% 2% 0;
     height: 300px;
     position: relative;
 }
 .ourteammember img {
-    transform: skew(20deg);
+    /* transform: skew(20deg); */
     position: relative;
-    left: -90px;
+    /* left: -90px; */
     height: 400px;
+    width: 100%;
+    object-fit: cover;
     /* top: -50px; */
 }
 .ourteammember.kushal img {
@@ -3552,12 +3561,12 @@ h1.itum-heading {
     align-items: center;
 }
 .footer-icons {
-    height: 25px;
+    height: 22px;
     margin-left: 10px;
 }
 .icon-box {
     display: flex;
-    align-items: center;
+    
 }
 .lead-form {
     position: absolute;
@@ -3623,4 +3632,41 @@ h1.itum-heading {
 }
 select.drop-down {
     border-bottom: 1px solid grey !important;
+}
+.left-img {
+    position: absolute;
+    left: 9%;
+    top: 25%;
+}
+.freight-text {
+    font-size: 22px;
+    font-family: "BebasNeueRegular";
+    margin: 20px 0px;
+    font-weight: 500;
+    line-height: 25px;
+    letter-spacing: 1.2px;
+
+}
+.list-fright {
+    list-style: disc;
+    margin-left: 20px;
+}
+.freight-para {
+    font-size: 25px;
+    font-family: "BebasNeueRegular";
+    margin-bottom: 15px;
+}
+.text-width {
+    width: 80%;
+}
+.team-right-para {
+    position: absolute;
+    bottom: 25%;
+    width: 45%;
+    left: 9%;
+}
+.image-text {
+    font-size: 20px;
+    font-family: "Roboto Condensed", sans-serif;
+    color: #434343;
 }

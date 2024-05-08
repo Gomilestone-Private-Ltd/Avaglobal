@@ -10,87 +10,46 @@
             <a id="nextPage" href="#"><span class="sprite nxtsld"></span></a>
         </div>
     </div>
-
     <div id="fullpage">
-        <div class="section servicedetailsection wearhosblk" id="section0">
-
+        <div class="section servicedetailsection insuranceblk" id="section0">
             <div class="servicedeatialbanner">
                 <div class="wrapper pageblock">
                     <div class="bannertxtblk">
                         <div class="avaglname font-bebas">ava global</div>
                         <h2 class="tagline uppercase">services we offer!</h2>
                         <div class="subheading-banner">
-                            <h1>Warehousing</h1>
+                            <h1>Rail FREIGHT</h1>
                         </div>
                         <a href="#secondPage">
                             <div class="sprite dwnarw"></div>
                         </a>
                     </div>
-
                 </div>
             </div>
             <div class="greyoverlaybig"></div>
             <div class="greyoverlaysml"></div>
         </div>
         <div class="section freightcontentparent" id="section1">
-            <div class="freightcontentblk wearhousecontblk">
+            <div class="freightcontentblk rail-freight">
                 <div class="servicelefttxtblk">
-                <div class="freight-box">
-                       <h1 class="freight-text">We have exclusive arrangements with CFS/ICD/Free Trade Zones at various strategic locations. </h1>
-                       <p class="freight-para">We support - </p>
-                         <ul class="list-fright">
-                            <li>Open storage, Shed storage, Cold storage</li>
-                            <li>In-bonding and Ex-bonding requirements.</li>
-                            <li>Cross docking</li>
-                            <li>Unitization with stuffing & securing of goods.</li>
-                            
-                         </ul>
-                         
-                    </div>
+                <div class="text-width">
+                            <h1 class="freight-text">
+                            We have exclusive arrangements for drayage of containers between select ICDs and select Ports through railways. 
+                            </h1>
+                            <h1 class="freight-text">
+                            Catering to DPD & DPE movements to benefit from tri-angulation.
+                                </h1>
+                              
+                        </div>
                 </div>
                 <div class="servicenos">
-                    04
+                    07
                 </div>
-
-
             </div>
         </div>
-        <!-- <div class="section servdet3sld" id="section2">
-            <div class="">
-                <div class="servicelefttxtblk servdet3sldcont">
-                    <div class="wrapper">
-                        <p class="pagetxt">
-                            You can rely on us for all your logistic warehousing, freight warehousing and distribution needs. Our cost-effective storage services are available for short-term as well as long-term period.You can even get the space customized to fit your needs.
-                        </p>
-                        <h3 class="subtxt">Why us?</h3>
-                        <div class="customlist ibvt">
-                            <ul>
-                                <li>Safety and security of goods</li>
-                                <li>Excellent services in all terrains</li>
-                                <li>Well-trained professionals for loading, unloading, packing and shipping of goods</li>
-                                <li>Storage system designed for varied client needs</li>
-                                <li>Efficient handling of large inventories</li>
-                            </ul>
-                        </div>
-                        <p class="pagetxt">
-                            We work with a planned and controlled storage system so that you get better control over your goods. By choosing our warehousing services, you not only minimize the inventory costs but also get assistance in reducing fixed overheads and increasing business efficiency.
-                        </p>
-                    </div>
-                </div>
-                <div class="greyoverlaybig"></div>
-                <div class="greyoverlaysml"></div>
-                <div class="servicenos mob">
-                    04
-                </div>
-                <div class="servicesmobimg">
-                    <img src="https://www.avaglobal.in/images/services/warehousebg-resp.jpg" alt="" />
-                </div>
-              
-            </div>
-        </div> -->
-
-              <!---footer start-->
-              <script>
+      
+                <!---footer start-->
+                <script>
                     $(document).ready(function() {
                         if ($(window).width() >= 1024) {
                             $('#fullpage').fullpage({
@@ -113,7 +72,6 @@
                         $.fn.fullpage.moveSectionDown();
                     });
                 </script>
-
                 <script>
                     $(document).ready(function() {
                         if ($(window).width() >= 1001) {
@@ -206,16 +164,16 @@
                         });
                     });
                 </script> <!---footer end-->
-
-            <script>
-                //script for arrow scroll
-                $("#previousPage").click(function(e) {
-                    e.preventDefault();
-                    $.fn.fullpage.moveSectionUp();
-                });
-                $("#nextPage").click(function(e) {
-                    e.preventDefault();
-                    $.fn.fullpage.moveSectionDown();
-                });
-            </script>
-            @endsection
+            
+<script>
+    //script for arrow scroll
+    $("#previousPage").click(function(e) {
+        e.preventDefault();
+        $.fn.fullpage.moveSectionUp();
+    });
+    $("#nextPage").click(function(e) {
+        e.preventDefault();
+        $.fn.fullpage.moveSectionDown();
+    });
+</script>
+@endsection
