@@ -18,8 +18,8 @@
                         <div class="wrapper">
                             <div class="avanameblk fl uppercase">
                                 <div class="avaglname font-bebas">ava global</div>
-                                <h1 class="main-title">Redefining Logistics and Transportation Company</h1>
-                                <h2 class="sub-title">Logistic solutions & supply chain operations</h2>
+                                <h1 class="main-title">Redefining Logistics and Transportation</h1>
+                                <h2 class="sub-title">Logistics Services and Solutions & supply chain operations</h2>
                                 <a href="#secondPage">
                                     <div class="sprite dwnarw"></div>
                                 </a>
@@ -214,10 +214,8 @@
                                     core products
                                 </div>
                                 <div class="pagetxt">
-                                    Our hands-on services and strategic solutions are extensive and customised to
-                                    meet your every need; whether assisting with expediting an urgent shipment or a
-                                    strategic partner who can provide competitive terms, identify and create
-                                    short-term efficiencies and build up long-term competitiveness.
+                                    <p class="pagetxt">AVA Global offers an extensive portfolio of logistics services.</p>    
+                                     <p class="pagetxt"> We provide standardized, customized and optimized solutions as per the market needs.</p>
                                 </div>
                                 <a href="{{ route('about') }}">
                                     <div class="knowmore knowmorewhite uppercase">
@@ -236,9 +234,11 @@
                                 <a data-slide-index="1" href="#">AIR FREIGHT</a>
                                 <a data-slide-index="2" href="#">CUSTOM CLEARING</a>
                                 <a data-slide-index="3" href="#">WAREHOUSING</a>
-                                <a data-slide-index="4" href="#">TRUCKING</a>
-                                <a data-slide-index="5" href="#">shipping</a>
+                                <a data-slide-index="4" href="#">ROAD FREIGHT</a>
+                                <a data-slide-index="5" href="#">FORWARDING</a>
                                 <a data-slide-index="6" href="#">insurance</a>
+                                <a data-slide-index="7" href="#">RAIL FREIGHT</a>
+
                             </div>
                         </div>
                         <ul class="bxsliderproduct">
@@ -261,7 +261,7 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/air-fright.png') }}" alt=""
+                                    <img src="{{ asset('/images/services/airnew.png') }}" alt=""
                                         class="img-desktop" />
                                     <img src="{{ asset('/images/services/airbg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
@@ -279,7 +279,7 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="{{ asset('images/services/custom-clearing.png') }}" alt=""
+                                    <img src="{{ asset('images/services/custom.png') }}" alt=""
                                         class="img-desktop" />
                                     <img src="{{ asset('images/services/custombg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
@@ -298,7 +298,7 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/warehouse.png') }}" alt=""
+                                    <img src="{{ asset('/images/services/warehouse1.png') }}" alt=""
                                         class="img-desktop" />
                                     <img src="{{ asset('/images/services/warehousebg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
@@ -327,7 +327,7 @@
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
-                                    <div class="product-name"><span>05.</span> TRUCKING
+                                    <div class="product-name"><span>05.</span> ROAD FREIGHT
                                         <a class="prod-morebuts" href="#">KNOW
                                             MORE</a>
                                     </div>
@@ -335,7 +335,7 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/shipping.png') }}" alt=""
+                                    <img src="{{ asset('/images/services/forwarding.png') }}" alt=""
                                         class="img-desktop" />
                                     <img src="{{ asset('/images/services/shipping-resp.png') }}" alt=""
                                         class="img-responsive" />
@@ -354,7 +354,7 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/insurance.png') }}" alt=""
+                                    <img src="{{ asset('/images/services/insoureance1.png') }}" alt=""
                                         class="img-desktop" />
                                     <img src="{{ asset('/images/services/insurancebg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
@@ -366,6 +366,24 @@
                                         </div>
                                     </a>
                                     <div class="product-name"><span>07.</span> insurance
+                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="praductbanwraper">
+                                    <img src="{{ asset('/images/services/rail.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/insurancebg-resp.jpg') }}" alt=""
+                                        class="img-responsive" />
+
+                                    <a href="#">
+                                        <div class="knowmore coreproknwmore uppercase">
+                                            Know More
+                                            <div class="sprite knwmorearw knwmorewharw"></div>
+                                        </div>
+                                    </a>
+                                    <div class="product-name"><span>08.</span> RAIL FREIGHT
                                         <a class="prod-morebuts" href="#">KNOW MORE</a>
                                     </div>
                                 </div>

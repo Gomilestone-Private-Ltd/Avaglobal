@@ -34,11 +34,18 @@
         <div class="section freightcontentparent" id="section1">
             <div class="freightcontentblk">
                 <div class="servicelefttxtblk">
-                    <div class="">
-                        <p class="pagetxt">
-                            As a premier ocean freight service provider, AVA Global is capable of handling shipments of any size effectively. We specialize in offering a flexible range of ocean freight services for FCL (Full-Container load) as well as LCL (Less-Than-Container Load) shipments. Our <a href="https://www.avaglobal.in/">freight forwarding company</a> holds long-term relations with major shipping lines that enables us to meet varied needs of our clients.
+                    <div class="freight-box">
+                       <h1 class="freight-text">AVA Global is capable of effectively handling shipments of any shape and size.
+                         We specialize in a range of ocean freight services like - </h1>
 
-                        </p>
+                         <ul class="list-fright">
+                            <li>FCL (Full-Container load)</li>
+                            <li>LCL (Less-Than-Container Load)</li>
+                            <li>OOG (Out of gauge containers)</li>
+                            <li>Flexi bag containers and ISO tank containers</li>
+                            <li>Chartering for bulk and break bulk cargo</li>
+                         </ul>
+                         <h1 class="freight-text">Our long-term relations with 90+ carriers enable us to meet variety of market needs.</h1>
                     </div>
                 </div>
                 <div class="servicenos">
@@ -46,7 +53,8 @@
                 </div>
             </div>
         </div>
-        <div class="section servdet3sld" id="section2">
+        <!-- <div class="section servdet3sld" id="section2">
+
             <div class="">
                 <div class="servicelefttxtblk servdet3sldcont">
                     <div class="wrapper">
@@ -81,10 +89,13 @@
                 <div class="servicesmobimg">
                     <img src="https://www.avaglobal.in/images/services/oceanbg-resp.jpg" alt="" />
                 </div>
-                <!---footer start-->
+            </div>
+
+        </div> -->
+              <!---footer start-->
                
 
-                <script src="js/wow.js"></script>
+              <script src="js/wow.js"></script>
                 <script>
                     new WOW().init();
                 </script>
@@ -206,9 +217,8 @@
                         });
                     });
                 </script> <!---footer end-->
-            </div>
         
-<script>
+                     <script>
     //script for arrow scroll
     $("#previousPage").click(function(e) {
         e.preventDefault();

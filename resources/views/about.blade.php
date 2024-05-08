@@ -58,6 +58,9 @@
         <!-- RESPONSIVE MENU END --> <!---headerwrapper end-->
         <div id="fullpage">
         <div class="section mission-wrapper-about" id="section2">
+            <div class="left-img">
+            <img class="icon-img" src="{{ asset('images/about/mission-1.png') }}" alt="" />
+            </div>
                 <div class="servicerighttxtblk">
                     <div class="misson-blk-abt">
                         <div>
@@ -87,18 +90,6 @@
                     </div>
                     <!-- <div class="clear"></div> -->
                     <div class="about-firts-text">
-                    <div class="third-text">
-                        <div>
-                            <img class="belief-icon" src="{{ asset('images/about/growth.png') }}" alt="">
-                        </div>
-                        <div class="misson-blk-abt-head">
-                            Our Values
-                        </div>
-                        <div class="misson-blk-abt-content">
-                            At AVA Global, we believe in keeping things simple and transparent.
-                            We endeavour in growing our customers reach and network and be a part of their growth story.
-                        </div>
-                    </div>
                     <div class="four-text">
                         <div>
                             <img class="belief-icon" src="{{ asset('images/about/handshake.png') }}" alt="">
@@ -111,8 +102,12 @@
                                across the eco-system.
 
                         </div>
+                        
                     </div>
+                    
                  </div>
+                 <div class="greyoverlaybig"></div>
+                        <div class="greyoverlaysml"></div>
                 
                 <!-- <div class="missn-line"></div> -->
                 <div class="servicesmobimg">
@@ -128,7 +123,7 @@
                         <h1 class="color-black"> End to End – Intermodal Solutions</h1>
                     </div>
                     <div class="first-box">
-                    <img class="our-icons" src="{{ asset('images/delivery-truck.png') }}" alt="" />
+                    <img class="our-icons" src="{{ asset('images/distribution.png') }}" alt="" />
                         <h1 class="color-black">Logistics Network Design to Suit Business Needs</h1>
                     </div>
                     <div class="first-box">
@@ -192,14 +187,14 @@
                                 <div class="ecpertise-box">
                                   <img class="" src="{{ asset('images/about/large-container.jpg') }}" alt="">
                                  <div class="expertise-text">
-                                 <h1 class="itum-heading">MACHINERY, OCD & HEAVY HAUL</h1>
+                                 <h1 class="itum-heading">OVER DIMENTIONAL CARGO</h1>
                                   <h1 class="itum-sub-heading">Specialized expertise, tailored solutions and reliable delivery for your oversized, overweight and challenging freight.</h1>
                                  </div>
                                 </div>
                             <div class="ecpertise-box">
                             <img class="" src="{{ asset('images/about/container.jpg') }}" alt="">
                                  <div class="expertise-text">
-                                 <h1 class="itum-heading">MACHINERY, OCD & HEAVY HAUL</h1>
+                                 <h1 class="itum-heading">HEAVY HAUL</h1>
                                   <h1 class="itum-sub-heading">Understanding the nuances in shipping over dimensional cargo.</h1>
                                  </div>
                              </div>
@@ -238,6 +233,11 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="team-right-para">
+                                      <p class="image-text">  With a clear vision, the energetic and vibrant co-founders of AVA Global have been
+                                        augmenting the resources, technologies, people, and products required for
+                                        delivering across the globe.</p>
+                                </div>
                     </div>
                     <div class="banner-wrapper-about responsiveabtsld">
                         <div class="blue-div-team blue-div-team1"></div>
@@ -269,7 +269,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="newsleftcontent mediacontent">
+                    <!-- <div class="newsleftcontent mediacontent">
                         <div class="wrapper">
                             <div class="newsinfoblk">
                                 <div class="newsheading font-bebas">
@@ -281,14 +281,10 @@
                                         Global. AVA Global today employs a team of 100+ people and counting further to
                                         accomplish solutions to complex problems.
                                                                 </div>
-                                <div class="pagetxt teamsubtxt">
-                                        With a clear vision, the energetic and vibrant co-founders of AVA Global have been
-                                        augmenting the resources, technologies, people, and products required for
-                                        delivering across the globe.
-                                </div>
+                                
                             </div>
                         </div>
-                    </div>
+                    </div> -->
             
               </div>
             </div>
@@ -296,11 +292,25 @@
                 <div class="aboutbannerblk">
                     <div class="wrapper pageblock">
                         <div class="bannertxtblk">
-                            <div class="avaglname font-bebas">an overview</div>
-                            <h1 class="tagline uppercase">About AVA Global, Logistics service provider</h1>
-                            <p>At AVA Global, our team is committed to perform with highest standards of quality and service, <br /> with complete trust, transparency and ethics.</p>
+                            <!-- <div class="avaglname font-bebas">an overview</div> -->
+                            <!-- <h1 class="tagline uppercase">About AVA Global, Logistics service provider</h1> -->
+                            <!-- <p>At AVA Global, our team is committed to perform with highest standards of quality and service, <br /> with complete trust, transparency and ethics.</p> -->
                             <!-- <p>Ava global is a very young organization founded on the certain<br /> and inherent
                                 strength of its promoters/founders. </p> -->
+
+                                <div class="newsinfoblk">
+                                <div class="newsheading font-bebas">
+                                    OUR TEAM
+                                </div>
+                                <div class="pagetxt teamsubtxt">
+                                        Movement of goods, transfer of documents and flow of information is well
+                                        orchestrated across the shipment lifecycle by the sustainable framework in AVA
+                                        Global. AVA Global today employs a team of 100+ people and counting further to
+                                        accomplish solutions to complex problems.
+                                                                </div>
+                                
+                            </div>
+
                             <a href="#secondPage">
                                 <div class="sprite dwnarw"></div>
                             </a>

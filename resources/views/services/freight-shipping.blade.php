@@ -19,7 +19,7 @@
                     <div class="bannertxtblk">
                         <div class="avaglname font-bebas">ava global</div>
                         <h2 class="tagline uppercase">services we offer!</h2>
-                        <h1 class="subheading-banner">FREIGHT SHIPPING</h1>
+                        <h1 class="subheading-banner">FORWARDING</h1>
                         <a href="#secondPage">
                             <div class="sprite dwnarw"></div>
                         </a>
@@ -33,14 +33,20 @@
         <div class="section freightcontentparent" id="section1">
             <div class="freightcontentblk shippingcontblk">
                 <div class="servicelefttxtblk">
-                    <div class="">
-                        <p class="pagetxt">
-                            At AVA Global, we understand how complicated supply chains can be. As a full-service logistics and freight shipping company, we offer a wide range of domestic and global shipping services, helping our clients meet the changing demands of the global logistics market. We have partnered with various logistic providers to offer you high quality services at competitive rates.
-                        </p>
-                        <p class="pagetxt">
-                            From cargo pickup to door delivery, our team of experts handle all aspects of the shipping procedure. You can also manage as well as track your shipment online 24/7.
-                        </p>
-                    </div>
+                <div class="text-width">
+                            <h1 class="freight-text">
+                            We work on intermodal and multimodal arrangements depending on client's business need.
+                            </h1>
+                            <h1 class="freight-text">
+                            We offer standardized and customized solutions as compatible to client's shipping needs.
+                                </h1>
+                                <h1 class="freight-text">
+                                It is our constant endeavour to minimize dwell time for cargo, ensure optimal utilization of transport equipment and maintain safety and service standards. 
+                                </h1>
+                                <h1 class="freight-text">
+                                We offer end to end visibility during the shipment lifecycle.
+                                </h1>
+                        </div>
                 </div>
                 <div class="servicenos">
                     06
@@ -48,7 +54,7 @@
 
             </div>
         </div>
-        <div class="section servdet3sld" id="section2">
+        <!-- <div class="section servdet3sld" id="section2">
             <div class="">
                 <div class="servicelefttxtblk servdet3sldcont shippingprojectwrap">
                     <div class="wrapper">
@@ -75,8 +81,8 @@
                 </div>
 
             </div>
-        </div>
-        <div class="section servdet3sld" id="section3">
+        </div> -->
+        <!-- <div class="section servdet3sld" id="section3">
             <div class="">
                 <div class="servicelefttxtblk servdet3sldcont shippingprojectwrap">
                     <div class="wrapper">
@@ -104,6 +110,8 @@
                 <div class="servicesmobimg">
                     <img src="https://www.avaglobal.in/images/services/shipping-resp.png" alt="" />
                 </div>
+                </div>
+        </div> -->
                 <!---footer start-->
                 <script>
                     $(document).ready(function() {
@@ -219,7 +227,7 @@
                         });
                     });
                 </script> <!---footer end-->
-            </div>
+            
 <script>
     //script for arrow scroll
     $("#previousPage").click(function(e) {

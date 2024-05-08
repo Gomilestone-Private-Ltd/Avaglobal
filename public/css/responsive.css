@@ -7,7 +7,7 @@
     }
     .freightcontentparent .servicelefttxtblk,
     .freightcontentparent .servicelefttxtblk.custumclerblk {
-        top: 300px !important;
+        top: 24% !important;
     }
     .newsslidercontent .banner-caption {
         left: -81px;
@@ -34,7 +34,7 @@
         top: 300px;
     }
     .productleftcontent {
-        top: 0;
+        top: 14%;
     }
     .aboutavabgblk .servicelefttxtblk,
     .commitment-wrapper-about .servicelefttxtblk {
@@ -82,7 +82,7 @@
     .freightcontentparent .servicelefttxtblk,
     .freightcontentparent .servicelefttxtblk.custumclerblk {
         width: 40%;
-        top: 150px;
+        top: 24%;
     }
     .freightcontentparent .servicelefttxtblk {
         width: 36%;
