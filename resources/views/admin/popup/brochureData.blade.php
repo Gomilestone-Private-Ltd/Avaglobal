@@ -207,7 +207,7 @@
                     toastr.options = {
                         'progressBar': true,
                         'closeButton': true,
-                        // 'timeOut': 5000
+
                     }
                     toastr.error(response.message);
                     // setTimeout(function() {
