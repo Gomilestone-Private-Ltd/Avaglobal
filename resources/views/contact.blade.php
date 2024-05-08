@@ -31,7 +31,7 @@
                     <div class="contactlefttxtblk">
                         <h2 class="tagline uppercase">LET'S MEET UP</h2>
                         <div class="contactdetailsblk">
-                        <div class="contactblk iconss">
+                            <div class="contactblk iconss">
                                 <div class="contacticon ibvt">
                                     <span class="sprite email"></span>
                                 </div>
@@ -61,7 +61,7 @@
                                     Mumbai, Maharashtra 400059
                                 </div>
                             </div>
-                            
+
                         </div>
 
                         <a href="https://maps.app.goo.gl/K7wXxm4WnoUixDEj8" target="_blank">
@@ -70,18 +70,19 @@
                             </div>
                         </a>
                         <div class="branch-box">
-                                         <h1 class="branch-text">
-                                               Branch office:
-                                                </h1>
-                                                <p class="branch-sub-text">AVA Global Logistics LLP
-                                                            A-303/304, 3rd Floor, Privilon, Ambli BRTS Road, Iskon Cross Roads, Ahmedabad - 380059, Gujarat.
-                                                            Board: +91 79 4915 3300</p>
+                            <h1 class="branch-text">
+                                Branch office:
+                            </h1>
+                            <p class="branch-sub-text">AVA Global Logistics LLP
+                                A-303/304, 3rd Floor, Privilon, Ambli BRTS Road, Iskon Cross Roads, Ahmedabad - 380059,
+                                Gujarat.
+                                Board: +91 79 4915 3300</p>
 
-                                                            <h1 class="branch-text">Representative offices:</h1>
-                                                            <p class="branch-sub-text">Morbi</p>
-                                                            <p class="branch-sub-text">Gandhidham</p>
-                                                            <p class="branch-sub-text">Hazira</p>
-                                                </div>
+                            <h1 class="branch-text">Representative offices:</h1>
+                            <p class="branch-sub-text">Morbi</p>
+                            <p class="branch-sub-text">Gandhidham</p>
+                            <p class="branch-sub-text">Hazira</p>
+                        </div>
                     </div>
                     <div class="contactmobimg"><img src="images/mobile-images/letsmeetbg-res.jpg" alt="" /></div>
                 </div>
@@ -96,260 +97,261 @@
             </div>
             <div class="section" id="section3">
                 <div class="hiringbg">
-                   <div class="lead-form">
-                    <div class="lead-form-box">
-                    <div class="hiringheading">
-                        Talk With Our Team
+                    <div class="lead-form">
+                        <div class="lead-form-box">
+                            <div class="hiringheading">
+                                Talk With Our Team
+                            </div>
+                            <form id="contactform" method="post" action="" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-cont">
+                                    <div class="input-container ibvm">
+                                        <div class="placholder">Your Name</div>
+                                        <input type="text" name="name" id="name" class="inputclick">
+                                        <span class="text-danger v-error">
+
+                                        </span>
                                     </div>
-                          <form id="contactform" method="post" action="" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="form-cont">
-                                            <div class="input-container ibvm">
-                                                <div class="placholder">Your Name</div>
-                                                <input type="text" name="name" class="inputclick">
-                                                <span class="text-danger v-error">
+                                    <div class="input-container ibvm">
+                                        <div class="placholder">Your Email address</div>
+                                        <input type="email" name="email" id="email" class="inputclick">
+                                        <span class="text-danger v-error">
 
-                                                </span>
-                                            </div>
-                                            <div class="input-container ibvm">
-                                                <div class="placholder">Your Email address</div>
-                                                <input type="email" name="email" class="inputclick">
-                                                <span class="text-danger v-error">
+                                        </span>
+                                    </div>
+                                    <div class="input-container ibvm">
+                                        <div class="placholder">PHONE number</div>
+                                        <input type="text" name="phone" id="phone" class="inputclick">
+                                        <span class="text-danger v-error">
 
-                                                </span>
-                                            </div>
-                                            <div class="input-container ibvm">
-                                                <div class="placholder">PHONE number</div>
-                                                <input type="text" name="phone" class="inputclick">
-                                                <span class="text-danger v-error">
+                                        </span>
+                                    </div>
+                                    <div class="input-container ibvm">
+                                        <div class="placholder">Requirement</div>
+                                        <input type="text" name="requirement" id="requirement" class="inputclick">
+                                        <span class="text-danger v-error">
 
-                                                </span>
-                                            </div>
-                                            <div class="input-container ibvm">
-                                                <div class="placholder">Requirement</div>
-                                                <input type="text" name="" class="inputclick">
-                                                <span class="text-danger v-error">
+                                        </span>
+                                    </div>
+                                    <div class="input-container ibvm">
 
-                                                </span>
-                                            </div>
-                                            <div class="input-container ibvm">
-                                                
-                                               <select name="" id="" class="drop-down">
-                                               <option>Services</option>
-                                               <option value="">Ocean Freight</option>
-                                               <option value="">Air Freight</option>
-                                               <option value="">Road Freight</option>
-                                               <option value="">Rail Freight</option>
-                                               <option value="">Custom Clearing</option>
-                                               <option value="">Forwarding</option>
-                                               <option value="">Warehousing</option>
-                                               <option value="">Insurance</option>
-                                               
+                                        <select name="allservice" id="allservice" class="drop-down">
+                                            <option value="">Services</option>
+                                            <option value="OceanFreight">Ocean Freight</option>
+                                            <option value="AirFreight">Air Freight</option>
+                                            <option value="Trucking">Road Freight</option>
+                                            <option value="Rail">Rail Freight</option>
+                                            <option value="CustomClearing">Custom Clearing</option>
+                                            <option value="Forwading">Forwarding</option>
+                                            <option value="WareHousing">Warehousing</option>
+                                            <option value="Insurance">Insurance</option>
 
-                                               </select>
-                                                <span class="text-danger v-error">
-                                                </span>
-                                            </div>
-                                    
-                                            <div class="submitbtn">
-                                                <input type="submit" id="submit" name="contact"
-                                                    value="Submit Now" />
-                                            
-                                            </div>
-                                        </div>
-                                    </form>
-                                   
+                                        </select>
+                                        <span class="text-danger v-error">
+                                        </span>
+                                    </div>
+
+                                    <div class="submitbtn">
+                                        <input type="submit" id="submit" name="contact" value="Submit Now" />
+
+                                    </div>
+                                </div>
+                            </form>
+
+
+
+                        </div>
                     </div>
-                   </div>
                     <div class="contactmobimg"><img src="images/mobile-images/hiringbg-mob.jpg" alt="" /></div>
-                    
-                  
+
+
                 </div>
-              
 
-<script>
-    $(document).ready(function() {
-        $('#contactform').submit(function(e) {
-            e.preventDefault();
-            const formData = new FormData($(this)[0]);
-            // Send an AJAX request
-            $.ajax({
-                type: 'POST',
-                url: "{{ url('admin/post-contacts') }}",
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    $("#submit").attr("disabled", true)
-                    $("#contactform")[0].reset();
-                    // $('.fileSeelct').val('');
-                    $('#file_7_id span').html('');
-                    console.log(response);
-                    toastr.options = {
-                        'closeButton': true,
-                        'progressBar': true
-                    }
-                    toastr.success(response.message);
-                },
-                error: function(response) {
-                    if (response.responseJSON && response.responseJSON.errors) {
-                        $('.text-danger').html('');
-                        $.each(response.responseJSON.errors, function(field, errorMessage) {
-                            $('input[name="' + field + '"]').closest(
-                                    '.input-container')
-                                .find('.text-danger').html(errorMessage);
-                            $('input[name="' + field + '"]').on('input',
-                                function() {
-                                    $('.text-danger').html('');
-                                });
+
+                <script>
+                    $(document).ready(function() {
+                        $('#contactform').submit(function(e) {
+                            e.preventDefault();
+                            const formData = new FormData($(this)[0]);
+                            // Send an AJAX request
+                            $.ajax({
+                                type: 'POST',
+                                url: "{{ url('admin/post-contacts') }}",
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                success: function(response) {
+                                    $("#submit").attr("disabled", true)
+                                    $("#contactform")[0].reset();
+                                    // $('.fileSeelct').val('');
+                                    $('#file_7_id span').html('');
+                                    console.log(response);
+                                    toastr.options = {
+                                        'closeButton': true,
+                                        'progressBar': true
+                                    }
+                                    toastr.success(response.message);
+                                },
+                                error: function(response) {
+                                    if (response.responseJSON && response.responseJSON.errors) {
+                                        $('.text-danger').html('');
+                                        $.each(response.responseJSON.errors, function(field, errorMessage) {
+                                            $('[name="' + field + '"]').closest(
+                                                    '.input-container')
+                                                .find('.text-danger').html(errorMessage);
+
+                                            $('[name="' + field + '"]').on('input',
+                                                function() {
+                                                    $('.text-danger').html('');
+                                                });
+                                        });
+                                    }
+
+
+                                }
+                            });
                         });
+                    });
+                </script>
+                <script>
+                    function fileValidation() {
+                        var fileInput = document.getElementById('file-7');
+                        var fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
+                        if (fileSize > 2) {
+                            // alert("File size must be less than 5 MB.");
+                            toastr.error("File size must be less than 2 MB.")
+                            toastr.options = {
+                                'closeButton': true,
+                                'progressBar': true,
+                            }
+                            fileInput.value = '';
+                            return false;
+                        }
                     }
+                </script>
 
 
-                }
-            });
-        });
-    });
-</script>
-<script>
-    function fileValidation() {
-        var fileInput = document.getElementById('file-7');
-        var fileSize = (fileInput.files[0].size / 1024 / 1024).toFixed(2);
-        if (fileSize > 2) {
-            // alert("File size must be less than 5 MB.");
-            toastr.error("File size must be less than 2 MB.")
-            toastr.options = {
-                'closeButton': true,
-                'progressBar': true,
-            }
-            fileInput.value = '';
-            return false;
-        }
-    }
-</script>
+                {{-- end --}}
+
+                <!---footer start-->
+                <script>
+                    $(document).ready(function() {
+                        if ($(window).width() >= 1024) {
+                            $('#fullpage').fullpage({
+                                anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', '5thPage', '6thPage',
+                                    '7thPage', '8thPage'
+                                ],
+                                //sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C', '#C63D0F'],
+                                navigation: true,
+                                navigationPosition: 'right',
+                                navigationTooltips: ['', '', '', '', '', '', '']
+                            });
+                        }
+                    });
+
+                    //script for arrow scroll
+                    $("#previousPage").click(function(e) {
+                        e.preventDefault();
+                        $.fn.fullpage.moveSectionUp();
+                    });
+                    $("#nextPage").click(function(e) {
+                        e.preventDefault();
+                        $.fn.fullpage.moveSectionDown();
+                    });
+                </script>
+
+                <script>
+                    $(document).ready(function() {
+                        if ($(window).width() >= 1001) {
+                            $('.scroll-pane').jScrollPane({
+                                autoReinitialise: true
+                            });
+                        }
+                    });
+                </script>
+                <script>
+                    $(window).scroll(function() {
+                        if ($(window).width() <= 1023) {
+                            if ($(this).scrollTop() > 200) {
+                                $('.headerblk').addClass('bgcolchange');
+                            } else {
+                                $('.headerblk').removeClass('bgcolchange');
+                            }
+                        }
+                    });
+                </script>
+                <!-- DESKTOP MENU JS SATRT -->
+                <script>
+                    $(document).ready(function() {
+                        if ($(window).width() >= 1024) {
+                            $('#menublk').click(function() {
+                                //alert();
+                                $('.navigation').addClass('navigationopen')
+                            });
+
+                            $('.closeicon').click(function() {
+                                //alert();
+                                $('.navigation').removeClass('navigationopen')
+                            });
+                        }
+                    });
+                </script>
+                <!-- DESKTOP MENU JS SATRT -->
+
+                <script>
+                    $(function() {
+                        if ($(window).width() <= 1023) {
+                            $("nav#menu").mmenu({
+                                offCanvas: {
+                                    position: "right",
+                                    zposition: "back",
+                                    moveBackground: "true",
+                                },
+                                navbars: [{
+                                    position: 'top',
+                                    content: [
+                                        'prev',
+                                        'title',
+                                        'close'
+                                    ]
+                                }, ]
+                            });
+                        }
+                    });
+                </script>
+
+                <script>
+                    $(window).load(function() {
+                        $("#preloader").delay(1000).fadeOut("slow");
+                    });
+                    $(document).ready(function() {
+                        setTimeout(function() {
+                            $('body').removeClass("overflow-hidden");
+                        }, 1000);
+                    });
+                </script>
 
 
-{{-- end --}}
+                <a href="#" class="back-to-top">Back to Top</a>
 
-<!---footer start-->
-<script>
-    $(document).ready(function() {
-        if ($(window).width() >= 1024) {
-            $('#fullpage').fullpage({
-                anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', '5thPage', '6thPage',
-                    '7thPage', '8thPage'
-                ],
-                //sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C', '#C63D0F'],
-                navigation: true,
-                navigationPosition: 'right',
-                navigationTooltips: ['', '', '', '', '', '', '']
-            });
-        }
-    });
+                <script>
+                    $(document).ready(function() {
+                        $(window).scroll(function() {
+                            if ($(this).scrollTop() > 200) {
+                                $('.back-to-top').fadeIn();
+                            } else {
+                                $('.back-to-top').fadeOut();
+                            }
+                        });
 
-    //script for arrow scroll
-    $("#previousPage").click(function(e) {
-        e.preventDefault();
-        $.fn.fullpage.moveSectionUp();
-    });
-    $("#nextPage").click(function(e) {
-        e.preventDefault();
-        $.fn.fullpage.moveSectionDown();
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        if ($(window).width() >= 1001) {
-            $('.scroll-pane').jScrollPane({
-                autoReinitialise: true
-            });
-        }
-    });
-</script>
-<script>
-    $(window).scroll(function() {
-        if ($(window).width() <= 1023) {
-            if ($(this).scrollTop() > 200) {
-                $('.headerblk').addClass('bgcolchange');
-            } else {
-                $('.headerblk').removeClass('bgcolchange');
-            }
-        }
-    });
-</script>
-<!-- DESKTOP MENU JS SATRT -->
-<script>
-    $(document).ready(function() {
-        if ($(window).width() >= 1024) {
-            $('#menublk').click(function() {
-                //alert();
-                $('.navigation').addClass('navigationopen')
-            });
-
-            $('.closeicon').click(function() {
-                //alert();
-                $('.navigation').removeClass('navigationopen')
-            });
-        }
-    });
-</script>
-<!-- DESKTOP MENU JS SATRT -->
-
-<script>
-    $(function() {
-        if ($(window).width() <= 1023) {
-            $("nav#menu").mmenu({
-                offCanvas: {
-                    position: "right",
-                    zposition: "back",
-                    moveBackground: "true",
-                },
-                navbars: [{
-                    position: 'top',
-                    content: [
-                        'prev',
-                        'title',
-                        'close'
-                    ]
-                }, ]
-            });
-        }
-    });
-</script>
-
-<script>
-    $(window).load(function() {
-        $("#preloader").delay(1000).fadeOut("slow");
-    });
-    $(document).ready(function() {
-        setTimeout(function() {
-            $('body').removeClass("overflow-hidden");
-        }, 1000);
-    });
-</script>
-
-
-<a href="#" class="back-to-top">Back to Top</a>
-
-<script>
-    $(document).ready(function() {
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 200) {
-                $('.back-to-top').fadeIn();
-            } else {
-                $('.back-to-top').fadeOut();
-            }
-        });
-
-        $('.back-to-top').click(function() {
-            $("html, body").animate({
-                scrollTop: 0
-            }, 1000);
-            return false;
-        });
-    });
-</script> <!---footer end-->
+                        $('.back-to-top').click(function() {
+                            $("html, body").animate({
+                                scrollTop: 0
+                            }, 1000);
+                            return false;
+                        });
+                    });
+                </script> <!---footer end-->
                 <script>
                     $(document).ready(function() {
                         //script for arrow scroll
@@ -382,17 +384,18 @@
                             $(this).prev('.placholder').addClass('up-place');
                         });
 
-                        $('.inputclick').focusout(function() {
-                            $(this).prev('.placholder').removeClass('up-place');
-                        });
+                        // $('.inputclick').focusout(function() {
+                        //     $(this).prev('.placholder').removeClass('up-place');
+                        // });
 
                         $(".inputclick").blur(function() {
-                            if ($(this).val() >= '1') {
-                                $(this).prev('.placholder').hide();
-                            } else {
-                                $(this).prev('.placholder').show();
-                            }
-                        });
+                            // if ($(this).val() >= '1') {
+                            //     $(this).prev('.placholder').hide();
+                            // } else {
+                            //     $(this).prev('.placholder').show();
+                            // }
+                            $(this).prev('.placholder').show();
+                         });
                     });
                     /*SCRIPT FOR INPUT TYPE START*/
                 </script>

@@ -11,7 +11,8 @@ class ContactUs extends Model
     use HasFactory;
     // use SoftDeletes;
     protected $table = 'contacts';
-    protected $fillable = ['name', 'email', 'position', 'phone', 'applicantPdf', 'deleted_at'];
+    protected $fillable = ['name', 'email', 'position', 'phone', 'applicantPdf', 'deleted_at', 'allservice', 'requirement'];
+
     public function avaDocs()
     {
         return $this->hasOne(AvaDocs::class, 'contact_id', 'id');

@@ -56,8 +56,10 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Contact No.</th>
-                                            <th>Job Position</th>
-                                            <th>Applicant CV</th>
+                                            <th>Service</th>
+                                            <th>Requirement</th>
+                                            {{-- <th>Job Position</th> --}}
+                                            {{-- <th>Applicant CV</th> --}}
                                             @can('delete-contactus-lead')
                                                 <th>Action</th>
                                             @endcan
@@ -72,11 +74,13 @@
                                                 <td>{{ $data->name }}</td>
                                                 <td>{{ $data->email }}</td>
                                                 <td>{{ $data->phone }}</td>
-                                                <td>{{ $data->position }}</td>
                                                 <td>
-                                                    <a href="{{ asset($data->avaDocs->path) }}" download>Download
-                                                        PDF</a>
+                                                    {{-- <a href="{{ asset($data->avaDocs->path) }}" download>Download
+                                                        PDF</a> --}}
+                                                    {{ $data->service }}
                                                 </td>
+                                                <td>{{ $data->requirement }}</td>
+
                                                 @can('delete-contactus-lead')
                                                     <td>
                                                         <div class="d-flex">
