@@ -74,6 +74,19 @@
                             strategic supply chain partner and provide customized solutions of highest standard to
                             our customers.
                         </div>
+                       <div class="third-box">
+                       <div>
+                            <img class="belief-icon" src="{{ asset('images/about/handshake.png') }}" alt="">
+                        </div>
+                        <div class="misson-blk-abt-head">
+                        Our Belief
+                        </div>
+                        <div class="misson-blk-abt-content">
+                                We believe in power of networking & creating a positive sum game for all stakeholders
+                               across the eco-system.
+
+                        </div>
+                       </div>
                     </div>
                     <div class="misson-blk-abt">
                         <div>
@@ -86,26 +99,10 @@
                             To become a leading logistics service provider by ensuring highest ethical standards and
                             delivering exceptional value to our clients, staff and community.
                         </div>
+                        
                     </div>
                     </div>
                     <!-- <div class="clear"></div> -->
-                    <div class="about-firts-text">
-                    <div class="four-text">
-                        <div>
-                            <img class="belief-icon" src="{{ asset('images/about/handshake.png') }}" alt="">
-                        </div>
-                        <div class="misson-blk-abt-head">
-                        Our Belief
-                        </div>
-                        <div class="misson-blk-abt-content">
-                        We believe in power of networking & creating a positive sum game for all stakeholders
-                               across the eco-system.
-
-                        </div>
-                        
-                    </div>
-                    
-                 </div>
                  <div class="greyoverlaybig"></div>
                         <div class="greyoverlaysml"></div>
                 
