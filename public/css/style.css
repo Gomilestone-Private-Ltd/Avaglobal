@@ -2034,18 +2034,18 @@ video.logo-video {
     background: #4e7ac7;
 }
 .freightcontentblk.airfrightcontblk {
-    background: url("/images/service-detail/air-img.png") no-repeat 54.5%
+    background: url("/images/service-detail/air-imag.png") no-repeat 54.5%
         center;
-    /* background-size: cover; */
+    background-size: cover;
 }
 .freightcontentblk.custcontblk {
-    background: url("/images/service-detail/customeimg.png") no-repeat
+    background: url("/images/service-detail/custom-new.png") no-repeat
         54.5% center;
-    /* background-size: cover; */
+    background-size: cover;
 }
 .freightcontentblk.wearhousecontblk {
-    background: url("/images/service-detail/warehouse.png") no-repeat 50% center;
-    /* background-size: cover; */
+    background: url("/images/service-detail/warehouse-1.png") no-repeat 54% center;
+    background-size: cover;
 }
 .freightcontentblk.wearhoscontblk {
     background: url("/images/service-detail/trucking-serdet.jpg") no-repeat 50%
@@ -2055,15 +2055,15 @@ video.logo-video {
 .freightcontentblk.insurancecontblk {
     background: url("/images/service-detail/insurance.png") no-repeat 54%
         center;
-    /* background-size: cover; */
+    background-size: cover;
 }
 .freightcontentblk.shippingcontblk {
-    background: url("/images/service-detail/forwarding.png") no-repeat 54%
+    background: url("/images/service-detail/forwarding-1.png") no-repeat 54%
         center;
-    /* background-size: cover; */
+    background-size: cover;
 }
 .freightcontentblk.rail-freight {
-    background: url("/images/service-detail/rail.png") no-repeat 54%
+    background: url("/images/service-detail/rail-new.png") no-repeat 54%
         center;
     background-size: cover;
 }
