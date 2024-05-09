@@ -261,7 +261,7 @@
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/air-image.png') }}" alt=""
+                                    <img src="{{ asset('/images/services/air-view.png') }}" alt=""
                                         class="img-desktop" />
                                     <img src="{{ asset('/images/services/airbg-resp.jpg') }}" alt=""
                                         class="img-responsive" />

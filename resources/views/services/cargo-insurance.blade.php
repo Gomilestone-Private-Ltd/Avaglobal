@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class="section servdet3sld" id="section2">
+        <!-- <div class="section servdet3sld" id="section2">
             <div class="">
                 <div class="servicelefttxtblk servdet3sldcont">
                     <div class="wrapper">
@@ -70,6 +70,8 @@
                 <div class="servicesmobimg">
                     <img src="https://www.avaglobal.in/images/services/insurancebg-resp.jpg" alt="" />
                 </div>
+                </div>
+        </div> -->
                 <!---footer start-->
                 <script>
                     $(document).ready(function() {
@@ -186,7 +188,7 @@
                         });
                     });
                 </script> <!---footer end-->
-            </div>
+           
 <script>
     //script for arrow scroll
     $("#previousPage").click(function(e) {
