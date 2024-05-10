@@ -687,6 +687,9 @@ h1.itum-heading {
     .header-menu {
         display: none;
     }
+    .logo-video {
+        display: none;
+    }
 }
 @media screen and (max-width: 1120px) {
     .twentytxt .experiencetxt {
@@ -1807,7 +1810,7 @@ h1.itum-heading {
     .oversldimgtxt {
         width: 260px;
         text-align: center;
-        top: 20%;
+        top: 25%;
     }
     .overvwttl {
         font-size: 22px;
@@ -1818,7 +1821,7 @@ h1.itum-heading {
     .overviewblk a {
         font-size: 14px;
         padding: 10px;
-        line-height: 30px;
+        line-height: 0px;
     }
     .overviewblk a:first-child {
         padding: 10px 10px 10px 0;
@@ -2002,6 +2005,18 @@ h1.itum-heading {
     .vidbuttons {
         margin-top: 44px;
     }
+    .counter-box-inner {
+        margin-bottom: 20px !important;
+    }
+    .counter-b1 h3 {
+        font-size: 32px !important;
+    }
+    .counter-b2 h3 {
+        font-size: 32px !important;
+    }
+    .counter-b3 h3 {
+        font-size: 32px !important;
+    }
 
 }
 
@@ -2038,6 +2053,7 @@ h1.itum-heading {
     .thankupageblk {
         padding: 70px 0;
     }
+    
 }
 @media screen and (max-width: 479px) {
     .welcm-ava {
@@ -2048,6 +2064,7 @@ h1.itum-heading {
     }
     .videoblk .avanameblk {
         width: 100%;
+        padding-top: 5px;
     }
     .logistic-solution {
         font-size: 12px;
@@ -2198,11 +2215,17 @@ h1.itum-heading {
         width: 100%;
     }
     .counter-box {
-        position: unset !important;
         width: 100% !important;
     }
     .overviewtxtblk {
         top: 0 !important;
+        margin-top: 0px;
+    }
+    .overviewtxtblk {
+        padding-bottom: 0px;
+    }
+    .counter-box {
+        top: 440px !important;
     }
 }
 @media screen and (max-width: 360px) {
@@ -2228,7 +2251,7 @@ h1.itum-heading {
         font-size: 13px;
     }
     .oversldimgtxt {
-        top: 10%;
+        top: 25%;
         width: 200px;
     }
     .product-name {
