@@ -428,7 +428,7 @@ h1.itum-heading {
     margin-top: 0px;
 }
 .branch-text {
-    margin-top: 0px;
+    margin-top: 20px;
 }
 .list-fright {
     margin: 10px;
@@ -445,8 +445,9 @@ h1.itum-heading {
     font-size: 16px !important;
 }
 .branch-sub-text {
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 5px;
 }
 .lead-form {
     position: absolute;

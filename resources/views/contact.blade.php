@@ -66,7 +66,9 @@
 
                         <a href="https://maps.app.goo.gl/K7wXxm4WnoUixDEj8" target="_blank">
                             <div class="knowmore directiontxt uppercase">view direction
-                                <div class="sprite knwmorearw knwmorewharw "></div>
+                                <div>
+                                    <img class="more-right" src="{{asset('images/arrow-right.png')}}" alt="">
+                                </div>
                             </div>
                         </a>
                         <div class="branch-box">

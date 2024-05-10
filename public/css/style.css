@@ -677,6 +677,14 @@ video.logo-video {
     margin-left: 15px;
     transition: 3s ease-in-out;
 }
+.sprite.knwmorearwblk {
+    background: url("/images/arrow-right.png") no-repeat -123px -4px !important;
+    width: 45px;
+    height: 11px;
+    display: inline-block;
+    margin-left: 15px;
+    transition: 3s ease-in-out;
+}
 .overviewimgblk {
     width: 49%;
     display: inline-block;
@@ -1187,6 +1195,9 @@ video.logo-video {
     background: url("/images/sprite.png") no-repeat -176px -4px;
     width: 45px;
     height: 11px;
+}
+.more-right {
+    height: 55px;
 }
 .airbgblk {
     background: url("/images/services/airbg.jpg") no-repeat center;
@@ -3670,4 +3681,13 @@ select.drop-down {
 }
 .third-box {
     padding-top: 25%;
+}
+.knowmore.directiontxt.uppercase {
+    display: flex;
+    align-items: center;
+}
+.more-right {
+    height: 10px;
+    width: 40px;
+    margin-left: 10px;
 }
