@@ -53,17 +53,17 @@ class AdminController extends Controller
         $CaseStudy = CaseStudy::count();
         $Applicant = Applicant::count();
         $contactUsCounts = ContactUs::count();
-        return view('admin.index', ['jobCount' => $activeJobCounts, 'CaseStudy' => $CaseStudy, 'Applicant' => $Applicant, 'contactUsCounts' => $contactUsCounts]);
+        return view('admin.dashboard.index', ['jobCount' => $activeJobCounts, 'CaseStudy' => $CaseStudy, 'Applicant' => $Applicant, 'contactUsCounts' => $contactUsCounts]);
     }
     // job_openings functions
     public function openJob()
     {
         $jobPost = Job::orderBy('id', 'DESC')->get();
-        return view('admin.jobOpenings')->with('jobPost', $jobPost);
+        return view('admin.career.jobOpenings')->with('jobPost', $jobPost);
     }
     public function addJobs()
     {
-        return view('admin.addJobs');
+        return view('admin.career.addJobs');
     }
     public function editCareerJob($id)
     {
@@ -72,7 +72,7 @@ class AdminController extends Controller
         // dd($id);
         $jobData = Job::where('id', $jobId)->first();
         // dd($jobData);
-        return view('admin.addJobs')->with('jobData', $jobData);
+        return view('admin.career.editJobs')->with('jobData', $jobData);
     }
     public function postJob(Request $request)
     {
@@ -129,7 +129,7 @@ class AdminController extends Controller
         );
 
 
-        return response()->json(['success' => true, 'message' => 'Job Data posted Successfully']);
+        return response()->json(['success' => true, 'message' => 'Data saved successfully', 'route' => route('opened-job')]);
     }
     public function getJobs()
     {
@@ -155,7 +155,6 @@ class AdminController extends Controller
         if (!$data) {
             return response()->json(['message' => 'There is no Case found in record', 404]);
         }
-
         $data->delete();
 
         return response()->json(['success' => true, 'message' => 'Data got deleted successfully']);
@@ -167,25 +166,25 @@ class AdminController extends Controller
     {
         $combinedData = CaseStudy::with('avaDocs')->orderBy('id', 'DESC')->get();
 
-        return view('admin.caseStudyData')->with('combinedData', $combinedData);
+        return view('admin.casestudy.caseStudyData')->with('combinedData', $combinedData);
     }
     public function addCase()
     {
-        return view('admin.case-section');
+        return view('admin.casestudy.case-section');
     }
     public function editCaseStudy($id)
     {
         $caseId = $id;
         $data = CaseStudy::with('avaDocs')->where('id', $caseId)->first();
-        return view('admin.editCaseSection')->with('data', $data);
+        return view('admin.casestudy.editCaseSection')->with('data', $data);
     }
     public function caseStore(Request $request)
     {
         //made description as tinymce because i made id and name in blade file same
-        $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'tinymce');
+        $requestData = $request->only('casetitle', 'postedby', 'caseimage', 'tinymce');
 
         $rule = [
-            'case' => 'required|string|max:30',
+            // 'case' => 'required|string|max:30',
             'casetitle' => 'required|string|max:150',
             'postedby' => 'required|string|max:150',
             'caseimage' => 'required|array|max:5',
@@ -193,7 +192,7 @@ class AdminController extends Controller
             'tinymce' => 'required',
         ];
         $message = [
-            'case.required' => "Please fill the case name",
+            // 'case.required' => "Please fill the case name",
             'casetitle.required' => 'Please fill the case title',
             'postedby.required' => 'Please fill the company name',
             'caseimage.required' => 'Please select case image',
@@ -209,14 +208,14 @@ class AdminController extends Controller
         }
         // dd("hii");
         //addSlug here
-        $slug = str_replace(" ", "-", strtolower($request['case']));
+        $slug = str_replace(" ", "-", strtolower($request['casetitle']));
         $caseSlug = CaseStudy::whereNotNull('slug')->pluck('slug')->toArray();
         $checkSlug = in_array($slug, $caseSlug);
         $slug = $checkSlug == true ? $slug . '-' . count($caseSlug) + 1 : $slug;
         //   -----------------------------------------------------------
 
         $caseStudy = new CaseStudy;
-        $caseStudy->case = $request['case'];
+        // $caseStudy->case = $request['case'] ? '';
         $caseStudy->slug = $slug;
         $caseStudy->case_title = $request['casetitle'];
         $caseStudy->description = $request['tinymce'];
@@ -283,31 +282,37 @@ class AdminController extends Controller
     {
         $applicantData = Applicant::orderBy('id', 'DESC')->with('avaDocs')->get();
 
-        return view('admin.applicantsData')->with('applicantData', $applicantData);
+        return view('admin.applicant.applicantsData')->with('applicantData', $applicantData);
     }
     public function contactApplicants()
     {
         $contactUsData = ContactUs::orderBy('id', 'DESC')->with('avaDocs')->get();
-        return view('admin.contactUsData')->with('contactUsData', $contactUsData);
+        return view('admin.contactUs.contactUsData')->with('contactUsData', $contactUsData);
     }
     public function postContactApplicants(Request $request)
     {
-        $requestData = $request->only('name', 'email', 'phone', 'position', 'applicantPdf');
+
+        $requestData = $request->only('name', 'email', 'phone', 'position', 'applicantPdf', 'allservice', 'requirement');
         $rule = [
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|regex:/^[0-9]{10}$/',
-            'position' => 'required',
-            'applicantPdf' => 'required|mimes:pdf|max:5000'
+            'phone' => 'required|regex:/^[0-9]{10}$/|starts_with:6,7,8,9',
+            'position' => 'nullable',
+            'applicantPdf' => 'nullable|mimes:pdf|max:5000',
+            'allservice' => 'required',
+            'requirement' => 'required'
         ];
         $message = [
             'name.required' => "Please fill your name",
             'email.required' => 'Please give your email',
             'phone.required' => 'Please give your phone number',
             'position.required' => 'Please fill the position applying for:',
+            'reuirement.required' => 'Please fill the reuirment:',
             'applicantPdf.mimes' => 'file extension must be of type .pdf',
             'applicantPdf.required' => 'Please put your CV here',
             'applicantPdf.max' => 'Pdf file must be less than 5mb',
+            'allservice.required' => 'Please select one of the services',
+            'requirement.required' => 'Please give your requirement'
         ];
         $validate = Validator::make($requestData, $rule, $message);
         if ($validate->fails()) {
@@ -317,37 +322,39 @@ class AdminController extends Controller
         $contactApplicants = new ContactUs;
         $contactApplicants->name = $request['name'];
         $contactApplicants->email = $request['email'];
-        $contactApplicants->position = $request['position'];
+        $contactApplicants->position = $request['position'] ?? null;
         $contactApplicants->phone = $request['phone'];
+        $contactApplicants->service = $request['allservice'];
+        $contactApplicants->requirement = $request['requirement'];
         $contactApplicants->save();
-        $contact_id = $contactApplicants->id;
+        // $contact_id = $contactApplicants->id;
 
-        if ($request->hasFile('applicantPdf')) {
-            $files = $request->file('applicantPdf');
-            if (is_array($files)) {
-                foreach ($files as $file) {
-                    $data = $this->customFileUpload($file);
-                    $avaDocs = new AvaDocs;
-                    $avaDocs->contact_id = $contact_id;
-                    $avaDocs->filename = $data['filename'];
-                    $avaDocs->filetype = $data['fileType'];
-                    $avaDocs->filesize = $data['fileSize'];
-                    $avaDocs->path = $data['actualImagePath'];
-                    $avaDocs->save();
-                }
-            } else {
-                $data = $this->customFileUpload($files);
-                $avaDocs = new AvaDocs;
-                $avaDocs->contact_id = $contact_id;
-                $avaDocs->filename = $data['filename'];
-                $avaDocs->filetype = $data['fileType'];
-                $avaDocs->filesize = $data['fileSize'];
-                $avaDocs->path = $data['actualImagePath'];
-                $avaDocs->save();
-            }
-        }
+        // if ($request->hasFile('applicantPdf')) {
+        //     $files = $request->file('applicantPdf');
+        //     if (is_array($files)) {
+        //         foreach ($files as $file) {
+        //             $data = $this->customFileUpload($file);
+        //             $avaDocs = new AvaDocs;
+        //             $avaDocs->contact_id = $contact_id;
+        //             $avaDocs->filename = $data['filename'];
+        //             $avaDocs->filetype = $data['fileType'];
+        //             $avaDocs->filesize = $data['fileSize'];
+        //             $avaDocs->path = $data['actualImagePath'];
+        //             $avaDocs->save();
+        //         }
+        //     } else {
+        //         $data = $this->customFileUpload($files);
+        //         $avaDocs = new AvaDocs;
+        //         $avaDocs->contact_id = $contact_id;
+        //         $avaDocs->filename = $data['filename'];
+        //         $avaDocs->filetype = $data['fileType'];
+        //         $avaDocs->filesize = $data['fileSize'];
+        //         $avaDocs->path = $data['actualImagePath'];
+        //         $avaDocs->save();
+        //     }
+        // }
 
-        return response()->json(['success' => true, 'message' => 'You have Successfully applied for this job']);
+        return response()->json(['success' => true, 'message' => 'Thanks for Contacting Us']);
     }
     public function postApplicants(Request $request)
     {
@@ -355,8 +362,8 @@ class AdminController extends Controller
         $rule = [
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|regex:/^[0-9]{10}$/',
-            'position' => 'required',
+            'phone' => 'required|regex:/^[0-9]{10}$/|starts_with:6,7,8,9',
+            'position' => 'nullable',
             'applicantPdf' => 'required|mimes:pdf|max:2048'
         ];
         $message = [
@@ -394,6 +401,7 @@ class AdminController extends Controller
         $jobApplicant->position = $request['position'];
         $jobApplicant->phone = $request['phone'];
         $jobApplicant->save();
+
         $appliacnt_id = $jobApplicant->id;
         $avaDocs = new AvaDocs;
         $avaDocs->applicant_id = $appliacnt_id;
@@ -422,15 +430,15 @@ class AdminController extends Controller
     {
         $data = ContactUs::find($id);
         if (!$data) {
-            return response()->json(['message' => 'There is no Applicant found in record', 404]);
+            return response()->json(['message' => 'There is no Lead found in record', 404]);
         }
         $data->delete();
-        $dataDocs = AvaDocs::where('contact_id', $id)->first();
-        if (!empty($dataDocs->path)) {
-            $this->deleteFile($dataDocs->filename);
-        }
-        $dataDocs->delete();
-        return response()->json(['success' => true, 'message' => 'Applicant Data got deleted successfully']);
+        // $dataDocs = AvaDocs::where('contact_id', $id)->first();
+        // if (!empty($dataDocs->path)) {
+        //     $this->deleteFile($dataDocs->filename);
+        // }
+        // $dataDocs->delete();
+        return response()->json(['success' => true, 'message' => 'Lead get deleted successfully']);
     }
     public function editDescription($id)
     {
@@ -460,12 +468,12 @@ class AdminController extends Controller
     }
     public function getBrochure()
     {
-        $brochure = Brochure::with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])->get();
-        return view('admin.brochureData')->with('brochure', $brochure);
+        $brochure = Brochure::with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])->orderBy('id', 'DESC')->get();
+        return view('admin.popup.brochureData')->with('brochure', $brochure);
     }
     public function brochureForms()
     {
-        return view('admin.brochureForm');
+        return view('admin.popup.brochureForm');
     }
 
     public function postBrochure(Request $request)
@@ -523,7 +531,7 @@ class AdminController extends Controller
     public function getBrochureEdit($id)
     {
         $brochure = Brochure::with(['avaDocsPopUpImage', 'avaDocsBrochureFiles'])->where('id', $id)->first();
-        return view('admin.editBrochureForm')->with('brochure', $brochure);
+        return view('admin.popup.editBrochureForm')->with('brochure', $brochure);
     }
     public function postEditBrochure(Request $request)
     {
@@ -627,11 +635,11 @@ class AdminController extends Controller
     {
         $circularData = AvaDocs::orderBy('circular_id', 'DESC')->whereNotNull('circular_id')->get();
 
-        return view('admin.circularData')->with('circularData', $circularData);
+        return view('admin.circular.circularData')->with('circularData', $circularData);
     }
     public function getAddCircularForm()
     {
-        return view('admin.addCircularForm');
+        return view('admin.circular.addCircularForm');
     }
     public function storeCircular(Request $request)
     {
@@ -690,7 +698,7 @@ class AdminController extends Controller
     {
         $data =  AvaDocs::where('id', $id)->first();
 
-        return view('admin.editCircularForm')->with('data', $data);
+        return view('admin.circular.editCircularForm')->with('data', $data);
     }
     public function editStoreCircular(Request $request)
     {
@@ -757,11 +765,11 @@ class AdminController extends Controller
     public function policyData()
     {
         $policyData = AvaDocs::orderBy('policy_id', 'DESC')->whereNotNull('policy_id')->get();
-        return view('admin.getPolicyData')->with('policyData', $policyData);
+        return view('admin.policy.getPolicyData')->with('policyData', $policyData);
     }
     public function getAddPagePolicy()
     {
-        return view('admin.addPolicyPage');
+        return view('admin.policy.addPolicyPage');
     }
     public function deletePolicy($id)
     {
@@ -822,7 +830,7 @@ class AdminController extends Controller
     {
         $data =  AvaDocs::where('id', $id)->first();
 
-        return view('admin.editPolicyForm')->with('data', $data);
+        return view('admin.policy.editPolicyForm')->with('data', $data);
     }
     public function storePolicyEdit(Request $request)
     {
@@ -885,14 +893,14 @@ class AdminController extends Controller
 
     public function ScrollerData()
     {
-        $data = Marque::get();
-        return view('admin.scrollerData')->with('data', $data);
+        $data = Marque::orderBy('id', 'DESC')->get();
+        return view('admin.marque.scrollerData')->with('data', $data);
     }
 
     public function marqueAddForm()
     {
 
-        return view('admin.marqueForm');
+        return view('admin.marque.marqueForm');
     }
     public function postMarque(Request $request)
     {
@@ -943,7 +951,7 @@ class AdminController extends Controller
     public function editMarquePage($id)
     {
         $data = Marque::where('id', $id)->first();
-        return view('admin.marqueEditPage')->with('data', $data);
+        return view('admin.marque.marqueEditPage')->with('data', $data);
     }
     public function postEditMarque(Request $request)
     {
@@ -970,12 +978,12 @@ class AdminController extends Controller
     public function eventBrochureData()
     {
         $BrochureData = AvaDocs::orderBy('downloadBrochureId', 'DESC')->whereNotNull('downloadBrochureId')->get();
-        return view('admin.eventBrochure')->with('BrochureData', $BrochureData);
+        return view('admin.brochure.eventBrochure')->with('BrochureData', $BrochureData);
     }
 
     public function addDownloadBrochure()
     {
-        return view('admin.brochureAddPage');
+        return view('admin.brochure.brochureAddPage');
     }
     public function storeDownloadBrochure(Request $request)
     {
@@ -1044,7 +1052,7 @@ class AdminController extends Controller
     {
         $data =  AvaDocs::where('downloadBrochureId', $id)->first();
 
-        return view('admin.editDownloadBrochureForm')->with('data', $data);
+        return view('admin.brochure.editDownloadBrochureForm')->with('data', $data);
     }
     public function editStoreDownloadBrochure(Request $request)
     {
@@ -1090,10 +1098,10 @@ class AdminController extends Controller
     {
         $newCount = 0;
         $caseId = $request->id;
-        $requestData = $request->only('case', 'casetitle', 'postedby', 'caseimage', 'tinymce');
+        $requestData = $request->only('casetitle', 'postedby', 'caseimage', 'tinymce');
 
         $rule = [
-            'case' => 'required|string|max:30',
+            // 'case' => 'required|string|max:30',
             'casetitle' => 'required|string|max:150',
             'postedby' => 'required|string|max:150',
             'caseimage' => 'array|max:5',
@@ -1101,7 +1109,7 @@ class AdminController extends Controller
             'tinymce' => 'required',
         ];
         $message = [
-            'case.required' => "please fill the case name !!",
+            // 'case.required' => "please fill the case name !!",
             'casetitle.required' => 'Please fill the case title',
             'postedby.required' => 'Please fill the company name',
             'caseimage.required' => 'Please select case image',
@@ -1155,7 +1163,7 @@ class AdminController extends Controller
 
     public function onlineCoverage()
     {
-        $records = Media::select('id', 'status', 'description', 'title', 'online_image_id', 'location', 'media_url', 'created_at')->whereNotNull('media_url')->orderBy('id', 'DESC')->with('onlineDocsImage')->get();
+        $records = Media::select('id', 'status', 'description', 'title', 'online_image_id', 'media_url')->whereNotNull('media_url')->orderBy('id', 'DESC')->with('onlineDocsImage')->get();
         return view('admin.media.online.onlineCoverage', ['mediaRecord' => $records]);
     }
 
@@ -1168,9 +1176,9 @@ class AdminController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'title' => 'required|string|max:100',
-            'location' => 'required|string|max:50',
+            // 'location' => 'required|string|max:50',
             'mediaUrl' => 'required|url',
-            'onlineMediaImage' => 'required|mimes:jpeg,jpg,png|max:2000',
+            'onlineMediaImage' => 'required|mimes:jpeg,jpg,png|max:2048',
             'description' => 'required|string|max:150',
         ]);
         if ($validate->fails()) {
@@ -1189,7 +1197,7 @@ class AdminController extends Controller
         if ($fileSaveResponse) {
             $saveRecords = [
                 'title' => $request->title,
-                'location' => $request->location,
+                // 'location' => $request->location,
                 'online_image_id' => $fileSaveResponse['id'],
                 'media_url' => $request->mediaUrl,
                 'description' => $request->description
@@ -1211,7 +1219,7 @@ class AdminController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'title' => 'required|string|max:100',
-            'location' => 'required|string|max:50',
+            // 'location' => 'required|string|max:50',
             'onlineMediaImage' => 'mimes:png,jpg,jpeg|max:2000',
             'mediaUrl' => 'required|url',
             'description' => 'required|string|max:150',
@@ -1238,7 +1246,7 @@ class AdminController extends Controller
             }
         }
         $mediaPrintRecords->title = $request->title;
-        $mediaPrintRecords->location = $request->location;
+        // $mediaPrintRecords->location = $request->location;
         $mediaPrintRecords->media_url = $request->mediaUrl;
         $mediaPrintRecords->description = $request->description;
         $mediaPrintRecords->save();
@@ -1258,7 +1266,7 @@ class AdminController extends Controller
     //print Coverage
     public function printCoverage()
     {
-        $records = Media::select('id', 'title', 'location', 'print_image_id', 'pdf_file_id', 'status', 'created_at')->whereNotNull('pdf_file_id')->with(['avaDocs', 'printDocsImage'])->orderBy('id', 'DESC')->get();
+        $records = Media::select('id', 'title', 'print_image_id', 'pdf_file_id', 'status')->whereNotNull('pdf_file_id')->with(['avaDocs', 'printDocsImage'])->orderBy('id', 'DESC')->get();
         return view('admin.media.print.printCoverage', ['mediaRecord' => $records]);
     }
 
@@ -1271,7 +1279,7 @@ class AdminController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'title' => 'required|string|max:100',
-            'location' => 'required|string|max:50',
+            // 'location' => 'required|string|max:50',
             'printMediaImage' => 'required|mimes:png,jpg,jpeg|max:2000',
             'printMediaFile' => 'required|mimes:pdf|max:5000',
         ]);
@@ -1305,7 +1313,7 @@ class AdminController extends Controller
         if ($fileSaveImageResponse && $fileSavePdfResponse) {
             $saveRecords = [
                 'title' => $request->title,
-                'location' => $request->location,
+                // 'location' => $request->location,
                 'print_image_id' => $fileSaveImageResponse->id,
                 'pdf_file_id' => $fileSavePdfResponse->id,
             ];
@@ -1326,7 +1334,7 @@ class AdminController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'title' => 'nullable|string|max:100',
-            'location' => 'nullable|string|max:50',
+            // 'location' => 'nullable|string|max:50',
             'printMediaImage' => 'nullable|mimes:png,jpg,jpeg|max:2000',
             'printMediaFile' => 'nullable|mimes:pdf|max:5000',
         ]);
@@ -1365,7 +1373,7 @@ class AdminController extends Controller
             }
         }
         $mediaPrintRecords->title = $request->title;
-        $mediaPrintRecords->location = $request->location;
+        // $mediaPrintRecords->location = $request->location;
         $mediaPrintRecords->save();
         return redirect()->route('print-coverage')->with('success', 'Records updated sucessfully');
     }

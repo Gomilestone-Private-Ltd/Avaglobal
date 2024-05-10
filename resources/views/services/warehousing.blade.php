@@ -35,13 +35,17 @@
         <div class="section freightcontentparent" id="section1">
             <div class="freightcontentblk wearhousecontblk">
                 <div class="servicelefttxtblk">
-                    <div class="text-width">
-                        <p class="pagetxt">
-                            We offer top-class warehousing facilities to our clients, fulfilling their need for safe storage of goods that are in transit. Our wide range of logistic and packaging services are designed to meet different business needs. We possess a wide network of well-equipped warehouses throughout the country for quick and easy handling of our clients’ imported and exported goods.
-                        </p>
-                        <p class="pagetxt">
-                            At AVA, we also offer customized services in bonded as well as non-bonded storage. Our well-guarded and spacious warehouses can store anything from small fragile items to large industrial equipment. Each warehouse is equipped with the latest facilities to keep valuables in best condition. Excellent storage facilities ensure protection from accidental damage or theft.
-                        </p>
+                <div class="freight-box">
+                       <h1 class="freight-text">We have exclusive arrangements with CFS/ICD/Free Trade Zones at various strategic locations. </h1>
+                       <p class="freight-para">We support - </p>
+                         <ul class="list-fright">
+                            <li>Open storage, Shed storage, Cold storage</li>
+                            <li>In-bonding and Ex-bonding requirements.</li>
+                            <li>Cross docking</li>
+                            <li>Unitization with stuffing & securing of goods.</li>
+                            
+                         </ul>
+                         
                     </div>
                 </div>
                 <div class="servicenos">
@@ -51,7 +55,7 @@
 
             </div>
         </div>
-        <div class="section servdet3sld" id="section2">
+        <!-- <div class="section servdet3sld" id="section2">
             <div class="">
                 <div class="servicelefttxtblk servdet3sldcont">
                     <div class="wrapper">
@@ -81,8 +85,12 @@
                 <div class="servicesmobimg">
                     <img src="https://www.avaglobal.in/images/services/warehousebg-resp.jpg" alt="" />
                 </div>
-                <!---footer start-->
-                <script>
+              
+            </div>
+        </div> -->
+
+              <!---footer start-->
+              <script>
                     $(document).ready(function() {
                         if ($(window).width() >= 1024) {
                             $('#fullpage').fullpage({
@@ -198,7 +206,6 @@
                         });
                     });
                 </script> <!---footer end-->
-            </div>
 
             <script>
                 //script for arrow scroll

@@ -42,7 +42,7 @@
                                                 <h2 class="cs-title">
                                                     {{ $data->title }}
                                                 </h2>
-                                                <div class="cl-location-box">
+                                                {{-- <div class="cl-location-box">
                                                     <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
                                                             class="location-img">
                                                         <span>{{ $data->location }}</span>
@@ -51,7 +51,7 @@
                                                             class="time-img">
                                                         <span>{{ $data->created_at }}</span>
                                                     </p>
-                                                </div>
+                                                </div> --}}
                                                 <P class="oc-text">{{ $data->description }}</P>
                                                 <a href="{{ $data->media_url }}" target="_blank">
                                                     <div class="knowmore uppercase">Read more
@@ -90,7 +90,7 @@
                                                     {{-- The standard Lorem Ipsum passage, used since the 1500s --}}
                                                     {{ $event->title }}
                                                 </h2>
-                                                <div class="cl-location-box">
+                                                {{-- <div class="cl-location-box">
                                                     <p class="cl-location"><img src="{{ asset('/images/location.png') }}"
                                                             class="location-img">
                                                         <span>{{ $event->location }}</span>
@@ -99,7 +99,7 @@
                                                             class="time-img">
                                                         <span>{{ $event->created_at }}</span>
                                                     </p>
-                                                </div>
+                                                </div> --}}
                                                 {{-- {{route('caseStudyDetail')}} --}}
                                                 <a href="{{ $event->avaDocs->path }}" target="_blank">
                                                     <div class="knowmore uppercase" download>Download Print Coverage

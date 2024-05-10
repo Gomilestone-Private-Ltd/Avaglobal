@@ -302,7 +302,10 @@ p.jr-box span {
             display: flex;
             align-items: flex-start;
             margin-bottom: 20px;
+            align-items: center;
         }
         .carrer-right-text {
             width: 200px;
         }
+
+       

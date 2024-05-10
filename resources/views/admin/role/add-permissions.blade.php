@@ -2,7 +2,8 @@
 @section('content')
 @section('title', 'update permissions')
 @section('header-title', "Role : $role->name")
-<style>
+<link rel="stylesheet" href="{{ asset('css/addPermission.css') }}">
+{{-- <style>
     label {
         color: black;
     }
@@ -76,19 +77,29 @@
         top: 8px;
         padding: 0px;
     }
-</style>
+
+    #checkCss {
+        margin-left: 20px;
+    }
+</style> --}}
 <section class="content">
     <div class="body_scroll">
         <div class="block-header">
             <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="back-btn-box">
+                <div class="col-md-12 col-sm-12">
+                    <div class="back-btn-box ">
                         <a href="{{ route('roles.index') }}" class="back-btn"><img
                                 src="{{ asset('assets/images/back.png') }}" alt="Back" class="back-icon">
                             <h3>Back</h3>
                         </a>
+                        <div class="d-flex">
+                            <button id="selectAllBtn" class="btn btn-primary">Select All</button>
+                            <button id="deselect" class="btn btn-danger ml-2">De-Select</button>
+                        </div>
+
                     </div>
                 </div>
+
                 {{-- <div class="col-md-6">
                     <form action="{{ url('admin/search') }}" method="get">
                         @csrf
@@ -155,7 +166,16 @@
                             <div class="pr-container">
                                 @foreach ($groupedPermissionRecords as $groupName => $permissions)
                                     <div class="grouped-section">
-                                        <h3 class="heading">{{ $groupName }}</h3>
+                                        <div>
+                                            <h3 class="heading">{{ $groupName }}</h3>
+                                            <div class="pr-box">
+                                                <input type="checkbox" class="selectAllCheckbox" id="checkCss"
+                                                    data-group="{{ $groupName }}" />
+                                                <span>Select All</span>
+                                            </div>
+
+                                        </div>
+
                                         @foreach ($permissions as $key => $permission)
                                             <diV class="pr-box">
                                                 <input type="checkbox" name="permissions[]" id="{{ $permission->id }}"
@@ -206,4 +226,58 @@
         $(".from-prevent-multiple-submits").attr("disabled", 'disabled');
     })
 </script>
+
+
+<script>
+    // JavaScript function to check all checkboxes within a specific group
+    function selectGroup(groupName) {
+        var checkboxes = document.querySelectorAll('.pr-container input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.dataset.group === groupName) {
+                checkbox.checked = true;
+            }
+        });
+    }
+
+    // Add event listener to select all checkboxes within a group when the group's select all checkbox is clicked
+    var selectAllCheckboxes = document.querySelectorAll('.selectAllCheckbox');
+    selectAllCheckboxes.forEach(function(selectAllCheckbox) {
+        selectAllCheckbox.addEventListener('change', function() {
+            var groupName = this.dataset.group;
+            var checkboxes = document.querySelectorAll('.pr-container input[type="checkbox"]');
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.parentElement.parentElement.querySelector('.heading').textContent
+                    .trim() === groupName) {
+                    checkbox.checked = selectAllCheckbox.checked;
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    // JavaScript function to check all checkboxes
+    function selectAll() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = true;
+        });
+    }
+
+    // Add event listener to the select all button
+    document.getElementById('selectAllBtn').addEventListener('click', function() {
+        selectAll();
+    });
+
+    function deSelect() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = false;
+        })
+    }
+    document.getElementById('deselect').addEventListener('click', function() {
+        deSelect();
+    })
+</script>
+
 @endsection

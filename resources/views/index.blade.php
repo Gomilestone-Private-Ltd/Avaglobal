@@ -18,8 +18,8 @@
                         <div class="wrapper">
                             <div class="avanameblk fl uppercase">
                                 <div class="avaglname font-bebas">ava global</div>
-                                <h1 class="main-title">Redefining Logistics and Transportation Company</h1>
-                                <h2 class="sub-title">Logistic solutions & supply chain operations</h2>
+                                <h1 class="main-title">Redefining Logistics and Transportation</h1>
+                                <h2 class="sub-title">Logistics Services and Solutions & supply chain operations</h2>
                                 <a href="#secondPage">
                                     <div class="sprite dwnarw"></div>
                                 </a>
@@ -49,7 +49,7 @@
             </div>
             <div class="section" id="section1">
                 <div class="overviewblk pageblock">
-                    <div class="overviewtab">
+                    <!-- <div class="overviewtab">
                         <div id="bx-pager">
                             <div>
                                 <a data-slide-index="0" href="">an overview</a>
@@ -57,7 +57,7 @@
                                 <a data-slide-index="2" href="">our usp</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <ul class="bxslideroverview">
                         <li class="overviewslide">
                             <div class="overviewtxtblk">
@@ -65,10 +65,8 @@
                                 <div class="overvwtagln font-bebas uppercase">your <span>navigators</span> in the
                                     world of trade .</div>
                                 <div class="pagetxt">
-                                    AVA Global is committed to offer high quality logistics solutions to meet
-                                    client’sbusiness needs. From air cargo and ocean freight to warehousing, custom
-                                    clearance,chartering and transportation, we have an extensive portfolio of
-                                    services to add value and flexibility to our client’s supply chain requirements.
+                                Working with diverse set of cultures spread across the globe gives us an opportunity to
+                                continuously learn and evolve.
                                 </div>
                                 <a href="{{ route('about') }}">
                                     <div class="knowmore uppercase">know more
@@ -177,11 +175,11 @@
                         <div class="counter-box-inner">
                             <div class="counter-b1">
                                 <h3><span id="customer">0</span>+</h3>
-                                <h4 class="ct-heading">Trusted Customers</h4>
+                                <h4 class="ct-heading"> Customers</h4>
                             </div>
                             <div class="counter-b2">
                                 <h3><span id="footprint">0</span>+</h3>
-                                <h4 class="ct-heading">Footprints Countries</h4>
+                                <h4 class="ct-heading">Countries</h4>
                             </div>
                             <div class="counter-b3">
                                 <h3><span id="ocean">0</span>+</h3>
@@ -216,10 +214,8 @@
                                     core products
                                 </div>
                                 <div class="pagetxt">
-                                    Our hands-on services and strategic solutions are extensive and customised to
-                                    meet your every need; whether assisting with expediting an urgent shipment or a
-                                    strategic partner who can provide competitive terms, identify and create
-                                    short-term efficiencies and build up long-term competitiveness.
+                                    <p class="pagetxt">AVA Global offers an extensive portfolio of logistics services.</p>    
+                                     <p class="pagetxt"> We provide standardized, customized and optimized solutions as per the market needs.</p>
                                 </div>
                                 <a href="{{ route('about') }}">
                                     <div class="knowmore knowmorewhite uppercase">
@@ -236,11 +232,13 @@
                                 <a data-slide-index="0" href="#" class="active"></a>
 
                                 <a data-slide-index="1" href="#">AIR FREIGHT</a>
-                                <a data-slide-index="2" href="#">CUSTOM CLEARING</a>
-                                <a data-slide-index="3" href="#">WAREHOUSING</a>
-                                <a data-slide-index="4" href="#">TRUCKING</a>
-                                <a data-slide-index="5" href="#">shipping</a>
-                                <a data-slide-index="6" href="#">insurance</a>
+                                <a data-slide-index="2" href="#">ROAD FREIGHT</a>
+                                <a data-slide-index="3" href="#">RAIL FREIGHT</a>
+                                <a data-slide-index="4" href="#">CUSTOM CLEARING</a>
+                                <a data-slide-index="5" href="#">FORWARDING</a>
+                                <a data-slide-index="6" href="#">WAREHOUSING</a>
+                                <a data-slide-index="7" href="#">insurance</a>
+
                             </div>
                         </div>
                         <ul class="bxsliderproduct">
@@ -256,14 +254,14 @@
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
-                                    <div class="product-name"><span>01.</span> OCEAN FREIGHT
+                                    <div class="product-name"> OCEAN FREIGHT
                                         <a class="prod-morebuts" href="{{route('seaFreight')}}">KNOW MORE</a>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/air-fright.png') }}" alt=""
+                                    <img src="{{ asset('/images/services/air-view.png') }}" alt=""
                                         class="img-desktop" />
                                     <img src="{{ asset('/images/services/airbg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
@@ -274,45 +272,8 @@
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
-                                    <div class="product-name"><span>02.</span> AIR FREIGHT
-                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="praductbanwraper">
-                                    <img src="{{ asset('images/services/custom-clearing.png') }}" alt=""
-                                        class="img-desktop" />
-                                    <img src="{{ asset('images/services/custombg-resp.jpg') }}" alt=""
-                                        class="img-responsive" />
-
-                                    <a href="#">
-                                        <div class="knowmore coreproknwmore uppercase">
-                                            Know More
-                                            <div class="sprite knwmorearw knwmorewharw"></div>
-                                        </div>
-                                    </a>
-                                    <div class="product-name"><span>03.</span> CUSTOM CLEARING
-                                        <a class="prod-morebuts" href="#">KNOW
-                                            MORE</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/warehouse.png') }}" alt=""
-                                        class="img-desktop" />
-                                    <img src="{{ asset('/images/services/warehousebg-resp.jpg') }}" alt=""
-                                        class="img-responsive" />
-
-                                    <a href="#">
-                                        <div class="knowmore coreproknwmore uppercase">
-                                            Know More
-                                            <div class="sprite knwmorearw knwmorewharw"></div>
-                                        </div>
-                                    </a>
-                                    <div class="product-name"><span>04.</span> WAREHOUSING
-                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
+                                    <div class="product-name"> AIR FREIGHT
+                                        <a class="prod-morebuts" href="{{route('airFreight')}}">KNOW MORE</a>
                                     </div>
                                 </div>
                             </li>
@@ -329,34 +290,15 @@
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
-                                    <div class="product-name"><span>05.</span> TRUCKING
-                                        <a class="prod-morebuts" href="#">KNOW
+                                    <div class="product-name"> ROAD FREIGHT
+                                        <a class="prod-morebuts" href="{{route('heavyHaulTrucking')}}">KNOW
                                             MORE</a>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/shipping.png') }}" alt=""
-                                        class="img-desktop" />
-                                    <img src="{{ asset('/images/services/shipping-resp.png') }}" alt=""
-                                        class="img-responsive" />
-
-                                    <a href="#">
-                                        <div class="knowmore coreproknwmore uppercase">
-                                            Know More
-                                            <div class="sprite knwmorearw knwmorewharw"></div>
-                                        </div>
-                                    </a>
-                                    <div class="product-name"><span>06.</span> shipping
-                                        <a class="prod-morebuts" href="#">KNOW
-                                            MORE</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/insurance.png') }}" alt=""
+                                    <img src="{{ asset('/images/services/rail.png') }}" alt=""
                                         class="img-desktop" />
                                     <img src="{{ asset('/images/services/insurancebg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
@@ -367,11 +309,88 @@
                                             <div class="sprite knwmorearw knwmorewharw"></div>
                                         </div>
                                     </a>
-                                    <div class="product-name"><span>07.</span> insurance
-                                        <a class="prod-morebuts" href="#">KNOW MORE</a>
+                                    <div class="product-name"> RAIL FREIGHT
+                                        <a class="prod-morebuts" href="{{route('railFreight')}}">KNOW MORE</a>
                                     </div>
                                 </div>
                             </li>
+                            <li>
+                                <div class="praductbanwraper">
+                                    <img src="{{ asset('images/services/custom.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('images/services/custombg-resp.jpg') }}" alt=""
+                                        class="img-responsive" />
+
+                                    <a href="#">
+                                        <div class="knowmore coreproknwmore uppercase">
+                                            Know More
+                                            <div class="sprite knwmorearw knwmorewharw"></div>
+                                        </div>
+                                    </a>
+                                    <div class="product-name"> CUSTOM CLEARING
+                                        <a class="prod-morebuts" href="{{route('customsClearance')}}">KNOW
+                                            MORE</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="praductbanwraper">
+                                    <img src="{{ asset('/images/services/forwarding.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/shipping-resp.png') }}" alt=""
+                                        class="img-responsive" />
+
+                                    <a href="#">
+                                        <div class="knowmore coreproknwmore uppercase">
+                                            Know More
+                                            <div class="sprite knwmorearw knwmorewharw"></div>
+                                        </div>
+                                    </a>
+                                    <div class="product-name"> forwarding
+                                        <a class="prod-morebuts" href="{{route('freightShipping')}}">KNOW
+                                            MORE</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="praductbanwraper">
+                                    <img src="{{ asset('/images/services/warehouse1.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/warehousebg-resp.jpg') }}" alt=""
+                                        class="img-responsive" />
+
+                                    <a href="#">
+                                        <div class="knowmore coreproknwmore uppercase">
+                                            Know More
+                                            <div class="sprite knwmorearw knwmorewharw"></div>
+                                        </div>
+                                    </a>
+                                    <div class="product-name"> WAREHOUSING
+                                        <a class="prod-morebuts" href="{{route('warehousing')}}">KNOW MORE</a>
+                                    </div>
+                                </div>
+                            </li>
+                           
+                           
+                            <li>
+                                <div class="praductbanwraper">
+                                    <img src="{{ asset('/images/services/insoureance1.png') }}" alt=""
+                                        class="img-desktop" />
+                                    <img src="{{ asset('/images/services/insurancebg-resp.jpg') }}" alt=""
+                                        class="img-responsive" />
+
+                                    <a href="#">
+                                        <div class="knowmore coreproknwmore uppercase">
+                                            Know More
+                                            <div class="sprite knwmorearw knwmorewharw"></div>
+                                        </div>
+                                    </a>
+                                    <div class="product-name"> insurance
+                                        <a class="prod-morebuts" href="{{route('cargoInsurancet')}}">KNOW MORE</a>
+                                    </div>
+                                </div>
+                            </li>
+                          
                         </ul>
                     </div>
                 </div>
@@ -443,17 +462,12 @@
                     <div class="contactinforightblk">
                         <h2 class="tagline uppercase">Contact info.</h2>
                         <div class="contactdetailsblk">
-                            <div class="contactblk">
+                        <div class="contactblk iconss">
                                 <div class="contacticon ibvt">
-                                    <span class="sprite locationwhite"></span>
+                                    <span class="sprite emailwhite"></span>
                                 </div>
                                 <div class="contacttxt ibvt">
-                                    4th FLOOR, Sahar Plaza COMPLEX, Windfall,<br /> 405, Andheri - Kurla Rd, J B Nagar,
-                                    Andheri East,<br /> Mumbai, Maharashtra 400059
-
-
-                                    <!-- 405, 4th Floor, Windfall, Sahar Plaza Complex, J.B Nagar, Andheri - Kurla
-                                                                                                                                                Road, Andheri (East), <br /> Mumbai - 400059. -->
+                                    <a href="mailto:info@avaglobal.in">info@avaglobal.in</a>
                                 </div>
                             </div>
                             <div class="contactblk">
@@ -465,23 +479,20 @@
                                         +91 22 4611 3300 / 99
                                     </div>
                                 </div>
-                                <div class="callblk ibvm">
-                                    <div class="contacticon ibvt">
-                                        <span class="sprite faxwhite"></span>
-                                    </div>
-                                    <div class="contacttxt ibvt">
-                                        +91 22 4611 3305
-                                    </div>
-                                </div>
                             </div>
                             <div class="contactblk">
                                 <div class="contacticon ibvt">
-                                    <span class="sprite emailwhite"></span>
+                                    <span class="sprite locationwhite"></span>
                                 </div>
                                 <div class="contacttxt ibvt">
-                                    <a href="mailto:info@avaglobal.in">info@avaglobal.in</a>
+                                    {{-- 4th FLOOR, Sahar Plaza COMPLEX, Windfall,<br /> 405, Andheri - Kurla Rd, J B Nagar,
+                                    Andheri East,<br /> Mumbai, Maharashtra 400059 --}}
+                                    405 Windfall 4th Floor, Sahar Plaza,<br>
+                                    Andheri - Kurla Road, J B Nagar, Andheri East,<br>
+                                    Mumbai, Maharashtra 400059
+
                                 </div>
-                            </div>
+                            </div>      
                         </div>
                         <a href="https://maps.app.goo.gl/K7wXxm4WnoUixDEj8" target="_blank">
                             <div class="knowmore directiontxt uppercase">view direction

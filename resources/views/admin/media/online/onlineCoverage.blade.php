@@ -23,6 +23,13 @@
     .toast-error {
         background-color: red !important;
     }
+
+    .image {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        margin-bottom: 5px;
+    }
 </style>
 <section class="content">
     <div class="body_scroll">
@@ -54,8 +61,8 @@
                                         <tr>
                                             <th>S.No</th>
                                             <th>TITLE</th>
-                                            <th>DATE</th>
-                                            <th>LOCATION</th>
+                                            {{-- <th>DATE</th> --}}
+                                            {{-- <th>LOCATION</th> --}}
                                             <th>DESCRIPTION</th>
                                             <th>IMAGE</th>
                                             <th>MEDIA URL</th>
@@ -73,12 +80,12 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $record->title }}</td>
-                                                    <td>{{ $record->created_at }}</td>
-                                                    <td>{{ $record->location }}</td>
+                                                    {{-- <td>{{ $record->created_at }}</td> --}}
+                                                    {{-- <td>{{ $record->location }}</td> --}}
                                                     <td>{{ $record->description }}</td>
                                                     @if (isset($record->onlineDocsImage->path))
                                                         <td> <img src="{{ asset($record->onlineDocsImage->path) }}"
-                                                                alt="profile Pic" height="50" width="50"></td>
+                                                                alt="profile Pic" class="image"></td>
                                                     @else
                                                         <td> No Image</td>
                                                     @endif

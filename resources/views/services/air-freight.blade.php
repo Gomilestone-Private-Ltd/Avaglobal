@@ -31,14 +31,26 @@
         </div>
         <div class="section freightcontentparent" id="section1">
             <div class="freightcontentblk airfrightcontblk">
-                <div class="servicelefttxtblk">
-                    <div class="">
-                        <p class="pagetxt">
-                            As one of the most trusted air freight service providers, AVA Global offers a comprehensive range of value-added services to its clients. We provide the stability and reliability needed to maintain the integrity of our client’s supply chain. Whether you need to fly your shipment in a commercial plane or a specialist freighter aircraft, we can provide you tailor-made solutions as per your air freight needs.
-                        </p>
-                        <p class="pagetxt">
-                            Regardless of the size of your business, our team of experts will help you choose services that best suit your needs. We make use of our global network of dedicated air specialists to move your goods wherever you want. We have partnered with airlines and <a href="https://www.avaglobal.in/">freight forwarders</a> for offering you seamless solutions.
-                        </p>
+                <div class="servicelefttxtblk left-text-responsive">
+                <div class="freight-box  freight-box-res">
+                       <h1 class="freight-text  freight-text-res">Time and Speed is an essence when it comes to Air freight. We understand
+                         this and work round the clock to book and move goods whenever and wherever required. </h1>
+                         <h1 class="freight-text freight-text-res">We have partnered with airlines and freight consolidators for offering you seamless solutions.  </h1>
+                         <h1 class="freight-text freight-text-res">Our dedicated team of air specialists combine value, speed and flexibility to serve our client's better.</h1>
+
+                         <p class="freight-para">Why us?</p>
+
+                         <ul class="list-fright">
+                            <li>Competitive rates</li>
+                            <li>IATA Certified</li>
+                            <li>Airway bill stock from major airlines</li>
+                            <li>Experience in handling exhibition cargo</li>
+                            <li>Handling of personal effects & household goods</li>
+                            <li>Acceptance for DG and non DG commodities</li>
+                            <li>DDU/DDP solutions offered</li>
+                            <li>Express  shipments</li>
+                         </ul>
+                         <h1 class="freight-text freight-text-res">Our long-term relations with 90+ carriers enable us to meet variety of market needs.</h1>
                     </div>
                 </div>
                 <div class="servicenos">
@@ -46,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div class="section servdet3sld" id="section2">
+        <!-- <div class="section servdet3sld" id="section2">
             <div class="">
                 <div class="servicelefttxtblk servdet3sldcont">
                     <div class="wrapper">
@@ -76,6 +88,8 @@
                 <div class="servicesmobimg">
                     <img src="https://www.avaglobal.in/images/services/airbg-resp.jpg" alt="" />
                 </div>
+                </div>
+        </div> -->
                 <!---footer start-->
               
                 <script>
@@ -195,7 +209,7 @@
                         });
                     });
                 </script> <!---footer end-->
-            </div>
+            
        
 <script>
     //script for arrow scroll

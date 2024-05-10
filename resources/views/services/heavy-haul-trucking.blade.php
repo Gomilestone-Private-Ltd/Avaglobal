@@ -36,9 +36,19 @@
             <div class="freightcontentblk wearhoscontblk">
                 <div class="servicelefttxtblk">
                     <div class="text-width">
-                        <p class="pagetxt">
-                            As a full-service logistics and transportation company, we help our clients maintain their day-to-day operations with our reliable trucking services. Our wide range of trucking services are designed to accommodate varied needs of our clients. From lowboy trailers and flatbed trucks to refrigerated trucks, heavy haulers and step deck trailers, we have different types of trucks to deliver your freight on time.
-                        </p>
+                    <h1 class="freight-text">
+                         Our wide range of trucking services can accommodate varied needs of our clients. From lowboy trailers and flatbed trucks to
+                             refrigerated trucks, heavy haulers and step deck trailers, we have different types of trucks to deliver your freight on time. 
+                             </h1>
+                            <h1 class="freight-text">
+                                 We handle all type of shipments; big or small or awkward. We support documentation & border clearance. We provide visibility by tracking from pick up to drop.   
+                                </h1>
+                                <h1 class="freight-text">
+                                   We cater drayage of inbound and outbound containers as well as DPD & DPE movements.
+                                </h1>
+                                <h1 class="freight-text">
+                                   Rely on us for seamless, secure and on-time deliveries. 
+                                </h1>
                     </div>
                 </div>
                 <div class="servicenos">
@@ -47,7 +57,7 @@
 
             </div>
         </div>
-        <div class="section servdet3sld" id="section2">
+        <!-- <div class="section servdet3sld" id="section2">
             <div class="">
                 <div class="servicelefttxtblk servdet3sldcont">
                     <div class="wrapper">
@@ -79,6 +89,8 @@
                 <div class="servicesmobimg">
                     <img src="https://www.avaglobal.in/images/services/truckingbg-resp.jpg" alt="" />
                 </div>
+                </div>
+        </div> -->
                 <!---footer start-->
                 <script>
                     $(document).ready(function() {
@@ -194,7 +206,7 @@
                         });
                     });
                 </script> <!---footer end-->
-            </div>
+            
             <script>
                 //script for arrow scroll
                 $("#previousPage").click(function(e) {

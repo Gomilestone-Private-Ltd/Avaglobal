@@ -7,7 +7,7 @@
     }
     .freightcontentparent .servicelefttxtblk,
     .freightcontentparent .servicelefttxtblk.custumclerblk {
-        top: 300px !important;
+        top: 24% !important;
     }
     .newsslidercontent .banner-caption {
         left: -81px;
@@ -34,17 +34,17 @@
         top: 300px;
     }
     .productleftcontent {
-        top: 0;
+        top: 14%;
     }
     .aboutavabgblk .servicelefttxtblk,
     .commitment-wrapper-about .servicelefttxtblk {
         top: 200px;
     }
     .philosophy-blk-abt {
-        margin-top: 18%;
+        margin-top: 30px;
     }
     .mission-wrapper-about .servicerighttxtblk {
-        top: 100px;
+        top: 140px;
     }
     .missn-line::before {
         left: -29px;
@@ -82,7 +82,7 @@
     .freightcontentparent .servicelefttxtblk,
     .freightcontentparent .servicelefttxtblk.custumclerblk {
         width: 40%;
-        top: 150px;
+        top: 24%;
     }
     .freightcontentparent .servicelefttxtblk {
         width: 36%;
@@ -93,10 +93,10 @@
     .abt-slider-block-right.abt-slider-block-right-2 .abt-banner-caption {
         bottom: 60px;
     }
-    .ourteammember img {
+    /* .ourteammember img {
         left: -80px;
         height: auto;
-    }
+    } */
     .ourteammember {
         height: 410px;
     }
@@ -105,12 +105,13 @@
         top: 30px;
     }
     .ourteammember .abt-banner-caption {
-        top: 15px;
-        left: 90px;
+        /* top: 15px; */
+        bottom: 55px;
+        left: 40px;
     }
-    .ourteammember img {
+    /* .ourteammember img {
         top: -80px;
-    }
+    } */
     .ourteammember.parth img {
         top: -157px;
         left: -150px;
@@ -219,6 +220,7 @@
     }
     .philosophy-blk-abt {
         padding: 15px 5px;
+        margin-top: 30px;
     }
     .missn-line::before {
         left: -29px;
@@ -251,13 +253,16 @@
     }
     .freightcontentparent .servicelefttxtblk {
         width: 38%;
+        top: 22%;
     }
     .servicerighttxtblk {
         top: 160px;
     }
     .ourteammember {
-        height: 260px;
+        height: 400px;
+        width: 40%;
     }
+   
     .blue-div-team.blue-div-team1 {
         right: 410px;
         top: 70px;
@@ -272,7 +277,7 @@
         margin: 10px 0 0;
     }
     .overviewtxtblk {
-        top: 150px !important;
+        top: 120px !important;
     }
     .overvwttl {
         margin-bottom: 10px !important;
@@ -281,20 +286,18 @@
          margin-top: 10px !important;
     }
     .counter-box {
-        top: 400px !important;
+        top: 340px !important;
     }
     .counter-b1 h3 {
     font-size: 42px !important;
     }
-    .icon-img {
+    /* .icon-img {
         height: 40px;
-    }
-    .misson-blk-abt-head {
-        font-size: 40px;
-    }
+    } */
+    
     .tagline {
-        font-size: 40px;
-        line-height: 45px;
+        font-size: 30px;
+        line-height: 30px;
     }
     .commitsubtxt  {
         font-size: 16px;
@@ -320,6 +323,137 @@
    .job-right {
     padding: 15px !important;
    }
+   .color-black {
+    font-size: 16px !important;
+    line-height: 28px;
+   } 
+   .first-box {
+    padding: 10px 20px;
+   }
+   .slick-slider {
+    margin-bottom: 10px;
+    height: 320px;
+}
+.ecpertise-box img {
+    height: 250px;
+    width: 300px !important;
+}
+.itum-sub-heading {
+    font-size: 18px;
+    font-family: "BebasNeueRegular";
+    width: 80%;
+    letter-spacing: 2px;
+}
+.missn-line {
+    top: 54%;
+}
+.wrappers {
+    padding: 0px !important;
+}
+.main-text {
+    font-size: 45px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+}
+h1.itum-heading {
+    font-size: 25px;
+}
+#product-bx-pager {
+    bottom: 10%;
+}
+.left-img {
+    left: 0;
+    top: 20%;
+}
+.misson-blk-abt-content {
+    line-height: 22px;
+}
+.third-box {
+    padding-top: 10%;
+}
+.expertise-text {
+    padding-left: 23%;
+}
+.slick-dots {
+    bottom: -90px !important;
+    left: 0;
+}
+.text-top {
+    margin-top: 15px;
+}
+.ourteamnewblk {
+    left: 100px;
+    top: 50px;
+}
+.ourteammember img {
+    height: 350px;
+}
+.team-right-para {
+    position: absolute;
+    bottom: 9%;
+    width: 75%;
+    left: 11%;
+}
+.ourteammember .abt-banner-caption {
+    bottom: 60px;
+}
+.bannertxtblk {
+    bottom: -20px;
+}
+.no-content-ava {
+    font-size: 80px;
+    line-height: 68px;
+}
+.year-ava {
+    font-size: 34px;
+    line-height: 34px;
+}
+.freight-text {
+    font-size: 18px;
+    margin: 0px 0px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.2px;
+}
+.contactlefttxtblk {
+    top: 100px;
+}
+.contactlefttxtblk .tagline {
+    padding-bottom: 0px;
+}
+.contactblk {
+    padding: 5px 0px;
+}
+.branch-box {
+    margin-top: 0px;
+}
+.branch-text {
+    margin-top: 20px;
+}
+.list-fright {
+    margin: 10px;
+}
+.left-text-responsive {
+    top: 15% !important;
+}
+.misson-blk-abt-head {
+    font-size: 40px;
+    line-height: 35px;
+}
+.freight-text-res {
+    line-height: 20px !important;
+    font-size: 16px !important;
+}
+.branch-sub-text {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+.lead-form {
+    position: absolute;
+    top: 16%;
+    left: 6%;
+}
 }
 @media screen and (max-width: 1280px) {
     .overviewimgrightblk {

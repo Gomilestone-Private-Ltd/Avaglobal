@@ -94,6 +94,10 @@ class HomeController extends Controller
     {
         return view('services.cargo-insurance');
     }
+    public function railFreight()
+    {
+        return view('services.rail-freight');
+    }
 
     public function containerSizes()
     {
@@ -110,5 +114,8 @@ class HomeController extends Controller
             ->get();
         // dd($newsData);
         return view('media')->with('newsData', $newsData);
+    }
+    public function knowledgeCentre() {
+        return view('knowledge');
     }
 }

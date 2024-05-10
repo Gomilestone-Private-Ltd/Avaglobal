@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -15,7 +16,7 @@ class UserController extends Controller
         $this->middleware('permission:view-users', ['only' => 'index']);
         $this->middleware('permission:add-users', ['only' => ['create', 'store']]);
         $this->middleware('permission:edit-users', ['only' => 'edit']);
-        $this->middleware('permission:update-users', ['only' => ['edit','update']]);
+        $this->middleware('permission:update-users', ['only' => ['edit', 'update']]);
         $this->middleware('permission:delete-users', ['only' => 'destroy']);
     }
     /**
@@ -41,12 +42,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        // $validated = $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'email' => 'required|email|unique:users,email',
+        //     'password' => 'required|string|max:255',
+        //     'roles' => 'required',
+        // ]);
+
+        $validate = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|max:255',
             'roles' => 'required',
+
         ]);
+        if ($validate->fails()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validate);
+        }
+
+
         //create permission
         $user = User::create([
             'name' => $request->name,
