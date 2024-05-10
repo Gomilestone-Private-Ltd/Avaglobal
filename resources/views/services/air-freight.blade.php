@@ -31,12 +31,12 @@
         </div>
         <div class="section freightcontentparent" id="section1">
             <div class="freightcontentblk airfrightcontblk">
-                <div class="servicelefttxtblk">
-                <div class="freight-box">
-                       <h1 class="freight-text">Time and Speed is an essence when it comes to Air freight. We understand
+                <div class="servicelefttxtblk left-text-responsive">
+                <div class="freight-box  freight-box-res">
+                       <h1 class="freight-text  freight-text-res">Time and Speed is an essence when it comes to Air freight. We understand
                          this and work round the clock to book and move goods whenever and wherever required. </h1>
-                         <h1 class="freight-text">We have partnered with airlines and freight consolidators for offering you seamless solutions.  </h1>
-                         <h1 class="freight-text">Our dedicated team of air specialists combine value, speed and flexibility to serve our client's better.</h1>
+                         <h1 class="freight-text freight-text-res">We have partnered with airlines and freight consolidators for offering you seamless solutions.  </h1>
+                         <h1 class="freight-text freight-text-res">Our dedicated team of air specialists combine value, speed and flexibility to serve our client's better.</h1>
 
                          <p class="freight-para">Why us?</p>
 
@@ -50,7 +50,7 @@
                             <li>DDU/DDP solutions offered</li>
                             <li>Express  shipments</li>
                          </ul>
-                         <h1 class="freight-text">Our long-term relations with 90+ carriers enable us to meet variety of market needs.</h1>
+                         <h1 class="freight-text freight-text-res">Our long-term relations with 90+ carriers enable us to meet variety of market needs.</h1>
                     </div>
                 </div>
                 <div class="servicenos">

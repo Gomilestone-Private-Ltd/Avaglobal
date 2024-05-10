@@ -1262,7 +1262,7 @@ video.logo-video {
     z-index: 1;
     padding: 10px 0;
     border-top: 1px solid #ccc;
-    height: 130px;
+    height: 120px;
 }
 .ddlogo {
     margin: 12px 0 0;
@@ -3454,15 +3454,13 @@ font-weight: 500;
 .branch-text {
     margin-top: 20px;
     color: #434343;
-    font-size: 25px;
-    font-family: "BebasNeueRegular";
+    font-size: 22px;
 
 }
 .branch-sub-text {
     color: #434343;
     font-size: 20px;
-    font-family: "BebasNeueRegular";
-    width: 50%;
+    width: 45%;
     margin-top: 5px;
     line-height: 25px
 }
@@ -3640,11 +3638,11 @@ select.drop-down {
 }
 .freight-text {
     font-size: 22px;
-    font-family: "BebasNeueRegular";
     margin: 20px 0px;
     font-weight: 500;
     line-height: 25px;
-    letter-spacing: 1.2px;
+    letter-spacing: 0.2px;
+    text-align: justify;
 
 }
 .list-fright {

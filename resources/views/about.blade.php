@@ -183,14 +183,14 @@
                             <div class="main-expertise-box">
                                 <div class="ecpertise-box">
                                   <img class="" src="{{ asset('images/about/large-container.jpg') }}" alt="">
-                                 <div class="expertise-text">
+                                 <div class="expertise-text text-top">
                                  <h1 class="itum-heading">OVER DIMENTIONAL CARGO</h1>
                                   <h1 class="itum-sub-heading">Specialized expertise, tailored solutions and reliable delivery for your oversized, overweight and challenging freight.</h1>
                                  </div>
                                 </div>
                             <div class="ecpertise-box">
                             <img class="" src="{{ asset('images/about/container.jpg') }}" alt="">
-                                 <div class="expertise-text">
+                                 <div class="expertise-text text-top">
                                  <h1 class="itum-heading">HEAVY HAUL</h1>
                                   <h1 class="itum-sub-heading">Understanding the nuances in shipping over dimensional cargo.</h1>
                                  </div>
