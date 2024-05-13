@@ -229,8 +229,7 @@
                     <div class="productrightcontent">
                         <div id="product-bx-pager">
                             <div>
-                                <a data-slide-index="0" href="#" class="active"></a>
-
+                                <a data-slide-index="0" href="#" class="active">OCEAN FREIGHT</a>
                                 <a data-slide-index="1" href="#">AIR FREIGHT</a>
                                 <a data-slide-index="2" href="#">ROAD FREIGHT</a>
                                 <a data-slide-index="3" href="#">RAIL FREIGHT</a>

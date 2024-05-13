@@ -20,7 +20,7 @@
                         <div class="avaglname font-bebas">ava global</div>
                         <h2 class="tagline uppercase">services we offer!</h2>
                         <div class="subheading-banner">
-                            <h1>Heavy Haul Trucking</h1>
+                            <h1>Road Freight</h1>
                         </div>
                         <a href="#secondPage">
                             <div class="sprite dwnarw"></div>
