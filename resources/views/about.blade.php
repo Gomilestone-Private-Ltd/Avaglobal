@@ -243,7 +243,7 @@
                         <ul class="bxslidernews3">
                             <li>
                                 <div class="abt-banner-blk-same">
-                                    <img src="{{ asset('images/about/team-resp/Darshan_Ghodawat.jpg') }}"
+                                    <img src="{{ asset('images/about/darshan.png') }}"
                                         alt="" />
                                     <div class="abt-banner-caption">
                                         <div class="banner-container-abt">
@@ -255,7 +255,7 @@
                             </li>
                             <li>
                                 <div class="abt-banner-blk-same">
-                                    <img src="{{ asset('images/about/kaushal_v - Copy.jpg') }}" alt="" />
+                                    <img src="{{ asset('images/about/kaushal.png') }}" alt="" />
                                     <div class="abt-banner-caption">
                                         <div class="banner-container-abt">
                                             <div class="abt-team-name">Mr. Kaushal Vithlani</div>
