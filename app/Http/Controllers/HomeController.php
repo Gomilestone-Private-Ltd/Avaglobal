@@ -115,7 +115,13 @@ class HomeController extends Controller
         // dd($newsData);
         return view('media')->with('newsData', $newsData);
     }
-    public function knowledgeCentre() {
+    public function knowledgeCentre()
+    {
         return view('knowledge');
+    }
+
+    public function converterCalc()
+    {
+        return view('conversionCalc');
     }
 }

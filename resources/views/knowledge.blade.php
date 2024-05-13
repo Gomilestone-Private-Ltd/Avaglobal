@@ -27,36 +27,36 @@
                 <div class="calculatortabblk">
                     <div class="wrapper">
                         <div class="eva-container">
-                          
 
-                        <div class="case-study-box">
-                            
-                                    <div class="case-study-item">
 
-                                        <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
-                                      
-                                       
-                                        <div class="cs-content">
-                                            <!-- <h3 class="cs-category">Freight Management</h3> -->
-                                            
-                                            <a href="#">
-                                                <h2 class="cs-title">
+                            <div class="case-study-box">
+
+                                <div class="case-study-item">
+
+                                    <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
+
+
+                                    <div class="cs-content">
+                                        <!-- <h3 class="cs-category">Freight Management</h3> -->
+
+                                        <a href="#">
+                                            <h2 class="cs-title">
                                                 PROCEDURE FOR CLEARANCE OF IMPORTED AND EXPORT GOODS
-                                                  
-                                                </h2>
-                                            </a>
-                                            <!-- <div class="csd-box">
-                                                <p class="cs-user">Assumption</p>
-                                                <p class="cs-date">05-0524</p>
-                                            </div> -->
-                                            <a href="{{route('tariffsCalculators')}}">
-                                                <div class="knowmore uppercase">know more
-                                                    <div class="sprite knwmorearw"></div>
-                                                </div>
-                                            </a>
-                                        </div>
+
+                                            </h2>
+                                        </a>
+                                        <!-- <div class="csd-box">
+                                                        <p class="cs-user">Assumption</p>
+                                                        <p class="cs-date">05-0524</p>
+                                                    </div> -->
+                                        <a href="{{ route('tariffsCalculators') }}">
+                                            <div class="knowmore uppercase">know more
+                                                <div class="sprite knwmorearw"></div>
+                                            </div>
+                                        </a>
                                     </div>
-                           
+                                </div>
+
 
 
 
@@ -66,14 +66,14 @@
                                         <!-- <h3 class="cs-category">Project Solutions</h3> -->
                                         <a href="#">
                                             <h2 class="cs-title">
-                                            CONTAINER SIZES
+                                                CONTAINER SIZES
                                             </h2>
                                         </a>
                                         <!-- <div class="csd-box">
-                                            <p class="cs-user">By AVA Globle</p>
-                                            <p class="cs-date">25 Mar 2020</p>
-                                        </div> -->
-                                        <a href="{{route('containerSizes')}}">
+                                                    <p class="cs-user">By AVA Globle</p>
+                                                    <p class="cs-date">25 Mar 2020</p>
+                                                </div> -->
+                                        <a href="{{ route('containerSizes') }}">
                                             <div class="knowmore uppercase">know more
                                                 <div class="sprite knwmorearw"></div>
                                             </div>
@@ -90,16 +90,16 @@
                                             </h2>
                                         </a>
                                         <!-- <div class="csd-box">
-                                            <p class="cs-user">By AVA Globle</p>
-                                            <p class="cs-date">25 Mar 2020</p>
-                                        </div> -->
-                                        <a href="#">
+                                                    <p class="cs-user">By AVA Globle</p>
+                                                    <p class="cs-date">25 Mar 2020</p>
+                                                </div> -->
+                                        <a href="{{ route('conversion-calc') }}">
                                             <div class="knowmore uppercase">know more
                                                 <div class="sprite knwmorearw"></div>
                                             </div>
                                         </a>
                                     </div>
-                                </div> 
+                                </div>
                             </div>
 
 
