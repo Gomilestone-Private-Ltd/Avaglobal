@@ -3691,3 +3691,12 @@ select.drop-down {
     width: 40px;
     margin-left: 10px;
 }
+.calulator-box {
+    height: 450px;
+    display: flex;
+    align-items: center;
+} 
+.cal-heading {
+    font-size: 35px;
+    margin-bottom: 30px;
+}

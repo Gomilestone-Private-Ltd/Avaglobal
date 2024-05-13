@@ -13,7 +13,7 @@
                     <div class="wrapper pageblock">
                         <div class="bannertxtblk">
                             <h2 class="tagline uppercase">
-                                CONVERSION CALC
+                                CONVERSION CALCULATOR
                             </h2>
 
                             <a href="" data-scroll-nav='0'>
@@ -26,11 +26,9 @@
                 <div class="greyoverlaysml"></div>
             </div>
             <div class="calculatorcontentwrap" data-scroll-index='0'>
-                <div class="wrapper">
-
+                <div class="calulator-box">
                     <div class="converter-wrapper">
-                        <h1>CONVERSION CALCULATOR</h1>
-
+                        <h1 class="cal-heading">CONVERSION CALCULATOR</h1>
                         <form name="property_form">
                             <span>
                                 <select class="select-property" name="the_menu" size=1
@@ -48,10 +46,6 @@
                                     </select>
                                 </span>
                             </form>
-                        </div> <!-- /converter-side-a -->
-
-                        <div class="converter-equals">
-                            <p>=</p>
                         </div> <!-- /converter-side-a -->
 
                         <div class="converter-side-b">

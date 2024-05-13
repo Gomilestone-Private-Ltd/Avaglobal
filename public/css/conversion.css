@@ -21,13 +21,15 @@
         }
 
         .converter-wrapper input {
-            font-family: 'Open Sans', sans-serif;
+            /* font-family: 'Open Sans', sans-serif; */
             font-size: 1em;
             width: 100%;
             text-align: center;
             margin-top: 10px;
             height: 40px;
             box-sizing: border-box;
+            border: 1px solid grey;
+            border-bottom: none;
         }
 
         .converter-wrapper span {
@@ -38,8 +40,8 @@
         }
 
         .converter-wrapper span select {
-            background-color: #263648;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
             font-size: inherit;
             padding: 10px;
             width: 100%;
@@ -49,6 +51,7 @@
             text-indent: 0.01px;
             text-overflow: '';
             -webkit-appearance: none;
+            border: 1px solid grey;
             /* hide default arrow in chrome OSX */
         }
 
@@ -78,7 +81,8 @@
             top: 0;
             bottom: 0;
             border-radius: 0;
-            background-color: #202E3C;
+            background-color: #fff;
+            border: 1px solid grey !important;
         }
 
         .converter-side-a,
@@ -86,7 +90,7 @@
             float: left;
             margin-top: 10px;
             box-sizing: border-box;
-            width: 45%;
+            width: 50%;
         }
 
         .converter-equals {
@@ -105,4 +109,7 @@
 
         .converter-side-b {
             padding-left: 10px;
+        }
+        select.select-property {
+            border: 1px solid grey !important;
         }

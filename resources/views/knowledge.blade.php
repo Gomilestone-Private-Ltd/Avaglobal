@@ -86,7 +86,7 @@
                                         <!-- <h3 class="cs-category">Open Charter</h3> -->
                                         <a href="#">
                                             <h2 class="cs-title">
-                                                The standard Lorem Ipsum passage, used since the 1500s
+                                                CONVERSION CALCULATOR
                                             </h2>
                                         </a>
                                         <!-- <div class="csd-box">

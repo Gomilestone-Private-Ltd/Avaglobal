@@ -57,7 +57,7 @@ Route::get('knowledge-center', [HomeController::class, 'knowledgeCentre'])->name
 
 Route::get('container-sizes', [HomeController::class, 'containerSizes'])->name('containerSizes');
 Route::get('tariffs-calculators', [HomeController::class, 'tariffsCalculators'])->name('tariffsCalculators');
-Route::get('conversion-calc', [HomeController::class, 'converterCalc'])->name('conversion-calc');
+Route::get('conversion-calculator', [HomeController::class, 'converterCalc'])->name('conversion-calc');
 Route::get('media', [HomeController::class, 'media'])->name('media');
 //applicant-submit
 Route::post('/post-applicants', [AdminController::class, 'postApplicants'])->name('post-applicants');
