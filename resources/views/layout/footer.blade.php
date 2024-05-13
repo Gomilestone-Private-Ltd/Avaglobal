@@ -24,7 +24,7 @@
                     Rights Reserved</p> -->
                 <div class="icon-box">
                 <a href="{{config('global.LINKEDIN')}}"><img class="footer-icons" src="{{ asset('images/linkedin.png') }}" alt=""></a>
-                    <img class="footer-icons" src="{{ asset('images/whatsapp.png') }}" alt="">
+                    <!-- <img class="footer-icons" src="{{ asset('images/whatsapp.png') }}" alt=""> -->
                     <a href="{{config('global.YOUTUBE')}}"><img class="footer-icons" src="{{ asset('images/youtube.png') }}" alt=""/></a>
                 </div>
             </div>

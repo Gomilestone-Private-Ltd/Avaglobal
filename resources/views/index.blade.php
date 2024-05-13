@@ -373,7 +373,7 @@
                            
                             <li>
                                 <div class="praductbanwraper">
-                                    <img src="{{ asset('/images/services/insoureance1.png') }}" alt=""
+                                    <img src="{{ asset('/images/services/insurance1.png') }}" alt=""
                                         class="img-desktop" />
                                     <img src="{{ asset('/images/services/insurancebg-resp.jpg') }}" alt=""
                                         class="img-responsive" />
