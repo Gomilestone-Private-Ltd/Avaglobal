@@ -4,7 +4,7 @@
             <div class="footermenu">
                 <div class="fm-box">
                     <a href="#" class="footer-links">Clientele</a>
-                    <a href="#" class="footer-links">Enquiry form</a>
+                    <a href="{{ URL::route('contact') }}#section3" class="footer-links">Enquiry form</a>
                     @php
                     $brochure = \App\Models\AvaDocs::whereNotNull('downloadBrochureId')
                     ->where('downloadbrochurePdfStatus', 1)

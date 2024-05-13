@@ -66,7 +66,7 @@
                                         <!-- <h3 class="cs-category">Project Solutions</h3> -->
                                         <a href="#">
                                             <h2 class="cs-title">
-                                                CONTAINER SIZES
+                                                CONTAINER TYPES
                                             </h2>
                                         </a>
                                         <!-- <div class="csd-box">
@@ -86,7 +86,7 @@
                                         <!-- <h3 class="cs-category">Open Charter</h3> -->
                                         <a href="#">
                                             <h2 class="cs-title">
-                                                CONVERSION CALCULATOR
+                                                Measurement convertor 
                                             </h2>
                                         </a>
                                         <!-- <div class="csd-box">

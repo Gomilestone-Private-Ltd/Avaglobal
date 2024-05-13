@@ -13,7 +13,7 @@
                     <div class="wrapper pageblock">
                         <div class="bannertxtblk">
                             <h2 class="tagline uppercase">
-                                CONVERSION CALCULATOR
+                             Measurement convertor
                             </h2>
 
                             <a href="" data-scroll-nav='0'>
@@ -28,7 +28,7 @@
             <div class="calculatorcontentwrap" data-scroll-index='0'>
                 <div class="calulator-box">
                     <div class="converter-wrapper">
-                        <h1 class="cal-heading">CONVERSION CALCULATOR</h1>
+                        <h1 class="cal-heading">MEASUREMENT CONVERTOR</h1>
                         <form name="property_form">
                             <span>
                                 <select class="select-property" name="the_menu" size=1

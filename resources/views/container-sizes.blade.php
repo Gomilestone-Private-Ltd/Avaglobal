@@ -12,7 +12,7 @@
                     <div class="bannertxtblk">
 
                         <h2 class="tagline uppercase">
-                            CONTAINER SIZES
+                            CONTAINER TYPES
                         </h2>
 
                         <a href="" data-scroll-nav='0'>
