@@ -38,7 +38,7 @@ unit[0] = new Array(
 );
 factor[0] = new Array(1, 0.01, 1000, 0.3048, 0.0254, 0.001);
 
-property[1] = "Mass";
+property[1] = "Weight";
 unit[1] = new Array(
     "Kilogram (kgr)",
 
@@ -130,6 +130,7 @@ function ConvertFromTo(sourceForm, targetForm) {
     // Cool! Let's do the same thing for the target unit - the units we are converting TO:
     targetIndex = targetForm.unit_menu.selectedIndex;
     targetFactor = factor[propIndex][targetIndex];
+   
 
     // Simple, huh? let's do the math: a) convert the source TO the base unit: (The input has been checked by the CalculateUnit function).
 
@@ -149,7 +150,8 @@ function ConvertFromTo(sourceForm, targetForm) {
     }
 
     // Ta-da! All that's left is to update the target input box:
-    targetForm.unit_input.value = result;
+    targetForm.unit_input.value = result.toFixed(4);
+
 }
 
 // This fragment initializes the property dropdown menu using the data defined above in the 'Data Definitions' section
