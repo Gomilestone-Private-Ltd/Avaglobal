@@ -3695,18 +3695,19 @@ select.drop-down {
     height: 500px;
     display: flex;
     align-items: center;
-    /* background-color: #6799e1; */
 } 
 .cal-heading {
     font-size: 35px;
-    margin-bottom: 30px;
-    background-color: #009fe0;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    text-decoration: underline;
 }
-.main-box {
-    background-image: url(../images/calculator.jpg);
-    background-repeat: no-repeat;
+
+
+.cal-box {
+    background-color: #fff;
     width: 100%;
-    background-size: cover;
-    background-position: bottom;
-    background-position: 30% 64%;
+    height: 200px;
+    padding: 24px;
+    border-radius: 10px;
 }

@@ -30,7 +30,8 @@
         <div class="calulator-box">
             <div class="converter-wrapper" data-scroll-index='0'>
                 <h1 class="cal-heading">MEASUREMENT CONVERTER</h1>
-                <form name="property_form">
+              <div class="cal-box">
+              <form name="property_form">
                     <span>
                         <select class="select-property" name="the_menu" size=1 onChange="UpdateUnitMenu(this, document.form_A.unit_menu); UpdateUnitMenu(this, document.form_B.unit_menu)">
                         </select>
@@ -56,6 +57,7 @@
                         </span>
                     </form>
                 </div>
+              </div>
             </div>
         </div>
         </div>
