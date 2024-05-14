@@ -38,7 +38,7 @@
                         </form>
 
                         <div class="converter-side-a">
-                            <form name="form_A" onSubmit="return false">
+                            <form name="form_A" onSubmit="return false" id="form2">
                                 <input type="text" class="numbersonly" name="unit_input" maxlength="20" value="0"
                                     onKeyUp="CalculateUnit(document.form_A, document.form_B)">
                                 <span>
@@ -49,7 +49,7 @@
                         </div> <!-- /converter-side-a -->
 
                         <div class="converter-side-b">
-                            <form name="form_B" onSubmit="return false">
+                            <form name="form_B" onSubmit="return false" id="form3">
                                 <input type="text" class="numbersonly" name="unit_input" maxlength="20" value="0"
                                     onkeyup="CalculateUnit(document.form_B, document.form_A)">
                                 <span>

@@ -83,12 +83,16 @@ factor[3] = new Array(
 
 function UpdateUnitMenu(propMenu, unitMenu) {
     // Updates the units displayed in the unitMenu according to the selection of property in the propMenu.
+    document.getElementById("form2").reset();
+    document.getElementById("form3").reset();
     var i;
     i = propMenu.selectedIndex;
     FillMenuWithArray(unitMenu, unit[i]);
 }
 
 function FillMenuWithArray(myMenu, myArray) {
+    document.getElementById("form2").reset();
+    document.getElementById("form3").reset();
     // Fills the options of myMenu with the elements of myArray.
     // !CAUTION!: It replaces the elements, so old ones will be deleted.
     var i;
