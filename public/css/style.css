@@ -3692,11 +3692,19 @@ select.drop-down {
     margin-left: 10px;
 }
 .calulator-box {
-    height: 450px;
+    height: 500px;
     display: flex;
     align-items: center;
+    /* background-color: #6799e1; */
 } 
 .cal-heading {
     font-size: 35px;
     margin-bottom: 30px;
+}
+.main-box {
+    background-image: url(../images/calculator.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: bottom;
 }

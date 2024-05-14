@@ -33,18 +33,18 @@
 
                                 <div class="case-study-item">
 
-                                    <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
+                                    <img class="cs-image" src="{{ asset('/images/tarrifs.jpg') }}" />
 
 
                                     <div class="cs-content">
                                         <!-- <h3 class="cs-category">Freight Management</h3> -->
 
-                                        <a href="#">
+                                        
                                             <h2 class="cs-title">
                                                 PROCEDURE FOR CLEARANCE OF IMPORTED AND EXPORT GOODS
 
                                             </h2>
-                                        </a>
+                                    
                                         <!-- <div class="csd-box">
                                                         <p class="cs-user">Assumption</p>
                                                         <p class="cs-date">05-0524</p>
@@ -61,14 +61,14 @@
 
 
                                 <div class="case-study-item">
-                                    <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
+                                    <img class="cs-image" src="{{ asset('/images/conatiners-box.jpg') }}" />
                                     <div class="cs-content">
                                         <!-- <h3 class="cs-category">Project Solutions</h3> -->
-                                        <a href="#">
+                                        
                                             <h2 class="cs-title">
                                                 CONTAINER TYPES
                                             </h2>
-                                        </a>
+                                        
                                         <!-- <div class="csd-box">
                                                     <p class="cs-user">By AVA Globle</p>
                                                     <p class="cs-date">25 Mar 2020</p>
@@ -81,14 +81,14 @@
                                     </div>
                                 </div>
                                 <div class="case-study-item">
-                                    <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" />
+                                    <img class="cs-image" src="{{ asset('/images/calculator-box.jpg') }}" />
                                     <div class="cs-content">
                                         <!-- <h3 class="cs-category">Open Charter</h3> -->
-                                        <a href="#">
+                                      
                                             <h2 class="cs-title">
                                                 Measurement convertor 
                                             </h2>
-                                        </a>
+                                     
                                         <!-- <div class="csd-box">
                                                     <p class="cs-user">By AVA Globle</p>
                                                     <p class="cs-date">25 Mar 2020</p>
