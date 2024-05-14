@@ -3700,6 +3700,7 @@ select.drop-down {
 .cal-heading {
     font-size: 35px;
     margin-bottom: 30px;
+    background-color: #009fe0;
 }
 .main-box {
     background-image: url(../images/calculator.jpg);
@@ -3707,4 +3708,5 @@ select.drop-down {
     width: 100%;
     background-size: cover;
     background-position: bottom;
+    background-position: 30% 64%;
 }
