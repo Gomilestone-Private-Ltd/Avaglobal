@@ -83,12 +83,20 @@ factor[3] = new Array(
 
 function UpdateUnitMenu(propMenu, unitMenu) {
     // Updates the units displayed in the unitMenu according to the selection of property in the propMenu.
+    document.getElementById("form2").reset();
+    document.getElementById("form3").reset();
+
     var i;
     i = propMenu.selectedIndex;
+    // alert(unitMenu);
+
     FillMenuWithArray(unitMenu, unit[i]);
 }
 
 function FillMenuWithArray(myMenu, myArray) {
+    document.getElementById("form2").reset();
+    document.getElementById("form3").reset();
+    // alert("hello");
     // Fills the options of myMenu with the elements of myArray.
     // !CAUTION!: It replaces the elements, so old ones will be deleted.
     var i;
@@ -99,6 +107,7 @@ function FillMenuWithArray(myMenu, myArray) {
 }
 
 function CalculateUnit(sourceForm, targetForm) {
+    // alert("mukesh");
     // A simple wrapper function to validate input before making the conversion
     var sourceValue = sourceForm.unit_input.value;
 
@@ -112,6 +121,7 @@ function CalculateUnit(sourceForm, targetForm) {
 }
 
 function ConvertFromTo(sourceForm, targetForm) {
+    // alert("verma");
     // Converts the contents of the sourceForm input box to the units specified in the targetForm unit menu and puts the result in the targetForm input box.In other words, this is the heart of the whole script...
     var propIndex;
     var sourceIndex;
@@ -130,7 +140,6 @@ function ConvertFromTo(sourceForm, targetForm) {
     // Cool! Let's do the same thing for the target unit - the units we are converting TO:
     targetIndex = targetForm.unit_menu.selectedIndex;
     targetFactor = factor[propIndex][targetIndex];
-   
 
     // Simple, huh? let's do the math: a) convert the source TO the base unit: (The input has been checked by the CalculateUnit function).
 
@@ -151,7 +160,6 @@ function ConvertFromTo(sourceForm, targetForm) {
 
     // Ta-da! All that's left is to update the target input box:
     targetForm.unit_input.value = result.toFixed(4);
-
 }
 
 // This fragment initializes the property dropdown menu using the data defined above in the 'Data Definitions' section

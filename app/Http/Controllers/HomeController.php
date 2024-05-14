@@ -33,6 +33,7 @@ class HomeController extends Controller
     {
         return view('contact');
     }
+
     public function career()
     {
         $jobData = Job::where('is_active', 1)->get();
