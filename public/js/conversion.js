@@ -38,7 +38,7 @@ unit[0] = new Array(
 );
 factor[0] = new Array(1, 0.01, 1000, 0.3048, 0.0254, 0.001);
 
-property[1] = "Mass";
+property[1] = "Weight";
 unit[1] = new Array(
     "Kilogram (kgr)",
 
@@ -83,12 +83,20 @@ factor[3] = new Array(
 
 function UpdateUnitMenu(propMenu, unitMenu) {
     // Updates the units displayed in the unitMenu according to the selection of property in the propMenu.
+    document.getElementById("form2").reset();
+    document.getElementById("form3").reset();
+
     var i;
     i = propMenu.selectedIndex;
+    // alert(unitMenu);
+
     FillMenuWithArray(unitMenu, unit[i]);
 }
 
 function FillMenuWithArray(myMenu, myArray) {
+    document.getElementById("form2").reset();
+    document.getElementById("form3").reset();
+    // alert("hello");
     // Fills the options of myMenu with the elements of myArray.
     // !CAUTION!: It replaces the elements, so old ones will be deleted.
     var i;
@@ -149,7 +157,7 @@ function ConvertFromTo(sourceForm, targetForm) {
     }
 
     // Ta-da! All that's left is to update the target input box:
-    targetForm.unit_input.value = result;
+    targetForm.unit_input.value = result.toFixed(4);
 }
 
 // This fragment initializes the property dropdown menu using the data defined above in the 'Data Definitions' section
