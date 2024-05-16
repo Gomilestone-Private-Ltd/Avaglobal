@@ -1659,7 +1659,7 @@ h1.itum-heading {
         margin-top: 50px;
     }
     .videoblk .avanameblk {
-        width: 90%;
+        width: 100%;
     }
     .overvwttl {
         font-size: 30px;
@@ -2006,7 +2006,7 @@ h1.itum-heading {
         margin-top: 44px;
     }
     .counter-box-inner {
-        margin-bottom: 20px !important;
+        margin-bottom: 40px !important;
     }
     .counter-b1 h3 {
         font-size: 32px !important;
@@ -2016,6 +2016,51 @@ h1.itum-heading {
     }
     .counter-b3 h3 {
         font-size: 32px !important;
+    }
+
+    .headerblk {
+        margin: 0;
+        background-color: #fff;
+        z-index: 999999;
+    }
+
+    .overview_main{
+        height: 640px;
+    }
+    .overviewimgrightblk{
+        top: 280px;
+    }
+    .overviewtxtblk{
+        margin-top: -90px;
+        padding-top: 0;
+    }
+    .counter-box {
+        top: 200px !important;
+        width: 100% !important;
+    }
+    img.overvwsldimg {
+        height: 250px !important;
+        object-fit: cover;
+    }
+    .knowmore{
+        margin: 0;
+    }
+    .productleftcontent{
+        left: 2%;
+    }
+    .coreproknwmore{
+        display: none !important;
+    }
+    .product-name{
+        margin: auto;
+        width: 150px;
+        text-align: center;
+    }
+    .prod-morebuts{
+        margin-left: 0px;
+    }
+    .prod-morebuts{
+        text-shadow: none !important;
     }
 
 }
@@ -2072,11 +2117,7 @@ h1.itum-heading {
     p {
         font-size: 12px;
     }
-    .headerblk {
-        margin: 0;
-        background-color: #fff;
-        z-index: 999999;
-    }
+   
     .logo {
         width: 90px;
     }

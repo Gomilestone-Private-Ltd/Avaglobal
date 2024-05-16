@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="section" id="section1">
-                <div class="overviewblk pageblock">
+                <div class="overviewblk pageblock overview_main">
                     <!-- <div class="overviewtab">
                         <div id="bx-pager">
                             <div>

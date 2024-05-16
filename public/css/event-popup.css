@@ -15,7 +15,7 @@
     width: 570px;
     max-width: 90%;
     margin: 50px auto;
-    height: 450px;
+    height: 400px;
     position: relative;
     top: 5%;
 }
@@ -152,7 +152,7 @@ img.popup-logo-img {
 @media screen and (max-width: 600px){
 
     img.popup-image {
-        height: 240px;
+        height: 190px;
     }
 
     .popup-logo {
