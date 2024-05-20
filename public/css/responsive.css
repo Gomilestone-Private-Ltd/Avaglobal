@@ -1179,7 +1179,7 @@
     }
 
     .bannertxtblk {
-        padding-left: 20px;
+        padding-left: 20px !important;
     }
 
     .lead-form {
@@ -2998,8 +2998,6 @@
 
     .placholder {
         font-size: 14px;
-        margin-bottom: 0px;
-        padding-bottom: 2px;
     }
 
     .submitbtn {
@@ -3715,8 +3713,6 @@
 
     .placholder {
         font-size: 14px;
-        margin-bottom: 0px;
-        padding-bottom: 2px;
     }
 
     .case-study-box {
