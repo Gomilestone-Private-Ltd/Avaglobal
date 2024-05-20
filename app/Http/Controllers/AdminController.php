@@ -296,7 +296,8 @@ class AdminController extends Controller
         $rule = [
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|regex:/^[0-9]{10}$/|starts_with:6,7,8,9',
+            // 'phone' => 'required|regex:/^[0-9]{10}$/|starts_with:6,7,8,9',
+            'phone' => 'required | numeric | digits:10 | starts_with: 6,7,8,9',
             'position' => 'nullable',
             'applicantPdf' => 'nullable|mimes:pdf|max:5000',
             'allservice' => 'required',
@@ -312,7 +313,9 @@ class AdminController extends Controller
             'applicantPdf.required' => 'Please put your CV here',
             'applicantPdf.max' => 'Pdf file must be less than 5mb',
             'allservice.required' => 'Please select one of the services',
-            'phone.starts_with'=>"Number must be start from 6,7,8,9",
+            'phone.starts_with' => "Must start from 6,7,8,9",
+            'phone.digits' => 'Must be 10 digits & ',
+            'phone.numeric' => 'Numeric & ',
             'requirement.required' => 'Please give your requirement'
         ];
         $validate = Validator::make($requestData, $rule, $message);
@@ -363,7 +366,8 @@ class AdminController extends Controller
         $rule = [
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|regex:/^[0-9]{10}$/|starts_with:6,7,8,9',
+            // 'phone' => 'required|regex:/^[0-9]{10}$/|starts_with:6,7,8,9',
+            'phone' => 'required | numeric | digits:10 | starts_with: 6,7,8,9',
             'position' => 'nullable',
             'applicantPdf' => 'required|mimes:pdf|max:2048'
         ];
@@ -371,8 +375,10 @@ class AdminController extends Controller
             'name.required' => "Please fill your name",
             'email.required' => 'Please give your email',
             'phone.required' => 'Please give your phone number',
+            'phone.numeric' => 'Numeric & ',
+            'phone.digits' => 'Must be 10 digits & ',
             'position.required' => 'Please fill the position applying for:',
-            'phone.starts_with'=>"Number must be start from 6,7,8,9",
+            'phone.starts_with' => "Must start from 6,7,8,9",
             'applicantPdf.mimes' => 'file extension must be of type .pdf',
             'applicantPdf.required' => 'Please put your CV here',
             'applicantPdf.max' => 'pdf size should be less than 2 MB'
