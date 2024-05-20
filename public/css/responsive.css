@@ -3847,14 +3847,14 @@
         font-size: 25px !important;
         width: 34px !important;
         height: 34px !important;
-        top: 40% !important;
+        top: 34% !important;
     }
 
     button.next-arrow.slick-arrow {
         font-size: 25px !important;
         height: 34px !important;
         width: 34px !important;
-        top: 40% !important;
+        top: 34% !important;
     }
 
     .newsinfoblk {
@@ -3938,7 +3938,59 @@
     }
 
     header.headerblk {
-        padding-right: 15px;
+        padding-right: 15px !important;
+    }
+    .videoblkwrapper.pageblock{
+        height: 300px;
+    }
+    .overview_main {
+        height: 700px;
+    }
+    .overviewimgrightblk {
+        top: 335px;
+    }
+    .counter-box {
+        top: 265px !important;
+    }
+    .bx-wrapper .bx-viewport {
+        height: 300px;
+    }
+    .bx-wrapper .praductbanwraper {
+        height: 300px;
+    }
+    .sprite.knwmorearw{
+        margin-left: 0;
+    }
+
+    .newsinfoblk .knowmore {
+        margin: 0;
+        font-size: 13px;
+    }
+    .servicesmobimg img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+    .carrer-right-text{
+        width: auto !important;
+    }
+    .placeholder-text {
+        padding-bottom: 15px !important;
+        margin-bottom: -3px;
+    }
+    .placholder.up-place {
+        bottom: 25px;
+        font-size: 12px;
+    }
+    .text-danger {
+        font-size: 12px !important;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 1px;
+    }
+    .up-place .text-danger{
+        bottom: -15px !important;
     }
 
 }

@@ -312,6 +312,7 @@ class AdminController extends Controller
             'applicantPdf.required' => 'Please put your CV here',
             'applicantPdf.max' => 'Pdf file must be less than 5mb',
             'allservice.required' => 'Please select one of the services',
+            'phone.starts_with'=>"Number must be start from 6,7,8,9",
             'requirement.required' => 'Please give your requirement'
         ];
         $validate = Validator::make($requestData, $rule, $message);
@@ -371,6 +372,7 @@ class AdminController extends Controller
             'email.required' => 'Please give your email',
             'phone.required' => 'Please give your phone number',
             'position.required' => 'Please fill the position applying for:',
+            'phone.starts_with'=>"Number must be start from 6,7,8,9",
             'applicantPdf.mimes' => 'file extension must be of type .pdf',
             'applicantPdf.required' => 'Please put your CV here',
             'applicantPdf.max' => 'pdf size should be less than 2 MB'
