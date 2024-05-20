@@ -342,6 +342,9 @@ body {
     height: 100%;
     width: 45px;
 }
+img.oceanbg-img {
+    display: none;
+}
 .grey {
     color: #676767;
 }
