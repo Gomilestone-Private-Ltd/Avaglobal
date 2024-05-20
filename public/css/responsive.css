@@ -1733,6 +1733,10 @@
         vertical-align: bottom;
     }
 
+    img.oceanbg-img {
+        display: block;
+    }
+
     .experiencetxt {
         font-size: 50px;
     }
