@@ -1174,10 +1174,18 @@
 
 
 @media screen and (max-width: 1023px) {
-    
+    .footerwrapper.homefooterwrapper.pageblock {
+        padding-bottom: 60px !important;
+    }
+
+    .bannertxtblk {
+        padding-left: 20px;
+    }
+
     .lead-form {
         position: initial;
     }
+
     .headerrightblk {
         height: 60px;
     }
@@ -1221,7 +1229,8 @@
         line-height: 0;
         z-index: 9999;
     }
-    .mm-subopened #close_menu{
+
+    .mm-subopened #close_menu {
         right: -80px;
     }
 
@@ -2342,14 +2351,16 @@
         width: 47% !important;
         margin-bottom: 30px !important;
     }
-    .mm-menu > .mm-navbar{
+
+    .mm-menu>.mm-navbar {
         z-index: initial !important;
     }
-    .mm-menu > .mm-panel{
+
+    .mm-menu>.mm-panel {
         overflow: initial !important;
     }
 
-   
+
 }
 
 @media screen and (max-width: 980px) {
