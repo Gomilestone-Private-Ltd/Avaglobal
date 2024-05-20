@@ -31,7 +31,7 @@
                     <div class="contactlefttxtblk">
                         <h2 class="tagline uppercase">LET'S MEET UP</h2>
                         <div class="contactdetailsblk">
-                            <div class="contactblk iconss">
+                            <div class="contactblk let_meet_box iconss">
                                 <div class="contacticon ibvt">
                                     <span class="sprite email"></span>
                                 </div>
@@ -39,8 +39,8 @@
                                     <a href="mailto:info@avaglobal.in">info@avaglobal.in</a>
                                 </div>
                             </div>
-                            <div class="contactblk">
-                                <div class="callblk ibvm">
+                            <div class="contactblk let_meet_box">
+                                <div class="callblk let_meet_box ibvm">
                                     <div class="contacticon ibvt">
                                         <span class="sprite telephone"></span>
                                     </div>
@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="contactblk">
+                            <div class="contactblk let_meet_box">
                                 <div class="contacticon ibvt">
                                     <span class="sprite location"></span>
                                 </div>
@@ -86,7 +86,7 @@
                             <p class="branch-sub-text">Hazira</p>
                         </div>
                     </div>
-                    <div class="contactmobimg"><img src="images/mobile-images/letsmeetbg-res.jpg" alt="" /></div>
+                    <div class="contactmobimg"><img src="{{asset('images/contact/letsmeetbg1.png')}}" alt="image" /></div>
                 </div>
             </div>
             <div class="section avamap" id="section2">
@@ -164,7 +164,7 @@
 
                         </div>
                     </div>
-                    <div class="contactmobimg"><img src="images/mobile-images/hiringbg-mob.jpg" alt="" /></div>
+                    <div class="contactmobimg"><img src="{{asset('images/contact/hiringbg-mob.jpg')}}" alt="" /></div>
 
 
                 </div>

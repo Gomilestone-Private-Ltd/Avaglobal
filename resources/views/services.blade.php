@@ -41,7 +41,7 @@
                     <p class="pagetxt">
                         Irrespective of the size of your business, our team will offer you customized solutions coupled with guaranteed transit times and flexible scheduling. From loading of freight to unloading, our team will manage as well as monitor each aspect of your freight requirement. We are also equipped to manage all logistics procedures related to international import and export. Our team not only chooses the right transport equipment and carrier but also ensures safe packaging and shipping. We have an extensive portfolio of regional as well as global carriers so that our clients have various options to choose from.
                     </p>
-                    <a href="services/sea-freight.php">
+                    <a href="{{ route('seaFreight') }}">
                         <div class="knowmore knowmorewhite uppercase">know more<div class="sprite knwmorearw knwmorewharw"></div>
                         </div>
                     </a>
@@ -56,18 +56,57 @@
                 <div class="servicerighttxtblk">
                     <h2 class="tagline uppercase">AIR FREIGHT</h2>
                     <p class="pagetxt">
-                        As one of the most trusted <a href="/services/air-freight.php">air freight service providers</a>, AVA Global offers a comprehensive range of value-added services to its clients. We provide the stability and reliability needed to maintain the integrity of our client’s supply chain. Whether you need to fly your shipment in a commercial plane or a specialist freighter aircraft, we can provide you tailor-made solutions as per your air freight needs.
+                        As one of the most trusted <a href="{{ route('airFreight') }}">air freight service providers</a>, AVA Global offers a comprehensive range of value-added services to its clients. We provide the stability and reliability needed to maintain the integrity of our client’s supply chain. Whether you need to fly your shipment in a commercial plane or a specialist freighter aircraft, we can provide you tailor-made solutions as per your air freight needs.
                     </p>
                     <p class="pagetxt">
                         Regardless of the size of your business, our team of experts will help you choose services that best suit your needs. We make use of our global network of dedicated air specialists to move your goods wherever you want. We have partnered with airlines and <a href="https://www.avaglobal.in/">freight forwarders</a> for offering you seamless solutions.
                     </p>
-                    <a href="services/air-freight.php">
+                    <a href="{{ route('airFreight') }}">
                         <div class="knowmore knowmorewhite uppercase">know more<div class="sprite knwmorearw knwmorewharw"></div>
                         </div>
                     </a>
                 </div>
                 <div class="servicesmobimg">
-                    <img src="images/services/airbg-resp.jpg" alt="" />
+                    <img src="images/services/flite.png" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section5">
+            <div class="truckingbgblk">
+                <div class="servicelefttxtblk">
+                    <h2 class="tagline uppercase">ROAD FREIGHT</h2>
+                    <p class="pagetxt">
+                        As a full-service logistics and transportation company, we help our clients maintain their day-to-day operations with our reliable trucking services. Our wide range of trucking services are designed to accommodate varied needs of our clients. From lowboy trailers and flatbed trucks to refrigerated trucks, heavy haulers and step deck trailers, we have different types of trucks todeliver your freight on time.
+                    </p>
+                    <p class="pagetxt">
+                        We handle all types of shipments, be it big or small. You can get the goods shipped wherever you want because we work with some of the top carriers across the country. Your cargo will be moved by professionals who will ensure that your supply chain costs are kept to a minimum.From picking up shipments to dispatching, preparing necessary documentation, dealing with border clearance and tracking of cargo to its destination, we manage the entire process for you.
+                    </p>
+                    <a href="{{ route('heavyHaulTrucking') }}">
+                        <div class="knowmore knowmorewhite uppercase">know more<div class="sprite knwmorearw knwmorewharw"></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="servicesmobimg">
+                    <img src="images/services/truckingbg-resp.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section5">
+            <div class="truckingbgblk">
+                <div class="servicelefttxtblk">
+                    <h2 class="tagline uppercase">RAIL FREIGHT</h2>
+                    <p class="pagetxt">
+                        We have exclusive arrangements for drayage of containers between select ICDs and select Ports through railways.
+                        Catering to DPD & DPE movements to benefit from tri-angulation.
+                    </p>
+                  
+                    <a href="{{ route('railFreight') }}">
+                        <div class="knowmore knowmorewhite uppercase">know more<div class="sprite knwmorearw knwmorewharw"></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="servicesmobimg">
+                    <img src="images/services/train.png" alt="" />
                 </div>
             </div>
         </div>
@@ -105,13 +144,33 @@
                         </ul>
                     </div>-->
                     <div class="clear"></div>
-                    <a href="services/customs-clearance.php">
+                    <a href="{{ route('customsClearance') }}">
                         <div class="knowmore knowmorewhite uppercase">know more<div class="sprite knwmorearw knwmorewharw"></div>
                         </div>
                     </a>
                 </div>
                 <div class="servicesmobimg">
-                    <img src="images/services/custombg-resp.jpg" alt="" />
+                    <img src="images/services/custom1.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section6">
+            <div class="shippingbgblk">
+                <div class="servicerighttxtblk">
+                    <h2 class="tagline uppercase">FORWARDING</h2>
+                    <p class="pagetxt">
+                        At AVA Global, we understand how complicated supply chains can be. As a full-service logistics and freight shipping company, weoffer a wide range of domestic and global shipping services, helping our clients meet the changing demands of the global logistics market. We have partnered with various logistic providers to offer you high quality services at competitive rates.
+                    </p>
+                    <p class="pagetxt">
+                        From cargo pickup to door delivery, our team of experts handle all aspects of the shipping procedure. You can also manage as well as track your shipment online 24/7.
+                    </p>
+                    <a href="{{ route('freightShipping') }}">
+                        <div class="knowmore knowmorewhite uppercase">know more<div class="sprite knwmorearw knwmorewharw"></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="servicesmobimg">
+                    <img src="images/services/forwarding1.png" alt="" />
                 </div>
             </div>
         </div>
@@ -125,54 +184,13 @@
                     <p class="pagetxt">
                         At AVA, we also offer customized services in bonded as well as non-bonded storage. Our well-guarded and spacious warehouses can store anything from small fragile items to large industrial equipment. Each warehouse is equipped with the latest facilities to keep valuables in best condition. Excellent storage facilities ensure protection from accidental damage or theft.
                     </p>
-                    <a href="services/warehousing.php">
+                    <a href="{{ route('warehousing') }}">
                         <div class="knowmore knowmorewhite uppercase">know more<div class="sprite knwmorearw knwmorewharw"></div>
                         </div>
                     </a>
                 </div>
                 <div class="servicesmobimg">
-                    <img src="images/services/warehousebg-resp.jpg" alt="" />
-                </div>
-            </div>
-        </div>
-        <div class="section" id="section5">
-            <div class="truckingbgblk">
-                <div class="servicelefttxtblk">
-                    <h2 class="tagline uppercase">TRUCKING</h2>
-                    <p class="pagetxt">
-                        As a full-service logistics and transportation company, we help our clients maintain their day-to-day operations with our reliable trucking services. Our wide range of trucking services are designed to accommodate varied needs of our clients. From lowboy trailers and flatbed trucks to refrigerated trucks, heavy haulers and step deck trailers, we have different types of trucks todeliver your freight on time.
-                    </p>
-                    <p class="pagetxt">
-                        We handle all types of shipments, be it big or small. You can get the goods shipped wherever you want because we work with some of the top carriers across the country. Your cargo will be moved by professionals who will ensure that your supply chain costs are kept to a minimum.From picking up shipments to dispatching, preparing necessary documentation, dealing with border clearance and tracking of cargo to its destination, we manage the entire process for you.
-                    </p>
-                    <a href="services/heavy-haul-trucking.php">
-                        <div class="knowmore knowmorewhite uppercase">know more<div class="sprite knwmorearw knwmorewharw"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="servicesmobimg">
-                    <img src="images/services/truckingbg-resp.jpg" alt="" />
-                </div>
-            </div>
-        </div>
-
-        <div class="section" id="section6">
-            <div class="shippingbgblk">
-                <div class="servicerighttxtblk">
-                    <h2 class="tagline uppercase">shipping</h2>
-                    <p class="pagetxt">
-                        At AVA Global, we understand how complicated supply chains can be. As a full-service logistics and freight shipping company, weoffer a wide range of domestic and global shipping services, helping our clients meet the changing demands of the global logistics market. We have partnered with various logistic providers to offer you high quality services at competitive rates.
-                    </p>
-                    <p class="pagetxt">
-                        From cargo pickup to door delivery, our team of experts handle all aspects of the shipping procedure. You can also manage as well as track your shipment online 24/7.
-                    </p>
-                    <a href="services/services-shipping.php">
-                        <div class="knowmore knowmorewhite uppercase">know more<div class="sprite knwmorearw knwmorewharw"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="servicesmobimg">
-                    <img src="images/services/shipping-resp.png" alt="" />
+                    <img src="images/services/warehouse.jpg" alt="" />
                 </div>
             </div>
         </div>
@@ -187,13 +205,13 @@
                     <p class="pagetxt">
                         Our insurance products cover freight against loss or damage whilst being transported by sea, air or road. You can count on us to give you the right insurance product at an affordable price. Our well-trained insurance experts make use of the latest technology to provide you the best insurance and risk management solutions. You can even customize your cargo and commercial insurance policy to meet the specific needs of your business.
                     </p>
-                    <a href="services/cargo-insurance.php">
+                    <a href="{{ route('cargoInsurancet') }}">
                         <div class="knowmore knowmorewhite uppercase">know more<div class="sprite knwmorearw knwmorewharw"></div>
                         </div>
                     </a>
                 </div>
                 <div class="servicesmobimg">
-                    <img src="images/services/insurancebg-resp.jpg" alt="" />
+                    <img src="images/services/insurance1.jpg" alt="" />
                 </div>
             </div>
             <!---footer start-->

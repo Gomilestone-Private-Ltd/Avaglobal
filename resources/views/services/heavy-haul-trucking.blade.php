@@ -54,7 +54,9 @@
                 <div class="servicenos">
                     05
                 </div>
-
+                <div>
+                    <img class="oceanbg-img" src="{{asset('images/services/truckingbg-resp.jpg')}}" alt="image">
+                </div>
             </div>
         </div>
         <!-- <div class="section servdet3sld" id="section2">

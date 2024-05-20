@@ -45,6 +45,9 @@
                 <div class="servicenos">
                     07
                 </div>
+                <div>
+                    <img class="oceanbg-img" src="{{asset('images/services/insurance1.jpg')}}" alt="image">
+                </div>
             </div>
         </div>
         <!-- <div class="section servdet3sld" id="section2">

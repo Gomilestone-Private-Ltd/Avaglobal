@@ -347,7 +347,7 @@ body {
 }
 .headerblk {
     position: fixed;
-    z-index: 99;
+    z-index: 9999;
     top: 0px;
     left: 0;
     right: 0;
@@ -2024,7 +2024,7 @@ video.logo-video {
     margin: 20px 0;
 }
 .headerblk.bgcolchange {
-    background: rgba(70, 68, 68, 1);
+    /* background: rgba(70, 68, 68, 1); */
     margin: 0 auto;
     padding: 20px 0 5px;
     transition: all 0.5s ease-in;

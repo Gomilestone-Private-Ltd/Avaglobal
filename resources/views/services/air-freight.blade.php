@@ -56,6 +56,9 @@
                 <div class="servicenos">
                     02
                 </div>
+                <div>
+                    <img class="oceanbg-img" src="{{asset('images/services/flite.png')}}" alt="image">
+                </div>
             </div>
         </div>
         <!-- <div class="section servdet3sld" id="section2">

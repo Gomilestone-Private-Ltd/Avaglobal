@@ -30,7 +30,7 @@
                         <div class="eva-container">
                             <div class="case-study-box">
                                 @foreach ($combinedData as $data)
-                                    <div class="case-study-item">
+                                    <div class="case-study-item case_study_item_box">
 
                                         {{-- <img class="cs-image" src="{{ asset('/images/contactinfobg.jpg') }}" /> --}}
                                         {{-- <img class="cs-image" src="{{ asset($data->avaDocs->path) }}" /> --}}

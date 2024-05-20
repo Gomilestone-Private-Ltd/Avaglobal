@@ -32,10 +32,10 @@
                             <div class="cr-title-box">
                                 <h1 class="csd-title">Online Coverage</h1>
                             </div>
-                            <div class="case-study-box">
+                            <div class="case-study-box case_study">
                                 @if (count($newsData) > 0)
                                     @foreach ($newsData as $data)
-                                        <div class="case-study-item">
+                                        <div class="case-study-item case_study_item">
                                             <img src="{{ isset($data->onlineDocsImage->path) ? asset($data->onlineDocsImage->path) : asset('/images/event/media1.jpg') }}"
                                                 class="cs-image" />
                                             <div class="cs-content">
@@ -62,9 +62,9 @@
                                         </div>
                                     @endforeach
                                 @endif
-                                <div class="case-study-item">
+                                {{-- <div class="case-study-item">
 
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         @php
@@ -79,10 +79,10 @@
                                 <h1 class="csd-title">Print Coverage</h1>
                             </div>
 
-                            <div class="case-study-box">
+                            <div class="case-study-box case_study">
                                 @if (count($latestEventData) > 0)
                                     @foreach ($latestEventData as $event)
-                                        <div class="case-study-item">
+                                        <div class="case-study-item case_study_item">
                                             <img src="{{ isset($event->printDocsImage->path) ? asset($event->printDocsImage->path) : asset('/images/event/event1.jpg') }}"
                                                 class="cs-image" />
                                             <div class="cs-content">
@@ -132,9 +132,9 @@
                                         </a>
                                     </div>
                                 </div> --}}
-                                <div class="case-study-item">
+                                {{-- <div class="case-study-item">
 
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

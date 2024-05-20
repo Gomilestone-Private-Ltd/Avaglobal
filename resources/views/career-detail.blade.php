@@ -73,27 +73,27 @@
                                         @csrf
                                         <div class="form-cont">
                                             <div class="input-container ibvm">
-                                                <div class="placholder">Your Name</div>
+                                                <div class="placholder placeholder-text">Your Name</div>
                                                 <input type="text" name="name" class="inputclick">
                                                 <span class="text-danger">
                                                 </span>
                                             </div>
                                             <div class="input-container ibvm">
-                                                <div class="placholder">Your Email address</div>
+                                                <div class="placholder placeholder-text">Your Email address</div>
                                                 <input type="email" name="email" class="inputclick">
                                                 <span class="text-danger">
 
                                                 </span>
                                             </div>
                                             <div class="input-container ibvm">
-                                                <div class="placholder">PHONE number</div>
+                                                <div class="placholder placeholder-text">PHONE number</div>
                                                 <input type="text" name="phone" class="inputclick">
                                                 <span class="text-danger">
 
                                                 </span>
                                             </div>
                                             <div class="input-container ibvm">
-                                                <div class="placholder">Position</div>
+                                                <div class="placholder placeholder-text">Position</div>
                                                 <input type="text" name="position" disabled
                                                     value="{{ isset($careerData->job_role) ? $careerData->job_role : '' }}"
                                                     class="inputclick">

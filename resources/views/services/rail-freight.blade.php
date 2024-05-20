@@ -45,6 +45,9 @@
                 <div class="servicenos">
                     07
                 </div>
+                <div>
+                    <img class="oceanbg-img" src="{{asset('images/services/train.png')}}" alt="image">
+                </div>
             </div>
         </div>
       

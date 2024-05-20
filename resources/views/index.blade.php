@@ -479,7 +479,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="contactblk">
+                            <div class="contactblk con-add">
                                 <div class="contacticon ibvt">
                                     <span class="sprite locationwhite"></span>
                                 </div>
@@ -604,34 +604,58 @@
                         }
                     });
                 </script>
+               
                 <script>
                     $(document).ready(function() {
-                        if ($(window).width() >= 1024) {
-                            $('#menublk').click(function() {
-                                $('.navigation').addClass('navigationopen')
-                            });
-                            $('.closeicon').click(function() {
-                                $('.navigation').removeClass('navigationopen')
-                            });
+                        function initializeMenu() {
+                            var windowWidth = $(window).width();
+ 
+                            if (windowWidth >= 1023) {
+                                // Desktop functionality
+                                // Unbind mobile specific events
+                                if ($('nav#menu').data('mmenu')) {
+                                    $('nav#menu').data('mmenu').destroy();
+                                }
+ 
+                                $('#menublk').off('click').click(function() {
+                                    $('.navigation').addClass('navigationopen');
+                                });
+                                $('.closeicon').off('click').click(function() {
+                                    $('.navigation').removeClass('navigationopen');
+                                });
+ 
+                                // Ensure navigation state is consistent for desktop
+                                $('.navigation').removeClass('navigationopen');
+ 
+                            } else {
+                                // Mobile functionality
+                                // Unbind desktop specific events
+                                $('#menublk').off('click');
+                                $('.closeicon').off('click');
+ 
+                                if (!$('nav#menu').data('mmenu')) {
+                                    $("nav#menu").mmenu({
+                                        offCanvas: {
+                                            position: "right",
+                                            zposition: "back",
+                                            moveBackground: "true"
+                                        },
+                                        navbars: [{
+                                            position: 'top',
+                                            content: ['prev', 'title', 'close']
+                                        }]
+                                    });
+                                }
+                            }
                         }
-                    });
-                </script>
-                {{-- <script src="{{ asset('/js/jquery.mmenu.min.all.js') }}"></script> --}}
-                <script>
-                    $(function() {
-                        if ($(window).width() <= 1023) {
-                            $("nav#menu").mmenu({
-                                offCanvas: {
-                                    position: "right",
-                                    zposition: "back",
-                                    moveBackground: "true",
-                                },
-                                navbars: [{
-                                    position: 'top',
-                                    content: ['prev', 'title', 'close']
-                                }, ]
-                            });
-                        }
+ 
+                        // Initialize on document ready
+                        initializeMenu();
+ 
+                        // Handle window resize events
+                        $(window).resize(function() {
+                            initializeMenu();
+                        });
                     });
                 </script>
                 <script>

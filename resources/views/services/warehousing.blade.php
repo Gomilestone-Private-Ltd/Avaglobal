@@ -51,7 +51,9 @@
                 <div class="servicenos">
                     04
                 </div>
-
+                <div>
+                    <img class="oceanbg-img" src="{{asset('images/services/warehouse.jpg')}}" alt="image">
+                </div>
 
             </div>
         </div>
