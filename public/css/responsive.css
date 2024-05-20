@@ -579,7 +579,7 @@
         position: absolute;
         top: 16%;
         left: 6%;
-        position: initial;
+        /* position: initial; */
     }
 }
 
@@ -1174,6 +1174,10 @@
 
 
 @media screen and (max-width: 1023px) {
+    
+    .lead-form {
+        position: initial;
+    }
     .headerrightblk {
         height: 60px;
     }
