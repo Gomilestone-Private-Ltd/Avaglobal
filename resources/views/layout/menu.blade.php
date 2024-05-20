@@ -117,7 +117,7 @@
 
     <ul>
         <li class="side_menu_box">
-            <p id="close_menu">x</p>
+            <p id="close_menu"><i class="fa fa-times" aria-hidden="true"></i></p>
         </li>
         <li><a href="{{ route('home') }}">HOME</a></li>
         <li><a href="{{ route('about') }}">About</a></li>
@@ -166,6 +166,8 @@
         closeThis.forEach(function(el) {
             el.style.removeProperty("right");
         });
+        var htmlElement = document.documentElement;
+        htmlElement.classList.add('mm-opened', 'mm-background', 'mm-right', 'mm-opening');
     }
 
     var closeEl = document.getElementById('close_menu');
@@ -173,8 +175,10 @@
         var firstCss = document.getElementById('menu');
         firstCss.style.display = "block";
         firstCss.style.position = "fixed";
-       
+
         firstCss.style.setProperty("right", "-300px", "important");
         firstCss.style.transition = "0.5s";
+        var htmlElement = document.documentElement;
+        htmlElement.classList.remove('mm-opened', 'mm-background', 'mm-right', 'mm-opening');
     }
 </script>

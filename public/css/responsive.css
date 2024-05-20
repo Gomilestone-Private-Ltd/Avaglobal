@@ -874,7 +874,29 @@
         bottom: 20px;
     }
 
-   
+    .job-left {
+        width: 55% !important;
+    }
+
+    .job-right {
+        width: 45% !important;
+        border: 1px solid #e5e6e7;
+        margin-left: 4%;
+        padding: 15px 10px;
+    }
+
+    .job-details {
+        background-color: #4e7ac7;
+        padding-top: 100px;
+        padding-bottom: 30px;
+    }
+
+    .job-details {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
 }
 
 @media screen and (max-width: 1120px) {
@@ -1152,9 +1174,10 @@
 
 
 @media screen and (max-width: 1023px) {
-    .headerrightblk{
+    .headerrightblk {
         height: 60px;
     }
+
     .header-menu {
         display: none;
     }
@@ -1162,29 +1185,26 @@
     .logo-video {
         display: none;
     }
+
     .mm-close {
         display: none !important;
     }
-    .mm-hasnavbar-top-1 .mm-panel {
-        top: -1px !important;
-    }
-    /* .mm-menu > .mm-panel > .mm-listview:first-child, .mm-menu > .mm-panel > .mm-navbar + .mm-listview {
+
+    .mm-menu>.mm-panel>.mm-listview:first-child,
+    .mm-menu>.mm-panel>.mm-navbar+.mm-listview {
         margin-top: 0px !important;
-    } */
-    .mm-menu > .mm-panel:before, .mm-menu > .mm-panel:after{
+    }
+
+    .mm-menu>.mm-panel:before,
+    .mm-menu>.mm-panel:after {
         height: auto !important;
     }
-    /* .side_menu_box {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        padding: 15px 0px !important;
-    } */
-    #close_menu{
+
+    #close_menu {
         position: absolute;
         right: 10px;
-        top: 44px;
-        font-size: 22px;
+        top: -37px;
+        font-size: 16px;
         background-color: #fff;
         color: #000;
         height: 33px;
@@ -1197,11 +1217,9 @@
         line-height: 0;
         z-index: 9999;
     }
-    /* .side_menu_box h3{
-        text-transform: uppercase;
-        font-size: 20px;
-        font-weight: 400;
-    } */
+    .mm-subopened #close_menu{
+        right: -80px;
+    }
 
     html,
     body {
@@ -1447,7 +1465,7 @@
     }
 
     .subheading-banner {
-        font-size: 100px;
+        font-size: 85px;
         line-height: normal;
     }
 
@@ -1967,6 +1985,367 @@
     .custombgblk .servicelefttxtblk .pagetxt {
         width: 100%;
     }
+
+    .headerrightblk {
+        height: 70px;
+    }
+
+    .videoblk .avanameblk {
+        width: 100%;
+    }
+
+    .vidbuttons {
+        margin-top: 180px;
+    }
+
+    .videoblk {
+        top: 60%;
+    }
+
+    .overview_main {
+        height: 750px;
+    }
+
+    .overviewtxtblk {
+        margin-top: -90px;
+        padding-top: 0;
+    }
+
+    .counter-box {
+        top: 240px !important;
+        width: 100% !important;
+    }
+
+    .overviewimgrightblk {
+        top: 300px;
+    }
+
+    img.overvwsldimg {
+        height: 300px !important;
+        object-fit: cover;
+    }
+
+    .product-name {
+        margin: auto;
+        text-align: center;
+    }
+
+    .knowmore.coreproknwmore {
+        display: none !important;
+    }
+
+    .prod-morebuts {
+        font-size: 18px;
+        text-shadow: none;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .banner-wrapper {
+        height: 640px !important;
+    }
+
+    .newsslidercontent .banner-caption {
+        bottom: 22px;
+    }
+
+    .newsleftcontent {
+        padding: 0px 0 0;
+        position: absolute;
+        top: 34px;
+        margin-left: 0;
+    }
+
+    .newsheading {
+        font-size: 30px;
+    }
+
+    .newsslidercontent .bx-viewport {
+        height: 640px;
+    }
+
+    .newsslidercontent .bx-wrapper img {
+        height: 640px !important;
+        transform: skew(0deg) !important;
+        object-fit: cover;
+    }
+
+    .newsslidercontent {
+        width: 45% !important;
+        left: 40%;
+        transform: skew(-17deg) !important;
+    }
+
+    .newsslidercontent .bx-wrapper .bx-controls-direction a.bx-prev {
+        width: 121px;
+        height: 81px;
+        background-size: 100%;
+        left: -99px;
+        top: 64%;
+    }
+
+    .servdet3sld {
+        padding-bottom: 30px;
+    }
+
+    .newsslidercontent .bx-wrapper .bx-controls-direction a.bx-next {
+        width: 90px;
+        height: 80px;
+        background-size: 100%;
+        transform: skew(8deg);
+        right: -67px;
+    }
+
+    .newsslidercontent .banner-container {
+        padding: 10px 40px;
+    }
+
+    #section5 .contactinfobg {
+        height: 340px;
+    }
+
+    .contactinforightblk {
+        width: 45%;
+        float: right;
+        margin: 0;
+    }
+
+    .contactmobimg {
+        display: none;
+    }
+
+    .contactinforightblk .tagline {
+        text-align: left;
+    }
+
+    .iconss {
+        justify-content: left;
+    }
+
+    .callblk.ibvm {
+        justify-content: left;
+    }
+
+    .left-img .icon-img {
+        width: 400px;
+    }
+
+    .left-img {
+        left: 30%;
+        top: 5%;
+    }
+
+    .mission-wrapper-about .servicerighttxtblk {
+        top: 285px;
+        height: 820px;
+    }
+
+    .misson-blk-abt {
+        height: auto;
+    }
+
+    .misson-blk-abt-head {
+        font-size: 40px;
+        line-height: normal;
+    }
+
+    .misson-blk-abt {
+        border: none;
+    }
+
+    .our-usp {
+        margin-right: 0;
+    }
+
+    .our-icons {
+        height: 65px;
+    }
+
+    .color-black {
+        font-size: 15px !important;
+        line-height: 22px;
+    }
+
+    .our-usp {
+        margin-right: 0;
+    }
+
+    .slick-slider {
+        height: 420px;
+        padding: 0 20px !important;
+    }
+
+    .ecpertise-box {
+        width: 100%;
+        position: relative;
+        padding: 0;
+        margin: 0px 10px;
+        padding-bottom: 20px;
+    }
+
+    .ecpertise-box img {
+        width: 100% !important;
+    }
+
+    .expertise-text {
+        padding-left: 3%;
+    }
+
+    .main-text {
+        font-size: 45px;
+        margin-bottom: 45px;
+        padding-top: 40px;
+    }
+
+    button.prev-arrow.slick-arrow {
+        left: 4% !important;
+    }
+
+    .abt-banner-blk-same {
+        margin-top: 35px;
+        height: auto;
+    }
+
+    .abt-banner-blk-same img {
+        width: 100%;
+    }
+
+    .team_right {
+        margin: 30px 0;
+    }
+
+    .aboutbannerblk {
+        height: 450px;
+    }
+
+    .bannertxtblk {
+        padding: 0;
+        bottom: 30px;
+        position: absolute;
+    }
+
+    div#page {
+        padding-top: 70px;
+    }
+
+    .footerwrapper {
+        height: auto;
+    }
+
+    .servicesmobimg img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+    }
+
+    .servicedeatialbanner {
+        height: 350px;
+    }
+
+    .oceanbg-img {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .contactbannerblk {
+        height: 350px;
+    }
+
+    .contactlefttxtblk .tagline {
+        padding-bottom: 15px;
+    }
+
+    .contactmap {
+        margin-top: 10px !important;
+    }
+
+    .lead-form-box {
+        padding: 0px 40px;
+        padding-bottom: 40px;
+    }
+
+    .hiringheading {
+        font-size: 30px;
+        color: #7f7f7f;
+        font-weight: bold;
+        padding: 20px 0;
+        margin-bottom: 40px;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .form-cont {
+        margin: auto;
+    }
+
+    .headerblk.bgcolchange {
+        padding-top: 0;
+    }
+
+    .job-details {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .job-right {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .job-main {
+        flex-direction: column;
+        margin-top: 40px;
+    }
+
+    .job-left {
+        width: 100% !important;
+        margin-bottom: 30px;
+    }
+
+    .case-study-item {
+        width: 100% !important;
+    }
+
+    .case_study_item_box {
+        width: 47% !important;
+        margin-bottom: 30px !important;
+    }
+
+    div#demo {
+        margin-top: 0;
+    }
+
+    #owl-demo .item img {
+        height: 450px;
+    }
+
+    .csd-contnet.detail {
+        padding-left: 0px !important;
+    }
+
+    .csd-contnet p img {
+        margin-top: 20px;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .case_study {
+        margin-top: 20px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .case_study_item {
+        width: 47% !important;
+        margin-bottom: 30px !important;
+    }
+    .mm-menu > .mm-navbar{
+        z-index: initial !important;
+    }
+    .mm-menu > .mm-panel{
+        overflow: initial !important;
+    }
+
+   
 }
 
 @media screen and (max-width: 980px) {
@@ -2029,13 +2408,20 @@
         padding: 0px !important;
     }
 
-    .headerrightblk {
-        height: 70px;
-    }
+
 }
 
 
 @media screen and (max-width: 767px) {
+
+    .mission-wrapper-about .servicerighttxtblk {
+        top: 0px;
+    }
+
+    .videoblk {
+        top: 40%;
+    }
+
     .aboutpgexptxt {
         width: 360px;
     }
@@ -2083,7 +2469,7 @@
     }
 
     .subheading-banner {
-        font-size: 80px;
+        font-size: 60px;
     }
 
     .calnumblue,
@@ -2190,7 +2576,7 @@
     }
 
     .form-cont {
-        width: 90%;
+        width: 100%;
     }
 
     .innertabitem {
@@ -2403,12 +2789,16 @@
     .our_mission {
         margin-top: 315px !important;
     }
-    .misson-blk-abt{
+
+    .misson-blk-abt {
         border: none;
     }
-    .misson-blk-abt, .philosophy-blk-abt{
+
+    .misson-blk-abt,
+    .philosophy-blk-abt {
         padding-top: 0px;
     }
+
     .third-box {
         border-top: 1px solid #fff;
         border-bottom: 1px solid #fff;
@@ -2416,13 +2806,16 @@
         margin-top: 6%;
         padding-bottom: 5%;
     }
+
     .left-img {
         top: 11px;
         left: 110px;
     }
+
     .left-img .icon-img {
         width: 450px;
     }
+
     .four-box {
         margin-top: 10px;
         grid-template-columns: auto auto auto;
@@ -2432,38 +2825,49 @@
         margin: auto;
         width: 90%;
     }
+
     .servdet3sld {
         padding-bottom: 30px;
     }
+
     .first-box {
         padding: 10px 20px;
     }
+
     .abt-banner-blk-same {
         margin-top: 35px;
         height: auto;
     }
+
     .abt-banner-blk-same img {
         width: 100%;
     }
+
     .team_right {
         margin: 30px 0;
     }
+
     .aboutbannerblk {
         height: 450px;
     }
-    .first-box{
+
+    .first-box {
         width: 100%;
         padding: 10px 11px;
         margin: 0;
+        height: auto;
     }
+
     .main-white {
         font-size: 50px;
         margin-bottom: 25px;
         padding-top: 30px;
     }
+
     .my-slider {
         padding: 0 20px !important;
     }
+
     .ecpertise-box {
         width: 100%;
         position: relative;
@@ -2472,69 +2876,89 @@
         margin: 0px 10px;
         padding-bottom: 20px;
     }
+
     .ecpertise-box img {
         width: 100% !important;
     }
+
     .expertise-text {
         padding-left: 3%;
     }
+
     .itum-sub-heading {
         font-size: 16px;
         width: 97%;
         line-height: 24px;
     }
+
     h1.itum-heading {
         font-size: 22px;
     }
+
     .slick-slider {
         height: 420px;
     }
+
     .our-usp {
         margin-right: 0;
     }
+
     .bannertxtblk {
         position: relative;
         padding: 0;
         bottom: 30px;
         position: absolute;
     }
+
     .experience-ava {
         font-size: 30px;
     }
+
     .year-ava {
         font-size: 25px;
     }
+
     .no-content-ava {
         font-size: 80px;
     }
-    .footerwrapper{
+
+    .footerwrapper {
         height: auto;
     }
+
     div#page {
         padding-top: 70px;
     }
+
     .vidbuttons {
         margin-top: 80px;
     }
+
     .footerwrapper.homefooterwrapper {
         padding: 16px 0 30px;
     }
+
     .oceanbg-img {
         width: 100%;
         margin-top: 30px;
     }
+
     .servicedeatialbanner {
         height: 280px;
     }
+
     .calulator-box {
         height: 430px;
     }
+
     .converter-wrapper {
         width: 90% !important;
     }
-    body{
+
+    body {
         padding-top: 0px !important;
     }
+
     .contactbannerblk {
         height: 300px;
     }
@@ -2542,67 +2966,81 @@
     .contactmap {
         margin-top: 20px !important;
     }
-    .let_meet_box{
+
+    .let_meet_box {
         display: block !important;
         justify-content: left !important;
     }
+
     .contactlefttxtblk .tagline {
         padding-bottom: 15px;
     }
+
     .lead-form-box {
         padding: 0px 40px;
         padding-bottom: 40px;
     }
+
     .placholder {
         font-size: 14px;
         margin-bottom: 0px;
         padding-bottom: 2px;
     }
+
     .submitbtn {
         margin-top: 30px;
     }
+
     .hiringheading {
         margin-bottom: 25px;
     }
+
     .case-study-item {
         width: 100% !important;
         margin-bottom: 30px !important;
     }
 
-    .case_study_item_box{
+    .case_study_item_box {
         width: 47% !important;
         margin-bottom: 30px !important;
     }
+
     div#demo {
         margin-top: 0px;
     }
+
     #owl-demo .item img {
         display: block;
         width: 100%;
         height: 400px;
         object-fit: cover;
     }
+
     .csd-contnet.detail {
         padding-left: 0px !important;
         margin-bottom: 40px !important;
     }
+
     .csd-contnet p img {
         width: 100%;
         margin-top: 20px;
         height: 300px;
         object-fit: cover;
     }
+
     h1.csd-title {
         font-size: 36px !important;
     }
-    .case_study{
+
+    .case_study {
         margin-top: 20px !important;
         margin-bottom: 0px !important;
     }
-    .case_study_item{
+
+    .case_study_item {
         width: 47% !important;
     }
-   
+
 
 }
 
@@ -3283,7 +3721,6 @@
 
     .job-left {
         width: 100% !important;
-        margin-bottom: 30px;
     }
 
     .job-right {
@@ -3494,272 +3931,3 @@
     }
 
 }
-
-/* @media screen and (max-width: 480px) {
-    .banner-wrapper-about.responsiveabtsld {
-        width: 50%;
-    }
-    .banner-wrapper-about.responsiveabtsld li {
-        width: 220px !important;
-    }
-    .newsleftcontent.mediacontent {
-        margin: 0 auto;
-        left: 0;
-        width: 90%;
-    }
-    .contimgblk,
-    .contdetailblk {
-        width: 80%;
-    }
-    .contasizeblk {
-        margin: 20px 0 0;
-    }
-    .thankutxt {
-        font-size: 38px;
-        line-height: 42px;
-    }
-    .thankusubttl {
-        line-height: 24px;
-        font-size: 20px;
-    }
-    .innerinfoblk {
-        padding: 100px 0;
-    }
-    .thankupageblk {
-        padding: 70px 0;
-    }
-    
-}
-@media screen and (max-width: 479px) {
-    .newsslidercontent{
-        left: 30%;
-    }
-    .welcm-ava {
-        display: none;
-    }
-    .videoblk {
-        bottom: 10px;
-    }
-    .videoblk .avanameblk {
-        width: 100%;
-        padding-top: 5px;
-    }
-    .logistic-solution {
-        font-size: 12px;
-    }
-    p {
-        font-size: 12px;
-    }
-   
-    .logo {
-        width: 90px;
-    }
-    .videoblk .compshortinfo {
-        margin-top: 5px;
-    }
-    .videoblk .logistic-solution::before {
-        display: none;
-    }
-    .overvwsrbttl {
-        font-size: 16px;
-    }
-    .pagetxt {
-        font-size: 15px;
-        line-height: 17px;
-    }
-    .knowmore {
-        font-size: 14px;
-        margin: 15px 0;
-    }
-    .usplistblk ul li {
-        font-size: 14px;
-    }
-    .developblk {
-        float: none;
-        width: 100%;
-    }
-    .socialiconblk {
-        border-right: 0;
-    }
-    .newsslidercontent .banner-container {
-        padding: 10px 15px;
-    }
-   
-    .product-name {
-        top: 90px;
-    }
-    .product-name span {
-        font-size: 14px;
-    }
-    .sprite.knwmorewharw,
-    .serviceswrap .sprite.knwmorewharw {
-        background: url("../images/sprite.png") no-repeat -190px -4px;
-        width: 32px;
-        margin-left: 10px;
-        -webkit-animation-duration: 5s;
-    }
-    .sprite.knwmorearw {
-        background: url("../images/sprite.png") no-repeat -140px -4px;
-        width: 32px;
-        margin-left: 10px;
-        -webkit-animation-duration: 5s;
-    }
-    .productinfoblk .sprite.knwmorewharw {
-        background: url("../images/sprite.png") no-repeat -140px -4px;
-        width: 32px;
-        margin-left: 5px;
-    }
-    .coreproknwmore .sprite.knwmorearw {
-        background: url("../images/sprite.png") no-repeat -190px -4px;
-    }
-    .directiontxt .sprite.knwmorearw {
-        background: url("../images/sprite.png") no-repeat -190px -4px;
-    }
-    .footerwrapper.homefooterwrapper {
-        padding: 15px 0;
-    }
-    .copyrighttxt {
-        padding: 5px 0;
-    }
-    #product-bx-pager .active {
-        font-size: 16px;
-    }
-    .newsinfoblk .newsubtxt {
-        font-size: 16px;
-    }
-    .freightcontentblk .servicesmobimg {
-        padding: 0 0 135px;
-    }
-    .servicenos {
-        font-size: 80px;
-        bottom: 115px;
-    }
-    .subheading-banner {
-        font-size: 55px;
-    }
-    .calculatortabblk .innertablist {
-        padding: 0;
-    }
-    .calculatortabblk .innertabitem {
-        font-size: 20px;
-    }
-    .calcontentblk {
-        width: 84%;
-    }
-    .exportsubtxt {
-        font-size: 15px;
-    }
-    .aboutpgexptxt {
-        width: 90%;
-        text-align: center;
-    }
-    .year-ava {
-        font-size: 17px;
-        line-height: 17px;
-    }
-    .experience-ava {
-        font-size: 22px;
-        line-height: 22px;
-    }
-    .misson-blk-abt-content {
-        font-size: 15px;
-        line-height: normal;
-    }
-    .misson-blk-abt-head {
-        font-size: 20px;
-        letter-spacing: 2px;
-    }
-    .commitsubtxt .pagetitle {
-        font-size: 16px;
-        line-height: 20px;
-    }
-    .banner-wrapper-about.responsiveabtsld {
-        width: 65%;
-    }
-    .contactmap iframe {
-        height: 300px;
-    }
-    #status {
-        width: 320px;
-    }
-    .ourcommitblk {
-        width: 100%;
-    }
-    .counter-box {
-        width: 100% !important;
-    }
-    .overviewtxtblk {
-        top: 0 !important;
-        margin-top: 0px;
-    }
-    .overviewtxtblk {
-        padding-bottom: 0px;
-    }
-    .counter-box {
-        top: 440px !important;
-    }
-}
-@media screen and (max-width: 360px) {
-    .avaglname {
-        margin-bottom: 5px;
-        font-size: 14px;
-    }
-    .overviewblk a {
-        font-size: 12px;
-    }
-    .overvwttl,
-    .overvwtagln {
-        font-size: 18px;
-    }
-    .experiencetxt {
-        font-size: 24px;
-        line-height: 24px;
-    }
-    .twentytxt .experiencetxt {
-        font-size: 50px;
-    }
-    .sliderimgtxt {
-        font-size: 13px;
-    }
-    .oversldimgtxt {
-        top: 25%;
-        width: 200px;
-    }
-    .product-name {
-        top: 20px;
-    }
-    .subheading-banner {
-        font-size: 50px;
-    }
-    .importsubtxt {
-        font-size: 16px;
-    }
-    .servicenos {
-        font-size: 60px;
-        bottom: 100px;
-    }
-    .importheading {
-        font-size: 26px;
-    }
-    .calculatorwrap {
-        padding: 0;
-    }
-    .importsubtxt {
-        font-size: 16px;
-    }
-    .upload-career {
-        width: 75%;
-    }
-    .no-content-ava {
-        font-size: 50px;
-    }
-    .commitsubtxt .pagetitle {
-        font-size: 15px;
-    }
-    .pagetxt.teamsubtxt {
-        font-size: 15px;
-    }
-    .banner-wrapper-about.responsiveabtsld {
-        width: 70%;
-    }
-} */

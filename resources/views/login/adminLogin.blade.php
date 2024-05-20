@@ -28,9 +28,9 @@
                     <div class="eva-container">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-md-7 p-0">
+                                <div class="col-lg-7 col-md-5 p-0">
                                 </div>
-                                <div class="col-md-5 p-0">
+                                <div class="col-lg-5 col-md-7 p-0">
                                     <div class="form-container">
                                         <form class="login-form" action="{{ route('authenticate') }}" method="post">
                                             @csrf
