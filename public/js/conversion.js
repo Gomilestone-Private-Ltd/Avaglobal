@@ -24,32 +24,136 @@ var property = new Array();
 var unit = new Array();
 var factor = new Array();
 
+// property[0] = "Length";
+// unit[0] = new Array(
+//     "Meter (m)",
+
+//     "Centimeter (cm)",
+//     "Kilometer (km)",
+
+//     "Foot (ft)",
+//     "Inch (in)",
+
+//     "Millimeter (mm)"
+// );
+// factor[0] = new Array(1, 0.01, 1000, 0.3048, 0.0254, 0.001);
 property[0] = "Length";
 unit[0] = new Array(
     "Meter (m)",
-
+    "Angstrom (A')",
+    "Astronomical unit (AU)",
+    "Caliber (cal)",
     "Centimeter (cm)",
     "Kilometer (km)",
-
+    "Ell",
+    "Em",
+    "Fathom",
+    "Furlong",
+    "Fermi (fm)",
     "Foot (ft)",
     "Inch (in)",
-
-    "Millimeter (mm)"
+    "League (int'l)",
+    "League (UK)",
+    "Light year (LY)",
+    "Micrometer (mu-m)",
+    "Mil",
+    "Millimeter (mm)",
+    "Nanometer (nm)",
+    "Mile (int'l nautical)",
+    "Mile (UK nautical)",
+    "Mile (US nautical)",
+    "Mile (US statute)",
+    "Parsec",
+    "Pica (printer)",
+    "Picometer (pm)",
+    "Point (pt)",
+    "Rod",
+    "Yard (yd)"
 );
-factor[0] = new Array(1, 0.01, 1000, 0.3048, 0.0254, 0.001);
+factor[0] = new Array(
+    1,
+    1e-10,
+    1.49598e11,
+    0.000254,
+    0.01,
+    1000,
+    1.143,
+    4.2323e-3,
+    1.8288,
+    201.168,
+    1e-15,
+    0.3048,
+    0.0254,
+    5556,
+    5556,
+    9.46055e15,
+    0.000001,
+    0.0000254,
+    0.001,
+    1e-9,
+    1852,
+    1853.184,
+    1852,
+    1609.344,
+    3.08374e16,
+    4.217518e-3,
+    1e-12,
+    0.0003514598,
+    5.0292,
+    0.9144
+);
 
+// property[1] = "Weight";
+// unit[1] = new Array(
+//     "Kilogram (kgr)",
+
+//     "Pound mass (lbm)",
+//     "Pound mass (troy)"
+// );
+// factor[1] = new Array(
+//     1,
+
+//     0.4535924,
+//     0.3732417
+// );
 property[1] = "Weight";
 unit[1] = new Array(
     "Kilogram (kgr)",
-
+    "Gram (gr)",
+    "Milligram (mgr)",
+    "Microgram (mu-gr)",
+    "Carat (metric)(ct)",
+    "Hundredweight (long)",
+    "Hundredweight (short)",
     "Pound mass (lbm)",
-    "Pound mass (troy)"
+    "Pound mass (troy)",
+    "Ounce mass (ozm)",
+    "Ounce mass (troy)",
+    "Slug",
+    "Ton (assay)",
+    "Ton (long)",
+    "Ton (short)",
+    "Ton (metric)",
+    "Tonne"
 );
 factor[1] = new Array(
     1,
-
+    0.001,
+    1e-6,
+    0.000000001,
+    0.0002,
+    50.80235,
+    45.35924,
     0.4535924,
-    0.3732417
+    0.3732417,
+    0.02834952,
+    0.03110348,
+    14.5939,
+    0.02916667,
+    1016.047,
+    907.1847,
+    1000,
+    1000
 );
 
 // !!! Caution: Temperature requires an increment as well as a multiplying factor
@@ -65,16 +169,81 @@ unit[2] = new Array(
 factor[2] = new Array(1, 0.555555555555, 1, 0.555555555555);
 tempIncrement = new Array(0, -32, -273.15, -491.67);
 
+// property[3] = "Volume & Capacity";
+// unit[3] = new Array(
+//     "Cubic Meter (m^3)",
+
+//     "Cubic foot"
+// );
+// factor[3] = new Array(
+//     1,
+
+//     0.02831685
+// );
 property[3] = "Volume & Capacity";
 unit[3] = new Array(
     "Cubic Meter (m^3)",
-
-    "Cubic foot"
+    "Cubic centimeter",
+    "Cubic millimeter",
+    "Acre-foot",
+    "Barrel (oil)",
+    "Board foot",
+    "Bushel (US)",
+    "Cup",
+    "Fluid ounce (US)",
+    "Cubic foot",
+    "Gallon (UK)",
+    "Gallon (US,dry)",
+    "Gallon (US,liq)",
+    "Gill (UK)",
+    "Gill (US)",
+    "Cubic inch (in^3)",
+    "Liter (new)",
+    "Liter (old)",
+    "Ounce (UK,fluid)",
+    "Ounce (US,fluid)",
+    "Peck (US)",
+    "Pint (US,dry)",
+    "Pint (US,liq)",
+    "Quart (US,dry)",
+    "Quart (US,liq)",
+    "Stere",
+    "Tablespoon",
+    "Teaspoon",
+    "Ton (register)",
+    "Cubic yard"
 );
 factor[3] = new Array(
     1,
-
-    0.02831685
+    0.000001,
+    0.000000001,
+    1233.482,
+    0.1589873,
+    0.002359737,
+    0.03523907,
+    0.0002365882,
+    0.00002957353,
+    0.02831685,
+    0.004546087,
+    0.004404884,
+    0.003785412,
+    0.0001420652,
+    0.0001182941,
+    0.00001638706,
+    0.001,
+    0.001000028,
+    0.00002841305,
+    0.00002957353,
+    8.809768e-3,
+    0.0005506105,
+    4.731765e-4,
+    0.001101221,
+    9.46353e-4,
+    1,
+    0.00001478676,
+    0.000004928922,
+    2.831685,
+    0.7645549
 );
 
 // ===========
@@ -134,7 +303,6 @@ function ConvertFromTo(sourceForm, targetForm) {
     // Cool! Let's do the same thing for the target unit - the units we are converting TO:
     targetIndex = targetForm.unit_menu.selectedIndex;
     targetFactor = factor[propIndex][targetIndex];
-   
 
     // Simple, huh? let's do the math: a) convert the source TO the base unit: (The input has been checked by the CalculateUnit function).
 
@@ -155,7 +323,6 @@ function ConvertFromTo(sourceForm, targetForm) {
 
     // Ta-da! All that's left is to update the target input box:
     targetForm.unit_input.value = result.toFixed(4);
-
 }
 
 // This fragment initializes the property dropdown menu using the data defined above in the 'Data Definitions' section
