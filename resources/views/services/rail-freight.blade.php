@@ -11,7 +11,7 @@
         </div>
     </div>
     <div id="fullpage">
-        <div class="section servicedetailsection insuranceblk" id="section0">
+        <div class="section servicedetailsection insuranceblk" id="section0" style="padding-bottom: 0px !important;">
             <div class="servicedeatialbanner">
                 <div class="wrapper pageblock">
                     <div class="bannertxtblk">
