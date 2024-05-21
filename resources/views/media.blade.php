@@ -84,7 +84,7 @@
                                     @foreach ($latestEventData as $event)
                                         <div class="case-study-item case_study_item">
                                             <img src="{{ isset($event->printDocsImage->path) ? asset($event->printDocsImage->path) : asset('/images/event/event1.jpg') }}"
-                                                class="cs-image" />
+                                                class="cs-image print_img" />
                                             <div class="cs-content">
                                                 <h2 class="cs-title">
                                                     {{-- The standard Lorem Ipsum passage, used since the 1500s --}}
