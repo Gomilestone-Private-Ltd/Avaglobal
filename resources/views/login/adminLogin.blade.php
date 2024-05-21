@@ -41,13 +41,13 @@
                                             <div class="input-box">
                                                 <label>Email-ID</label>
                                                 <input type="email" name="email" id="email"
-                                                    placeholder="Enter Email">
+                                                    placeholder="Enter Email" required>
                                                 <i class="fas fa-envelope login-icon"></i>
                                             </div>
                                             <div class="input-box">
                                                 <label>Password</label>
                                                 <input type="password" name="password" id="password"
-                                                    placeholder="Enter Password">
+                                                    placeholder="Enter Password" required>
                                                 <i class="fas fa-lock login-icon"></i>
                                             </div>
                                             <button type="submit" class="login-btn">Log In</button>
