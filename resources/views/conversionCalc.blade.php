@@ -13,7 +13,7 @@
                 <div class="wrapper pageblock">
                     <div class="bannertxtblk">
                         <h2 class="tagline uppercase">
-                            Measurement convertor
+                            Measurement converter
                         </h2>
 
                         <a href="" data-scroll-nav='0'>
