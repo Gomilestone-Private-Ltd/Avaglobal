@@ -3695,7 +3695,7 @@
         position: relative;
         padding: 0;
         border: 1px solid #e3e3e3;
-        margin: 0px 10px;
+        margin: 0px 30px;
         padding-bottom: 20px;
     }
 
@@ -3925,9 +3925,19 @@
 
 }
 
+@media (max-width:480px) {
+    .ecpertise-box img {
+        height: 323px !important;
+        width: 100% !important;
+        object-fit: contain;
+    }
+}
+
 @media (max-width:410px) {
-    select#allservice {
-        margin-bottom: 20px;
+    .ecpertise-box img {
+        height: 323px !important;
+        width: 100% !important;
+        object-fit: contain;
     }
     .productleftcontent {
         left: 5%;

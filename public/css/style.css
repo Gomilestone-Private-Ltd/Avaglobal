@@ -3700,6 +3700,10 @@ select.drop-down {
     align-items: center;
 } 
 
+.print_img{
+    object-fit: contain !important;
+}
+
 .cal-heading {
     font-size: 40px;
     margin-bottom: 15px;

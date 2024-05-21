@@ -156,6 +156,11 @@
                                                 ex Nhava, Sheva, Mundra, Hazira and ICD's with confirmed bookings.</h1>
                                         </div>
                                     </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="main-expertise-box">
                                     <div class="ecpertise-box">
                                         <img class="" src="{{ asset('images/about/creamic-1.png') }}" alt="">
                                         <div class="expertise-text">
@@ -164,6 +169,7 @@
                                                 established hinterland connectivity across ICD/CFS and sea-ports.</h1>
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                             <div class="item">
@@ -176,6 +182,11 @@
                                                 cargo.</h1>
                                         </div>
                                     </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="main-expertise-box">
                                     <div class="ecpertise-box">
                                         <img class="" src="{{ asset('images/about/chamical-1.png') }}"
                                             alt="">
@@ -185,6 +196,7 @@
                                                 established hinterland connectivity across ICD/CFS and sea-ports.</h1>
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                             <div class="item">
@@ -199,6 +211,11 @@
                                             </h1>
                                         </div>
                                     </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="main-expertise-box">
                                     <div class="ecpertise-box">
                                         <img class="" src="{{ asset('images/about/container.jpg') }}"
                                             alt="">
@@ -208,6 +225,7 @@
                                                 dimensional cargo.</h1>
                                         </div>
                                     </div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -545,7 +563,7 @@
             <script>
                 $(document).ready(function() {
                     $('.my-slider').slick({
-                        slidesToShow: 1,
+                        slidesToShow: 2,
                         slidesToScroll: 1,
                         arrows: true,
                         dots: true,
@@ -554,11 +572,11 @@
                         autoplaySpeed: 3000,
                         prevArrow: '<button class="prev-arrow"><</button>',
                         nextArrow: '<button class="next-arrow">></button>',
-                        autoplay: true,
+                        autoplay: false,
                         responsive: [{
                                 breakpoint: 1024,
                                 settings: {
-                                    slidesToShow: 1,
+                                    slidesToShow: 2,
                                     slidesToScroll: 1,
                                     infinite: true
                                 }
@@ -566,7 +584,7 @@
                             {
                                 breakpoint: 600,
                                 settings: {
-                                    slidesToShow: 1,
+                                    slidesToShow: 2,
                                     slidesToScroll: 1
                                 }
                             },
