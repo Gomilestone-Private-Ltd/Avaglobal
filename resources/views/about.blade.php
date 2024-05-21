@@ -572,7 +572,7 @@
                         autoplaySpeed: 3000,
                         prevArrow: '<button class="prev-arrow"><</button>',
                         nextArrow: '<button class="next-arrow">></button>',
-                        autoplay: false,
+                        autoplay: true,
                         responsive: [{
                                 breakpoint: 1024,
                                 settings: {
