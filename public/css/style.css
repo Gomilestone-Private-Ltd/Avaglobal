@@ -3695,10 +3695,11 @@ select.drop-down {
     margin-left: 10px;
 }
 .calulator-box {
-    height: 100vh;
+    height: 600px;
     display: flex;
     align-items: center;
 } 
+
 .cal-heading {
     font-size: 40px;
     margin-bottom: 15px;
