@@ -12,7 +12,7 @@
     </div>
 
     <div id="fullpage">
-        <div class="section servicedetailsection wearhosblk" id="section0">
+        <div class="section servicedetailsection wearhosblk" id="section0" style="padding-bottom: 0px !important;">
 
             <div class="servicedeatialbanner">
                 <div class="wrapper pageblock">

@@ -2416,10 +2416,29 @@
     .servdet3sld{
         padding-bottom: 5px !important;
     }
+    .avanameblk.fl.uppercase {
+        padding-bottom: 20px;
+    }
+    .newsslidercontent .banner-container p {
+        transform: skew(12deg) !important;
+    }
+    .media-link {
+        transform: skew(15deg) !important;
+    }
+    .form-container {
+        position: relative;
+        z-index: 99;
+    }
 
 }
 
 @media screen and (max-width: 980px) {
+    .vidbuttons {
+        margin-top: 80px;
+    }
+    .videoblk {
+        top: 40%;
+    }
     .product-name {
         right: 0;
         left: 5%;
