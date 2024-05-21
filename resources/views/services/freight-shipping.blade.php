@@ -52,7 +52,7 @@
                     06
                 </div>
                 <div>
-                    <img class="oceanbg-img" src="{{asset('images/services/forwarding1.png')}}" alt="image">
+                    <img class="oceanbg-img bg_color" src="{{asset('images/services/forwarding1.png')}}" alt="image">
                 </div>
             </div>
         </div>

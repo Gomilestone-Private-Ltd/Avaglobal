@@ -62,7 +62,7 @@ h4.ct-heading {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    padding-top: 26px !important;
+    padding-top: 26px;
 }
 
 .newsslidercontent .bx-viewport {

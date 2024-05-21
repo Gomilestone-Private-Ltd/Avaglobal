@@ -58,7 +58,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <ul class="bxslideroverview">
+                    <ul class="">
                         <li class="overviewslide">
                             <div class="overviewtxtblk">
                                 <div class="overvwttl font-bebas uppercase">an overview</div>
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="challengeslide">
+                        {{-- <li class="challengeslide">
                             <div class="overviewtxtblk">
                                 <div class="overvwttl font-bebas uppercase">the challenges</div>
                                 <div class="overvwtagln font-bebas uppercase">challenges in logistics and supply
@@ -168,7 +168,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
 
                     </ul>
                     <div class="counter-box">
@@ -262,7 +262,7 @@
                                 <div class="praductbanwraper">
                                     <img src="{{ asset('/images/services/air-view.png') }}" alt=""
                                         class="img-desktop" />
-                                    <img src="{{ asset('/images/services/airbg-resp.jpg') }}" alt=""
+                                    <img src="{{ asset('/images/services/flite.jpg') }}" alt=""
                                         class="img-responsive" />
 
                                     <a href="#">
@@ -299,7 +299,7 @@
                                 <div class="praductbanwraper">
                                     <img src="{{ asset('/images/services/rail.png') }}" alt=""
                                         class="img-desktop" />
-                                    <img src="{{ asset('/images/services/insurancebg-resp.jpg') }}" alt=""
+                                    <img src="{{ asset('/images/services/train.png') }}" alt=""
                                         class="img-responsive" />
 
                                     <a href="#">
@@ -317,7 +317,7 @@
                                 <div class="praductbanwraper">
                                     <img src="{{ asset('images/services/custom.png') }}" alt=""
                                         class="img-desktop" />
-                                    <img src="{{ asset('images/services/custombg-resp.jpg') }}" alt=""
+                                    <img src="{{ asset('images/services/custom1.jpg') }}" alt=""
                                         class="img-responsive" />
 
                                     <a href="#">
@@ -336,7 +336,7 @@
                                 <div class="praductbanwraper">
                                     <img src="{{ asset('/images/services/forwarding.png') }}" alt=""
                                         class="img-desktop" />
-                                    <img src="{{ asset('/images/services/shipping-resp.png') }}" alt=""
+                                    <img src="{{ asset('/images/services/forwarding1.png') }}" alt=""
                                         class="img-responsive" />
 
                                     <a href="#">
@@ -355,7 +355,7 @@
                                 <div class="praductbanwraper">
                                     <img src="{{ asset('/images/services/warehouse1.png') }}" alt=""
                                         class="img-desktop" />
-                                    <img src="{{ asset('/images/services/warehousebg-resp.jpg') }}" alt=""
+                                    <img src="{{ asset('/images/services/warehouse.jpg') }}" alt=""
                                         class="img-responsive" />
 
                                     <a href="#">
@@ -375,7 +375,7 @@
                                 <div class="praductbanwraper">
                                     <img src="{{ asset('/images/services/insurance1.png') }}" alt=""
                                         class="img-desktop" />
-                                    <img src="{{ asset('/images/services/insurancebg-resp.jpg') }}" alt=""
+                                    <img src="{{ asset('/images/services/insurance1.jpg') }}" alt=""
                                         class="img-responsive" />
 
                                     <a href="#">
