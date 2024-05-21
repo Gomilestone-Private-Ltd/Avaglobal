@@ -121,7 +121,9 @@
         </li>
         <li><a href="{{ route('home') }}">HOME</a></li>
         <li><a href="{{ route('about') }}">About</a></li>
-        <li><a href="{{ route('services') }}">services</a>
+        <li>
+            {{-- <a href="{{ route('services') }}">services</a> --}}
+            <a>services</a>
             <ul>
                 <li><a href="{{ route('seaFreight') }}">OCEAN FREIGHT</a></li>
                 <li><a href="{{ route('airFreight') }}">AIR FREIGHT</a></li>
@@ -136,7 +138,7 @@
                 <li><a href="{{ route('cargoInsurancet') }}">INSURANCE</a></li>
             </ul>
         </li>
-        <li><a>KNOWLEDGE CENTRE</a>
+        <li><a href="{{route('knowledge')}}">KNOWLEDGE CENTRE</a>
             <ul>
                 <li><a href="{{ route('tariffsCalculators') }}">PROCEDURE FOR CLEARANCE OF
                         <br />IMPORTED AND EXPORT GOODS</a></li>

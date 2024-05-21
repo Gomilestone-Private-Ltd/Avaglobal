@@ -110,9 +110,9 @@
                 <div class="greyoverlaysml"></div>
 
                 <!-- <div class="missn-line"></div> -->
-                <div class="servicesmobimg">
+                {{-- <div class="servicesmobimg">
                     <img src="{{ asset('images/about/img1-res.jpg') }}" alt="" />
-                </div>
+                </div> --}}
             </div>
             <div class="section servdet3sld" id="section0">
                 <div class="our-usp">
@@ -324,9 +324,7 @@
                                     Global. AVA Global today employs a team of 100+ people and counting further to
                                     accomplish solutions to complex problems.
                                 </div>
-
                             </div>
-
                             <a href="#secondPage">
                                 <div class="sprite dwnarw"></div>
                             </a>
@@ -553,10 +551,10 @@
                         dots: true,
                         speed: 300,
                         infinite: true,
-                        autoplaySpeed: 5000,
+                        autoplaySpeed: 3000,
                         prevArrow: '<button class="prev-arrow"><</button>',
                         nextArrow: '<button class="next-arrow">></button>',
-                        autoplay: false,
+                        autoplay: true,
                         responsive: [{
                                 breakpoint: 1024,
                                 settings: {
