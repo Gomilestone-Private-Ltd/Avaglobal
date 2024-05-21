@@ -31,7 +31,7 @@
 
                             <div class="case-study-box">
 
-                                <div class="case-study-item">
+                                <div class="knowledge_box">
 
                                     <img class="cs-image" src="{{ asset('/images/tarrifs.jpg') }}" />
 
@@ -57,10 +57,7 @@
                                     </div>
                                 </div>
 
-
-
-
-                                <div class="case-study-item">
+                                <div class="knowledge_box">
                                     <img class="cs-image" src="{{ asset('/images/conatiners-box.jpg') }}" />
                                     <div class="cs-content">
                                         <!-- <h3 class="cs-category">Project Solutions</h3> -->
@@ -80,7 +77,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="case-study-item">
+                                <div class="knowledge_box">
                                     <img class="cs-image" src="{{ asset('/images/calculator-box.jpg') }}" />
                                     <div class="cs-content">
                                         <!-- <h3 class="cs-category">Open Charter</h3> -->
