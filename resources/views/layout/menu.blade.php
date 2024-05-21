@@ -129,7 +129,7 @@
                 <li><a href="{{ route('airFreight') }}">AIR FREIGHT</a></li>
                 <li><a href="{{ route('heavyHaulTrucking') }}">ROAD FREIGHT</a></li>
                 <li><a href="{{ route('railFreight') }}">RAIL FREIGHT</a></li>
-                <li><a href="{{ route('customsClearance') }}">CUSTOM CLEARING</a>
+                <li><a href="{{ route('customsClearance') }}">CUSTOMS CLEARANCE</a>
                 </li>
                 <li><a href="{{ route('freightShipping') }}">FORWARDING</a></li>
                 <li><a href="{{ route('warehousing') }}">WAREHOUSING</a></li>

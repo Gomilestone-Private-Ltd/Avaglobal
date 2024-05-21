@@ -3274,7 +3274,7 @@ a.db-btn {
     bottom: 0px;
     width: 100%;
     padding-top: 11px;
-    z-index: 9;
+    z-index: 999;
 }
 
 .marquee-container marquee {
@@ -3700,10 +3700,10 @@ select.drop-down {
     align-items: center;
 } 
 .cal-heading {
-    font-size: 35px;
+    font-size: 40px;
     margin-bottom: 15px;
     border-radius: 10px;
-    text-decoration: underline;
+    font-family: "BebasNeueRegular";
 }
 
 
