@@ -1504,7 +1504,7 @@ video.logo-video {
     border: none;
     background: transparent;
     border-bottom: solid 1px #a0a0a0;
-    color: #c7c7c7;
+    color: #000 !important;
     font-size: 14px;
     padding-bottom: 3px;
     margin-bottom: 15px;
@@ -3529,8 +3529,8 @@ font-weight: 500;
 .main-expertise-box {
     display: flex;
 }
-.ecpertise-box {
-    width: 47%;
+.main-expertise-box .ecpertise-box {
+    width: 100%;
     position: relative;
 }
 .right-text-expertise {
