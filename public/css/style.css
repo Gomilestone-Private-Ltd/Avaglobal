@@ -3695,7 +3695,7 @@ select.drop-down {
     margin-left: 10px;
 }
 .calulator-box {
-    height: 500px;
+    height: 100vh;
     display: flex;
     align-items: center;
 } 

@@ -1179,7 +1179,7 @@
     }
 
     .bannertxtblk {
-        padding-left: 20px !important;
+        padding-left: 10px !important;
     }
 
     .lead-form {
@@ -1736,6 +1736,9 @@
         height: 100vh;
         padding: 54px 30px;
     }
+    div#section0 {
+        padding-bottom: 20px !important;
+    }
 }
 
 @media screen and (max-width: 1023px) {
@@ -2175,7 +2178,7 @@
 
     .mission-wrapper-about .servicerighttxtblk {
         top: 285px;
-        height: 820px;
+        height: 880px;
     }
 
     .misson-blk-abt {
@@ -2387,6 +2390,7 @@
 
     #product-bx-pager a::after {
         right: 3px;
+        top: 24%;
     }
     #product-bx-pager .active::after {
         right: -2px;
@@ -2477,6 +2481,18 @@
 
 
 @media screen and (max-width: 767px) {
+    .mission-wrapper-about .servicerighttxtblk {
+        height: 1050px;
+    }
+    .main-white {
+        font-size: 45px;
+        margin-bottom: 35px;
+        padding-top: 30px;
+        line-height: 30px;
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
 
     .mission-wrapper-about .servicerighttxtblk {
         top: 0px;
@@ -3102,6 +3118,12 @@
 
 
 @media screen and (max-width: 600px) {
+    .mission-wrapper-about .servicerighttxtblk {
+        height: 870px;
+    }
+    a.footer-links {
+        font-size: 16px;
+    }
     .avaglname {
         margin-bottom: 10px;
     }
@@ -3664,17 +3686,27 @@
     }
 
     .expertise-text {
-        padding-left: 2%;
+        padding-left: 4%;
+        padding-right: 2%;
     }
 
     h1.itum-heading {
-        font-size: 20px;
+        font-size: 18px;
+    }
+    .main-text {
+        font-size: 40px;
     }
 
     .itum-sub-heading {
-        font-size: 16px;
+        font-size: 14px;
         width: 97%;
         line-height: 21px;
+    }
+    button.prev-arrow.slick-arrow{
+        top: 44% !important;
+    }
+    button.next-arrow.slick-arrow{
+        top: 44% !important;
     }
 
     .abt-banner-blk-same {
@@ -3866,7 +3898,7 @@
         margin: auto;
     }
     .bannertxtblk {
-        padding-left: 28px !important;
+        padding-left: 10px;
     }
 
 }
@@ -3964,7 +3996,7 @@
     }
 
     .calculatorbannerblk .bannertxtblk {
-        padding-left: 20px;
+        padding-left: 25px !important;
     }
 
     .converter-wrapper {
@@ -4024,7 +4056,7 @@
         top: 290px;
     }
     .counter-box {
-        top: 200px !important;
+        top: 218px !important;
     }
     .bx-wrapper .bx-viewport {
         height: 300px;
@@ -4039,6 +4071,7 @@
     .newsinfoblk .knowmore {
         margin: 0;
         font-size: 13px;
+        padding-left: 13px;
     }
     .servicesmobimg img {
         width: 100%;
@@ -4065,6 +4098,9 @@
     }
     .up-place .text-danger{
         bottom: -15px !important;
+    }
+    .bannertxtblk {
+        padding-left: 20px !important;
     }
 
 }
