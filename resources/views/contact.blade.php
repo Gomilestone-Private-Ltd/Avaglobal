@@ -67,7 +67,7 @@
                         <a href="https://maps.app.goo.gl/K7wXxm4WnoUixDEj8" target="_blank">
                             <div class="knowmore directiontxt uppercase">view direction
                                 <div>
-                                    <img class="more-right" src="{{asset('images/arrow-right.png')}}" alt="">
+                                    <img class="more-right" src="{{ asset('images/arrow-right.png') }}" alt="">
                                 </div>
                             </div>
                         </a>
@@ -86,7 +86,8 @@
                             <p class="branch-sub-text">Hazira</p>
                         </div>
                     </div>
-                    <div class="contactmobimg"><img src="{{asset('images/contact/letsmeetbg1.png')}}" alt="image" /></div>
+                    <div class="contactmobimg"><img src="{{ asset('images/contact/letsmeetbg1.png') }}" alt="image" />
+                    </div>
                 </div>
             </div>
             <div class="section avamap" id="section2">
@@ -137,7 +138,7 @@
                                     </div>
                                     <div class="input-container ibvm">
 
-                                    <select name="allservice" id="allservice" class="drop-down">
+                                        <select name="allservice" id="allservice" class="drop-down">
                                             <option value="">Services</option>
                                             <option value="OceanFreight">Ocean Freight</option>
                                             <option value="AirFreight">Air Freight</option>
@@ -164,7 +165,8 @@
 
                         </div>
                     </div>
-                    <div class="contactmobimg"><img src="{{asset('images/contact/hiringbg-mob.jpg')}}" alt="" /></div>
+                    <div class="contactmobimg"><img src="{{ asset('images/contact/hiringbg-mob.jpg') }}"
+                            alt="" /></div>
 
 
                 </div>
