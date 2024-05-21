@@ -3706,6 +3706,11 @@ select.drop-down {
     font-family: "BebasNeueRegular";
 }
 
+.knowledge_box {
+    width: 31%;
+    margin-bottom: 30px !important;
+}
+
 
 .cal-box {
     background-color: #fff;
