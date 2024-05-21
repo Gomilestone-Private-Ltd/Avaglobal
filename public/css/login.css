@@ -168,6 +168,8 @@ img.blogo {
         width: 90% !important;
         margin: auto;
         padding: 20px 20px !important;
+        position: relative;
+        z-index: 99;
     }
     .contactbannerblk{
         padding-right: 0px !important;
