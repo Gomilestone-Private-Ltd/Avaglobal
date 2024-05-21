@@ -3904,6 +3904,9 @@
 }
 
 @media (max-width:410px) {
+    select#allservice {
+        margin-bottom: 20px;
+    }
     .productleftcontent {
         left: 5%;
     }
