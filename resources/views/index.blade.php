@@ -12,7 +12,7 @@
         </div>
         <!-- RESPONSIVE MENU END -->
         <div id="fullpage">
-            <div class="section main_home" id="section0">
+            <div class="section main_home" id="section0" style="padding-bottom: 0px !important;">
                 <div class="videoblkwrapper pageblock">
                     <div class="videoblk">
                         <div class="wrapper">
