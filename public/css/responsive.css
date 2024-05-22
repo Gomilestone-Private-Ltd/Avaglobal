@@ -2968,7 +2968,7 @@
         width: 100%;
         position: relative;
         padding: 0;
-        border: 1px solid #e3e3e3;
+        /* border: 1px solid #e3e3e3; */
         margin: 0px 10px;
         padding-bottom: 20px;
     }
@@ -3694,7 +3694,7 @@
         width: 100%;
         position: relative;
         padding: 0;
-        border: 1px solid #e3e3e3;
+        /* border: 1px solid #e3e3e3; */
         margin: 0px 30px;
         padding-bottom: 20px;
     }
@@ -3922,6 +3922,9 @@
     .bannertxtblk {
         padding-left: 10px;
     }
+    .contact_form{
+        margin-top: 30px;
+    }
 
 }
 
@@ -3931,9 +3934,23 @@
         width: 100% !important;
         object-fit: contain;
     }
+    .cs-content {
+        display: block !important;
+    }
+    .cl-location-box {
+        margin-top: 15px;
+        justify-content: left !important;
+        margin-bottom: 20px;
+    }
 }
 
 @media (max-width:410px) {
+    .service_select{
+        margin-bottom: 16px;
+    }
+    .container_size {
+        padding: 15px 20px;
+    }
     .ecpertise-box img {
         height: 323px !important;
         width: 100% !important;

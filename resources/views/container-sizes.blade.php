@@ -25,8 +25,8 @@
             <div class="greyoverlaysml"></div>
         </div>
         <div class="calculatorcontentwrap" data-scroll-index='0'>
-            <div class="wrapper">
-                <div class="contdivblk">
+            <div class="wrapper container_size">
+                <div class="contdivblk ">
                     <div class="contasizeblk ibvt">
                         <div class="contttl importsubtxt">20' Standard</div>
                         <div class="continfoblk">
