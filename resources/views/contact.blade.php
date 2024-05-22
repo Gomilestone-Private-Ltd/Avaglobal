@@ -104,7 +104,7 @@
                             <div class="hiringheading">
                                 Talk With Our Team
                             </div>
-                            <form id="contactform" method="post" action="" enctype="multipart/form-data">
+                            <form class="contact_form" id="contactform" method="post" action="" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-cont">
                                     <div class="input-container ibvm">
@@ -137,7 +137,7 @@
                                     </div>
                                     <div class="input-container ibvm">
 
-                                    <select name="allservice" id="allservice" class="drop-down">
+                                    <select name="allservice" id="allservice" class="drop-down service_select">
                                             <option value="">Services</option>
                                             <option value="OceanFreight">Ocean Freight</option>
                                             <option value="AirFreight">Air Freight</option>
